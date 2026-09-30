@@ -1,0 +1,28 @@
+# Run on the OVH VPS from the project root:  docker compose -f deploy/docker-compose.yml up -d --build
+services:
+  web:
+    build:
+      context: ..
+      args:
+        NEXT_PUBLIC_SITE_URL: https://experts.56north.io
+    env_file: ../.env.production   # SUPABASE_URL, SUPABASE_SECRET_KEY (never committed)
+    restart: unless-stopped
+    expose:
+      - "3000"
+
+  caddy:                           # reverse proxy + automatic HTTPS (Let's Encrypt)
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:
