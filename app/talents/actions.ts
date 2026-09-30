@@ -3,6 +3,7 @@
 import { getDictionary } from "@/lib/i18n";
 import { insertRow } from "@/lib/supabase-server";
 import { siteConfig } from "@/lib/site";
+import { notify } from "@/lib/notify";
 
 export type ApplicationState = { ok: boolean; message: string; errors?: Record<string, string> };
 
@@ -10,7 +11,7 @@ const required = ["name", "email", "linkedin", "ecosystem", "years", "modules"] 
 
 /**
  * Expert application handler, stores in Supabase `talents`.
- * TODO before launch: notify the practice lead, rate limiting.
+ * An email alert goes to NOTIFY_EMAIL (lib/notify.ts). TODO: rate limiting if spam appears.
  */
 export async function submitApplication(_prev: ApplicationState, form: FormData): Promise<ApplicationState> {
   if (form.get("website")) return { ok: true, message: "Thank you." };
@@ -45,6 +46,25 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
   });
   if (!saved)
     return { ok: false, message: `Something went wrong on our side. Please email ${siteConfig.email} and we will answer directly.` };
+
+  await notify(
+    `New expert application: ${data.name} (${data.ecosystem}, ${data.years} yrs)`,
+    {
+      Name: data.name,
+      Email: data.email,
+      LinkedIn: data.linkedin,
+      Platform: data.ecosystem,
+      Years: data.years,
+      Modules: data.modules,
+      Certifications: data.certifications,
+      Community: data.community,
+      "Day rate": data.rate,
+      Availability: data.availability,
+      Location: data.location,
+      Referral: data.referral,
+    },
+    data.email,
+  );
 
   const t = await getDictionary();
   return { ok: true, message: t.talents.apply.success };

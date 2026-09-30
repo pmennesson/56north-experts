@@ -71,10 +71,11 @@ the "independent firm" FAQ must be adjusted if you become a partner.
 
 ## Before launch (search the code for `TODO`)
 
-- Legal entity (separate from the Cockpit IP entity), LinkedIn (`lib/site.ts`)
+- LinkedIn URL (`lib/site.ts`); operating entity: Swell Invest Ltd
 - DNS: A record `experts` → OVH VPS IP (see `deploy/OVH.md`)
 - Service levels you can honour contractually (`lib/site.ts`)
 - 30-day replacement term, payment terms for experts (`content/en.ts`, `app/talents`)
-- Email notification on new lead/application + rate limiting
+- Email alerts: set RESEND_API_KEY + NOTIFY_EMAIL (the install script asks); verify 56north.io in Resend to send from experts@56north.io
+- Rate limiting on forms if spam appears
 - Review AI product names in `lib/ecosystems.ts` (vendors rename quarterly)
 - Privacy policy + legal notice pages (required for the form under GDPR)

@@ -8,7 +8,7 @@ export const siteConfig = {
   name: "56North Experts",
   /** Parent brand: the AI governance platform this network belongs to. */
   parent: { name: "56North", url: "https://56north.io", tagline: "Enterprise AI governance" },
-  legalName: "56North Experts", // TODO: registered legal entity (keep separate from the Cockpit IP entity)
+  legalName: "Swell Invest Ltd",
   tagline: "Senior AI experts for the enterprise platforms you already run.",
   description:
     "Staff augmentation and expert delegation for AI modules on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Senior consultants sourced through specialist practitioner communities, vetted by peers, deployed across Europe, the Middle East and Africa.",

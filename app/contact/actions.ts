@@ -2,6 +2,7 @@
 
 import { insertRow } from "@/lib/supabase-server";
 import { siteConfig } from "@/lib/site";
+import { notify } from "@/lib/notify";
 
 export type LeadState = { ok: boolean; message: string; errors?: Record<string, string> };
 
@@ -9,8 +10,8 @@ const required = ["name", "email", "company", "ecosystem", "role"] as const;
 
 /**
  * Staffing request handler. Runs on the server only, stores in Supabase `leads`.
- * TODO before launch: email notification to the practice lead (Resend/Postmark)
- * and rate limiting (e.g. Vercel Firewall or Upstash).
+ * An email alert goes to NOTIFY_EMAIL (lib/notify.ts).
+ * TODO: rate limiting if spam appears.
  */
 export async function submitStaffingRequest(_prev: LeadState, form: FormData): Promise<LeadState> {
   // Honeypot: bots fill every field, humans never see this one.
@@ -40,6 +41,22 @@ export async function submitStaffingRequest(_prev: LeadState, form: FormData): P
   });
   if (!saved)
     return { ok: false, message: `Something went wrong on our side. Please email ${siteConfig.email} and we will answer directly.` };
+
+  await notify(
+    `New staffing request: ${data.company} (${data.ecosystem})`,
+    {
+      Name: data.name,
+      Email: data.email,
+      Company: data.company,
+      Platform: data.ecosystem,
+      Role: data.role,
+      Model: data.model,
+      Start: data.start,
+      Location: data.location,
+      Context: data.message,
+    },
+    data.email,
+  );
 
   return {
     ok: true,

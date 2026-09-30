@@ -48,6 +48,24 @@ else
   echo "Clé déjà présente, conservée."
 fi
 
+say "Alertes email (Resend)"
+if ! grep -q '^RESEND_API_KEY=' .env.production; then
+  echo "Colle la clé API Resend (invisible à l'écran), ou appuie juste sur Entrée pour passer :"
+  read -rs RKEY </dev/tty
+  echo
+  if [ -n "$RKEY" ]; then
+    echo "Adresse email qui recevra les alertes (celle de ton compte Resend) :"
+    read -r NMAIL </dev/tty
+    umask 077
+    printf 'RESEND_API_KEY=%s\nNOTIFY_EMAIL=%s\n' "$RKEY" "$NMAIL" >> .env.production
+    echo "Alertes activées vers $NMAIL."
+  else
+    echo "Alertes ignorées pour l'instant."
+  fi
+else
+  echo "Alertes déjà configurées."
+fi
+
 say "4/4 Démarrage (3 à 5 minutes la première fois)"
 docker compose -f deploy/docker-compose.yml up -d --build
 
