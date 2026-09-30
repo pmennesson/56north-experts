@@ -3,14 +3,17 @@ experts.56north.io {
 	reverse_proxy web:3000
 }
 
-# 56north.io placeholder while the governance cockpit is in development.
-# To restore the previous site: point the @ and www DNS records back to the old host.
-56north.io {
-	encode zstd gzip
-	root * /srv/holding
-	file_server
-}
-
-www.56north.io {
-	redir https://56north.io{uri} permanent
-}
+# --- 56north.io placeholder (disabled) --------------------------------------
+# 56north.io currently stays on its original host. To switch to the holding
+# page in deploy/holding/: uncomment the two blocks below, point the @ and www
+# DNS records to this VPS, then run the install command again.
+#
+# 56north.io {
+# 	encode zstd gzip
+# 	root * /srv/holding
+# 	file_server
+# }
+#
+# www.56north.io {
+# 	redir https://56north.io{uri} permanent
+# }
