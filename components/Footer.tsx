@@ -64,6 +64,14 @@ export function Footer({ t }: { t: Dictionary }) {
             {siteConfig.parent.name}
           </a>
           , {siteConfig.parent.tagline.toLowerCase()}.
+          <span className="mx-2" aria-hidden>|</span>
+          <Link href="/privacy" className="hover:text-fg hover:underline">
+            Privacy policy
+          </Link>
+          <span className="mx-2" aria-hidden>|</span>
+          <Link href="/legal" className="hover:text-fg hover:underline">
+            Legal notice
+          </Link>
         </p>
       </Container>
     </footer>

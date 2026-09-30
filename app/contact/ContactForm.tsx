@@ -118,7 +118,14 @@ export function ContactForm({ ecosystems, defaultEcosystem }: { ecosystems: Opti
       serverErrors={state.errors}
       serverMessage={state.message}
       initialStep={defaultEcosystem ? 1 : 0}
-      footnote="Your brief is confidential and used only to answer your request."
+      footnote={
+        <>
+          Your brief is confidential and used only to answer your request.{" "}
+          <a href="/privacy" target="_blank" className="text-link hover:underline">
+            Privacy policy
+          </a>
+        </>
+      }
     />
   );
 }

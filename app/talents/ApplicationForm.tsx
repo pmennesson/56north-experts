@@ -121,7 +121,11 @@ export function ApplicationForm({ ecosystems }: { ecosystems: Option[] }) {
             <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 rounded accent-[var(--color-accent)]" />
             <span>
               I agree that my data is processed to assess my application and match me with missions. I can ask for it
-              to be deleted at any time. {/* TODO: link to privacy policy */}
+              to be deleted at any time. See our{" "}
+              <a href="/privacy" target="_blank" className="text-link hover:underline">
+                privacy policy
+              </a>
+              .
             </span>
           </label>
           <Honeypot />

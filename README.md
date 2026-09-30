@@ -78,4 +78,4 @@ the "independent firm" FAQ must be adjusted if you become a partner.
 - Email alerts: set RESEND_API_KEY + NOTIFY_EMAIL (the install script asks); verify 56north.io in Resend to send from experts@56north.io
 - Rate limiting on forms if spam appears
 - Review AI product names in `lib/ecosystems.ts` (vendors rename quarterly)
-- Privacy policy + legal notice pages (required for the form under GDPR)
+- /privacy and /legal are live: keep /privacy in sync with any new tool (analytics, CRM) before deploying it

@@ -9,6 +9,14 @@ export const siteConfig = {
   /** Parent brand: the AI governance platform this network belongs to. */
   parent: { name: "56North", url: "https://56north.io", tagline: "Enterprise AI governance" },
   legalName: "Swell Invest Ltd",
+  /** Operating company — shown on /legal and /privacy. */
+  company: {
+    name: "Swell Invest Ltd",
+    form: "private company limited by shares, incorporated in the Republic of Mauritius",
+    brn: "C22187700",
+    address: ["c/o Legis Corporate Secretarial Services Ltd", "6 Edith Cavell Street", "Port Louis", "Mauritius"],
+  },
+  legalUpdated: "30 September 2026",
   tagline: "Senior AI experts for the enterprise platforms you already run.",
   description:
     "Staff augmentation and expert delegation for AI modules on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Senior consultants sourced through specialist practitioner communities, vetted by peers, deployed across Europe, the Middle East and Africa.",
