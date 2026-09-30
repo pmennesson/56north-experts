@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>56North · Enterprise AI governance</title>
+  <meta name="description" content="56North is building an AI governance cockpit with a small group of design partners. Our senior AI expert network is live at experts.56north.io.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://56north.io/">
+  <meta property="og:title" content="56North · Enterprise AI governance">
+  <meta property="og:description" content="Building an AI governance cockpit with design partners. Senior AI experts available now.">
+  <meta property="og:url" content="https://56north.io/">
+  <style>
+    :root {
+      --fg: #1d1d1f; --muted: #6e6e73; --subtle: #86868b;
+      --canvas: #ffffff; --pearl: #f5f5f7; --accent: #0071e3; --accent-hover: #0077ed; --link: #0066cc; --signal: #1a7f37;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      min-height: 100dvh; display: flex; flex-direction: column; background: var(--canvas); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.011em;
+    }
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 96px 24px; text-align: center; }
+    .wrap { max-width: 760px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .brand { font-size: 17px; font-weight: 600; color: var(--signal); }
+    h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.04; letter-spacing: -0.035em; font-weight: 600; }
+    p.lead { font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.5; color: var(--muted); max-width: 620px; }
+    .cards { display: grid; gap: 16px; width: 100%; margin-top: 28px; grid-template-columns: 1fr; text-align: left; }
+    @media (min-width: 680px) { .cards { grid-template-columns: 1fr 1fr; } }
+    .card { background: var(--pearl); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .tag { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .tag.live { color: var(--signal); } .tag.soon { color: var(--subtle); }
+    .card h2 { font-size: 22px; letter-spacing: -0.02em; font-weight: 600; }
+    .card p { font-size: 16px; line-height: 1.5; color: var(--muted); flex: 1; }
+    .btn { display: inline-flex; align-self: flex-start; align-items: center; height: 44px; padding: 0 22px; border-radius: 999px;
+      background: var(--accent); color: #fff; text-decoration: none; font-size: 16px; margin-top: 8px; transition: background .2s; }
+    .btn:hover { background: var(--accent-hover); }
+    .link { color: var(--link); text-decoration: none; font-size: 16px; margin-top: 8px; }
+    .link:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+    footer { background: var(--pearl); color: var(--muted); font-size: 12px; padding: 20px 24px; text-align: center; line-height: 1.8; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="wrap">
+      <p class="brand">56North</p>
+      <h1>Enterprise AI governance.</h1>
+      <p class="lead">Every board now asks which AI systems the company runs, what they cost, and whether they are under control. We are building the answer with a small group of design partners.</p>
+      <div class="cards">
+        <section class="card">
+          <span class="tag live">Available now</span>
+          <h2>56North Experts</h2>
+          <p>Senior specialists on the AI modules of Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Vetted by peers.</p>
+          <a class="btn" href="https://experts.56north.io">Visit 56North Experts</a>
+        </section>
+        <section class="card">
+          <span class="tag soon">In development</span>
+          <h2>Governance cockpit</h2>
+          <p>A registry and scoring method for every AI system in the enterprise, built for the EU AI Act. Open to a few design partners.</p>
+          <a class="link" href="mailto:contact@56north.io?subject=Design%20partner%20%E2%80%94%2056North%20cockpit">Become a design partner ›</a>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer>
+    © 2026 Swell Invest Ltd ·
+    <a href="https://experts.56north.io/legal">Legal notice</a> ·
+    <a href="https://experts.56north.io/privacy">Privacy policy</a> ·
+    <a href="mailto:contact@56north.io">contact@56north.io</a>
+  </footer>
+</body>
+</html>

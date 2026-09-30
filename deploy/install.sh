@@ -68,5 +68,7 @@ fi
 
 say "4/4 Démarrage (3 à 5 minutes la première fois)"
 docker compose -f deploy/docker-compose.yml up -d --build
+# Pick up Caddyfile changes (bind-mounted files do not trigger a container restart)
+docker compose -f deploy/docker-compose.yml exec -T caddy caddy reload --config /etc/caddy/Caddyfile || true
 
 say "Terminé. Le site sera en ligne sur https://experts.56north.io dès que le certificat HTTPS est obtenu (1 à 2 minutes)."
