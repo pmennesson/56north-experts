@@ -2,7 +2,7 @@ import type { Article } from "./types";
 
 const article: Article = {
   id: "maintain-ai-agents-production",
-  status: "draft",
+  status: "published",
   published: "2026-10-01",
   updated: "2026-10-01",
   pillar: "maintain",

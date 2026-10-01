@@ -160,6 +160,7 @@ const fr: Dictionary = {
     ],
     midCta: "Décrivez-nous votre besoin {vendor}",
     related: "Autres expertises",
+    guidesTitle: "Guides pour les équipes {vendor}",
     breadcrumb: "Expertises",
     home: "Accueil",
     request: "Demander des experts",
@@ -223,13 +224,13 @@ const fr: Dictionary = {
     preferEmail: "Vous préférez l'e-mail ? Écrivez à",
   },
   insights: {
-    metaTitle: "Ressources sur les projets IA en entreprise",
+    metaTitle: "Guides pour intégrer, exploiter et encadrer l'IA d'entreprise",
     metaDescription:
-      "Guides, livres blancs et études sur le staffing et la conduite de projets IA sur Microsoft, Salesforce, Google Cloud, SAP et ServiceNow.",
+      "Des guides pratiques sur l'IA de Microsoft, Salesforce, SAP, ServiceNow, Google Cloud et Workday : intégration, usage, maintenance, AI Act et risques.",
     eyebrow: "Ressources",
-    title: "Ce que nous apprenons en staffant l'IA d'entreprise.",
+    title: "Intégrer, exploiter et encadrer l'IA d'entreprise.",
     intro:
-      "Des guides pratiques et des données pour les DSI, responsables de projet et acheteurs qui travaillent sur les grandes plateformes IA d'entreprise.",
+      "Des guides pratiques sur les modules IA des plateformes que vous utilisez déjà : les mettre en production, les garder fiables, et respecter la réglementation sans ralentir.",
     planned: [
       { type: "Guide", title: "Régie ou intégrateur pour un projet IA ?" },
       { type: "Étude", title: "Taux journaliers des experts IA seniors par plateforme et par pays" },

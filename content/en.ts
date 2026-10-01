@@ -158,6 +158,7 @@ const en = {
     ],
     midCta: "Brief us on your {vendor} role",
     related: "Other practices",
+    guidesTitle: "Guides for {vendor} teams",
     breadcrumb: "Practices",
     home: "Home",
     request: "Request experts",
@@ -221,13 +222,13 @@ const en = {
     preferEmail: "Prefer email? Write to",
   },
   insights: {
-    metaTitle: "Insights on enterprise AI delivery",
+    metaTitle: "Guides to integrate, run and govern enterprise AI",
     metaDescription:
-      "Guides, white papers and benchmarks on staffing and delivering AI projects on Microsoft, Salesforce, Google Cloud, SAP and ServiceNow.",
+      "Practical guides on the AI of Microsoft, Salesforce, SAP, ServiceNow, Google Cloud and Workday: integration, day-to-day use, maintenance, EU AI Act and risks.",
     eyebrow: "Insights",
-    title: "What we learn from staffing enterprise AI.",
+    title: "Integrate, run and govern enterprise AI.",
     intro:
-      "Practical guides and data for CIOs, delivery leads and procurement teams working on the major enterprise AI platforms.",
+      "Practical guides on the AI modules of the platforms you already run: putting them into production, keeping them reliable, and meeting the regulation without slowing down.",
     planned: [
       { type: "Guide", title: "Staff augmentation vs systems integrator for AI projects" },
       { type: "Benchmark", title: "Day rates for senior AI experts by platform and country" },

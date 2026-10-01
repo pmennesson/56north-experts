@@ -2,7 +2,7 @@ import type { Article } from "./types";
 
 const article: Article = {
   id: "agentforce-go-live-checklist",
-  status: "draft",
+  status: "published",
   published: "2026-10-01",
   updated: "2026-10-01",
   pillar: "integrate",

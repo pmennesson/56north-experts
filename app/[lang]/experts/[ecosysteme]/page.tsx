@@ -8,6 +8,7 @@ import { VendorMark } from "@/components/VendorMark";
 import { Faq, CtaBand } from "@/components/home/Sections";
 import { StickyCta } from "@/components/home/Founder";
 import { fill, getDictionary, getLocale, localePath } from "@/lib/i18n";
+import { getPublishedArticles } from "@/lib/articles";
 import { Button, Check, Chevron, Container, Section, SectionHeader } from "@/components/ui/primitives";
 
 type Props = PageProps<"/[lang]/experts/[ecosysteme]">;
@@ -41,6 +42,7 @@ export default async function EcosystemPage({ params }: Props) {
   const lp = (path: string) => localePath(locale, path);
   const contact = lp(`/contact?ecosystem=${e.slug}`);
   const others = getEcosystems(locale).filter((o) => o.slug !== e.slug);
+  const guides = getPublishedArticles(locale).filter((a) => a.practices.includes(e.slug));
 
   return (
     <>
@@ -161,6 +163,24 @@ export default async function EcosystemPage({ params }: Props) {
         </Container>
       </Section>
 
+      {guides.length > 0 && (
+        <Section className="!pb-0">
+          <Container>
+            <h2 className="headline-md">{v(p.guidesTitle)}</h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {guides.map((g) => (
+                <Link key={g.id} href={g.path} className="tile tile-lift reveal group flex flex-col gap-3 p-7">
+                  <span className="text-[13px] font-medium uppercase tracking-wide text-signal">{g.category}</span>
+                  <h3 className="text-xl font-semibold leading-snug tracking-[-0.015em] text-balance">{g.title}</h3>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-4 text-[15px] text-link group-hover:underline">
+                    {t.ecosystems.cta} <Chevron />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
       <Faq t={{ eyebrow: t.faq.eyebrow, title: v(p.faqTitle), items: e.faq }} />
       <CtaBand t={t.cta} />
 

@@ -21,6 +21,7 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
   const links = [
     { href: lp("/#ecosystems"), label: t.experts },
     { href: lp("/talents"), label: t.talents },
+    { href: lp("/insights"), label: t.insights },
     { href: lp("/about"), label: t.about },
     { href: lp("/contact"), label: t.contactShort },
   ];

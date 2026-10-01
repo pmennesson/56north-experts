@@ -19,6 +19,7 @@ export async function Footer({ t }: { t: Dictionary }) {
       links: [
         { href: lp("/contact"), label: t.nav.contact },
         { href: lp("/#how"), label: t.nav.howItWorks },
+        { href: lp("/insights"), label: t.nav.insights },
       ],
     },
     {

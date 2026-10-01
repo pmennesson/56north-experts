@@ -9,7 +9,7 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "ai-act-deployers-copilot-agentforce",
-  status: "draft",
+  status: "published",
   published: "2026-10-01",
   updated: "2026-10-01",
   pillar: "regulate",
