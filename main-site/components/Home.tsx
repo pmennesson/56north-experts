@@ -1,0 +1,318 @@
+import type { Dictionary } from "@/lib/i18n";
+import { Button, Check, Container, Eyebrow, Section, SectionHeader } from "@/components/ui/primitives";
+
+type T = Dictionary;
+
+/* ------------------------------------------------------------------ Hero */
+
+export function Hero({ t }: { t: T["hero"] }) {
+  return (
+    <section className="overflow-hidden bg-canvas">
+      <Container className="flex flex-col items-center pb-8 pt-20 text-center sm:pt-28">
+        <Eyebrow>{t.eyebrow}</Eyebrow>
+        <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.4rem,5.4vw,4.4rem)]">{t.title}</h1>
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty sm:text-2xl">{t.subtitle}</p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          <Button href="#diagnostic" size="lg">
+            {t.primary}
+          </Button>
+          <Button href="#offre" variant="link">
+            {t.secondary}
+          </Button>
+        </div>
+      </Container>
+      <div className="relative mt-12 sm:mt-16">
+        <div className="absolute inset-x-0 bottom-0 top-1/2 bg-canvas-alt" aria-hidden />
+        <Container className="relative pb-24">
+          <Board t={t.board} />
+        </Container>
+      </div>
+    </section>
+  );
+}
+
+/** The product shot: what a leadership team sees in the Cockpit. */
+function Board({ t }: { t: T["hero"]["board"] }) {
+  return (
+    <figure className="reveal mx-auto max-w-2xl rounded-[32px] bg-surface p-6 shadow-[0_30px_80px_-20px_rgb(0_0_0/0.18)] ring-1 ring-line sm:p-8">
+      <div className="flex items-end justify-between gap-4">
+        <div className="text-left">
+          <p className="text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{t.label}</p>
+          <p className="mt-2 flex items-baseline gap-2">
+            <span className="text-6xl font-semibold tracking-[-0.04em]">{t.score}</span>
+            <span className="text-[17px] text-fg-muted">{t.outOf}</span>
+          </p>
+          <p className="mt-1 text-[15px] font-medium text-signal">{t.trend}</p>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <span
+            className="flex h-16 w-16 items-center justify-center rounded-full bg-canvas-alt text-3xl font-semibold"
+            aria-label={`${t.letterLabel} ${t.letter}`}
+          >
+            {t.letter}
+          </span>
+          <span className="text-[12px] text-fg-subtle">{t.letterLabel}</span>
+        </div>
+      </div>
+      <ul className="mt-6 space-y-4 border-t border-line pt-6">
+        {t.dials.map((d) => (
+          <li key={d.name} className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 text-left sm:grid-cols-[150px_1fr_auto]">
+            <span className="text-[15px] font-medium">{d.name}</span>
+            <span className="order-last col-span-2 h-1.5 overflow-hidden rounded-full bg-fg/[0.06] sm:order-none sm:col-span-1" aria-hidden>
+              <span className="block h-full rounded-full bg-accent" style={{ width: `${d.value}%` }} />
+            </span>
+            <span className="text-right text-[15px] tabular-nums text-fg-muted">{d.value}</span>
+          </li>
+        ))}
+      </ul>
+      <figcaption className="mt-5 text-left text-[13px] text-fg-subtle">{t.caption}</figcaption>
+    </figure>
+  );
+}
+
+/* ------------------------------------------------------- Regulatory clock */
+
+const chip = {
+  due: "bg-fg text-white",
+  prepare: "bg-accent/10 text-accent",
+  upcoming: "bg-fg/[0.06] text-fg-muted",
+} as const;
+
+export function Clock({ t }: { t: T["clock"] }) {
+  return (
+    <Section tone="pearl" id="horloge" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <ol className="tile-white reveal mx-auto mt-16 max-w-3xl divide-y divide-line px-6 sm:px-10">
+          {t.milestones.map((m) => {
+            const status = m.status as keyof typeof chip;
+            return (
+              <li key={m.date} className="flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:gap-6">
+                <span className="w-40 shrink-0 text-[17px] font-semibold tabular-nums">{m.date}</span>
+                <span className="flex-1 text-[17px] leading-relaxed text-fg-muted">{m.label}</span>
+                <span className={`w-fit shrink-0 rounded-full px-3 py-1 text-[12px] font-medium ${chip[status]}`}>
+                  {t.statuses[status]}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+        <p className="reveal mt-10 text-center text-xl font-semibold tracking-[-0.015em]">{t.sanctions}</p>
+      </Container>
+    </Section>
+  );
+}
+
+/* ---------------------------------------------------------------- Problem */
+
+export function Problem({ t }: { t: T["problem"] }) {
+  return (
+    <Section>
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <ol className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {t.items.map((it, i) => (
+            <li key={it.q} className="tile reveal flex flex-col gap-3 p-8">
+              <span className="text-5xl font-semibold tracking-[-0.04em] text-fg-subtle/40">{i + 1}</span>
+              <h3 className="headline-md mt-2">{it.q}</h3>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{it.a}</p>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </Section>
+  );
+}
+
+/* ------------------------------------------------------------------ Offer */
+
+export function Offer({ t }: { t: T["offer"] }) {
+  return (
+    <Section tone="pearl" id="offre" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          {t.layers.map((l, i) => (
+            <article key={l.n} className="tile-white reveal flex flex-col gap-3 p-8">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-5xl font-semibold tracking-[-0.04em] text-fg-subtle/40">{l.n}</span>
+                <span
+                  className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1 text-[12px] font-medium ${i === 0 ? "bg-signal/10 text-signal" : "bg-fg/[0.06] text-fg-muted"}`}
+                >
+                  {l.status}
+                </span>
+              </div>
+              <p className="mt-2 text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{l.kind}</p>
+              <h3 className="headline-md">{l.name}</h3>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{l.body}</p>
+            </article>
+          ))}
+        </div>
+        <h3 className="reveal mt-20 text-center text-2xl font-semibold tracking-[-0.02em]">{t.plansTitle}</h3>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {t.plans.map((p) => (
+            <article key={p.name} className="tile-white reveal flex flex-col gap-3 p-8">
+              <p className="text-[13px] font-medium text-signal">{p.tag}</p>
+              <h4 className="text-2xl font-semibold tracking-[-0.02em]">{p.name}</h4>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{p.body}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* ---------------------------------------------------------------- Cockpit */
+
+export function Cockpit({ t }: { t: T["cockpit"] }) {
+  return (
+    <Section id="cockpit" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <ul className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {t.dials.map((d) => (
+            <li key={d.name} className="tile reveal flex flex-col gap-2 p-6">
+              <h3 className="text-xl font-semibold tracking-[-0.015em]">{d.name}</h3>
+              <p className="text-[15px] leading-relaxed text-fg-muted">{d.body}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="reveal mt-8 text-center text-[17px] text-fg-muted">{t.scale}</p>
+
+        <h3 className="reveal mt-20 text-center text-2xl font-semibold tracking-[-0.02em]">{t.stepsTitle}</h3>
+        <ol className="mt-8 grid gap-5 md:grid-cols-3">
+          {t.steps.map((s, i) => (
+            <li key={s.name} className="tile reveal flex flex-col gap-3 p-8">
+              <span className="text-5xl font-semibold tracking-[-0.04em] text-fg-subtle/40">{i + 1}</span>
+              <h4 className="headline-md mt-2">{s.name}</h4>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="reveal mx-auto mt-12 max-w-2xl text-center text-[17px] leading-relaxed text-fg-muted">{t.report}</p>
+      </Container>
+    </Section>
+  );
+}
+
+/* ----------------------------------------------------------- Sovereignty */
+
+export function Sovereignty({ t }: { t: T["sovereignty"] }) {
+  return (
+    <Section tone="pearl" id="souverainete" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <dl className="mt-16 grid gap-5 sm:grid-cols-2">
+          {t.items.map((it) => (
+            <div key={it.name} className="tile-white reveal p-8">
+              <dt className="text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{it.name}</dt>
+              <dd className="mt-3 text-xl leading-relaxed tracking-[-0.01em]">{it.body}</dd>
+            </div>
+          ))}
+        </dl>
+        <h3 className="reveal mt-20 text-center text-2xl font-semibold tracking-[-0.02em]">{t.modesTitle}</h3>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {t.modes.map((m) => (
+            <article key={m.name} className="tile-white reveal flex flex-col gap-2 p-8">
+              <h4 className="headline-md">{m.name}</h4>
+              <p className="text-[15px] font-medium text-signal">{m.detail}</p>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{m.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="reveal mt-8 text-center text-[17px] text-fg-muted">{t.same}</p>
+      </Container>
+    </Section>
+  );
+}
+
+/* ---------------------------------------------------------------- Factory */
+
+export function Factory({ t }: { t: T["factory"] }) {
+  return (
+    <Section id="fabrique" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <dl className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {t.figures.map((f) => (
+            <div key={f.label} className="reveal flex flex-col-reverse items-center gap-3 text-center">
+              <dt className="max-w-[220px] text-[17px] leading-snug text-fg-muted">{f.label}</dt>
+              <dd className="whitespace-nowrap text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {t.principles.map((p) => (
+            <article key={p.name} className="tile reveal p-8">
+              <h3 className="text-xl font-semibold tracking-[-0.015em]">{p.name}</h3>
+              <p className="mt-3 text-[17px] leading-relaxed text-fg-muted">{p.body}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* ------------------------------------------------------------ Commitments */
+
+export function Commitments({ t }: { t: T["commitments"] }) {
+  return (
+    <Section tone="pearl">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} />
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
+          {t.items.map((it) => (
+            <article key={it.name} className="tile-white reveal flex gap-4 p-8">
+              <Check className="mt-1.5 h-5 w-5 shrink-0 text-signal" />
+              <div>
+                <h3 className="text-2xl font-semibold tracking-[-0.02em]">{it.name}</h3>
+                <p className="mt-3 text-[17px] leading-relaxed text-fg-muted">{it.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* -------------------------------------------------------------------- FAQ */
+
+export function Faq({ t }: { t: T["faq"] }) {
+  return (
+    <Section id="questions" className="scroll-mt-12">
+      <Container className="max-w-[760px]">
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} />
+        <div className="mt-14 divide-y divide-line border-y border-line">
+          {t.items.map((f) => (
+            <details key={f.q} className="group py-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold tracking-[-0.015em] [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-fg/5 text-fg-muted transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden
+                >
+                  +
+                </span>
+              </summary>
+              <p className="mt-4 text-[17px] leading-relaxed text-fg-muted">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/** Mobile-only bottom bar keeping the primary action one tap away. */
+export function StickyCta({ label }: { label: string }) {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/85 px-4 py-3 backdrop-blur-xl md:hidden">
+      <Button href="#diagnostic" className="w-full">
+        {label}
+      </Button>
+    </div>
+  );
+}

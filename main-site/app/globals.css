@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — "Apple-grade" light system: white canvas, pearl-grey
+   alternate sections, near-black type, one blue accent, generous space.
+   Change the brand here, nowhere else.
+------------------------------------------------------------------- */
+@theme {
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-canvas: #ffffff;
+  --color-canvas-alt: #f5f5f7;
+  --color-surface: #ffffff;
+
+  --color-line: rgb(0 0 0 / 0.08);
+  --color-line-strong: rgb(0 0 0 / 0.16);
+
+  --color-fg: #1d1d1f;
+  --color-fg-muted: #6e6e73;
+  --color-fg-subtle: #86868b;
+
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-link: #0066cc;
+  --color-signal: #1a7f37;
+
+  --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+  }
+  ::selection {
+    background: rgb(0 113 227 / 0.18);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+}
+
+/* Headline scale: tight tracking, like large-format product pages */
+@utility headline-xl {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+@utility headline-lg {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+@utility headline-md {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Soft tile: no border, rounded, pearl or white depending on section */
+@utility tile {
+  border-radius: 28px;
+  background: var(--color-canvas-alt);
+  transition: transform 400ms var(--ease-apple), box-shadow 400ms var(--ease-apple);
+}
+@utility tile-white {
+  border-radius: 28px;
+  background: var(--color-surface);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.04);
+  transition: transform 400ms var(--ease-apple), box-shadow 400ms var(--ease-apple);
+}
+@utility tile-lift {
+  &:hover {
+    transform: scale(1.012);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.08);
+  }
+}
+
+/* Scroll reveal — progressive enhancement, zero JS */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Step transition for one-question-per-screen forms */
+.step-in:not([hidden]) {
+  animation: step-in 420ms var(--ease-apple) both;
+}
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

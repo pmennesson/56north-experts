@@ -3,15 +3,23 @@ experts.56north.io {
 	reverse_proxy web:3000
 }
 
-# --- 56north.io placeholder (disabled) --------------------------------------
-# 56north.io currently stays on its original host. To switch to the holding
-# page in deploy/holding/: uncomment the two blocks below, point the @ and www
-# DNS records to this VPS, then run the install command again.
+# --- 56north.io, new version: private preview ---------------------------------
+# DNS: CNAME "new" -> vps-fad5b443.vps.ovh.net. Not indexed by search engines.
+new.56north.io {
+	encode zstd gzip
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy main:3000
+}
+
+# --- 56north.io, go-live (disabled) ------------------------------------------
+# 56north.io still points to its original host (146.59.209.152), which stays
+# untouched as the fallback. To go live: in the OVH DNS zone, change the A
+# record of 56north.io (and www) to this VPS, uncomment the two blocks below,
+# then run the install command again. Email (MX records) is not affected.
 #
 # 56north.io {
 # 	encode zstd gzip
-# 	root * /srv/holding
-# 	file_server
+# 	reverse_proxy main:3000
 # }
 #
 # www.56north.io {

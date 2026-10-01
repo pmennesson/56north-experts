@@ -10,6 +10,16 @@ services:
     expose:
       - "3000"
 
+  main:                            # 56north.io (main site), same Supabase/Resend settings
+    build:
+      context: ../main-site
+      args:
+        NEXT_PUBLIC_SITE_URL: https://56north.io
+    env_file: ../.env.production
+    restart: unless-stopped
+    expose:
+      - "3000"
+
   caddy:                           # reverse proxy + automatic HTTPS (Let's Encrypt)
     image: caddy:2-alpine
     restart: unless-stopped
@@ -23,6 +33,7 @@ services:
       - caddy_config:/config
     depends_on:
       - web
+      - main
 
 volumes:
   caddy_data:
