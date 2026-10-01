@@ -20,6 +20,7 @@ export function Hero({ t }: { t: T["hero"] }) {
             {t.secondary}
           </Button>
         </div>
+        <p className="mt-4 max-w-md text-[15px] text-fg-subtle">{t.reassurance}</p>
       </Container>
       <div className="relative mt-12 sm:mt-16">
         <div className="absolute inset-x-0 bottom-0 top-1/2 bg-canvas-alt" aria-hidden />
@@ -282,7 +283,7 @@ export function Commitments({ t }: { t: T["commitments"] }) {
 
 export function Faq({ t }: { t: T["faq"] }) {
   return (
-    <Section id="questions" className="scroll-mt-12">
+    <Section tone="pearl" id="questions" className="scroll-mt-12">
       <Container className="max-w-[760px]">
         <SectionHeader eyebrow={t.eyebrow} title={t.title} />
         <div className="mt-14 divide-y divide-line border-y border-line">
@@ -314,5 +315,105 @@ export function StickyCta({ label }: { label: string }) {
         {label}
       </Button>
     </div>
+  );
+}
+
+/* ---------------------------------------------- Definition (quotable, GEO) */
+
+/** One sentence that defines 56North: what search engines and AI assistants quote. */
+export function Definition({ t }: { t: T["definition"] }) {
+  return (
+    <section className="bg-canvas-alt">
+      <Container className="max-w-[860px] py-16 text-center">
+        <p className="text-[13px] font-semibold uppercase tracking-wide text-fg-subtle">{t.label}</p>
+        <p className="mt-4 text-2xl font-medium leading-snug tracking-[-0.015em] text-pretty sm:text-[28px]">{t.text}</p>
+      </Container>
+    </section>
+  );
+}
+
+/* --------------------------------- Mirror, then future pacing (persuasion) */
+
+export function Mirror({ t }: { t: T["mirror"] }) {
+  return (
+    <Section>
+      <Container className="grid gap-5 lg:grid-cols-2">
+        <article className="tile reveal p-10">
+          <h2 className="headline-md">{t.painsTitle}</h2>
+          <ul className="mt-6 space-y-4">
+            {t.pains.map((x) => (
+              <li key={x} className="text-[17px] leading-relaxed text-fg-muted">
+                {x}
+              </li>
+            ))}
+          </ul>
+        </article>
+        <article className="tile reveal p-10">
+          <h2 className="headline-md">{t.afterTitle}</h2>
+          <ul className="mt-6 space-y-4">
+            {t.after.map((x) => (
+              <li key={x} className="flex gap-3 text-[17px] leading-relaxed">
+                <Check className="mt-1.5 h-4 w-4 shrink-0 text-signal" /> {x}
+              </li>
+            ))}
+          </ul>
+        </article>
+      </Container>
+    </Section>
+  );
+}
+
+/* --------------------------------------------- Mid-page call to action */
+
+export function MidCta({ label, reassurance, tone = "white" }: { label: string; reassurance: string; tone?: "white" | "pearl" }) {
+  return (
+    <div className={tone === "pearl" ? "bg-canvas-alt" : "bg-canvas"}>
+      <Container className="reveal flex flex-col items-center gap-3 pb-20 text-center">
+        <Button href="#diagnostic" size="lg">
+          {label}
+        </Button>
+        <p className="max-w-md text-[15px] text-fg-subtle">{reassurance}</p>
+      </Container>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------- Founder (authority) */
+
+export function Founder({ t, linkedin, name }: { t: T["founder"]; linkedin: string; name: string }) {
+  return (
+    <Section>
+      <Container className="reveal flex flex-col items-center gap-6 text-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/founder.jpg" alt={name} width={112} height={112} className="h-28 w-28 rounded-full object-cover" />
+        <p className="text-[17px] font-semibold text-signal">{t.eyebrow}</p>
+        <h2 className="headline-lg max-w-3xl text-balance">{t.title}</h2>
+        <p className="max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty">{t.body}</p>
+        <a href={linkedin} rel="me noopener" target="_blank" className="inline-flex items-center gap-1 text-[17px] text-link hover:underline">
+          LinkedIn ↗
+        </a>
+      </Container>
+    </Section>
+  );
+}
+
+/* ---------------------------------------------- Further reading (links) */
+
+export function Guides({ t }: { t: T["guides"] }) {
+  return (
+    <Section className="!py-16">
+      <Container className="max-w-[760px]">
+        <p className="text-[15px] font-semibold text-fg-muted">{t.title}</p>
+        <ul className="mt-4 space-y-3">
+          {t.items.map((g) => (
+            <li key={g.href}>
+              <a href={g.href} className="inline-flex items-start gap-1 text-[17px] leading-snug text-link hover:underline">
+                {g.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </Section>
   );
 }

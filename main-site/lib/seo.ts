@@ -62,6 +62,18 @@ export const organizationLd = (description: string) => ({
   knowsAbout: ["AI governance", "EU AI Act", "AI risk management", "AI compliance evidence"],
 });
 
+export const founderLd = (description: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": founderId,
+  name: site.founder.name,
+  jobTitle: "Founder",
+  description,
+  worksFor: { "@id": orgId },
+  sameAs: [site.founder.linkedin],
+  image: absoluteUrl("/founder.jpg"),
+});
+
 export const websiteLd = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",

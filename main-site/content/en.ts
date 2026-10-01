@@ -32,6 +32,7 @@ const en: MainDictionary = {
       "56North measures the AI systems running in your company, arranges for qualified experts to put them to the test, and gathers the dated evidence regulation requires.",
     primary: "Request an assessment",
     secondary: "See what we do",
+    reassurance: "A 30-minute first conversation, no commitment. If the timing is not right, we will tell you.",
     board: {
       label: "Airworthiness score",
       score: "66",
@@ -48,6 +49,39 @@ const en: MainDictionary = {
       ],
       caption: "Calculated on 4 of your 6 AI systems. The scope always comes with the score. Demonstration data.",
     },
+  },
+  definition: {
+    label: "In one sentence",
+    text: "56North is the control plane for enterprise AI: the system of record that inventories, measures and proves the behaviour of every AI system in an organisation, whatever the vendor.",
+  },
+  mirror: {
+    painsTitle: "Sound familiar?",
+    pains: [
+      "New AI features appear with every software update, and nobody has declared them.",
+      "Each vendor shows you its own dashboard; none shows you the whole picture.",
+      "Your audit committee asks who is accountable for AI, and nobody raises a hand.",
+      "The evidence may exist, scattered across emails and shared folders.",
+    ],
+    afterTitle: "What changes with 56North",
+    after: [
+      "A complete list of your AI systems, each with a named owner.",
+      "A score per system and a company score your executive committee reads in two minutes.",
+      "A sealed inspection file, ready the day an auditor asks for it.",
+      "The cost of your AI, tracked month after month.",
+    ],
+  },
+  founder: {
+    eyebrow: "Who is behind it",
+    title: "Founded by someone who grew a team of 1,100 consultants.",
+    body: "56North was founded by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,100 consultants in 12 countries before its exit. It starts from a simple observation: companies adopt AI faster than they learn to govern it.",
+  },
+  guides: {
+    title: "Further reading",
+    items: [
+      { title: "EU AI Act: what companies using Copilot, Agentforce or Joule must do now", href: "https://experts.56north.io/insights/eu-ai-act-deployer-obligations-copilot-agentforce" },
+      { title: "Maintaining AI agents in production: what degrades, and how to keep control", href: "https://experts.56north.io/insights/maintain-ai-agents-in-production" },
+      { title: "Putting an Agentforce agent into production: a 12-point checklist", href: "https://experts.56north.io/insights/agentforce-agent-go-live-checklist" },
+    ],
   },
   clock: {
     eyebrow: "The regulatory clock",
@@ -184,6 +218,14 @@ const en: MainDictionary = {
     eyebrow: "Questions",
     title: "What people ask us.",
     items: [
+      {
+        q: "What is an AI registry?",
+        a: "The list of every AI system a company uses, each with its purpose, its owner, its risk class under the EU AI Act and the related evidence. It is the starting point of any AI governance.",
+      },
+      {
+        q: "How is this different from the vendors' compliance tools?",
+        a: "Each vendor proves the compliance of its own tool. 56North sits on the side of the company that deploys AI, and consolidates its whole estate, whatever the supplier.",
+      },
       {
         q: "Is this an AI Act certification?",
         a: "No. We prepare an evidence file ready for an inspection. The scope covers the obligations of a company that deploys AI systems, in particular articles 26 and 50 of the EU regulation.",

@@ -39,6 +39,7 @@ const fr = {
       "56North mesure les IA en service dans votre entreprise, organise leur mise à l'épreuve par des experts qualifiés et rassemble les preuves datées que la réglementation exige.",
     primary: "Demander un diagnostic",
     secondary: "Voir l'offre",
+    reassurance: "Premier échange de 30 minutes, sans engagement. Si ce n'est pas le bon moment, nous vous le dirons.",
     board: {
       label: "Note de navigabilité",
       score: "66",
@@ -55,6 +56,39 @@ const fr = {
       ],
       caption: "Calculée sur 4 de vos 6 IA. Le périmètre accompagne toujours la note. Données de démonstration.",
     },
+  },
+  definition: {
+    label: "En une phrase",
+    text: "56North est le plan de contrôle des IA d'entreprise : le système de référence qui recense, mesure et prouve le comportement de toutes les intelligences artificielles d'une organisation, quels que soient leurs éditeurs.",
+  },
+  mirror: {
+    painsTitle: "Ça vous parle ?",
+    pains: [
+      "De nouvelles IA apparaissent à chaque mise à jour de vos logiciels, sans que personne ne les ait déclarées.",
+      "Chaque éditeur vous montre son propre tableau de bord ; aucun ne vous montre l'ensemble.",
+      "Votre comité d'audit demande qui répond de l'IA, et personne ne lève la main.",
+      "Les preuves existent peut-être, éparpillées dans des e-mails et des dossiers partagés.",
+    ],
+    afterTitle: "Ce qui change avec 56North",
+    after: [
+      "La liste complète de vos IA, chacune avec un responsable nommé.",
+      "Une note par système et une note d'entreprise, lisibles en deux minutes par votre comité de direction.",
+      "Un dossier de contrôle scellé, prêt le jour où un auditeur le demande.",
+      "Le coût de vos IA, suivi mois après mois.",
+    ],
+  },
+  founder: {
+    eyebrow: "Qui est derrière",
+    title: "Fondé par un dirigeant qui a fait grandir une équipe de 1\u00a0100 consultants.",
+    body: "56North est fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1\u00a0100 consultants dans 12 pays avant sa cession. Il part d'un constat simple : les entreprises adoptent l'IA plus vite qu'elles ne savent la gouverner.",
+  },
+  guides: {
+    title: "Pour aller plus loin",
+    items: [
+      { title: "AI Act : ce que doivent faire les entreprises qui utilisent Copilot, Agentforce ou Joule", href: "https://experts.56north.io/fr/insights/ai-act-obligations-deployeurs-copilot-agentforce" },
+      { title: "Maintenir un agent IA en production : ce qui se dégrade, et comment garder le contrôle", href: "https://experts.56north.io/fr/insights/maintenir-agent-ia-en-production" },
+      { title: "Mettre un agent Agentforce en production : la check-list en 12 points", href: "https://experts.56north.io/fr/insights/mise-en-production-agent-agentforce-checklist" },
+    ],
   },
   clock: {
     eyebrow: "L'horloge réglementaire",
@@ -191,6 +225,14 @@ const fr = {
     eyebrow: "Questions",
     title: "Ce qu'on nous demande.",
     items: [
+      {
+        q: "Qu'est-ce qu'un registre des IA ?",
+        a: "La liste de tous les systèmes d'IA qu'utilise une entreprise, avec pour chacun son usage, son responsable, sa classe de risque au sens de l'AI Act et les preuves associées. C'est le point de départ de toute gouvernance de l'IA.",
+      },
+      {
+        q: "Quelle différence avec les outils de conformité des éditeurs ?",
+        a: "Chaque éditeur prouve la conformité de son propre outil. 56North se place du côté de l'entreprise qui déploie les IA, et consolide l'ensemble de son parc, quel que soit le fournisseur.",
+      },
       {
         q: "Est-ce une certification AI Act ?",
         a: "Non. Nous préparons un dossier de preuves prêt pour un contrôle. Le périmètre couvre les obligations de l'entreprise qui déploie des IA, notamment les articles 26 et 50 du règlement européen.",
