@@ -103,7 +103,7 @@ const fr: Dictionary = {
     steps: [
       { name: "Brief", time: "30 minutes", body: "Un appel avec un responsable d'expertise. Modules, séniorité, lieu, date de démarrage, budget." },
       { name: "Rencontre", time: "Profils issus des communautés", body: "Deux ou trois profils évalués par des pairs, chacun avec une évaluation écrite. Vous recevez en entretien ceux que vous choisissez." },
-      { name: "Démarrage", time: "Point mensuel", body: "Nous gérons le contrat. Puis un point mensuel avec vous et l'expert. Le profil ne convient pas dans les 30 premiers jours ? Nous le remplaçons, sans frais de recherche." }, // TODO: confirmer les conditions commerciales
+      { name: "Démarrage", time: "Point mensuel", body: "Nous gérons le contrat. Puis un point mensuel avec vous et l'expert. Le profil ne convient pas dans les 30 premiers jours ? Nous le remplaçons, sans frais de recherche." },
     ],
   },
   trust: {

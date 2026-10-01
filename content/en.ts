@@ -100,7 +100,7 @@ const en = {
     steps: [
       { name: "Brief", time: "30 minutes", body: "One call with a practice lead. Modules, seniority, location, start date, rate." },
       { name: "Meet", time: "Community-sourced", body: "Two or three peer-vetted profiles, each with a written assessment. You interview the ones you choose." },
-      { name: "Start", time: "Monthly review", body: "We handle the contract. Then a monthly check-in with you and the expert. Wrong fit in the first 30 days? We replace, at no sourcing cost." }, // TODO: confirm commercial terms
+      { name: "Start", time: "Monthly review", body: "We handle the contract. Then a monthly check-in with you and the expert. Wrong fit in the first 30 days? We replace, at no sourcing cost." },
     ],
   },
   trust: {
