@@ -18,12 +18,11 @@ const fr = {
   },
   nav: {
     items: [
-      { href: "#horloge", label: "L'horloge" },
       { href: "#offre", label: "L'offre" },
       { href: "#cockpit", label: "Le Cockpit" },
+      { href: "#human-in-the-loop", label: "Human in the Loop" },
+      { href: "#factory", label: "Factory" },
       { href: "#souverainete", label: "Souveraineté" },
-      { href: "#fabrique", label: "Notre fabrique" },
-      { href: "#questions", label: "Questions" },
     ],
     experts: "Experts",
     cta: "Demander un diagnostic",
@@ -133,17 +132,17 @@ const fr = {
       },
       {
         n: "02",
-        kind: "Les humains",
-        name: "L'assurance humaine",
+        kind: "Prouver, avec nos partenaires",
+        name: "Human in the Loop",
         status: "Activée sur engagement",
-        body: "Sur engagement, des auditrices formées testent vos IA en boîte noire : biais, hallucinations, fuites de données. Chaque cas est jugé par deux auditrices indépendantes, et leurs résultats entrent au Cockpit comme preuves datées, avec leur auteur.",
+        body: "Des humains formés mettent vos IA à l'épreuve et relisent leurs réponses : biais, hallucinations, fuites de données, procédures non respectées. Leurs résultats entrent au Cockpit comme preuves datées, avec leur auteur.",
       },
       {
         n: "03",
-        kind: "La veille continue",
-        name: "Le centre de gouvernance",
-        status: "Mis en place sur abonnement",
-        body: "Avec l'abonnement, une équipe d'ingénierie IA et cybersécurité est mise en place pour raccorder vos IA, les surveiller, alerter et produire le rapport. L'équivalent d'un centre de surveillance cybersécurité, pour la gouvernance de l'IA.",
+        kind: "Opérer, avec nos partenaires",
+        name: "Factory",
+        status: "Mise en place sur abonnement",
+        body: "Une équipe d'ingénierie IA qui raccorde vos systèmes en place au Cockpit, les maintient en production, les surveille et produit le rapport. L'équivalent d'un centre de surveillance cybersécurité, pour la gouvernance de l'IA.",
       },
     ],
     plansTitle: "Trois façons de commencer",
@@ -175,6 +174,39 @@ const fr = {
     report:
       "Chaque mois, le rapport de vol est figé à sa publication et scellé par une empreinte qui garantit qu'il n'a pas été modifié depuis.",
   },
+  hitl: {
+    eyebrow: "Human in the Loop",
+    title: "Des humains qui testent vos IA.\nPas l'éditeur qui les vend.",
+    intro:
+      "Un éditeur ne peut pas être juge et partie de ses propres biais. Avec nos partenaires, des personnes formées mettent vos IA à l'épreuve et relisent leurs réponses, et chaque résultat devient une preuve datée dans le Cockpit.",
+    status: "Activée sur engagement, avec nos partenaires",
+    itemsTitle: "Ce que l'offre couvre",
+    items: [
+      { name: "Campagnes de tests en boîte noire", body: "Biais, hallucinations, fuites de données, procédures non respectées : des scénarios écrits pour vos cas d'usage, joués sur vos IA telles qu'elles tournent." },
+      { name: "Double regard", body: "Chaque cas est jugé par deux personnes indépendantes. En cas de désaccord, un troisième avis tranche." },
+      { name: "Relecture de conversations réelles", body: "Des échantillons relus par des personnes résidant dans l'Union européenne, dans le cadre précisé au bon de commande." },
+      { name: "Jeux de tests pour vos agents", body: "Constitution et annotation des scénarios qui serviront ensuite à vos tests de non-régression." },
+    ],
+    proof: "Chaque résultat entre au Cockpit comme preuve datée, avec son auteur : c'est ce qu'un contrôleur accepte, et ce qu'aucun outil d'éditeur ne peut produire sur ses propres IA.",
+    cta: "Parler d'une campagne de tests",
+  },
+  factoryOffer: {
+    eyebrow: "Factory",
+    title: "Connecter, maintenir, faire tourner\nles IA que vous avez déjà.",
+    intro:
+      "La plupart des IA d'une entreprise sont déjà en place, chez plusieurs éditeurs. La Factory les raccorde au Cockpit, les garde fiables en production et vous évite de monter une équipe dédiée.",
+    status: "Mise en place sur abonnement, avec nos partenaires",
+    itemsTitle: "Ce que la Factory prend en charge",
+    items: [
+      { name: "Raccorder", body: "Brancher vos IA au Cockpit : passerelle, journaux, puis connecteurs éditeurs à mesure qu'ils arrivent. Vous passez du niveau « déclaré » au niveau « connecté »." },
+      { name: "Maintenir", body: "Tests rejoués après chaque version d'éditeur, sources de connaissance tenues à jour, droits d'accès revus, coûts suivis." },
+      { name: "Surveiller et alerter", body: "Les dérives sont repérées et signalées avant qu'un client, un salarié ou un contrôleur ne les découvre." },
+      { name: "Produire le rapport", body: "Le rapport de vol mensuel, préparé par la Factory et publié par un humain." },
+    ],
+    independence:
+      "Règle d'indépendance : une campagne Human in the Loop ne teste jamais un système que la Factory a construit ou maintient chez le même client. Construire et contrôler restent séparés.",
+    cta: "Parler de vos systèmes en place",
+  },
   sovereignty: {
     eyebrow: "Souveraineté",
     title: "Un outil souverain, pas seulement un hébergement souverain.",
@@ -193,7 +225,7 @@ const fr = {
     same: "Même méthode de notation dans les deux cas.",
   },
   factory: {
-    eyebrow: "Notre fabrique",
+    eyebrow: "Comment nous construisons",
     title: "Nous nous appliquons ce que nous mesurons chez vous.",
     intro: "Un tiers de confiance se juge aussi à la façon dont il construit son propre outil.",
     figures: [
@@ -239,7 +271,7 @@ const fr = {
       },
       {
         q: "Peut-on n'acheter qu'une brique ?",
-        a: "Oui : le Cockpit seul, des campagnes de tests seules, ou la supervision opérée. L'ensemble fonctionne mieux, mais rien n'oblige à tout prendre.",
+        a: "Oui : le Cockpit seul, des campagnes Human in the Loop seules, ou la Factory pour faire tourner vos systèmes. L'ensemble fonctionne mieux, mais rien n'oblige à tout prendre.",
       },
       {
         q: "Peut-on installer le Cockpit chez nous ?",

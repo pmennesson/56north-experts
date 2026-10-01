@@ -239,7 +239,7 @@ export function Factory({ t }: { t: T["factory"] }) {
           {t.figures.map((f) => (
             <div key={f.label} className="reveal flex flex-col-reverse items-center gap-3 text-center">
               <dt className="max-w-[220px] text-[17px] leading-snug text-fg-muted">{f.label}</dt>
-              <dd className="whitespace-nowrap text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{f.value}</dd>
+              <dd className="whitespace-nowrap text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-4xl xl:text-5xl">{f.value}</dd>
             </div>
           ))}
         </dl>
@@ -413,6 +413,53 @@ export function Guides({ t }: { t: T["guides"] }) {
             </li>
           ))}
         </ul>
+      </Container>
+    </Section>
+  );
+}
+
+/* ------------------------------- Partner offers: Human in the Loop, Factory */
+
+type OfferDetailT = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  status: string;
+  itemsTitle: string;
+  items: { name: string; body: string }[];
+  cta: string;
+  proof?: string;
+  independence?: string;
+};
+
+export function OfferDetail({ t, id, tone = "white" }: { t: OfferDetailT; id: string; tone?: "white" | "pearl" }) {
+  const card = tone === "pearl" ? "tile-white" : "tile";
+  const note = t.proof ?? t.independence;
+  return (
+    <Section tone={tone} id={id} className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <p className="reveal mt-6 text-center">
+          <span className="inline-flex rounded-full bg-fg/[0.06] px-3 py-1 text-[13px] font-medium text-fg-muted">{t.status}</span>
+        </p>
+        <h3 className="reveal mt-16 text-center text-2xl font-semibold tracking-[-0.02em]">{t.itemsTitle}</h3>
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2">
+          {t.items.map((it) => (
+            <li key={it.name} className={`${card} reveal flex gap-4 p-8`}>
+              <Check className="mt-1.5 h-5 w-5 shrink-0 text-signal" />
+              <div>
+                <h4 className="text-xl font-semibold tracking-[-0.015em]">{it.name}</h4>
+                <p className="mt-2 text-[17px] leading-relaxed text-fg-muted">{it.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        {note && <p className="reveal mx-auto mt-10 max-w-2xl text-center text-[17px] leading-relaxed text-fg-muted">{note}</p>}
+        <div className="reveal mt-10 flex justify-center">
+          <Button href="#diagnostic" size="lg">
+            {t.cta}
+          </Button>
+        </div>
       </Container>
     </Section>
   );

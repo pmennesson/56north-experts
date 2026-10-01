@@ -17,7 +17,7 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
         <Link href={home} className="text-[15px] font-semibold tracking-[-0.01em]" aria-label={site.name}>
           {site.name}
         </Link>
-        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-6 whitespace-nowrap lg:flex">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="text-[13px] text-fg/80 transition-colors hover:text-fg">
               {l.label}
@@ -30,7 +30,7 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
           />
           <Link
             href={anchor("#diagnostic")}
-            className="inline-flex h-7 items-center rounded-full bg-accent px-3.5 text-[12px] text-white transition-colors hover:bg-accent-hover"
+            className="inline-flex h-7 shrink-0 items-center whitespace-nowrap rounded-full bg-accent px-3.5 text-[12px] text-white transition-colors hover:bg-accent-hover"
           >
             {t.cta}
           </Link>

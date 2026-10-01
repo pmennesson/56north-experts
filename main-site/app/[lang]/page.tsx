@@ -16,6 +16,7 @@ import {
   MidCta,
   Mirror,
   Offer,
+  OfferDetail,
   Problem,
   Sovereignty,
   StickyCta,
@@ -49,7 +50,8 @@ export default async function Home() {
       <Offer t={t.offer} />
       <MidCta label={t.hero.primary} reassurance={t.hero.reassurance} tone="pearl" />
       <Cockpit t={t.cockpit} />
-      <MidCta label={t.hero.primary} reassurance={t.hero.reassurance} />
+      <OfferDetail t={t.hitl} id="human-in-the-loop" tone="pearl" />
+      <OfferDetail t={t.factoryOffer} id="factory" />
       <Sovereignty t={t.sovereignty} />
       <Factory t={t.factory} />
       <Commitments t={t.commitments} />

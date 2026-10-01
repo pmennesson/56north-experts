@@ -11,12 +11,11 @@ const en: MainDictionary = {
   },
   nav: {
     items: [
-      { href: "#horloge", label: "The clock" },
       { href: "#offre", label: "What we do" },
       { href: "#cockpit", label: "The Cockpit" },
+      { href: "#human-in-the-loop", label: "Human in the Loop" },
+      { href: "#factory", label: "Factory" },
       { href: "#souverainete", label: "Sovereignty" },
-      { href: "#fabrique", label: "How we build" },
-      { href: "#questions", label: "Questions" },
     ],
     experts: "Experts",
     cta: "Request an assessment",
@@ -126,17 +125,17 @@ const en: MainDictionary = {
       },
       {
         n: "02",
-        kind: "The people",
-        name: "Human assurance",
+        kind: "Prove, with our partners",
+        name: "Human in the Loop",
         status: "Activated on engagement",
-        body: "On engagement, trained auditors test your AI systems as black boxes: bias, hallucinations, data leaks. Each case is judged by two independent auditors, and their findings enter the Cockpit as dated evidence, with their author.",
+        body: "Trained people put your AI systems to the test and review their answers: bias, hallucinations, data leaks, procedures not followed. Their findings enter the Cockpit as dated evidence, with their author.",
       },
       {
         n: "03",
-        kind: "Continuous oversight",
-        name: "The governance centre",
+        kind: "Operate, with our partners",
+        name: "Factory",
         status: "Set up with a subscription",
-        body: "With the subscription, an AI engineering and cybersecurity team is set up to connect your AI systems, monitor them, raise alerts and produce the report. The equivalent of a security operations centre, for AI governance.",
+        body: "An AI engineering team that connects your existing systems to the Cockpit, keeps them running in production, monitors them and produces the report. The equivalent of a security operations centre, for AI governance.",
       },
     ],
     plansTitle: "Three ways to start",
@@ -167,6 +166,39 @@ const en: MainDictionary = {
     ],
     report:
       "Every month, the flight report is frozen when published and sealed with a fingerprint that shows it has not been altered since.",
+  },
+  hitl: {
+    eyebrow: "Human in the Loop",
+    title: "People who test your AI.\nNot the vendor who sells it.",
+    intro:
+      "A vendor cannot judge its own biases. With our partners, trained people put your AI systems to the test and review their answers, and every finding becomes dated evidence in the Cockpit.",
+    status: "Activated on engagement, with our partners",
+    itemsTitle: "What the offer covers",
+    items: [
+      { name: "Black-box testing campaigns", body: "Bias, hallucinations, data leaks, procedures not followed: scenarios written for your use cases, run against your AI systems as they actually run." },
+      { name: "Two independent reviewers", body: "Each case is judged by two independent people. When they disagree, a third opinion decides." },
+      { name: "Review of real conversations", body: "Samples reviewed by people residing in the European Union, within the scope set in the purchase order." },
+      { name: "Test sets for your agents", body: "Building and annotating the scenarios that then serve as your regression tests." },
+    ],
+    proof: "Every finding enters the Cockpit as dated evidence, with its author: what an inspector accepts, and what no vendor tool can produce about its own AI.",
+    cta: "Discuss a testing campaign",
+  },
+  factoryOffer: {
+    eyebrow: "Factory",
+    title: "Connect, maintain and run\nthe AI you already have.",
+    intro:
+      "Most of a company's AI is already in place, across several vendors. The Factory connects it to the Cockpit, keeps it reliable in production and spares you from building a dedicated team.",
+    status: "Set up with a subscription, with our partners",
+    itemsTitle: "What the Factory takes on",
+    items: [
+      { name: "Connect", body: "Plugging your AI systems into the Cockpit: gateway, logs, then vendor connectors as they become available. You move from the “declared” to the “connected” level." },
+      { name: "Maintain", body: "Tests replayed after every vendor release, knowledge sources kept up to date, access rights reviewed, costs tracked." },
+      { name: "Monitor and alert", body: "Drift is detected and reported before a customer, an employee or an inspector finds it." },
+      { name: "Produce the report", body: "The monthly flight report, prepared by the Factory and published by a person." },
+    ],
+    independence:
+      "Independence rule: a Human in the Loop campaign never tests a system the Factory built or maintains for the same client. Building and controlling stay separate.",
+    cta: "Discuss your existing systems",
   },
   sovereignty: {
     eyebrow: "Sovereignty",
@@ -232,7 +264,7 @@ const en: MainDictionary = {
       },
       {
         q: "Can we buy just one component?",
-        a: "Yes: the Cockpit alone, testing campaigns alone, or operated oversight. They work best together, but nothing forces you to take everything.",
+        a: "Yes: the Cockpit alone, Human in the Loop campaigns alone, or the Factory to run your systems. They work best together, but nothing forces you to take everything.",
       },
       {
         q: "Can we install the Cockpit ourselves?",
