@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { getLinker, type Dictionary } from "@/lib/i18n";
 import { Container } from "@/components/ui/primitives";
 import { LangSwitch } from "@/components/LangSwitch";
+import { MobileMenu } from "@/components/MobileMenu";
 
 export async function BrandMark() {
   const lp = await getLinker();
@@ -45,22 +46,7 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
             short={t.switchShort}
             className="flex h-9 items-center px-2 text-[13px] font-medium text-fg-muted"
           />
-          {/* Zero-JS mobile menu */}
-          <details className="group relative">
-            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center [&::-webkit-details-marker]:hidden">
-              <span className="sr-only">{t.openMenu}</span>
-              <svg viewBox="0 0 16 16" className="h-4 w-4" aria-hidden>
-                <path d="M2 5.5h12M2 10.5h12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-              </svg>
-            </summary>
-            <div className="fixed inset-x-0 top-12 border-b border-line bg-canvas/95 px-6 pb-8 pt-4 backdrop-blur-xl">
-              {links.map((l) => (
-                <Link key={l.href} href={l.href} className="block py-3 text-2xl font-semibold tracking-[-0.02em]">
-                  {l.label}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <MobileMenu links={links} label={t.openMenu} />
         </div>
       </Container>
     </header>
