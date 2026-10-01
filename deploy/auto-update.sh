@@ -24,10 +24,14 @@ sync_caddy() {
   fi
 }
 
+STATE="/var/lib/56north-deployed"        # SHA of the last successful build
+
 git fetch -q origin main
-LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
-if [ "$LOCAL" = "$REMOTE" ] && [ "${1:-}" != "--force" ]; then
+# Compare with what was last BUILT, not with the checkout: a manual `git pull`
+# must not make the timer believe the site is already up to date.
+DEPLOYED=$(cat "$STATE" 2>/dev/null || echo none)
+if [ "$DEPLOYED" = "$REMOTE" ] && [ "${1:-}" != "--force" ]; then
   sync_caddy
   exit 0
 fi
@@ -39,6 +43,7 @@ if $COMPOSE up -d --build --remove-orphans >> "$LOG" 2>&1; then
   sync_caddy
   docker image prune -f >/dev/null 2>&1 || true
   docker builder prune -f --filter until=72h >/dev/null 2>&1 || true
+  echo "$REMOTE" > "$STATE"
   echo "$(date -Is) deployed ${REMOTE:0:7}" >> "$LOG"
 else
   echo "$(date -Is) FAILED ${REMOTE:0:7} (previous version still running)" >> "$LOG"
