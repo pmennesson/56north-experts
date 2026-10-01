@@ -205,7 +205,7 @@ const en: MainDictionary = {
     title: "Sovereign tooling, not just sovereign hosting.",
     intro: "Entrusting the oversight of your AI systems to a tool that depends on a foreign giant would make no sense.",
     items: [
-      { name: "Hosting", body: "With Scaleway, a French provider, in an EU region." },
+      { name: "Hosting", body: "With Scaleway, a French provider, in its Paris data centre." },
       { name: "Software", body: "Built on auditable open-source components, with no proprietary lock-in." },
       { name: "Evaluation model", body: "Mistral, a European model hosted in the EU." },
       { name: "Data", body: "One instance and one database per client, never shared. User identities pseudonymised on arrival, irreversibly." },

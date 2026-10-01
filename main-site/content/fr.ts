@@ -212,7 +212,7 @@ const fr = {
     title: "Un outil souverain, pas seulement un hébergement souverain.",
     intro: "Confier la surveillance de vos IA à un outil qui dépend d'un géant étranger n'aurait aucun sens.",
     items: [
-      { name: "Hébergement", body: "Chez Scaleway, opérateur français, en région UE." },
+      { name: "Hébergement", body: "Chez Scaleway, opérateur français, dans son centre de données de Paris." },
       { name: "Logiciel", body: "Bâti sur des briques open source auditables, sans dépendance propriétaire." },
       { name: "Modèle d'évaluation", body: "Mistral, modèle européen hébergé dans l'Union." },
       { name: "Données", body: "Une instance et une base par client, jamais mutualisées. Identités pseudonymisées dès l'arrivée, de façon irréversible." },
@@ -248,7 +248,7 @@ const fr = {
     title: "Indépendant par principe.\nSouverain par construction.",
     items: [
       { name: "Celui qui mesure ne vend rien d'autre", body: "Ni modèles, ni intégration, ni cloud. Qui construit vos IA ne peut pas les noter." },
-      { name: "Vos données restent chez un opérateur français", body: "Hébergement Scaleway, briques open source, modèle d'évaluation européen. Deux sous-traitants techniques, pas un de plus." },
+      { name: "Vos données restent chez un opérateur français", body: "Hébergement Scaleway à Paris, briques open source, modèle d'évaluation européen. Deux sous-traitants techniques, pas un de plus." },
       { name: "Une méthode publiée, jamais retouchée", body: "Écrite, versionnée, identique pour tous. Des partenaires peuvent la vendre ; le calcul, le scellement et les seuils restent chez nous." },
       { name: "Des preuves, jamais un certificat", body: "Nous préparons votre dossier pour qu'il soit prêt le jour où on vous le demandera. Nous ne l'appelons jamais certification." },
     ],
