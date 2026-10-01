@@ -178,13 +178,13 @@ const fr = {
     eyebrow: "Human in the Loop",
     title: "Des humains qui testent vos IA.\nPas l'éditeur qui les vend.",
     intro:
-      "Un éditeur ne peut pas être juge et partie de ses propres biais. Avec nos partenaires, des personnes formées mettent vos IA à l'épreuve et relisent leurs réponses, et chaque résultat devient une preuve datée dans le Cockpit.",
-    status: "Activée sur engagement, avec nos partenaires",
+      "Un éditeur ne peut pas être juge et partie de ses propres biais. Avec notre partenaire Isahit, société française spécialisée dans l'annotation de données, des personnes formées mettent vos IA à l'épreuve et relisent leurs réponses, et chaque résultat devient une preuve datée dans le Cockpit.",
+    status: "Activée sur engagement, avec notre partenaire Isahit",
     itemsTitle: "Ce que l'offre couvre",
     items: [
       { name: "Campagnes de tests en boîte noire", body: "Biais, hallucinations, fuites de données, procédures non respectées : des scénarios écrits pour vos cas d'usage, joués sur vos IA telles qu'elles tournent." },
       { name: "Double regard", body: "Chaque cas est jugé par deux personnes indépendantes. En cas de désaccord, un troisième avis tranche." },
-      { name: "Relecture de conversations réelles", body: "Des échantillons relus par des personnes résidant dans l'Union européenne, dans le cadre précisé au bon de commande." },
+      { name: "Relecture de conversations réelles", body: "Des échantillons relus par des personnes résidant dans l'Union européenne, en équipes constituées pour chaque client selon nos exigences, dans le cadre précisé au bon de commande." },
       { name: "Jeux de tests pour vos agents", body: "Constitution et annotation des scénarios qui serviront ensuite à vos tests de non-régression." },
     ],
     proof: "Chaque résultat entre au Cockpit comme preuve datée, avec son auteur : c'est ce qu'un contrôleur accepte, et ce qu'aucun outil d'éditeur ne peut produire sur ses propres IA.",

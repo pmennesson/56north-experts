@@ -171,13 +171,13 @@ const en: MainDictionary = {
     eyebrow: "Human in the Loop",
     title: "People who test your AI.\nNot the vendor who sells it.",
     intro:
-      "A vendor cannot judge its own biases. With our partners, trained people put your AI systems to the test and review their answers, and every finding becomes dated evidence in the Cockpit.",
-    status: "Activated on engagement, with our partners",
+      "A vendor cannot judge its own biases. With our partner Isahit, a French data-annotation company, trained people put your AI systems to the test and review their answers, and every finding becomes dated evidence in the Cockpit.",
+    status: "Activated on engagement, with our partner Isahit",
     itemsTitle: "What the offer covers",
     items: [
       { name: "Black-box testing campaigns", body: "Bias, hallucinations, data leaks, procedures not followed: scenarios written for your use cases, run against your AI systems as they actually run." },
       { name: "Two independent reviewers", body: "Each case is judged by two independent people. When they disagree, a third opinion decides." },
-      { name: "Review of real conversations", body: "Samples reviewed by people residing in the European Union, within the scope set in the purchase order." },
+      { name: "Review of real conversations", body: "Samples reviewed by people residing in the European Union, in teams formed for each client to our requirements, within the scope set in the purchase order." },
       { name: "Test sets for your agents", body: "Building and annotating the scenarios that then serve as your regression tests." },
     ],
     proof: "Every finding enters the Cockpit as dated evidence, with its author: what an inspector accepts, and what no vendor tool can produce about its own AI.",
