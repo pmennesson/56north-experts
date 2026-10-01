@@ -31,6 +31,10 @@ export function GET() {
     ...(getPublishedArticles("en").length
       ? ["## Insights", ...getPublishedArticles("en").map((a) => `- [${a.title}](${absoluteUrl(a.path)}): ${a.takeaways[0]}`), ""]
       : []),
+    "## Related",
+    "- [56North Cockpit](https://56north.io/en): the 56North platform that lists the AI systems a company runs, tracks them on five dials (reliability, costs, AI Act evidence, usage, reference data) and gathers dated evidence for the EU AI Act.",
+    "- [Cockpit 56North (français)](https://56north.io)",
+    "",
     "## Contact",
     `- [Request experts](${absoluteUrl("/contact")}) — free to brief, no commitment until a profile is chosen`,
     `- [About](${absoluteUrl("/about")})`,

@@ -37,6 +37,11 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const t = await getDictionary(lang);
   return (
     <html lang={lang} className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        {/* Invisible identity links: the founder's profile and the sister site, for search engines. */}
+        <link rel="me" href={site.founder.linkedin} />
+        <link rel="related" href={site.experts} />
+      </head>
       <body className="min-h-dvh">
         <a
           href="#main"

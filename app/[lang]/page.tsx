@@ -7,6 +7,7 @@ import { Hero } from "@/components/home/Hero";
 import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
 import { CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
 import { Founder, StickyCta } from "@/components/home/Founder";
+import { CockpitLink } from "@/components/CockpitLink";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -28,6 +29,7 @@ export default async function HomePage() {
       <Process t={t.process} />
       <Trust t={t.trust} />
       <Founder t={t.founder} />
+      <CockpitLink t={t.cockpit} tone="white" />
       <Faq t={t.faq} />
       <CtaBand t={t.cta} />
       <StickyCta href={localePath(locale, "/contact")} label={t.hero.primaryCta} />

@@ -405,6 +405,13 @@ const en = {
       success: "Application received. A practitioner of your platform will get back to you within two weeks.",
     },
   },
+  cockpit: {
+    eyebrow: "The 56North platform",
+    title: "Measure the AI you run. Prove you control it.",
+    body: "The 56North Cockpit lists the AI systems in service across your company, tracks them on five dials (reliability, costs, AI Act evidence, usage, reference data) and gathers the dated evidence the regulation requires.",
+    link: "Discover the 56North Cockpit",
+    href: "https://56north.io/en",
+  },
   footer: {
     practices: "Practices",
     clients: "Clients",

@@ -10,6 +10,7 @@ import { fill, getDictionary, getLocale, hasLocale, localePath } from "@/lib/i18
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/home/Sections";
 import { StickyCta } from "@/components/home/Founder";
+import { CockpitLink } from "@/components/CockpitLink";
 import { Check, Chevron, Container, Section } from "@/components/ui/primitives";
 
 type Props = PageProps<"/[lang]/insights/[slug]">;
@@ -205,6 +206,7 @@ export default async function ArticlePage({ params }: Props) {
         </Section>
       )}
 
+      <CockpitLink t={t.cockpit} narrow />
       <CtaBand t={{ ...t.cta, title: i.ctaTitle, body: i.ctaBody }} />
       <StickyCta href={lp("/contact")} label={t.hero.primaryCta} />
     </>

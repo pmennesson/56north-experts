@@ -38,7 +38,7 @@ const fr = {
       "56North mesure les IA en service dans votre entreprise, organise leur mise à l'épreuve par des experts qualifiés et rassemble les preuves datées que la réglementation exige.",
     primary: "Demander un diagnostic",
     secondary: "Voir l'offre",
-    reassurance: "Premier échange de 30 minutes, sans engagement. Si ce n'est pas le bon moment, nous vous le dirons.",
+    reassurance: "Premier échange de 30 minutes offert, sans engagement. Si ce n'est pas le bon moment, nous vous le dirons.",
     board: {
       label: "Note de navigabilité",
       score: "66",
@@ -258,6 +258,10 @@ const fr = {
     title: "Ce qu'on nous demande.",
     items: [
       {
+        q: "Le premier échange est-il payant ?",
+        a: "Non. Le premier échange de 30 minutes est offert et sans engagement. Vous repartez avec une première carte de vos IA connues et des écarts probables, et nous vous disons franchement si un accompagnement se justifie.",
+      },
+      {
         q: "Qu'est-ce qu'un registre des IA ?",
         a: "La liste de tous les systèmes d'IA qu'utilise une entreprise, avec pour chacun son usage, son responsable, sa classe de risque au sens de l'AI Act et les preuves associées. C'est le point de départ de toute gouvernance de l'IA.",
       },
@@ -292,7 +296,7 @@ const fr = {
     ],
   },
   contact: {
-    eyebrow: "Premier échange",
+    eyebrow: "Premier échange offert",
     title: "Trente minutes suffisent pour savoir si c'est fait pour vous.",
     intro:
       "Nous passons en revue les IA que vous connaissez, repérons les angles morts et repartons avec une première carte : vos IA connues et les écarts probables. Si le moment n'est pas le bon, nous vous le dirons.",
@@ -307,7 +311,7 @@ const fr = {
     counts: ["Moins de 5", "5 à 20", "20 à 50", "Plus de 50", "Je ne sais pas"],
     labels: { name: "Nom", job: "Fonction", company: "Entreprise", email: "E-mail professionnel" },
     submit: "Demander un diagnostic",
-    reassurance: "Réponse sous deux jours ouvrés. Vos coordonnées servent à organiser cet échange, et à rien d'autre.",
+    reassurance: "Premier échange de 30 minutes offert. Réponse sous deux jours ouvrés. Vos coordonnées servent à organiser cet échange, et à rien d'autre.",
     privacy: "Voir notre politique de confidentialité",
     ui: {
       back: "Retour",

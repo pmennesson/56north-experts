@@ -405,6 +405,13 @@ const fr: Dictionary = {
       success: "Candidature reçue. Un praticien de votre plateforme vous répond sous deux semaines.",
     },
   },
+  cockpit: {
+    eyebrow: "La plateforme 56North",
+    title: "Mesurez les IA que vous exploitez. Prouvez que vous les contrôlez.",
+    body: "Le Cockpit 56North recense les IA en service dans votre entreprise, les suit sur cinq cadrans (fiabilité, coûts, preuves AI Act, utilisation, référentiels) et rassemble les preuves datées qu'exige la réglementation.",
+    link: "Découvrir le Cockpit 56North",
+    href: "https://56north.io",
+  },
   footer: {
     practices: "Expertises",
     clients: "Clients",

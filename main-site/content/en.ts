@@ -31,7 +31,7 @@ const en: MainDictionary = {
       "56North measures the AI systems running in your company, arranges for qualified experts to put them to the test, and gathers the dated evidence regulation requires.",
     primary: "Request an assessment",
     secondary: "See what we do",
-    reassurance: "A 30-minute first conversation, no commitment. If the timing is not right, we will tell you.",
+    reassurance: "A free 30-minute first conversation, no commitment. If the timing is not right, we will tell you.",
     board: {
       label: "Airworthiness score",
       score: "66",
@@ -251,6 +251,10 @@ const en: MainDictionary = {
     title: "What people ask us.",
     items: [
       {
+        q: "Is the first conversation free?",
+        a: "Yes. The 30-minute first conversation is free and comes with no commitment. You leave with a first map of your known AI systems and likely gaps, and we tell you plainly whether further work is worth it.",
+      },
+      {
         q: "What is an AI registry?",
         a: "The list of every AI system a company uses, each with its purpose, its owner, its risk class under the EU AI Act and the related evidence. It is the starting point of any AI governance.",
       },
@@ -285,7 +289,7 @@ const en: MainDictionary = {
     ],
   },
   contact: {
-    eyebrow: "First conversation",
+    eyebrow: "Free first conversation",
     title: "Thirty minutes is enough to know whether this is for you.",
     intro:
       "We review the AI systems you know about, spot the blind spots and leave you with a first map: your known AI systems and the likely gaps. If the timing is not right, we will tell you.",
@@ -300,7 +304,7 @@ const en: MainDictionary = {
     counts: ["Fewer than 5", "5 to 20", "20 to 50", "More than 50", "I don't know"],
     labels: { name: "Name", job: "Job title", company: "Company", email: "Work email" },
     submit: "Request an assessment",
-    reassurance: "Reply within two working days. Your details are used to arrange this conversation and nothing else.",
+    reassurance: "Free 30-minute first conversation. Reply within two working days. Your details are used to arrange this conversation and nothing else.",
     privacy: "See our privacy policy",
     ui: {
       back: "Back",
