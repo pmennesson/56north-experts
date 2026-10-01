@@ -69,8 +69,10 @@ fi
 say "4/4 Démarrage (3 à 5 minutes la première fois)"
 export GIT_SHA="$(git rev-parse --short HEAD)"
 docker compose -f deploy/docker-compose.yml up -d --build --remove-orphans
-# Pick up Caddyfile changes (bind-mounted files do not trigger a container restart)
-docker compose -f deploy/docker-compose.yml exec -T caddy caddy reload --config /etc/caddy/Caddyfile || true
+# Pick up Caddyfile changes: the bind-mounted file is replaced by git, so recreate Caddy if it differs
+if ! docker compose -f deploy/docker-compose.yml exec -T caddy cat /etc/caddy/Caddyfile 2>/dev/null | cmp -s - deploy/Caddyfile; then
+  docker compose -f deploy/docker-compose.yml up -d --force-recreate --no-deps caddy
+fi
 
 say "Mises à jour automatiques"
 chmod +x deploy/auto-update.sh

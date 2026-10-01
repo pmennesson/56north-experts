@@ -13,10 +13,22 @@ exec 9>/var/lock/56north-update.lock
 flock -n 9 || exit 0   # a deployment is already running
 
 cd "$DIR"
+
+# The Caddyfile is bind-mounted as a single file: when git replaces it, the
+# running container keeps the old copy. Recreate Caddy whenever they differ
+# (checked on every run, a few seconds of interruption at most).
+sync_caddy() {
+  if ! $COMPOSE exec -T caddy cat /etc/caddy/Caddyfile 2>/dev/null | cmp -s - deploy/Caddyfile; then
+    echo "$(date -Is) Caddyfile changed: recreating caddy" >> "$LOG"
+    $COMPOSE up -d --force-recreate --no-deps caddy >> "$LOG" 2>&1 || true
+  fi
+}
+
 git fetch -q origin main
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
 if [ "$LOCAL" = "$REMOTE" ] && [ "${1:-}" != "--force" ]; then
+  sync_caddy
   exit 0
 fi
 
@@ -24,7 +36,7 @@ echo "$(date -Is) deploying ${REMOTE:0:7}" >> "$LOG"
 git reset -q --hard origin/main          # untracked files such as .env.production are kept
 export GIT_SHA="${REMOTE:0:7}"
 if $COMPOSE up -d --build --remove-orphans >> "$LOG" 2>&1; then
-  $COMPOSE exec -T caddy caddy reload --config /etc/caddy/Caddyfile >> "$LOG" 2>&1 || true
+  sync_caddy
   docker image prune -f >/dev/null 2>&1 || true
   docker builder prune -f --filter until=72h >/dev/null 2>&1 || true
   echo "$(date -Is) deployed ${REMOTE:0:7}" >> "$LOG"
