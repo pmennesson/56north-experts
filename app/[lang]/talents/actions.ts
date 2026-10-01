@@ -1,6 +1,7 @@
 "use server";
 
-import { getDictionary } from "@/lib/i18n";
+import { loadDictionary } from "@/lib/dictionaries";
+import { fill, hasLocale } from "@/lib/locale";
 import { insertRow } from "@/lib/supabase-server";
 import { siteConfig } from "@/lib/site";
 import { notify } from "@/lib/notify";
@@ -20,14 +21,17 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
     [...form.entries()].map(([k, v]) => [k, typeof v === "string" ? v.trim().slice(0, 3000) : ""]),
   );
 
-  const errors: Record<string, string> = {};
-  for (const f of required) if (!data[f]) errors[f] = "Required";
-  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Enter a valid email";
-  if (data.linkedin && !/^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\//i.test(data.linkedin))
-    errors.linkedin = "Paste your full LinkedIn profile URL";
-  if (!data.consent) errors.consent = "Required to process your application";
+  const locale = hasLocale(data.lang) ? data.lang : "en";
+  const dict = await loadDictionary(locale);
+  const t = dict.applicationForm;
 
-  if (Object.keys(errors).length) return { ok: false, message: "Please check the highlighted fields.", errors };
+  const errors: Record<string, string> = {};
+  for (const f of required) if (!data[f]) errors[f] = dict.steps.required;
+  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = t.invalidEmail;
+  if (data.linkedin && !/^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\//i.test(data.linkedin)) errors.linkedin = t.invalidLinkedin;
+  if (!data.consent) errors.consent = t.consentRequired;
+
+  if (Object.keys(errors).length) return { ok: false, message: t.checkFields, errors };
 
   const saved = await insertRow("talents", {
     name: data.name,
@@ -43,9 +47,10 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
     location: data.location || null,
     referral: data.referral || null,
     consent_at: new Date().toISOString(),
+    locale,
   });
   if (!saved)
-    return { ok: false, message: `Something went wrong on our side. Please email ${siteConfig.email} and we will answer directly.` };
+    return { ok: false, message: fill(t.error, { email: siteConfig.email }) };
 
   await notify(
     `New expert application: ${data.name} (${data.ecosystem}, ${data.years} yrs)`,
@@ -62,10 +67,10 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
       Availability: data.availability,
       Location: data.location,
       Referral: data.referral,
+      Language: locale === "fr" ? "French (reply in French)" : "English",
     },
     data.email,
   );
 
-  const t = await getDictionary();
-  return { ok: true, message: t.talents.apply.success };
+  return { ok: true, message: dict.talents.apply.success };
 }

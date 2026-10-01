@@ -31,7 +31,9 @@ content/en.ts                All home copy (i18n dictionary)
 lib/site.ts                  Brand facts & service levels  ← edit first
 lib/ecosystems.ts            Practices data (feeds grid, pillar pages, sitemap, llms.txt)
 lib/seo.ts                   Metadata helper + JSON-LD builders
-lib/i18n.ts                  Locale config (add fr/ar here)
+lib/locale.ts, lib/i18n.ts   Locales (en default, unprefixed; fr under /fr), dictionary loading
+content/fr.ts                French dictionary (same shape as en.ts, enforced by the type)
+proxy.ts                     Rewrites /x → /en/x, serves /fr/*, redirects /en/* to /x
 public/logos/                Official vendor logo files (see below)
 ```
 

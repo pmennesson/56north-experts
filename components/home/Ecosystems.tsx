@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { ecosystems } from "@/lib/ecosystems";
-import type { Dictionary } from "@/lib/i18n";
+import { getEcosystems } from "@/lib/ecosystems";
+import { fill, getLocale, localePath, type Dictionary } from "@/lib/i18n";
 import { VendorMark } from "@/components/VendorMark";
 import { Chevron, Container, Section, SectionHeader } from "@/components/ui/primitives";
 
-export function VendorBar({ t }: { t: Dictionary["vendorBar"] }) {
+export async function VendorBar({ t, linkLabel }: { t: Dictionary["vendorBar"]; linkLabel: string }) {
+  const locale = await getLocale();
+  const ecosystems = getEcosystems(locale);
   return (
     <div className="bg-canvas-alt">
       <Container className="flex flex-col items-center gap-6 pb-20">
@@ -12,7 +14,7 @@ export function VendorBar({ t }: { t: Dictionary["vendorBar"] }) {
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {ecosystems.map((e) => (
             <li key={e.slug}>
-              <Link href={`/experts/${e.slug}`} aria-label={`${e.vendor} AI experts`}>
+              <Link href={localePath(locale, `/experts/${e.slug}`)} aria-label={fill(linkLabel, { vendor: e.vendor })}>
                 <VendorMark slug={e.slug} name={e.vendor} />
               </Link>
             </li>
@@ -23,7 +25,9 @@ export function VendorBar({ t }: { t: Dictionary["vendorBar"] }) {
   );
 }
 
-export function EcosystemGrid({ t }: { t: Dictionary["ecosystems"] }) {
+export async function EcosystemGrid({ t }: { t: Dictionary["ecosystems"] }) {
+  const locale = await getLocale();
+  const ecosystems = getEcosystems(locale);
   return (
     <Section id="ecosystems" className="scroll-mt-12">
       <Container>
@@ -32,7 +36,7 @@ export function EcosystemGrid({ t }: { t: Dictionary["ecosystems"] }) {
           {ecosystems.map((e) => (
             <Link
               key={e.slug}
-              href={`/experts/${e.slug}`}
+              href={localePath(locale, `/experts/${e.slug}`)}
               className="tile tile-lift reveal group flex flex-col gap-4 p-8"
             >
               <div className="flex items-center justify-between">
@@ -52,7 +56,7 @@ export function EcosystemGrid({ t }: { t: Dictionary["ecosystems"] }) {
         </div>
         <p className="reveal mx-auto mt-12 max-w-2xl text-center text-[17px] text-fg-muted">
           {t.other}{" "}
-          <Link href="/contact" className="inline-flex items-center gap-1 text-link hover:underline">
+          <Link href={localePath(locale, "/contact")} className="inline-flex items-center gap-1 text-link hover:underline">
             {t.otherCta} <Chevron />
           </Link>
         </p>

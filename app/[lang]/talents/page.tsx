@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { ecosystems } from "@/lib/ecosystems";
-import { getDictionary } from "@/lib/i18n";
+import { getEcosystems } from "@/lib/ecosystems";
+import { getDictionary, getLocale, localePath } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Button, Container, Section, SectionHeader } from "@/components/ui/primitives";
 import { ApplicationForm } from "./ApplicationForm";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Join our network of senior enterprise AI experts",
-  description:
-    "Senior specialists on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow or Workday AI: join a community-led network for enterprise missions. Referral fees, paid vetting panel, practitioner meetups.",
-  path: "/talents",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const { talents } = await getDictionary(locale);
+  return buildMetadata({ title: talents.metaTitle, description: talents.metaDescription, path: "/talents", locale });
+}
 
 /*
  * Schema note: JobPosting JSON-LD belongs on individual mission pages
@@ -20,7 +19,9 @@ export const metadata: Metadata = buildMetadata({
  * penalises JobPosting markup on generic recruitment pages like this one.
  */
 export default async function TalentsPage() {
-  const { talents: t } = await getDictionary();
+  const locale = await getLocale();
+  const dict = await getDictionary(locale);
+  const t = dict.talents;
   const communities = siteConfig.communities;
 
   return (
@@ -92,7 +93,14 @@ export default async function TalentsPage() {
         <Container className="max-w-[760px]">
           <SectionHeader eyebrow={t.apply.eyebrow} title={t.apply.title} subtitle={t.apply.subtitle} />
           <div className="mt-14" />
-          <ApplicationForm ecosystems={ecosystems.map((e) => ({ value: e.slug, label: e.name }))} />
+          <ApplicationForm
+            lang={locale}
+            t={dict.applicationForm}
+            s={dict.steps}
+            success={t.apply.success}
+            privacyHref={localePath(locale, "/privacy")}
+            ecosystems={getEcosystems(locale).map((e) => ({ value: e.slug, label: e.name }))}
+          />
         </Container>
       </Section>
     </>

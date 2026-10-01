@@ -3,6 +3,8 @@
 import { insertRow } from "@/lib/supabase-server";
 import { siteConfig } from "@/lib/site";
 import { notify } from "@/lib/notify";
+import { loadDictionary } from "@/lib/dictionaries";
+import { fill, hasLocale } from "@/lib/locale";
 
 export type LeadState = { ok: boolean; message: string; errors?: Record<string, string> };
 
@@ -21,12 +23,15 @@ export async function submitStaffingRequest(_prev: LeadState, form: FormData): P
     [...form.entries()].map(([k, v]) => [k, typeof v === "string" ? v.trim().slice(0, 2000) : ""]),
   );
 
-  const errors: Record<string, string> = {};
-  for (const f of required) if (!data[f]) errors[f] = "Required";
-  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Enter a valid work email";
-  if (/@(gmail|yahoo|hotmail|outlook)\./i.test(data.email ?? "")) errors.email = "Please use your work email";
+  const locale = hasLocale(data.lang) ? data.lang : "en";
+  const { contactForm: t, steps } = await loadDictionary(locale);
 
-  if (Object.keys(errors).length) return { ok: false, message: "Please check the highlighted fields.", errors };
+  const errors: Record<string, string> = {};
+  for (const f of required) if (!data[f]) errors[f] = steps.required;
+  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = t.invalidWorkEmail;
+  if (/@(gmail|yahoo|hotmail|outlook)\./i.test(data.email ?? "")) errors.email = t.useWorkEmail;
+
+  if (Object.keys(errors).length) return { ok: false, message: t.checkFields, errors };
 
   const saved = await insertRow("leads", {
     name: data.name,
@@ -38,9 +43,10 @@ export async function submitStaffingRequest(_prev: LeadState, form: FormData): P
     target_start: data.start || null,
     location: data.location || null,
     message: data.message || null,
+    locale,
   });
   if (!saved)
-    return { ok: false, message: `Something went wrong on our side. Please email ${siteConfig.email} and we will answer directly.` };
+    return { ok: false, message: fill(t.error, { email: siteConfig.email }) };
 
   await notify(
     `New staffing request: ${data.company} (${data.ecosystem})`,
@@ -54,12 +60,10 @@ export async function submitStaffingRequest(_prev: LeadState, form: FormData): P
       Start: data.start,
       Location: data.location,
       Context: data.message,
+      Language: locale === "fr" ? "French (reply in French)" : "English",
     },
     data.email,
   );
 
-  return {
-    ok: true,
-    message: "Brief received. A practice lead will reply within one business day.",
-  };
+  return { ok: true, message: t.success };
 }

@@ -1,6 +1,7 @@
 import { ecosystems } from "@/lib/ecosystems";
 import { siteConfig } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
+import { getEcosystems } from "@/lib/ecosystems";
 
 /** /llms.txt — a plain-text map of the site for AI assistants (GEO). */
 export const dynamic = "force-static";
@@ -31,6 +32,13 @@ export function GET() {
     `- [About](${absoluteUrl("/about")})`,
     `- [Join the expert network](${absoluteUrl("/talents")})`,
     `- Email: ${siteConfig.email}`,
+    `- Founder on LinkedIn: ${siteConfig.founder.linkedin}`,
+    "",
+    "## Version française",
+    `Le site existe en français sous ${absoluteUrl("/fr")} : délégation d'experts IA seniors en régie, mêmes services et mêmes engagements.`,
+    ...getEcosystems("fr").map((e) => `- [${e.name}](${absoluteUrl(`/fr/experts/${e.slug}`)})`),
+    `- [Demander des experts](${absoluteUrl("/fr/contact")})`,
+    `- [Rejoindre le réseau](${absoluteUrl("/fr/talents")})`,
     "",
   ].join("\n");
 

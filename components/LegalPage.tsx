@@ -2,12 +2,24 @@ import type { ReactNode } from "react";
 import { Container } from "@/components/ui/primitives";
 
 /** Long-form legal text with a calm, readable measure. */
-export function LegalPage({ title, updated, children }: { title: string; updated: string; children: ReactNode }) {
+export function LegalPage({
+  title,
+  updated,
+  updatedLabel,
+  children,
+}: {
+  title: string;
+  updated: string;
+  updatedLabel: string;
+  children: ReactNode;
+}) {
   return (
     <section className="bg-canvas">
       <Container className="max-w-[720px] pb-28 pt-20 sm:pt-24">
         <h1 className="headline-lg">{title}</h1>
-        <p className="mt-4 text-[15px] text-fg-subtle">Last updated: {updated}</p>
+        <p className="mt-4 text-[15px] text-fg-subtle">
+          {updatedLabel} {updated}
+        </p>
         <div
           className="mt-12 text-[17px] leading-relaxed text-fg-muted
             [&_a]:text-link [&_a:hover]:underline

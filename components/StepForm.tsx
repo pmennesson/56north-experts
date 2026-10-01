@@ -33,11 +33,14 @@ type Props = {
   serverMessage?: string;
   initialStep?: number;
   footnote?: ReactNode;
+  labels: StepLabels;
 };
+
+export type StepLabels = { back: string; next: string; skip: string; sending: string; required: string; invalidEmail: string };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function StepForm({ steps, action, pending, submitLabel, serverErrors, serverMessage, initialStep = 0, footnote }: Props) {
+export function StepForm({ steps, action, pending, submitLabel, serverErrors, serverMessage, initialStep = 0, footnote, labels }: Props) {
   const [index, setIndex] = useState(initialStep);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
@@ -73,8 +76,8 @@ export function StepForm({ steps, action, pending, submitLabel, serverErrors, se
     const found: Record<string, string> = {};
     for (const name of steps[i].required ?? []) {
       const value = String(data.get(name) ?? "").trim();
-      if (!value) found[name] = "Required";
-      else if (name === "email" && !EMAIL.test(value)) found[name] = "Enter a valid email";
+      if (!value) found[name] = labels.required;
+      else if (name === "email" && !EMAIL.test(value)) found[name] = labels.invalidEmail;
     }
     setErrors((prev) => {
       const next = { ...prev };
@@ -165,7 +168,7 @@ export function StepForm({ steps, action, pending, submitLabel, serverErrors, se
       <div className="mt-10 flex items-center justify-between gap-4">
         {index > 0 ? (
           <button type="button" onClick={() => setIndex(index - 1)} className="text-[17px] text-link hover:underline">
-            Back
+            {labels.back}
           </button>
         ) : (
           <span />
@@ -176,7 +179,7 @@ export function StepForm({ steps, action, pending, submitLabel, serverErrors, se
             disabled={pending}
             className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-7 text-[17px] text-white transition-colors hover:bg-accent-hover disabled:opacity-50"
           >
-            {pending ? "Sending…" : submitLabel}
+            {pending ? labels.sending : submitLabel}
           </button>
         ) : (
           <button
@@ -184,7 +187,7 @@ export function StepForm({ steps, action, pending, submitLabel, serverErrors, se
             onClick={next}
             className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-7 text-[17px] text-white transition-colors hover:bg-accent-hover"
           >
-            {step.optional ? "Skip or continue" : "Continue"}
+            {step.optional ? labels.skip : labels.next}
           </button>
         )}
       </div>

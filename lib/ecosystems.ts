@@ -19,9 +19,11 @@ export type Ecosystem = {
   faq: { q: string; a: string }[];
 };
 
+import { frenchTypo, type Locale } from "@/lib/locale";
+
 type Base = Omit<Ecosystem, "faq"> & { specificFaq: { q: string; a: string } };
 
-const sharedFaq = (e: Base) => [
+const sharedFaqEn = (e: Base) => [
   {
     q: `Where do you find senior ${e.vendor} AI experts?`,
     a: `Mostly outside job boards. We source through the ${e.vendor} practitioner communities: user groups, community forums, meetups and conference speakers, with priority to recognised community contributors. Lead time depends on how scarce the profile is; we give you a realistic estimate when we qualify the brief.`,
@@ -33,6 +35,22 @@ const sharedFaq = (e: Base) => [
   {
     q: "What engagement models do you offer?",
     a: "Three models: staff augmentation (an expert embedded in your team, billed on a daily rate), a dedicated squad (architect plus engineers delivering an agreed scope), and a fractional AI architect (two to eight days a month for design authority and governance).",
+  },
+  e.specificFaq,
+];
+
+const sharedFaqFr = (e: Base) => [
+  {
+    q: `Où trouvez-vous des experts IA ${e.vendor} seniors ?`,
+    a: `Surtout en dehors des job boards. Nous cherchons dans les communautés de praticiens ${e.vendor} : groupes d'utilisateurs, forums, meetups et intervenants de conférences, en priorité parmi les contributeurs reconnus. Le délai dépend de la rareté du profil ; nous vous donnons une estimation réaliste dès le cadrage du besoin.`,
+  },
+  {
+    q: `Comment évaluez-vous les consultants IA ${e.vendor} ?`,
+    a: `Chaque profil passe trois contrôles : un entretien technique mené par un pair senior sur la même pile ${e.vendor}, la vérification des certifications auprès du registre officiel quand il existe, et des appels de référence sur des projets menés en grand compte. Un profil qui échoue à une étape n'est pas présenté.`,
+  },
+  {
+    q: "Quels modes d'intervention proposez-vous ?",
+    a: "Trois modes : la régie (un expert intégré à votre équipe, au taux journalier), l'équipe dédiée (un architecte et des ingénieurs qui livrent un périmètre convenu) et l'architecte IA à temps partagé (deux à huit jours par mois pour l'architecture et la gouvernance).",
   },
   e.specificFaq,
 ];
@@ -166,13 +184,126 @@ const base: Base[] = [
   },
 ];
 
-export const ecosystems: Ecosystem[] = base.map(({ specificFaq, ...e }) => ({
-  ...e,
-  faq: sharedFaq({ ...e, specificFaq }),
-}));
+/** French copy, merged over the English base by slug (technical fields stay shared). */
+const frText: Record<string, Pick<Base, "name" | "headline" | "summary" | "modules" | "roles" | "specificFaq">> = {
+  microsoft: {
+    name: "Microsoft IA & Copilot",
+    headline: "Des experts seniors Copilot, Microsoft Foundry et Azure OpenAI.",
+    summary:
+      "Des architectes et ingénieurs qui ont livré des extensions Copilot, des agents sur mesure et de l'IA générative hébergée sur Azure dans des entreprises réglementées.",
+    modules: [
+      { name: "Microsoft 365 Copilot", detail: "Déploiement, extensibilité, connecteurs Graph, adoption et gouvernance des données." },
+      { name: "Copilot Studio", detail: "Agents sur mesure, topics, actions, intégration Power Platform, ALM." },
+      { name: "Microsoft Foundry", detail: "Catalogue de modèles, service d'agents, évaluation, prompt flow, outils d'IA responsable." },
+      { name: "Azure OpenAI", detail: "Architectures RAG, réseau privé, filtrage de contenu, maîtrise des coûts." },
+    ],
+    roles: ["Architecte Azure AI", "Développeur Copilot Studio", "Responsable adoption M365 Copilot", "Ingénieur MLOps"],
+    specificFaq: {
+      q: "Vos experts peuvent-ils travailler dans le modèle de sécurité de notre tenant Microsoft ?",
+      a: "Oui. Nos profils Microsoft maîtrisent l'accès conditionnel Entra ID, les étiquettes de confidentialité Purview et les points de terminaison privés, et travaillent selon les règles de votre tenant, avec des comptes nominatifs et le moindre privilège.",
+    },
+  },
+  salesforce: {
+    name: "Salesforce Agentforce & Data 360",
+    headline: "Des experts seniors Agentforce, Data 360 et Einstein Trust Layer.",
+    summary:
+      "Des consultants qui conçoivent des agents autonomes sur des données CRM propres, avec des garde-fous que votre conformité peut valider.",
+    modules: [
+      { name: "Agentforce", detail: "Conception d'agents, topics et actions, Prompt Builder, testing center, mise en production." },
+      { name: "Data 360", detail: "Modèle de données, résolution d'identité, intégrations zero-copy, activation." },
+      { name: "Einstein Trust Layer", detail: "Ancrage des réponses, masquage, piste d'audit, contrôle de toxicité." },
+      { name: "MuleSoft & intégration", detail: "Actions d'agents via API, intégration événementielle avec l'ERP et l'existant." },
+    ],
+    roles: ["Architecte Agentforce", "Consultant Data 360", "Développeur IA Salesforce", "Architecte technique"],
+    specificFaq: {
+      q: "Fournissez-vous des experts Agentforce pour une org Salesforce existante ?",
+      a: "Oui. La plupart des missions démarrent sur une org existante : nous évaluons la maturité des données dans Data 360, définissons les premiers cas d'usage d'agents, puis les construisons et les testons avec vos administrateurs et votre intégrateur si vous en avez un.",
+    },
+  },
+  "google-cloud": {
+    name: "Google Cloud Vertex AI & Gemini",
+    headline: "Des experts seniors Vertex AI, Gemini Enterprise et BigQuery.",
+    summary:
+      "Des ingénieurs ML et des architectes qui font passer les cas d'usage Gemini du notebook à une production gouvernée sur Google Cloud.",
+    modules: [
+      { name: "Vertex AI", detail: "Model Garden, fine-tuning, évaluation, pipelines, feature store, endpoints." },
+      { name: "Gemini Enterprise", detail: "Recherche et agents d'entreprise sur Workspace et des sources tierces." },
+      { name: "Agent Development Kit", detail: "Systèmes multi-agents, usage d'outils, déploiement sur Agent Engine." },
+      { name: "BigQuery & socle de données", detail: "BigQuery ML, recherche vectorielle, gouvernance des données avec Dataplex." },
+    ],
+    roles: ["Architecte Vertex AI", "Ingénieur ML", "Ingénieur plateforme Data & IA", "Architecte solutions IA générative"],
+    specificFaq: {
+      q: "Pouvez-vous fournir des experts IA Google Cloud avec des contraintes de résidence des données en Europe ?",
+      a: "Oui. Nos profils Google Cloud conçoivent sur les régions européennes, avec VPC Service Controls, CMEK et Assured Workloads si nécessaire, et documentent les choix de résidence pour votre DPO.",
+    },
+  },
+  sap: {
+    name: "SAP Business AI & Joule",
+    headline: "Des experts seniors Joule, SAP Business AI et services IA de BTP.",
+    summary:
+      "Des consultants SAP natifs qui intègrent l'IA aux processus finance, supply chain et RH sans casser le clean core.",
+    modules: [
+      { name: "Joule", detail: "Scénarios copilote, compétences et agents sur mesure dans Joule Studio, intégration S/4HANA." },
+      { name: "SAP Business AI", detail: "Scénarios IA intégrés à S/4HANA, SuccessFactors, Ariba et Concur." },
+      { name: "BTP AI Core & Generative AI Hub", detail: "Accès aux modèles, orchestration, ancrage, gestion des prompts." },
+      { name: "SAP Business Data Cloud", detail: "Data products, Datasphere, intégration Databricks pour les cas d'usage IA." },
+    ],
+    roles: ["Architecte IA SAP", "Développeur BTP", "Consultant Joule", "Architecte solution S/4HANA"],
+    specificFaq: {
+      q: "Vos experts IA SAP respectent-ils les principes du clean core ?",
+      a: "Oui. Les extensions sont construites à côté du cœur, sur BTP, avec des API publiées : les scénarios IA n'ajoutent pas de code spécifique à votre S/4HANA et restent compatibles avec les mises à jour.",
+    },
+  },
+  servicenow: {
+    name: "ServiceNow Now Assist & AI Agents",
+    headline: "Des experts seniors Now Assist, AI Agents et Workflow Data Fabric.",
+    summary:
+      "Des architectes plateforme qui transforment les workflows IT, RH et service client en workflows agentiques, avec des gains mesurables de résolution.",
+    modules: [
+      { name: "Now Assist", detail: "IA générative pour ITSM, CSM et HRSD : synthèse, résolution, recherche." },
+      { name: "AI Agents & Orchestrator", detail: "Conception d'agents, AI Agent Studio, orchestration entre workflows." },
+      { name: "Workflow Data Fabric", detail: "Connecteurs zero-copy, integration hub, graphe de connaissances." },
+      { name: "AI Control Tower", detail: "Inventaire, gouvernance et suivi de la valeur de l'IA dans toute l'entreprise." },
+    ],
+    roles: ["Architecte IA ServiceNow", "Consultant Now Assist", "Développeur plateforme", "Architecte technique"],
+    specificFaq: {
+      q: "Pouvez-vous renforcer notre équipe ServiceNow pour un déploiement de Now Assist ?",
+      a: "Oui. Nous ajoutons en général un architecte Now Assist et un ou deux développeurs plateforme à votre équipe pendant le déploiement, avec un transfert de compétences prévu dans la mission.",
+    },
+  },
+  workday: {
+    name: "Workday IA & Sana",
+    headline: "Des experts seniors Sana, agents Workday et Workday Build.",
+    summary:
+      "Des spécialistes HCM et Financials qui intègrent les agents IA de Workday aux opérations RH et finance, avec la gouvernance qu'attendent vos auditeurs.",
+    modules: [
+      { name: "Sana from Workday", detail: "Couche d'IA conversationnelle pour les RH et la finance, déployée sur votre tenant Workday." },
+      { name: "Agents RH et finance", detail: "Agents pour le service RH, le recrutement, la paie, la comptabilité, les achats et les notes de frais." },
+      { name: "Agent System of Record", detail: "Gouvernance, piste d'audit et identité des agents Workday et tiers." },
+      { name: "Workday Build & Data Cloud", detail: "Création d'agents en low-code, extensions, partage de données zero-copy avec votre plateforme data." },
+    ],
+    roles: ["Architecte solution IA Workday", "Consultant Workday HCM", "Consultant Workday Financials", "Développeur Workday Extend et intégrations"],
+    specificFaq: {
+      q: "Vos experts Workday peuvent-ils travailler avec notre intégrateur ?",
+      a: "Oui. La plupart des clients Workday ont déjà un intégrateur. Nos experts renforcent votre équipe ou celle de l'intégrateur sur le périmètre IA (conception d'agents, gouvernance, données) sans reprendre le programme.",
+    },
+  },
+};
 
-export const coreEcosystems = ecosystems.filter((e) => e.tier === "core");
+const build = (locale: Locale): Ecosystem[] =>
+  base.map((b) => {
+    const { specificFaq, ...e } = locale === "fr" ? frenchTypo({ ...b, ...frText[b.slug] }) : b;
+    const faq = locale === "fr" ? frenchTypo(sharedFaqFr({ ...e, specificFaq })) : sharedFaqEn({ ...e, specificFaq });
+    return { ...e, faq };
+  });
 
-export function getEcosystem(slug: string) {
-  return ecosystems.find((e) => e.slug === slug);
+const byLocale: Record<Locale, Ecosystem[]> = { en: build("en"), fr: build("fr") };
+
+/** English list: slugs, sitemap, llms.txt. Use getEcosystems(locale) for displayed copy. */
+export const ecosystems = byLocale.en;
+
+export const getEcosystems = (locale: Locale) => byLocale[locale];
+
+export function getEcosystem(slug: string, locale: Locale = "en") {
+  return byLocale[locale].find((e) => e.slug === slug);
 }

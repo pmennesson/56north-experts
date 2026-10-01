@@ -22,8 +22,10 @@ export const siteConfig = {
     "Staff augmentation and expert delegation for AI modules on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Senior consultants sourced through specialist practitioner communities, vetted by peers, deployed across Europe, the Middle East and Africa.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://experts.56north.io",
   email: "experts@56north.io",
-  linkedin: "https://www.linkedin.com/company/example", // TODO
-  locale: "en",
+  /** Founder: shown on /about, linked from the footer, Person JSON-LD. */
+  founder: { name: "Pascal Mennesson", linkedin: "https://www.linkedin.com/in/pascal-mennesson" },
+  /** Company page: leave empty until the 56North LinkedIn page exists; the footer then links to the founder. */
+  linkedinCompany: "" as string,
   /** Where you actually operate. Used in JSON-LD areaServed. */
   areaServed: ["Europe", "United Kingdom", "Middle East", "Africa"],
   /**

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site";
-import type { Dictionary } from "@/lib/i18n";
+import { getLinker, type Dictionary } from "@/lib/i18n";
 import { Button, Check, Chevron, Container, Section, SectionHeader } from "@/components/ui/primitives";
 
 export function ServiceLevels({ t }: { t: Dictionary["serviceLevels"] }) {
@@ -9,7 +8,7 @@ export function ServiceLevels({ t }: { t: Dictionary["serviceLevels"] }) {
       <Container>
         <SectionHeader eyebrow={t.eyebrow} title={t.title} />
         <dl className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {siteConfig.serviceLevels.map((s) => (
+          {t.items.map((s) => (
             <div key={s.label} className="reveal flex flex-col-reverse items-center gap-3 text-center">
               <dt className="max-w-[220px] text-[17px] leading-snug text-fg-muted">{s.label}</dt>
               <dd className="text-5xl font-semibold tracking-[-0.03em]">{s.value}</dd>
@@ -69,7 +68,8 @@ export function Process({ t }: { t: Dictionary["process"] }) {
   );
 }
 
-export function Trust({ t }: { t: Dictionary["trust"] }) {
+export async function Trust({ t }: { t: Dictionary["trust"] }) {
+  const lp = await getLinker();
   const [lead, ...rest] = t.items;
   return (
     <Section>
@@ -81,7 +81,7 @@ export function Trust({ t }: { t: Dictionary["trust"] }) {
           <h3 className="headline-lg max-w-2xl text-balance">{lead.name}</h3>
           <p className="max-w-xl text-xl leading-relaxed text-fg-muted">{lead.body}</p>
           {"href" in lead && lead.href && (
-            <Link href={lead.href} className="mt-2 inline-flex items-center gap-1 text-[17px] text-link hover:underline">
+            <Link href={lp(lead.href)} className="mt-2 inline-flex items-center gap-1 text-[17px] text-link hover:underline">
               {lead.linkLabel} <Chevron />
             </Link>
           )}
@@ -129,17 +129,18 @@ export function Faq({ t }: { t: Dictionary["faq"] }) {
   );
 }
 
-export function CtaBand({ t }: { t: Dictionary["cta"] }) {
+export async function CtaBand({ t }: { t: Dictionary["cta"] }) {
+  const lp = await getLinker();
   return (
     <Section>
       <Container className="reveal flex flex-col items-center gap-5 text-center">
         <h2 className="headline-xl">{t.title}</h2>
         <p className="text-xl text-fg-muted">{t.body}</p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <Button href="/contact" size="lg">
+          <Button href={lp("/contact")} size="lg">
             {t.primary}
           </Button>
-          <Button href="/talents" variant="link">
+          <Button href={lp("/talents")} variant="link">
             {t.secondary}
           </Button>
         </div>

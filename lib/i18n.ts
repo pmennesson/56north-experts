@@ -1,21 +1,23 @@
-import type en from "@/content/en";
+import { lang } from "next/root-params";
+import { defaultLocale, hasLocale, localePath, type Locale } from "@/lib/locale";
+import { loadDictionary, type Dictionary } from "@/lib/dictionaries";
 
-/**
- * i18n scaffold. English is the default and is served without prefix.
- * To add French: create content/fr.ts with the same shape (typed as
- * Dictionary), add "fr" below, then move routes under app/[lang]/ and
- * add a proxy.ts for language detection + hreflang alternates.
- */
-export const locales = ["en"] as const;
-export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "en";
+export * from "@/lib/locale";
+export type { Dictionary };
 
-export type Dictionary = typeof en;
+/** Current locale from the [lang] root segment (Server Components only). */
+export async function getLocale(): Promise<Locale> {
+  const l = await lang();
+  return hasLocale(l) ? l : defaultLocale;
+}
 
-const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
-  en: () => import("@/content/en").then((m) => m.default),
-};
+/** Link builder bound to the current locale. */
+export async function getLinker() {
+  const l = await getLocale();
+  return (path: string) => localePath(l, path);
+}
 
-export async function getDictionary(locale: Locale = defaultLocale): Promise<Dictionary> {
-  return dictionaries[locale]();
+/** Dictionary for the current locale (Server Components), or an explicit one. */
+export async function getDictionary(locale?: Locale): Promise<Dictionary> {
+  return loadDictionary(locale ?? (await getLocale()));
 }

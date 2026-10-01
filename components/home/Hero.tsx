@@ -1,7 +1,8 @@
-import type { Dictionary } from "@/lib/i18n";
+import { getLinker, type Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow } from "@/components/ui/primitives";
 
-export function Hero({ t }: { t: Dictionary["hero"] }) {
+export async function Hero({ t }: { t: Dictionary["hero"] }) {
+  const lp = await getLinker();
   return (
     <section className="overflow-hidden bg-canvas">
       <Container className="flex flex-col items-center pb-8 pt-20 text-center sm:pt-28">
@@ -9,7 +10,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         <h1 className="headline-xl mt-3 whitespace-pre-line text-balance">{t.title}</h1>
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty sm:text-2xl">{t.subtitle}</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <Button href="/contact" size="lg">
+          <Button href={lp("/contact")} size="lg">
             {t.primaryCta}
           </Button>
           <Button href="#how" variant="link">
@@ -56,7 +57,7 @@ function ShortlistCard({ t }: { t: Dictionary["hero"]["shortlist"] }) {
               <p className="truncate text-[17px] font-medium">{p.title}</p>
               <p className="truncate text-[15px] text-fg-muted">{p.match}</p>
             </div>
-            <span className="shrink-0 text-[15px] text-fg-subtle">{p.years} yrs</span>
+            <span className="shrink-0 text-[15px] text-fg-subtle">{p.years} {t.yearsUnit}</span>
           </li>
         ))}
       </ul>

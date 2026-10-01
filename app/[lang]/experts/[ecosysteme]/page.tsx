@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ecosystems, getEcosystem } from "@/lib/ecosystems";
+import { ecosystems, getEcosystem, getEcosystems } from "@/lib/ecosystems";
 import { breadcrumbLd, buildMetadata, ecosystemServiceLd, faqLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { VendorMark } from "@/components/VendorMark";
 import { Faq, CtaBand } from "@/components/home/Sections";
 import { StickyCta } from "@/components/home/Founder";
-import { getDictionary } from "@/lib/i18n";
+import { fill, getDictionary, getLocale, localePath } from "@/lib/i18n";
 import { Button, Check, Chevron, Container, Section, SectionHeader } from "@/components/ui/primitives";
 
-type Props = { params: Promise<{ ecosysteme: string }> };
+type Props = PageProps<"/[lang]/experts/[ecosysteme]">;
 
 /** Pre-render one static page per practice; unknown slugs return 404. */
 export const dynamicParams = false;
@@ -19,33 +19,39 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const e = getEcosystem((await params).ecosysteme);
+  const locale = await getLocale();
+  const e = getEcosystem((await params).ecosysteme, locale);
   if (!e) return {};
+  const { practice: p } = await getDictionary(locale);
   return buildMetadata({
-    title: `${e.vendor} AI experts & consultants for hire`,
-    description: `Senior ${e.modules.map((m) => m.name).slice(0, 3).join(", ")} experts on staff augmentation. Sourced in specialist communities, vetted by peers, deployed across Europe, the Middle East and Africa.`,
+    title: fill(p.metaTitle, { vendor: e.vendor }),
+    description: fill(p.metaDescription, { modules: e.modules.map((m) => m.name).slice(0, 3).join(", ") }),
     path: `/experts/${e.slug}`,
+    locale,
   });
 }
 
 export default async function EcosystemPage({ params }: Props) {
-  const e = getEcosystem((await params).ecosysteme);
+  const locale = await getLocale();
+  const e = getEcosystem((await params).ecosysteme, locale);
   if (!e) notFound();
-  const t = await getDictionary();
+  const t = await getDictionary(locale);
   const p = t.practice;
-  const fill = (s: string) => s.replaceAll("{vendor}", e.vendor);
-  const others = ecosystems.filter((o) => o.slug !== e.slug);
+  const v = (s: string) => fill(s, { vendor: e.vendor });
+  const lp = (path: string) => localePath(locale, path);
+  const contact = lp(`/contact?ecosystem=${e.slug}`);
+  const others = getEcosystems(locale).filter((o) => o.slug !== e.slug);
 
   return (
     <>
       <JsonLd
         data={[
-          ecosystemServiceLd(e),
+          ecosystemServiceLd(e, locale),
           faqLd(e.faq),
           breadcrumbLd([
-            { name: "Home", path: "/" },
-            { name: "Practices", path: "/#ecosystems" },
-            { name: e.name, path: `/experts/${e.slug}` },
+            { name: p.home, path: lp("/") },
+            { name: p.breadcrumb, path: lp("/#ecosystems") },
+            { name: e.name, path: lp(`/experts/${e.slug}`) },
           ]),
         ]}
       />
@@ -54,12 +60,12 @@ export default async function EcosystemPage({ params }: Props) {
       <div className="sticky top-12 z-40 border-b border-line bg-canvas/80 backdrop-blur-xl">
         <Container className="flex h-12 items-center justify-between">
           <nav aria-label="Breadcrumb" className="text-[13px] text-fg-muted">
-            <Link href="/#ecosystems" className="hover:text-fg">Practices</Link>
+            <Link href={lp("/#ecosystems")} className="hover:text-fg">{p.breadcrumb}</Link>
             <span className="mx-2" aria-hidden>›</span>
             <span className="font-semibold text-fg">{e.vendor}</span>
           </nav>
-          <Button href={`/contact?ecosystem=${e.slug}`} className="!h-7 !px-3.5 !text-[12px]">
-            Request experts
+          <Button href={contact} className="!h-7 !px-3.5 !text-[12px]">
+            {p.request}
           </Button>
         </Container>
       </div>
@@ -70,15 +76,14 @@ export default async function EcosystemPage({ params }: Props) {
           <h1 className="headline-lg max-w-3xl text-balance">{e.headline}</h1>
           {/* Answer-first paragraph: the passage LLMs quote when asked "who staffs X experts?" */}
           <p className="max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty">
-            {e.summary} Delivered through staff augmentation, dedicated squads or fractional architecture, sourced
-            through the {e.vendor} practitioner communities and vetted by a senior peer.
+            {e.summary} {v(p.answerSuffix)}
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <Button href={`/contact?ecosystem=${e.slug}`} size="lg">
-              Request {e.vendor} experts
+            <Button href={contact} size="lg">
+              {v(p.requestVendor)}
             </Button>
             <Button href="#modules" variant="link">
-              Modules covered
+              {p.modulesLink}
             </Button>
           </div>
         </Container>
@@ -92,7 +97,7 @@ export default async function EcosystemPage({ params }: Props) {
             <ul className="mt-6 space-y-4">
               {p.pains.map((x) => (
                 <li key={x} className="text-[17px] leading-relaxed text-fg-muted">
-                  {fill(x)}
+                  {v(x)}
                 </li>
               ))}
             </ul>
@@ -102,7 +107,7 @@ export default async function EcosystemPage({ params }: Props) {
             <ul className="mt-6 space-y-4">
               {p.after.map((x) => (
                 <li key={x} className="flex gap-3 text-[17px] leading-relaxed">
-                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-signal" /> {fill(x)}
+                  <Check className="mt-1.5 h-4 w-4 shrink-0 text-signal" /> {v(x)}
                 </li>
               ))}
             </ul>
@@ -112,7 +117,7 @@ export default async function EcosystemPage({ params }: Props) {
 
       <Section id="modules" className="scroll-mt-24">
         <Container>
-          <SectionHeader eyebrow="Modules" title={`What our ${e.vendor} experts deliver.`} />
+          <SectionHeader eyebrow={p.modulesEyebrow} title={v(p.modulesTitle)} />
           <div className="mt-16 grid gap-5 sm:grid-cols-2">
             {e.modules.map((m) => (
               <article key={m.name} className="tile reveal p-8">
@@ -122,8 +127,8 @@ export default async function EcosystemPage({ params }: Props) {
             ))}
           </div>
           <div className="reveal mt-12 flex flex-col items-center gap-3 text-center">
-            <Button href={`/contact?ecosystem=${e.slug}`} size="lg">
-              {fill(p.midCta)}
+            <Button href={contact} size="lg">
+              {v(p.midCta)}
             </Button>
             <p className="text-[15px] text-fg-subtle">{t.hero.reassurance}</p>
           </div>
@@ -133,7 +138,7 @@ export default async function EcosystemPage({ params }: Props) {
       <Section tone="pearl">
         <Container className="grid gap-5 lg:grid-cols-2">
           <article className="tile-white reveal p-10">
-            <h2 className="headline-md">Roles we staff</h2>
+            <h2 className="headline-md">{p.rolesTitle}</h2>
             <ul className="mt-6 space-y-3">
               {e.roles.map((r) => (
                 <li key={r} className="flex items-center gap-3 text-[17px]">
@@ -143,7 +148,7 @@ export default async function EcosystemPage({ params }: Props) {
             </ul>
           </article>
           <article className="tile-white reveal p-10">
-            <h2 className="headline-md">Credentials we verify</h2>
+            <h2 className="headline-md">{p.credentialsTitle}</h2>
             <ul className="mt-6 space-y-3">
               {e.credentials.map((c) => (
                 <li key={c} className="flex items-center gap-3 text-[17px]">
@@ -151,12 +156,12 @@ export default async function EcosystemPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-[13px] text-fg-subtle">Checked against the vendor&apos;s public credential registry where available.</p>
+            <p className="mt-6 text-[13px] text-fg-subtle">{p.credentialsNote}</p>
           </article>
         </Container>
       </Section>
 
-      <Faq t={{ eyebrow: "FAQ", title: `${e.vendor} AI staffing, answered.`, items: e.faq }} />
+      <Faq t={{ eyebrow: t.faq.eyebrow, title: v(p.faqTitle), items: e.faq }} />
       <CtaBand t={t.cta} />
 
       {/* Internal links between pillar pages (SEO) */}
@@ -166,15 +171,15 @@ export default async function EcosystemPage({ params }: Props) {
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3">
             {others.map((o) => (
               <li key={o.slug}>
-                <Link href={`/experts/${o.slug}`} className="inline-flex items-center gap-1 text-[17px] text-link hover:underline">
-                  {o.vendor} AI experts <Chevron />
+                <Link href={lp(`/experts/${o.slug}`)} className="inline-flex items-center gap-1 text-[17px] text-link hover:underline">
+                  {fill(p.linkLabel, { vendor: o.vendor })} <Chevron />
                 </Link>
               </li>
             ))}
           </ul>
         </Container>
       </Section>
-      <StickyCta href={`/contact?ecosystem=${e.slug}`} label={`Request ${e.vendor} experts`} />
+      <StickyCta href={contact} label={v(p.requestVendor)} />
     </>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { getDictionary } from "@/lib/i18n";
-import { ecosystems } from "@/lib/ecosystems";
-import { siteConfig } from "@/lib/site";
+import { getDictionary, getLocale, localePath } from "@/lib/i18n";
+import { getEcosystems } from "@/lib/ecosystems";
 import { buildMetadata, faqLd, serviceCatalogLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Hero } from "@/components/home/Hero";
@@ -9,20 +8,20 @@ import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
 import { CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
 import { Founder, StickyCta } from "@/components/home/Founder";
 
-export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.name} · Senior AI experts for Microsoft, Salesforce, Google Cloud, SAP & ServiceNow`,
-  description: siteConfig.description,
-  path: "/",
-  absoluteTitle: true,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const { meta } = await getDictionary(locale);
+  return buildMetadata({ title: meta.homeTitle, description: meta.description, path: "/", absoluteTitle: true, locale });
+}
 
 export default async function HomePage() {
-  const t = await getDictionary();
+  const locale = await getLocale();
+  const t = await getDictionary(locale);
   return (
     <>
-      <JsonLd data={[serviceCatalogLd(ecosystems), faqLd(t.faq.items)]} />
+      <JsonLd data={[serviceCatalogLd(getEcosystems(locale), locale), faqLd(t.faq.items)]} />
       <Hero t={t.hero} />
-      <VendorBar t={t.vendorBar} />
+      <VendorBar t={t.vendorBar} linkLabel={t.practice.linkLabel} />
       <EcosystemGrid t={t.ecosystems} />
       <ServiceLevels t={t.serviceLevels} />
       <EngagementModels t={t.models} />
@@ -31,7 +30,7 @@ export default async function HomePage() {
       <Founder t={t.founder} />
       <Faq t={t.faq} />
       <CtaBand t={t.cta} />
-      <StickyCta label={t.hero.primaryCta} />
+      <StickyCta href={localePath(locale, "/contact")} label={t.hero.primaryCta} />
     </>
   );
 }
