@@ -8,10 +8,14 @@ export type ArticleVersion = {
   description: string;
   /** The query this version targets. One article, one main query. */
   keyword: string;
+  /** Niche long-tail queries (low competition) the article also answers. Hypotheses until Search Console confirms. */
+  niche: string[];
   /** Answer-first summary shown at the top (and quoted by AI assistants). */
   takeaways: string[];
   /** Markdown. No table alignment colons (French typography pass). */
   body: string;
+  /** Short Q&A at the end: FAQPage JSON-LD, the format AI assistants quote most. */
+  faq: { q: string; a: string }[];
 };
 
 export type Article = {
@@ -23,5 +27,9 @@ export type Article = {
   category: { en: string; fr: string };
   /** Practice pages this article supports (internal links). */
   practices: string[];
+  /** Pillar of the editorial line. */
+  pillar: "integrate" | "use" | "maintain" | "regulate";
+  /** Official or primary sources, shown at the end (authority signal for search and AI). */
+  sources: { title: string; url: string }[];
   versions: Record<Locale, ArticleVersion>;
 };

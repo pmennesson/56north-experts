@@ -12,8 +12,14 @@ const article: Article = {
   status: "draft",
   published: "2026-10-01",
   updated: "2026-10-01",
+  pillar: "regulate",
   category: { en: "EU AI Act", fr: "AI Act" },
   practices: ["microsoft", "salesforce", "sap", "servicenow", "workday"],
+  sources: [
+    { title: "Regulation (EU) 2024/1689 (AI Act), consolidated text", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" },
+    { title: "European Commission: AI Act overview and timeline", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    { title: "Jones Walker: the high-risk delay and what still applies from 2 August 2026", url: "https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html?id=102nbon" },
+  ],
   versions: {
     en: {
       slug: "eu-ai-act-deployer-obligations-copilot-agentforce",
@@ -21,10 +27,25 @@ const article: Article = {
       description:
         "Using Copilot, Agentforce, Joule or Now Assist makes you a deployer under the EU AI Act. What applies since August 2026, what moves to December 2027, and where to start.",
       keyword: "EU AI Act deployer obligations",
+      niche: ["AI Act Copilot obligations", "AI Act Agentforce compliance", "AI Act chatbot disclosure requirement", "AI Act December 2027 high-risk deadline", "is my company a deployer under the AI Act"],
       takeaways: [
         "A company that uses an AI system under its own authority is a deployer under the AI Act, even if Microsoft, Salesforce or SAP built the model.",
         "Since 2 August 2026, transparency rules apply: people must know when they deal with an AI, and deepfakes must be disclosed. Prohibited practices have applied since February 2025.",
         "Obligations for high-risk uses such as recruitment or credit scoring were postponed to 2 December 2027 by Regulation (EU) 2026/1744. That is the time left to build the evidence, not to start thinking about it.",
+      ],
+      faq: [
+        {
+          q: "Is a company that uses Microsoft Copilot subject to the AI Act?",
+          a: "Yes, as a deployer. Microsoft is the provider of Copilot; the company that uses it under its own authority has its own obligations, which depend on how it uses the tool.",
+        },
+        {
+          q: "When do high-risk AI obligations apply to deployers?",
+          a: "On 2 December 2027 for the uses listed in Annex III, such as recruitment and credit scoring, following Regulation (EU) 2026/1744. AI embedded in products regulated under Annex I follows on 2 August 2028.",
+        },
+        {
+          q: "Must a customer chatbot say it is an AI?",
+          a: "Yes. Since 2 August 2026, Article 50 requires that people are informed when they interact with an AI system, unless it is obvious from the context.",
+        },
       ],
       body: `
 Most large companies did not build their own AI models. They switched on Microsoft 365 Copilot, built agents in Agentforce, enabled Joule in SAP or Now Assist in ServiceNow. Under the EU AI Act, that does not make them bystanders: a company that uses an AI system under its own authority is a **deployer**, with obligations of its own. This article sums up what applies today, what was postponed, and where to start. It is general information, not legal advice.
@@ -35,9 +56,8 @@ The **provider** develops an AI system and places it on the market or puts it in
 
 ## What already applies
 
-**Prohibited practices (since 2 February 2025).** Some uses are banned outright, whatever the tool. For companies, the most relevant is emotion recognition in the workplace and in education, except for medical or safety reasons. Check that no HR or employee-monitoring feature does this.
-
-**Transparency (since 2 August 2026).** Article 50 requires that people are informed when they interact with an AI system, unless it is obvious. Deployers must also disclose deepfakes, inform people exposed to emotion recognition or biometric categorisation, and disclose AI-generated text published to inform the public on matters of public interest, unless it has been reviewed by a person who takes editorial responsibility. In practice: a clear notice on every customer-facing chatbot or agent, and a rule for AI-generated images, video and audio.
+- **Prohibited practices (since 2 February 2025).** Some uses are banned outright, whatever the tool. For companies, the most relevant is emotion recognition in the workplace and in education, except for medical or safety reasons. Check that no HR or employee-monitoring feature does this.
+- **Transparency (since 2 August 2026).** Article 50 requires that people are informed when they interact with an AI system, unless it is obvious. Deployers must also disclose deepfakes, inform people exposed to emotion recognition or biometric categorisation, and disclose AI-generated text published to inform the public on matters of public interest, unless it has been reviewed by a person who takes editorial responsibility. In practice: a clear notice on every customer-facing chatbot or agent, and a rule for AI-generated images, video and audio.
 
 ## What was postponed, and to when
 
@@ -61,7 +81,8 @@ Public bodies, and companies that score credit or price life and health insuranc
 
 ## Penalties
 
-Fines can reach €35 million or 7% of worldwide annual turnover for prohibited practices, and €15 million or 3% for breaches of most other obligations, including transparency.
+- **Prohibited practices:** up to €35 million or 7% of worldwide annual turnover.
+- **Most other obligations, including transparency:** up to €15 million or 3%.
 
 ## Where to start
 
@@ -80,10 +101,25 @@ This work needs people who know both the platform and the regulation. Our expert
       description:
         "Utiliser Copilot, Agentforce, Joule ou Now Assist fait de vous un déployeur au sens de l'AI Act. Ce qui s'applique depuis août 2026, ce qui est reporté à décembre 2027, et par où commencer.",
       keyword: "AI Act obligations déployeur",
+      niche: ["AI Act Copilot obligations entreprise", "AI Act Agentforce conformité", "AI Act chatbot mention obligatoire", "AI Act haut risque décembre 2027", "suis-je déployeur AI Act"],
       takeaways: [
         "Une entreprise qui utilise un système d'IA sous sa propre autorité est un déployeur au sens de l'AI Act, même si c'est Microsoft, Salesforce ou SAP qui a construit le modèle.",
         "Depuis le 2 août 2026, les règles de transparence s'appliquent : les personnes doivent savoir qu'elles ont affaire à une IA, et les hypertrucages doivent être signalés. Les pratiques interdites le sont depuis février 2025.",
         "Les obligations liées aux usages à haut risque, comme le recrutement ou l'octroi de crédit, ont été reportées au 2 décembre 2027 par le règlement (UE) 2026/1744. C'est le temps qu'il reste pour constituer les preuves, pas pour commencer à y réfléchir.",
+      ],
+      faq: [
+        {
+          q: "Une entreprise qui utilise Microsoft Copilot est-elle concernée par l'AI Act ?",
+          a: "Oui, en tant que déployeur. Microsoft est le fournisseur de Copilot ; l'entreprise qui l'utilise sous sa propre autorité a ses propres obligations, qui dépendent de l'usage qu'elle en fait.",
+        },
+        {
+          q: "Quand les obligations « haut risque » s'appliquent-elles aux déployeurs ?",
+          a: "Le 2 décembre 2027 pour les usages listés à l'annexe III, comme le recrutement ou l'octroi de crédit, en application du règlement (UE) 2026/1744. L'IA intégrée aux produits réglementés de l'annexe I suit le 2 août 2028.",
+        },
+        {
+          q: "Un chatbot client doit-il dire qu'il est une IA ?",
+          a: "Oui. Depuis le 2 août 2026, l'article 50 impose d'informer les personnes qu'elles interagissent avec un système d'IA, sauf si c'est évident vu le contexte.",
+        },
       ],
       body: `
 La plupart des grandes entreprises n'ont pas construit leurs propres modèles d'IA. Elles ont activé Microsoft 365 Copilot, construit des agents dans Agentforce, activé Joule dans SAP ou Now Assist dans ServiceNow. Pour l'AI Act, cela n'en fait pas des spectatrices : une entreprise qui utilise un système d'IA sous sa propre autorité est un **déployeur**, avec ses propres obligations. Cet article résume ce qui s'applique aujourd'hui, ce qui a été reporté et par où commencer. Il s'agit d'une information générale, pas d'un conseil juridique.
@@ -94,9 +130,8 @@ Le **fournisseur** développe un système d'IA et le met sur le marché ou en se
 
 ## Ce qui s'applique déjà
 
-**Les pratiques interdites (depuis le 2 février 2025).** Certains usages sont purement interdits, quel que soit l'outil. Pour une entreprise, le plus pertinent est la reconnaissance des émotions sur le lieu de travail et dans l'enseignement, sauf pour des raisons médicales ou de sécurité. Vérifiez qu'aucune fonction RH ou de suivi des salariés ne le fait.
-
-**La transparence (depuis le 2 août 2026).** L'article 50 impose que les personnes soient informées lorsqu'elles interagissent avec un système d'IA, sauf si c'est évident. Les déployeurs doivent aussi signaler les hypertrucages, informer les personnes exposées à la reconnaissance des émotions ou à la catégorisation biométrique, et signaler les textes générés par IA publiés pour informer le public sur des sujets d'intérêt public, sauf relecture par une personne qui en assume la responsabilité éditoriale. Concrètement : une mention claire sur chaque assistant ou agent face aux clients, et une règle pour les images, vidéos et sons générés par IA.
+- **Les pratiques interdites (depuis le 2 février 2025).** Certains usages sont purement interdits, quel que soit l'outil. Pour une entreprise, le plus pertinent est la reconnaissance des émotions sur le lieu de travail et dans l'enseignement, sauf pour des raisons médicales ou de sécurité. Vérifiez qu'aucune fonction RH ou de suivi des salariés ne le fait.
+- **La transparence (depuis le 2 août 2026).** L'article 50 impose que les personnes soient informées lorsqu'elles interagissent avec un système d'IA, sauf si c'est évident. Les déployeurs doivent aussi signaler les hypertrucages, informer les personnes exposées à la reconnaissance des émotions ou à la catégorisation biométrique, et signaler les textes générés par IA publiés pour informer le public sur des sujets d'intérêt public, sauf relecture par une personne qui en assume la responsabilité éditoriale. Concrètement : une mention claire sur chaque assistant ou agent face aux clients, et une règle pour les images, vidéos et sons générés par IA.
 
 ## Ce qui a été reporté, et à quand
 
@@ -120,7 +155,8 @@ Les organismes publics, et les entreprises qui évaluent la solvabilité ou tari
 
 ## Les sanctions
 
-Les amendes peuvent atteindre 35 millions d'euros ou 7 % du chiffre d'affaires mondial annuel pour les pratiques interdites, et 15 millions d'euros ou 3 % pour la plupart des autres manquements, dont la transparence.
+- **Pratiques interdites :** jusqu'à 35 millions d'euros ou 7 % du chiffre d'affaires mondial annuel.
+- **La plupart des autres manquements, dont la transparence :** jusqu'à 15 millions d'euros ou 3 %.
 
 ## Par où commencer
 

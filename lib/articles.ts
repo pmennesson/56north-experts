@@ -27,6 +27,8 @@ function localize(a: Article, locale: Locale): LocalizedArticle {
     published: a.published,
     updated: a.updated,
     practices: a.practices,
+    pillar: a.pillar,
+    sources: a.sources,
     ...v,
     locale,
     category: a.category[locale],

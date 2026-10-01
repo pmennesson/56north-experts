@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 import { getEcosystem } from "@/lib/ecosystems";
 import { articleLanguages, formatDate, getAllArticles, getArticle, getPublishedArticles } from "@/lib/articles";
-import { articleLd, breadcrumbLd, buildMetadata } from "@/lib/seo";
+import { articleLd, breadcrumbLd, buildMetadata, faqLd } from "@/lib/seo";
 import { fill, getDictionary, getLocale, hasLocale, localePath } from "@/lib/i18n";
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/home/Sections";
@@ -64,8 +64,9 @@ export default async function ArticlePage({ params }: Props) {
             dateModified: a.updated,
             locale,
             section: a.category,
-            keywords: [a.keyword],
+            keywords: [a.keyword, ...a.niche],
           }),
+          ...(a.faq.length ? [faqLd(a.faq)] : []),
           breadcrumbLd([
             { name: t.practice.home, path: lp("/") },
             { name: i.eyebrow, path: lp("/insights") },
@@ -124,6 +125,43 @@ export default async function ArticlePage({ params }: Props) {
               [&_th]:px-3 [&_th]:pb-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-fg"
             dangerouslySetInnerHTML={{ __html: a.html }}
           />
+
+          {a.faq.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.02em]">{i.faqTitle}</h2>
+              <div className="mt-6 divide-y divide-line border-y border-line">
+                {a.faq.map((f) => (
+                  <details key={f.q} className="group py-5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-[18px] font-semibold tracking-[-0.01em] [&::-webkit-details-marker]:hidden">
+                      {f.q}
+                      <span
+                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-fg/5 text-fg-muted transition-transform duration-300 group-open:rotate-45"
+                        aria-hidden
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-[17px] leading-relaxed text-fg-muted">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {a.sources.length > 0 && (
+            <section className="mt-12">
+              <h2 className="text-[13px] font-semibold uppercase tracking-wide text-fg-subtle">{i.sourcesTitle}</h2>
+              <ul className="mt-3 space-y-2 text-[15px]">
+                {a.sources.map((s) => (
+                  <li key={s.url}>
+                    <a href={s.url} rel="noopener" target="_blank" className="text-link hover:underline">
+                      {s.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {a.updated !== a.published && (
             <p className="mt-12 text-[13px] text-fg-subtle">

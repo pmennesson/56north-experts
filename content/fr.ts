@@ -245,6 +245,8 @@ const fr: Dictionary = {
     practicesTitle: "Les experts sur ce sujet",
     moreTitle: "À lire aussi",
     back: "Toutes les ressources",
+    faqTitle: "Questions et réponses",
+    sourcesTitle: "Sources",
     ctaTitle: "Besoin de cette expertise sur votre projet ?",
     ctaBody: "Brief gratuit. Un responsable d'expertise vous répond sous un jour ouvré.",
   },

@@ -243,6 +243,8 @@ const en = {
     practicesTitle: "Experts for this topic",
     moreTitle: "More insights",
     back: "All insights",
+    faqTitle: "Questions and answers",
+    sourcesTitle: "Sources",
     ctaTitle: "Need this expertise on your project?",
     ctaBody: "Free to brief. A practice lead replies within one business day.",
   },
