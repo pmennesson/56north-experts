@@ -11,6 +11,6 @@ experts.56north.io {
 	reverse_proxy main:3000
 }
 
-www.56north.io, new.56north.io {
+www.56north.io {
 	redir https://56north.io{uri} permanent
 }
