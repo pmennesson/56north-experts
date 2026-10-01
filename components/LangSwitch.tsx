@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 /**
  * Same page in the other language: /x ↔ /fr/x.
@@ -13,7 +14,14 @@ export function LangSwitch({ label, short, className = "" }: { label: string; sh
   const raw = usePathname() || "/";
   const path = raw === "/en" ? "/" : raw.startsWith("/en/") ? raw.slice(3) : raw;
   const isFr = path === "/fr" || path.startsWith("/fr/");
-  const target = isFr ? path.slice(3) || "/" : path === "/" ? "/fr" : `/fr${path}`;
+  const fallback = isFr ? path.slice(3) || "/" : path === "/" ? "/fr" : `/fr${path}`;
+  const other = isFr ? "en" : "fr";
+  // Pages whose slug differs per language (articles) declare it in <link rel="alternate" hreflang>.
+  const [target, setTarget] = useState(fallback);
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${other}"]`);
+    setTarget(link ? new URL(link.href).pathname : fallback);
+  }, [fallback, other]);
   return (
     <Link href={target} hrefLang={isFr ? "en" : "fr"} lang={isFr ? "en" : "fr"} aria-label={label} className={className}>
       {short}

@@ -2,6 +2,7 @@ import { ecosystems } from "@/lib/ecosystems";
 import { siteConfig } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import { getEcosystems } from "@/lib/ecosystems";
+import { getPublishedArticles } from "@/lib/articles";
 
 /** /llms.txt — a plain-text map of the site for AI assistants (GEO). */
 export const dynamic = "force-static";
@@ -27,6 +28,9 @@ export function GET() {
     `- Part of ${siteConfig.parent.name} (${siteConfig.parent.url}), an enterprise AI governance platform.`,
     "- Independence rule: 56North never audits or rates an AI system built or maintained by an expert it placed with the same client in the previous 24 months.",
     "",
+    ...(getPublishedArticles("en").length
+      ? ["## Insights", ...getPublishedArticles("en").map((a) => `- [${a.title}](${absoluteUrl(a.path)}): ${a.takeaways[0]}`), ""]
+      : []),
     "## Contact",
     `- [Request experts](${absoluteUrl("/contact")}) — free to brief, no commitment until a profile is chosen`,
     `- [About](${absoluteUrl("/about")})`,

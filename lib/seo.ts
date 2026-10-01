@@ -20,6 +20,8 @@ export function buildMetadata({
   noIndex = false,
   absoluteTitle = false,
   locale = "en",
+  languages,
+  article,
 }: {
   title: string;
   description: string;
@@ -31,15 +33,19 @@ export function buildMetadata({
   absoluteTitle?: boolean;
   /** Path is given unprefixed; the locale prefix is added here. */
   locale?: Locale;
+  /** Override hreflang map (pages whose slug differs per language). Values are full public paths. */
+  languages?: Record<string, string>;
+  /** Article metadata (OpenGraph type "article"). */
+  article?: { publishedTime: string; modifiedTime?: string; authors: string[]; section?: string };
 }): Metadata {
-  const url = localePath(locale, path);
+  const url = languages ? languages[locale] : localePath(locale, path);
   const images = ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: title }] : undefined;
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: url, languages: languageAlternates(path) },
+    alternates: { canonical: url, languages: languages ?? languageAlternates(path) },
     openGraph: {
-      type: "website",
+      ...(article ? { type: "article" as const, ...article } : { type: "website" as const }),
       url,
       siteName: siteConfig.name,
       title,
@@ -164,4 +170,31 @@ export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
     name: it.name,
     item: absoluteUrl(it.path),
   })),
+});
+
+/** Article / BlogPosting with the founder as author (E-E-A-T). */
+export const articleLd = (a: {
+  url: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  locale: Locale;
+  section: string;
+  keywords: string[];
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: a.title,
+  description: a.description,
+  datePublished: a.datePublished,
+  dateModified: a.dateModified,
+  inLanguage: a.locale,
+  articleSection: a.section,
+  keywords: a.keywords.join(", "),
+  mainEntityOfPage: absoluteUrl(a.url),
+  url: absoluteUrl(a.url),
+  image: absoluteUrl(a.locale === "fr" ? "/fr/opengraph-image" : "/opengraph-image"),
+  author: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name, url: absoluteUrl(localePath(a.locale, "/about")) },
+  publisher: { "@id": orgId },
 });
