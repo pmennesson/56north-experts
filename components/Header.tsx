@@ -23,15 +23,16 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
     { href: lp("/talents"), label: t.talents },
     { href: lp("/insights"), label: t.insights },
     { href: lp("/about"), label: t.about },
+    { href: t.cockpitHref, label: t.cockpit },
     { href: lp("/contact"), label: t.contactShort },
   ];
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl backdrop-saturate-150">
       <Container className="flex h-12 items-center justify-between">
         <BrandMark />
-        <nav aria-label="Main" className="hidden items-center gap-10 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-5 md:flex lg:gap-10">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[13px] text-fg/80 transition-colors hover:text-fg">
+            <Link key={l.href} href={l.href} className="whitespace-nowrap text-[13px] text-fg/80 transition-colors hover:text-fg">
               {l.label}
             </Link>
           ))}
