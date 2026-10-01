@@ -3,25 +3,14 @@ experts.56north.io {
 	reverse_proxy web:3000
 }
 
-# --- 56north.io, new version: private preview ---------------------------------
-# DNS: CNAME "new" -> vps-fad5b443.vps.ovh.net. Not indexed by search engines.
-new.56north.io {
+# --- 56north.io (main site) ---------------------------------------------------
+# The previous site stays on its original host (146.59.209.152) as a fallback:
+# pointing the DNS A records of 56north.io and www back to it restores it.
+56north.io {
 	encode zstd gzip
-	header X-Robots-Tag "noindex, nofollow"
 	reverse_proxy main:3000
 }
 
-# --- 56north.io, go-live (disabled) ------------------------------------------
-# 56north.io still points to its original host (146.59.209.152), which stays
-# untouched as the fallback. To go live: in the OVH DNS zone, change the A
-# record of 56north.io (and www) to this VPS, uncomment the two blocks below,
-# then run the install command again. Email (MX records) is not affected.
-#
-# 56north.io {
-# 	encode zstd gzip
-# 	reverse_proxy main:3000
-# }
-#
-# www.56north.io {
-# 	redir https://56north.io{uri} permanent
-# }
+www.56north.io, new.56north.io {
+	redir https://56north.io{uri} permanent
+}
