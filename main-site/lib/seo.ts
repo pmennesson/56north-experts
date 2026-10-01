@@ -53,6 +53,7 @@ export const organizationLd = (description: string) => ({
   "@type": "Organization",
   "@id": orgId,
   name: site.name,
+  legalName: site.company.name,
   url: site.url,
   email: site.email,
   description,

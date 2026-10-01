@@ -11,9 +11,12 @@ export function NoticeFr() {
     <>
       <h2>Éditeur du site</h2>
       <p>
-        Le site 56north.io est édité par <strong>Pascal Mennesson</strong>, entrepreneur résidant à Maurice, à titre
-        personnel. L&apos;entité 56North est en cours de constitution ; sa forme et ses coordonnées seront publiées ici dès
-        son immatriculation.
+        Le site 56north.io est édité par <strong>{site.company.name}</strong>, {site.company.formFr}, qui exploite la
+        marque 56North.
+        <br />
+        Numéro d&apos;immatriculation (BRN) : {site.company.brn}
+        <br />
+        Siège social : {site.company.address}
         <br />
         Contact : {mail}
       </p>
@@ -28,7 +31,7 @@ export function NoticeFr() {
       </p>
       <h2>Propriété intellectuelle</h2>
       <p>
-        L&apos;ensemble des contenus de ce site est protégé. « 56North », « Cockpit », « Note de navigabilité » et
+        L&apos;ensemble des contenus de ce site appartient à {site.company.name}, sauf mention contraire. « 56North », « Cockpit », « Note de navigabilité » et
         « Rapport de vol » sont des signes distinctifs ; toute reproduction sans autorisation écrite préalable est
         interdite.
       </p>
@@ -57,9 +60,12 @@ export function NoticeEn() {
     <>
       <h2>Publisher</h2>
       <p>
-        56north.io is published by <strong>Pascal Mennesson</strong>, an entrepreneur residing in Mauritius, in a
-        personal capacity. The 56North entity is being incorporated; its legal form and details will be published here
-        once registered.
+        56north.io is published by <strong>{site.company.name}</strong>, a {site.company.formEn}, which operates the
+        56North brand.
+        <br />
+        Business Registration Number (BRN): {site.company.brn}
+        <br />
+        Registered office: {site.company.address}
         <br />
         Contact: {mail}
       </p>
@@ -74,7 +80,7 @@ export function NoticeEn() {
       </p>
       <h2>Intellectual property</h2>
       <p>
-        All content on this site is protected. “56North”, “Cockpit”, “Note de navigabilité” (airworthiness score) and
+        All content on this site belongs to {site.company.name} unless stated otherwise. “56North”, “Cockpit”, “Note de navigabilité” (airworthiness score) and
         “Rapport de vol” (flight report) are distinctive signs; any reproduction without prior written permission is
         prohibited.
       </p>
@@ -191,7 +197,7 @@ export function PrivacyFr() {
     <>
       <h2>Responsable du traitement</h2>
       <p>
-        Pascal Mennesson, entrepreneur résidant à Maurice, éditeur du site. Contact : {mail}.
+        {site.company.name} (BRN {site.company.brn}), {site.company.address}. Contact : {mail}.
       </p>
       <h2>Périmètre</h2>
       <p>
@@ -225,7 +231,7 @@ export function PrivacyFr() {
       <h2>Où sont les données</h2>
       <p>
         Les données du formulaire sont hébergées dans l&apos;Union européenne (base de données à Paris). Elles peuvent
-        être consultées depuis Maurice par l&apos;éditeur. L&apos;alerte e-mail transite par des prestataires établis
+        être consultées depuis Maurice, où l&apos;éditeur est établi. L&apos;alerte e-mail transite par des prestataires établis
         aux États-Unis ; ce transfert s&apos;appuie sur les clauses contractuelles types de la Commission européenne.
       </p>
       <h2>Cookies et traceurs</h2>
@@ -243,7 +249,8 @@ export function PrivacyFr() {
       <p>
         Vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement, de limitation,
         d&apos;opposition et de portabilité, et pouvez retirer votre consentement à tout moment. Écrivez à {mail} ;
-        nous répondons sous un mois. Vous pouvez aussi saisir la CNIL, 3 place de Fontenoy, 75007 Paris.
+        nous répondons sous un mois. Vous pouvez aussi saisir le Data Protection Office de Maurice ou, si vous résidez
+        dans l&apos;Union européenne, l&apos;autorité de votre pays (en France, la CNIL, 3 place de Fontenoy, 75007 Paris).
       </p>
       <h2>Évolution de cette politique</h2>
       <p>Toute modification est publiée sur cette page, avec sa date.</p>
@@ -255,7 +262,9 @@ export function PrivacyEn() {
   return (
     <>
       <h2>Data controller</h2>
-      <p>Pascal Mennesson, an entrepreneur residing in Mauritius, publisher of this site. Contact: {mail}.</p>
+      <p>
+        {site.company.name} (BRN {site.company.brn}), {site.company.address}. Contact: {mail}.
+      </p>
       <h2>Scope</h2>
       <p>
         This policy covers 56north.io and the exchanges that follow from it. Data processed in the Cockpit for our
@@ -282,8 +291,8 @@ export function PrivacyEn() {
       <p>For the Cockpit, our technical subcontractors are Scaleway (hosting, France) and Mistral (evaluation model, EU).</p>
       <h2>Where the data is</h2>
       <p>
-        Form data is hosted in the European Union (database in Paris). It may be accessed from Mauritius by the
-        publisher. The email alert passes through providers based in the United States; this transfer relies on the
+        Form data is hosted in the European Union (database in Paris). It may be accessed from Mauritius, where the
+        publisher is established. The email alert passes through providers based in the United States; this transfer relies on the
         European Commission&apos;s standard contractual clauses.
       </p>
       <h2>Cookies and trackers</h2>
@@ -299,8 +308,9 @@ export function PrivacyEn() {
       <h2>Your rights</h2>
       <p>
         You have the right to access, correct, erase, restrict, object and port your data, and can withdraw your
-        consent at any time. Write to {mail}; we reply within one month. You can also contact the CNIL, 3 place de
-        Fontenoy, 75007 Paris, France.
+        consent at any time. Write to {mail}; we reply within one month. You can also contact the Data Protection Office
+        of Mauritius or, if you live in the European Union, the authority of your country (in France, the CNIL, 3 place
+        de Fontenoy, 75007 Paris).
       </p>
       <h2>Changes to this policy</h2>
       <p>Any change is published on this page, with its date.</p>

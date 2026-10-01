@@ -16,7 +16,7 @@ export async function Footer({ t }: { t: Dictionary["footer"] }) {
           </a>
         </p>
         <p className="border-t border-line pt-4">
-          © {new Date().getFullYear()} {site.name}
+          © {new Date().getFullYear()} {site.company.name} · {site.name}
           <span className="mx-2" aria-hidden>|</span>
           <Link href={pagePaths.notice[locale]} className="hover:text-fg hover:underline">
             {t.notice}
