@@ -67,8 +67,37 @@ else
 fi
 
 say "4/4 Démarrage (3 à 5 minutes la première fois)"
-docker compose -f deploy/docker-compose.yml up -d --build
+export GIT_SHA="$(git rev-parse --short HEAD)"
+docker compose -f deploy/docker-compose.yml up -d --build --remove-orphans
 # Pick up Caddyfile changes (bind-mounted files do not trigger a container restart)
 docker compose -f deploy/docker-compose.yml exec -T caddy caddy reload --config /etc/caddy/Caddyfile || true
+
+say "Mises à jour automatiques"
+chmod +x deploy/auto-update.sh
+cat > /etc/systemd/system/56north-update.service <<UNIT
+[Unit]
+Description=56North: deploy the latest version from GitHub
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=$DIR/deploy/auto-update.sh
+UNIT
+cat > /etc/systemd/system/56north-update.timer <<UNIT
+[Unit]
+Description=56North: check GitHub for a new version every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
+UNIT
+systemctl daemon-reload
+systemctl enable --now 56north-update.timer >/dev/null
+echo "Le serveur vérifiera GitHub toutes les 5 minutes et installera seul chaque nouvelle version."
+echo "Journal : /var/log/56north-deploy.log"
 
 say "Terminé. Le site sera en ligne sur https://experts.56north.io dès que le certificat HTTPS est obtenu (1 à 2 minutes)."

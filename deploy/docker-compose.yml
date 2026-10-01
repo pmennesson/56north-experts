@@ -5,6 +5,7 @@ services:
       context: ..
       args:
         NEXT_PUBLIC_SITE_URL: https://experts.56north.io
+        GIT_SHA: ${GIT_SHA:-unknown}
     env_file: ../.env.production   # SUPABASE_URL, SUPABASE_SECRET_KEY (never committed)
     restart: unless-stopped
     expose:
@@ -15,6 +16,7 @@ services:
       context: ../main-site
       args:
         NEXT_PUBLIC_SITE_URL: https://56north.io
+        GIT_SHA: ${GIT_SHA:-unknown}
     env_file: ../.env.production
     restart: unless-stopped
     expose:
