@@ -43,7 +43,11 @@ export function buildMetadata({
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: url, languages: languages ?? languageAlternates(path) },
+    alternates: {
+      canonical: url,
+      languages: languages ?? languageAlternates(path),
+      types: { "application/rss+xml": absoluteUrl(localePath(locale, "/feed.xml")) },
+    },
     openGraph: {
       ...(article ? { type: "article" as const, ...article } : { type: "website" as const }),
       url,
@@ -194,7 +198,7 @@ export const articleLd = (a: {
   keywords: a.keywords.join(", "),
   mainEntityOfPage: absoluteUrl(a.url),
   url: absoluteUrl(a.url),
-  image: absoluteUrl(a.locale === "fr" ? "/fr/opengraph-image" : "/opengraph-image"),
+  image: `${a.url.replace(/\/$/, "")}/opengraph-image`,
   author: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name, url: absoluteUrl(localePath(a.locale, "/about")) },
   publisher: { "@id": orgId },
 });
