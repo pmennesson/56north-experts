@@ -194,8 +194,8 @@ const fr = {
     eyebrow: "Factory",
     title: "Connecter, maintenir, faire tourner\nles IA que vous avez déjà.",
     intro:
-      "La plupart des IA d'une entreprise sont déjà en place, chez plusieurs éditeurs. La Factory les raccorde au Cockpit, les garde fiables en production et vous évite de monter une équipe dédiée.",
-    status: "Mise en place sur abonnement, avec nos partenaires",
+      "La plupart des IA d'une entreprise sont déjà en place, chez plusieurs éditeurs. Avec notre partenaire Wikolabs, la Factory les raccorde au Cockpit, les garde fiables en production et vous évite de monter une équipe dédiée.",
+    status: "Mise en place sur abonnement, avec notre partenaire Wikolabs",
     itemsTitle: "Ce que la Factory prend en charge",
     items: [
       { name: "Raccorder", body: "Brancher vos IA au Cockpit : passerelle, journaux, puis connecteurs éditeurs à mesure qu'ils arrivent. Vous passez du niveau « déclaré » au niveau « connecté »." },

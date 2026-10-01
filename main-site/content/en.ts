@@ -187,8 +187,8 @@ const en: MainDictionary = {
     eyebrow: "Factory",
     title: "Connect, maintain and run\nthe AI you already have.",
     intro:
-      "Most of a company's AI is already in place, across several vendors. The Factory connects it to the Cockpit, keeps it reliable in production and spares you from building a dedicated team.",
-    status: "Set up with a subscription, with our partners",
+      "Most of a company's AI is already in place, across several vendors. With our partner Wikolabs, the Factory connects it to the Cockpit, keeps it reliable in production and spares you from building a dedicated team.",
+    status: "Set up with a subscription, with our partner Wikolabs",
     itemsTitle: "What the Factory takes on",
     items: [
       { name: "Connect", body: "Plugging your AI systems into the Cockpit: gateway, logs, then vendor connectors as they become available. You move from the “declared” to the “connected” level." },
