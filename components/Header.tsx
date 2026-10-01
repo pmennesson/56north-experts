@@ -17,7 +17,7 @@ export function Header({ t }: { t: Dictionary["nav"] }) {
   const links = [
     { href: "/#ecosystems", label: t.experts },
     { href: "/talents", label: t.talents },
-    { href: "/insights", label: t.insights },
+    { href: "/about", label: t.about },
     { href: "/contact", label: t.contactShort },
   ];
   return (

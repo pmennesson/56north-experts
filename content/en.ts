@@ -9,6 +9,7 @@ const en = {
     insights: "Insights",
     contact: "Request experts",
     contactShort: "Contact",
+    about: "About",
   },
   hero: {
     eyebrow: "The expert network of 56North",
@@ -17,6 +18,7 @@ const en = {
       "For the AI modules of Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Found in the communities where the best specialists actually work.",
     primaryCta: "Request experts",
     secondaryCta: "How it works",
+    reassurance: "Free to brief. No commitment until you choose a profile.",
     shortlist: {
       label: "Example shortlist",
       brief: "Agentforce Architect · Paris · 6 months",
@@ -114,9 +116,32 @@ const en = {
       },
     ],
   },
+  founder: {
+    eyebrow: "Who is behind it",
+    title: "Built by someone who has staffed 1,100 consultants.",
+    body: "56North Experts is led by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,100 consultants in 12 countries before its exit. He knows what it takes to put the right senior person on an enterprise programme, and what it costs when the wrong one shows up.",
+    link: "About us",
+  },
+  /** Practice pages: the reader's situation in their own words, then what changes. */
+  practice: {
+    painsTitle: "Sound familiar?",
+    pains: [
+      "You have a {vendor} AI roadmap, and your team is busy running the platform.",
+      "Your integrator proposes junior profiles at senior rates.",
+      "Your security team asks who will control the AI once it is live.",
+    ],
+    afterTitle: "What changes when the right expert joins",
+    after: [
+      "A senior {vendor} specialist in your team, under your lead.",
+      "A first AI use case scoped, built and measured, not just a slide.",
+      "Governance your auditors and your security team can read.",
+    ],
+    midCta: "Brief us on your {vendor} role",
+    related: "Other practices",
+  },
   cta: {
     title: "Tell us the role.",
-    body: "A practice lead replies within one business day.",
+    body: "Free to brief. A practice lead replies within one business day.",
     primary: "Request experts",
     secondary: "Join the network",
   },

@@ -44,6 +44,21 @@ export function buildMetadata({
 /* ---------------------------- JSON-LD ---------------------------- */
 
 const orgId = `${siteConfig.url}/#organization`;
+const founderId = `${siteConfig.url}/about#founder`;
+
+/** The founder as a Person entity: authority signal for search engines and AI assistants. */
+export const founderLd = () => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": founderId,
+  name: "Pascal Mennesson",
+  jobTitle: "Founder",
+  worksFor: { "@id": orgId },
+  description:
+    "Co-founder of Maltem Consulting Group, grown from 2001 to more than 1,100 consultants in 12 countries before its exit. Founder of 56North.",
+  knowsAbout: ["IT staffing", "Consulting", "Enterprise AI governance"],
+  url: absoluteUrl("/about"),
+});
 
 export const organizationLd = () => ({
   "@context": "https://schema.org",
@@ -57,6 +72,7 @@ export const organizationLd = () => ({
   areaServed: siteConfig.areaServed,
   sameAs: [siteConfig.linkedin],
   parentOrganization: { "@type": "Organization", name: siteConfig.parent.name, url: siteConfig.parent.url },
+  founder: { "@id": founderId, "@type": "Person", name: "Pascal Mennesson" },
   knowsAbout: [
     "Staff augmentation",
     "IT staffing",

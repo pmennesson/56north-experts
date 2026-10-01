@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Hero } from "@/components/home/Hero";
 import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
 import { CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
+import { Founder, StickyCta } from "@/components/home/Founder";
 
 export const metadata: Metadata = buildMetadata({
   title: `${siteConfig.name} · Senior AI experts for Microsoft, Salesforce, Google Cloud, SAP & ServiceNow`,
@@ -27,8 +28,10 @@ export default async function HomePage() {
       <EngagementModels t={t.models} />
       <Process t={t.process} />
       <Trust t={t.trust} />
+      <Founder t={t.founder} />
       <Faq t={t.faq} />
       <CtaBand t={t.cta} />
+      <StickyCta label={t.hero.primaryCta} />
     </>
   );
 }

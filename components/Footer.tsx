@@ -29,6 +29,7 @@ export function Footer({ t }: { t: Dictionary }) {
     {
       title: "Company",
       links: [
+        { href: "/about", label: t.nav.about },
         { href: siteConfig.parent.url, label: `${siteConfig.parent.name} governance platform` },
         { href: `mailto:${siteConfig.email}`, label: "Contact" },
         { href: siteConfig.linkedin, label: "LinkedIn" },
@@ -37,7 +38,7 @@ export function Footer({ t }: { t: Dictionary }) {
   ];
 
   return (
-    <footer className="bg-canvas-alt text-[12px] text-fg-muted">
+    <footer className="bg-canvas-alt pb-20 text-[12px] text-fg-muted md:pb-0">
       <Container className="py-10">
         <p className="border-b border-line pb-4 leading-relaxed text-fg-subtle">
           {t.footer.independence} {t.footer.disclaimer}

@@ -16,6 +16,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
             {t.secondaryCta}
           </Button>
         </div>
+        <p className="mt-4 text-[15px] text-fg-subtle">{t.reassurance}</p>
       </Container>
 
       {/* The "product shot": what a client actually receives */}
