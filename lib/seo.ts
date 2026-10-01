@@ -58,6 +58,7 @@ export const founderLd = () => ({
     "Co-founder of Maltem Consulting Group, grown from 2001 to more than 1,100 consultants in 12 countries before its exit. Founder of 56North.",
   knowsAbout: ["IT staffing", "Consulting", "Enterprise AI governance"],
   url: absoluteUrl("/about"),
+  image: absoluteUrl("/founder.jpg"),
 });
 
 export const organizationLd = () => ({
