@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow, Section, SectionHeader } from "@/components/ui/primitives";
+import { ScoreBoard } from "@/components/ScoreBoard";
 
 type T = Dictionary;
 
@@ -34,41 +35,7 @@ export function Hero({ t }: { t: T["hero"] }) {
 
 /** The product shot: what a leadership team sees in the Cockpit. */
 function Board({ t }: { t: T["hero"]["board"] }) {
-  return (
-    <figure className="reveal mx-auto max-w-2xl rounded-[32px] bg-surface p-6 shadow-[0_30px_80px_-20px_rgb(0_0_0/0.18)] ring-1 ring-line sm:p-8">
-      <div className="flex items-end justify-between gap-4">
-        <div className="text-left">
-          <p className="text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{t.label}</p>
-          <p className="mt-2 flex items-baseline gap-2">
-            <span className="text-6xl font-semibold tracking-[-0.04em]">{t.score}</span>
-            <span className="text-[17px] text-fg-muted">{t.outOf}</span>
-          </p>
-          <p className="mt-1 text-[15px] font-medium text-signal">{t.trend}</p>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <span
-            className="flex h-16 w-16 items-center justify-center rounded-full bg-canvas-alt text-3xl font-semibold"
-            aria-label={`${t.letterLabel} ${t.letter}`}
-          >
-            {t.letter}
-          </span>
-          <span className="text-[12px] text-fg-subtle">{t.letterLabel}</span>
-        </div>
-      </div>
-      <ul className="mt-6 space-y-4 border-t border-line pt-6">
-        {t.dials.map((d) => (
-          <li key={d.name} className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 text-left sm:grid-cols-[150px_1fr_auto]">
-            <span className="text-[15px] font-medium">{d.name}</span>
-            <span className="order-last col-span-2 h-1.5 overflow-hidden rounded-full bg-fg/[0.06] sm:order-none sm:col-span-1" aria-hidden>
-              <span className="block h-full rounded-full bg-accent" style={{ width: `${d.value}%` }} />
-            </span>
-            <span className="text-right text-[15px] tabular-nums text-fg-muted">{d.value}</span>
-          </li>
-        ))}
-      </ul>
-      <figcaption className="mt-5 text-left text-[13px] text-fg-subtle">{t.caption}</figcaption>
-    </figure>
-  );
+  return <ScoreBoard {...t} />;
 }
 
 /* ------------------------------------------------------- Regulatory clock */
