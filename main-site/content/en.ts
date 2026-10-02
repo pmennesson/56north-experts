@@ -3,18 +3,18 @@ import type { MainDictionary } from "@/content/fr";
 /** 56north.io — English content. Same rules as fr.ts (docs/faits-publics.md). */
 const en: MainDictionary = {
   meta: {
-    title: "56North · Enterprise AI governance",
+    title: "56North · Independent AI governance and EU AI Act evidence",
     description:
-      "56North measures the AI systems running in your company and gathers the dated evidence the EU AI Act requires: registry, five-dial score, monthly flight report. Independent third party, sovereign tooling.",
-    ogTitle: "You have AI everywhere. Can you prove you control it?",
+      "56North is the independent third party that inventories, measures and proves a company's AI systems across every vendor: registry, five-dial score, dated and sealed evidence for the deployer obligations of the EU AI Act. Sovereign tooling, hosted in France.",
+    ogTitle: "Your vendors prove their AI is compliant. Who proves yours is?",
     ogLocale: "en_GB",
   },
   nav: {
     items: [
       { href: "#offre", label: "What we do" },
+      { href: "#pourquoi-un-tiers", label: "Why a third party" },
       { href: "#cockpit", label: "The Cockpit" },
       { href: "#human-in-the-loop", label: "Human in the Loop" },
-      { href: "#factory", label: "Factory" },
       { href: "#souverainete", label: "Sovereignty" },
     ],
     experts: "Experts",
@@ -25,12 +25,12 @@ const en: MainDictionary = {
     switchShort: "FR",
   },
   hero: {
-    eyebrow: "Independent third party · Enterprise AI governance",
-    title: "You have AI everywhere.\nCan you prove you control it?",
+    eyebrow: "Independent third party · EU AI Act evidence for companies that deploy AI",
+    title: "Your vendors prove their AI is compliant.\nWho proves yours is?",
     subtitle:
-      "56North measures the AI systems running in your company, arranges for qualified experts to put them to the test, and gathers the dated evidence regulation requires.",
+      "56North is the independent third party that inventories every AI system in your company, whatever the vendor, puts them to the test through auditors who sell you nothing else, and gathers the dated, sealed evidence a regulator accepts.",
     primary: "Request an assessment",
-    secondary: "See what we do",
+    secondary: "Why a third party",
     reassurance: "A free 30-minute first conversation, no commitment. If the timing is not right, we will tell you.",
     board: {
       label: "Airworthiness score",
@@ -46,12 +46,39 @@ const en: MainDictionary = {
         { name: "Usage", value: 74 },
         { name: "Reference sources", value: 65 },
       ],
-      caption: "Calculated on 4 of your 6 AI systems. The scope always comes with the score. Demonstration data.",
+      caption: "Calculated on 4 of your 6 AI systems, from three different vendors. The scope always comes with the score. Demonstration data.",
     },
   },
   definition: {
     label: "In one sentence",
-    text: "56North is the control plane for enterprise AI: the system of record that inventories, measures and proves the behaviour of every AI system in an organisation, whatever the vendor.",
+    text: "56North is the system of record for a company's AI: a third party that inventories, measures and proves the behaviour of every one of its AI systems, whatever the vendor, and that sells no model, no integration and no cloud.",
+  },
+  whyThirdParty: {
+    eyebrow: "Why a third party",
+    title: "Why native tools are not enough.",
+    intro:
+      "Every major vendor now ships its own control tower: a screen that lists its agents, logs their actions and displays compliance indicators. These tools are useful. They do not answer the question a regulator will ask you.",
+    items: [
+      {
+        name: "The vendor's compliance is not yours",
+        body: "The EU regulation separates the provider, who designs the AI, from the deployer, who uses it in its operations. The vendor answers for its product. You answer for how you use it: human oversight, input data, informing the people concerned, keeping the logs (Article 26), and telling people they are talking to a machine (Article 50). No vendor tool carries these obligations on your behalf.",
+      },
+      {
+        name: "Each control tower sees only its own ecosystem",
+        body: "A mid-sized company now runs the AI in its CRM, the one in its office suite, the one in its ERP and the one in its ticketing tool. Four vendors, four control towers, four definitions of compliance. None of them sees the other three. The registry the regulation requires is one; so is the score your audit committee reads.",
+      },
+      {
+        name: "Whoever sells the AI cannot grade it",
+        body: "A vendor that evaluates its own agents is judge and party. That is not an accusation, it is a position: its governance tool exists to reassure you about its product. A regulator, an insurer or a large client will ask who, outside the vendor, has checked.",
+      },
+      {
+        name: "Evidence is judged by how it holds up over time",
+        body: "A dashboard shows the state of today. Evidence shows what was true on a given date, who established it, and guarantees that no one has altered it since. Native tools are built for the first use. 56North is built for the second.",
+      },
+    ],
+    closing:
+      "Native tools remain necessary: they govern each AI from the inside. 56North sits above them, on the company's side, and consolidates what they produce into one registry, one score, one evidence file.",
+    link: "See what the evidence file contains",
   },
   mirror: {
     painsTitle: "Sound familiar?",

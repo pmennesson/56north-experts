@@ -15,6 +15,7 @@ import {
   Hero,
   MidCta,
   Mirror,
+  WhyThirdParty,
   Offer,
   OfferDetail,
   Problem,
@@ -44,6 +45,7 @@ export default async function Home() {
       />
       <Hero t={t.hero} />
       <Definition t={t.definition} />
+      <WhyThirdParty t={t.whyThirdParty} />
       <Mirror t={t.mirror} />
       <Clock t={t.clock} />
       <Problem t={t.problem} />

@@ -16,7 +16,7 @@ export function Hero({ t }: { t: T["hero"] }) {
           <Button href="#diagnostic" size="lg">
             {t.primary}
           </Button>
-          <Button href="#offre" variant="link">
+          <Button href="#pourquoi-un-tiers" variant="link">
             {t.secondary}
           </Button>
         </div>
@@ -329,6 +329,33 @@ export function Definition({ t }: { t: T["definition"] }) {
         <p className="mt-4 text-2xl font-medium leading-snug tracking-[-0.015em] text-pretty sm:text-[28px]">{t.text}</p>
       </Container>
     </section>
+  );
+}
+
+/* ------------------------- Why a third party (vendor vs deployer, GEO) */
+
+export function WhyThirdParty({ t }: { t: T["whyThirdParty"] }) {
+  return (
+    <Section id="pourquoi-un-tiers" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <ol className="mt-16 grid gap-5 sm:grid-cols-2">
+          {t.items.map((it, i) => (
+            <li key={it.name} className="tile reveal flex flex-col gap-3 p-8">
+              <span className="text-5xl font-semibold tracking-[-0.04em] text-fg-subtle/40">{i + 1}</span>
+              <h3 className="headline-md mt-2">{it.name}</h3>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{it.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="reveal mx-auto mt-12 max-w-[760px] text-center text-xl font-medium leading-snug tracking-[-0.015em] text-pretty">{t.closing}</p>
+        <div className="reveal mt-8 text-center">
+          <Button href="#cockpit" variant="link">
+            {t.link}
+          </Button>
+        </div>
+      </Container>
+    </Section>
   );
 }
 

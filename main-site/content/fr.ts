@@ -10,18 +10,18 @@
  */
 const fr = {
   meta: {
-    title: "56North · Gouvernance des IA d'entreprise",
+    title: "56North · Tiers indépendant de gouvernance IA et preuves AI Act",
     description:
-      "56North mesure les IA en service dans votre entreprise et rassemble les preuves datées qu'exige l'AI Act : registre, note sur cinq cadrans, rapport de vol mensuel. Tiers indépendant, outil souverain.",
-    ogTitle: "Vous avez de l'IA partout. Pouvez-vous prouver que vous la contrôlez ?",
+      "56North est le tiers indépendant qui recense, mesure et prouve les IA d'une entreprise, tous éditeurs confondus : registre, note sur cinq cadrans, preuves datées et scellées pour les obligations de déployeur de l'AI Act. Outil souverain, hébergé en France.",
+    ogTitle: "Vos éditeurs prouvent que leur IA est conforme. Qui prouve que la vôtre l'est ?",
     ogLocale: "fr_FR",
   },
   nav: {
     items: [
       { href: "#offre", label: "L'offre" },
+      { href: "#pourquoi-un-tiers", label: "Pourquoi un tiers" },
       { href: "#cockpit", label: "Le Cockpit" },
       { href: "#human-in-the-loop", label: "Human in the Loop" },
-      { href: "#factory", label: "Factory" },
       { href: "#souverainete", label: "Souveraineté" },
     ],
     experts: "Experts",
@@ -32,12 +32,12 @@ const fr = {
     switchShort: "EN",
   },
   hero: {
-    eyebrow: "Tiers indépendant · Gouvernance des IA d'entreprise",
-    title: "Vous avez de l'IA partout.\nPouvez-vous prouver que vous la contrôlez ?",
+    eyebrow: "Tiers indépendant · Preuves AI Act pour les entreprises qui déploient l'IA",
+    title: "Vos éditeurs prouvent que leur IA est conforme.\nQui prouve que la vôtre l'est ?",
     subtitle:
-      "56North mesure les IA en service dans votre entreprise, organise leur mise à l'épreuve par des experts qualifiés et rassemble les preuves datées que la réglementation exige.",
+      "56North est le tiers indépendant qui recense toutes les IA de votre entreprise, quels que soient leurs éditeurs, les met à l'épreuve par des auditeurs qui ne vous vendent rien d'autre, et rassemble les preuves datées et scellées qu'un contrôleur accepte.",
     primary: "Demander un diagnostic",
-    secondary: "Voir l'offre",
+    secondary: "Pourquoi un tiers",
     reassurance: "Premier échange de 30 minutes offert, sans engagement. Si ce n'est pas le bon moment, nous vous le dirons.",
     board: {
       label: "Note de navigabilité",
@@ -53,12 +53,39 @@ const fr = {
         { name: "Utilisation", value: 74 },
         { name: "Référentiels", value: 65 },
       ],
-      caption: "Calculée sur 4 de vos 6 IA. Le périmètre accompagne toujours la note. Données de démonstration.",
+      caption: "Calculée sur 4 de vos 6 IA, de trois éditeurs différents. Le périmètre accompagne toujours la note. Données de démonstration.",
     },
   },
   definition: {
     label: "En une phrase",
-    text: "56North est le plan de contrôle des IA d'entreprise : le système de référence qui recense, mesure et prouve le comportement de toutes les intelligences artificielles d'une organisation, quels que soient leurs éditeurs.",
+    text: "56North est le système de référence des IA d'une entreprise : un tiers qui recense, mesure et prouve le comportement de toutes ses intelligences artificielles, quels que soient leurs éditeurs, et qui ne vend ni modèle, ni intégration, ni cloud.",
+  },
+  whyThirdParty: {
+    eyebrow: "Pourquoi un tiers",
+    title: "Pourquoi les outils natifs ne suffisent pas.",
+    intro:
+      "Chaque grand éditeur livre désormais sa propre tour de contrôle : un écran qui liste ses agents, journalise leurs actions et affiche des indicateurs de conformité. Ces outils sont utiles. Ils ne répondent pas à la question qu'un contrôleur vous posera.",
+    items: [
+      {
+        name: "La conformité de l'éditeur n'est pas la vôtre",
+        body: "Le règlement européen distingue le fournisseur, qui conçoit l'IA, et le déployeur, qui l'utilise dans ses opérations. L'éditeur répond de son produit. Vous répondez de l'usage que vous en faites : la surveillance humaine, les données d'entrée, l'information des personnes concernées, la conservation des journaux (article 26), et le fait de dire aux gens qu'ils parlent à une machine (article 50). Aucun outil d'éditeur ne porte ces obligations à votre place.",
+      },
+      {
+        name: "Chaque tour de contrôle ne voit que son écosystème",
+        body: "Une entreprise de taille intermédiaire utilise aujourd'hui l'IA de son CRM, celle de sa suite bureautique, celle de son ERP et celle de son outil de tickets. Quatre éditeurs, quatre tours de contrôle, quatre définitions de la conformité. Aucune ne voit les trois autres. Le registre que demande le règlement est unique ; la note que lit votre comité d'audit aussi.",
+      },
+      {
+        name: "Celui qui vend l'IA ne peut pas la noter",
+        body: "Un éditeur qui évalue ses propres agents est juge et partie. Ce n'est pas une accusation, c'est une position : son outil de gouvernance existe pour vous rassurer sur son produit. Un contrôleur, un assureur ou un client grand compte demandera qui, en dehors de l'éditeur, a vérifié.",
+      },
+      {
+        name: "Une preuve se juge à sa tenue dans le temps",
+        body: "Un tableau de bord montre l'état d'aujourd'hui. Une preuve montre ce qui était vrai à une date donnée, qui l'a constaté, et garantit que personne ne l'a retouchée depuis. Les outils natifs sont faits pour le premier usage. 56North est construit pour le second.",
+      },
+    ],
+    closing:
+      "Les outils natifs restent nécessaires : ils gouvernent chaque IA de l'intérieur. 56North se place au-dessus, du côté de l'entreprise, et consolide ce qu'ils produisent en un seul registre, une seule note, un seul dossier de preuves.",
+    link: "Voir ce que contient le dossier de preuves",
   },
   mirror: {
     painsTitle: "Ça vous parle ?",
