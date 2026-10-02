@@ -102,6 +102,36 @@ export async function Trust({ t }: { t: Dictionary["trust"] }) {
   );
 }
 
+/** Community-first pitch: where the experts come from, vendor by vendor. */
+export async function Community({ t }: { t: Dictionary["community"] }) {
+  const lp = await getLinker();
+  return (
+    <Section tone="pearl" id="community-pitch" className="scroll-mt-12">
+      <Container>
+        <div className="whitespace-pre-line">
+          <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        </div>
+        <h3 className="reveal mt-16 text-center text-2xl font-semibold tracking-[-0.02em]">{t.groupsTitle}</h3>
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {t.groups.map((g) => (
+            <li key={g.vendor} className="tile-white reveal p-7">
+              <h4 className="text-xl font-semibold tracking-[-0.015em]">{g.vendor}</h4>
+              <p className="mt-2 text-[16px] leading-relaxed text-fg-muted">{g.items}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="reveal mx-auto mt-12 max-w-2xl text-center text-xl leading-relaxed text-fg">{t.closing}</p>
+        <div className="reveal mt-8 flex justify-center">
+          <Link href={lp("/talents")} className="inline-flex items-center gap-1 text-[17px] text-link hover:underline">
+            {t.cta} <Chevron />
+          </Link>
+        </div>
+        <p className="reveal mx-auto mt-10 max-w-2xl text-center text-[13px] leading-relaxed text-fg-subtle">{t.note}</p>
+      </Container>
+    </Section>
+  );
+}
+
 /** Native <details>: accessible, zero JS, content indexable by crawlers and LLMs. */
 export function Faq({ t }: { t: Dictionary["faq"] }) {
   return (

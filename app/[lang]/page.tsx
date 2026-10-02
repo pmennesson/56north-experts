@@ -5,7 +5,7 @@ import { buildMetadata, faqLd, serviceCatalogLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Hero } from "@/components/home/Hero";
 import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
-import { CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
+import { Community, CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
 import { Founder, StickyCta } from "@/components/home/Founder";
 import { CockpitLink } from "@/components/CockpitLink";
 
@@ -28,6 +28,7 @@ export default async function HomePage() {
       <EngagementModels t={t.models} />
       <Process t={t.process} />
       <Trust t={t.trust} />
+      <Community t={t.community} />
       <Founder t={t.founder} />
       <CockpitLink t={t.cockpit} tone="white" />
       <Faq t={t.faq} />

@@ -118,6 +118,25 @@ const fr: Dictionary = {
       { name: "Règle d'indépendance", body: "56North n'audite jamais un système construit par un expert qu'il a placé chez le même client au cours des 24 derniers mois. Construire et contrôler restent séparés." },
     ],
   },
+  community: {
+    eyebrow: "Notre conviction",
+    title: "La communauté d'abord.\nL'expertise suit.",
+    intro:
+      "Pour nous, la communauté est essentielle. Les meilleurs spécialistes d'une plateforme ne répondent pas aux annonces : ils répondent aux questions des autres, présentent leurs retours en conférence, publient leur code et obtiennent la reconnaissance de leurs pairs. Nos experts en proviennent. C'est là que nous les cherchons, et c'est ce que nous valorisons avant le CV.",
+    groupsTitle: "Nous valorisons les experts issus des communautés suivantes",
+    groups: [
+      { vendor: "Salesforce", items: "Trailblazer Community, programme Salesforce MVP, Dreamforce et groupes d'utilisateurs locaux" },
+      { vendor: "Microsoft", items: "Microsoft Tech Community, programme Microsoft MVP, Microsoft Ignite" },
+      { vendor: "Google Cloud", items: "Google Developer Experts, Google Cloud Community, Google Cloud Next" },
+      { vendor: "SAP", items: "SAP Community, programme SAP Champions, SAP TechEd" },
+      { vendor: "ServiceNow", items: "ServiceNow Community, programme ServiceNow Community MVP, Knowledge" },
+      { vendor: "Workday", items: "Workday Community, Workday Rising" },
+    ],
+    closing:
+      "Un expert reconnu par ses pairs a déjà passé le test le plus dur : celui de ceux qui font le même métier. Nous y ajoutons le nôtre, un entretien technique mené par un pair senior, les certifications vérifiées et deux références en grand compte.",
+    note: "Ces communautés et programmes appartiennent à leurs éditeurs respectifs. Nous les citons pour dire où nous cherchons : 56North Experts n'est affilié à aucun d'eux.",
+    cta: "Rejoindre le réseau",
+  },
   faq: {
     eyebrow: "Questions fréquentes",
     title: "Les questions des acheteurs.",

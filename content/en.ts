@@ -115,6 +115,25 @@ const en = {
       { name: "Independence rule", body: "56North never audits a system built by an expert it placed with the same client in the last 24 months. Building and assuring stay separate." },
     ],
   },
+  community: {
+    eyebrow: "What we believe",
+    title: "Community first.\nExpertise follows.",
+    intro:
+      "For us, community is essential. The best specialists on a platform do not answer job ads: they answer other people's questions, present what they learned at conferences, publish their code and earn the recognition of their peers. Our experts come from there. That is where we look for them, and what we value before the CV.",
+    groupsTitle: "We value experts who come from the following communities",
+    groups: [
+      { vendor: "Salesforce", items: "Trailblazer Community, the Salesforce MVP programme, Dreamforce and local user groups" },
+      { vendor: "Microsoft", items: "Microsoft Tech Community, the Microsoft MVP programme, Microsoft Ignite" },
+      { vendor: "Google Cloud", items: "Google Developer Experts, Google Cloud Community, Google Cloud Next" },
+      { vendor: "SAP", items: "SAP Community, the SAP Champions programme, SAP TechEd" },
+      { vendor: "ServiceNow", items: "ServiceNow Community, the ServiceNow Community MVP programme, Knowledge" },
+      { vendor: "Workday", items: "Workday Community, Workday Rising" },
+    ],
+    closing:
+      "An expert recognised by peers has already passed the hardest test: the one set by people who do the same job. We add our own: a technical interview led by a senior peer, verified certifications and two enterprise references.",
+    note: "These communities and programmes belong to their respective vendors. We name them to say where we look: 56North Experts is not affiliated with any of them.",
+    cta: "Join the network",
+  },
   faq: {
     eyebrow: "FAQ",
     title: "Questions buyers ask.",
