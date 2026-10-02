@@ -180,6 +180,7 @@ const fr = {
     intro:
       "Un éditeur ne peut pas être juge et partie de ses propres biais. Avec notre partenaire Isahit, société française spécialisée dans l'annotation de données, des personnes formées mettent vos IA à l'épreuve et relisent leurs réponses, et chaque résultat devient une preuve datée dans le Cockpit.",
     status: "Activée sur engagement, avec notre partenaire Isahit",
+    partner: { label: "Partenaire :", name: "Isahit, plateforme française d'annotation de données", url: "https://www.isahit.com/" },
     itemsTitle: "Ce que l'offre couvre",
     items: [
       { name: "Campagnes de tests en boîte noire", body: "Biais, hallucinations, fuites de données, procédures non respectées : des scénarios écrits pour vos cas d'usage, joués sur vos IA telles qu'elles tournent." },

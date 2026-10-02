@@ -173,6 +173,7 @@ const en: MainDictionary = {
     intro:
       "A vendor cannot judge its own biases. With our partner Isahit, a French data-annotation company, trained people put your AI systems to the test and review their answers, and every finding becomes dated evidence in the Cockpit.",
     status: "Activated on engagement, with our partner Isahit",
+    partner: { label: "Partner:", name: "Isahit, French data-annotation platform", url: "https://www.isahit.com/" },
     itemsTitle: "What the offer covers",
     items: [
       { name: "Black-box testing campaigns", body: "Bias, hallucinations, data leaks, procedures not followed: scenarios written for your use cases, run against your AI systems as they actually run." },

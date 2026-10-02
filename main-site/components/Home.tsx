@@ -430,6 +430,8 @@ type OfferDetailT = {
   cta: string;
   proof?: string;
   independence?: string;
+  /** Named partner, shown as a link under the status pill. */
+  partner?: { label: string; name: string; url: string };
 };
 
 export function OfferDetail({ t, id, tone = "white" }: { t: OfferDetailT; id: string; tone?: "white" | "pearl" }) {
@@ -442,6 +444,14 @@ export function OfferDetail({ t, id, tone = "white" }: { t: OfferDetailT; id: st
         <p className="reveal mt-6 text-center">
           <span className="inline-flex rounded-full bg-fg/[0.06] px-3 py-1 text-[13px] font-medium text-fg-muted">{t.status}</span>
         </p>
+        {t.partner && (
+          <p className="reveal mt-3 text-center text-[15px] text-fg-muted">
+            {t.partner.label}{" "}
+            <a href={t.partner.url} rel="noopener" target="_blank" className="text-link hover:underline">
+              {t.partner.name} ↗
+            </a>
+          </p>
+        )}
         <h3 className="reveal mt-16 text-center text-2xl font-semibold tracking-[-0.02em]">{t.itemsTitle}</h3>
         <ul className="mt-8 grid gap-5 sm:grid-cols-2">
           {t.items.map((it) => (
