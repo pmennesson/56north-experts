@@ -180,7 +180,12 @@ const fr = {
     intro:
       "Un éditeur ne peut pas être juge et partie de ses propres biais. Avec notre partenaire Isahit, société française spécialisée dans l'annotation de données, des personnes formées mettent vos IA à l'épreuve et relisent leurs réponses, et chaque résultat devient une preuve datée dans le Cockpit.",
     status: "Activée sur engagement, avec notre partenaire Isahit",
-    partner: { label: "Partenaire :", name: "Isahit, plateforme française d'annotation de données", url: "https://www.isahit.com/" },
+    partner: {
+      label: "Partenaire :",
+      name: "Isahit",
+      url: "https://www.isahit.com/",
+      tagline: "Première entreprise européenne d'IA éthique certifiée B Corp : plus de 1 000 annotateurs, plus de 7 500 projets, des références comme Airbus, Orange et L'Oréal.",
+    },
     itemsTitle: "Ce que l'offre couvre",
     items: [
       { name: "Campagnes de tests en boîte noire", body: "Biais, hallucinations, fuites de données, procédures non respectées : des scénarios écrits pour vos cas d'usage, joués sur vos IA telles qu'elles tournent." },
@@ -197,6 +202,11 @@ const fr = {
     intro:
       "La plupart des IA d'une entreprise sont déjà en place, chez plusieurs éditeurs. Avec notre partenaire Wikolabs, la Factory les raccorde au Cockpit, les garde fiables en production et vous évite de monter une équipe dédiée.",
     status: "Mise en place sur abonnement, avec notre partenaire Wikolabs",
+    partner: {
+      label: "Partenaire :",
+      name: "Wikolabs",
+      tagline: "Des agents sur modèles ouverts, installés chez vous, raccordés à vos ERP, CRM et bases de données. Une méthode en six étapes, avec une démonstration à chaque sprint et votre validation à chaque livrable.",
+    },
     itemsTitle: "Ce que la Factory prend en charge",
     items: [
       { name: "Raccorder", body: "Brancher vos IA au Cockpit : passerelle, journaux, puis connecteurs éditeurs à mesure qu'ils arrivent. Vous passez du niveau « déclaré » au niveau « connecté »." },

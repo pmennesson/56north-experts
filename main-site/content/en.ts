@@ -173,7 +173,12 @@ const en: MainDictionary = {
     intro:
       "A vendor cannot judge its own biases. With our partner Isahit, a French data-annotation company, trained people put your AI systems to the test and review their answers, and every finding becomes dated evidence in the Cockpit.",
     status: "Activated on engagement, with our partner Isahit",
-    partner: { label: "Partner:", name: "Isahit, French data-annotation platform", url: "https://www.isahit.com/" },
+    partner: {
+      label: "Partner:",
+      name: "Isahit",
+      url: "https://www.isahit.com/",
+      tagline: "The first European ethical-AI company certified B Corp: 1,000+ annotators, 7,500+ projects, references such as Airbus, Orange and L'Oréal.",
+    },
     itemsTitle: "What the offer covers",
     items: [
       { name: "Black-box testing campaigns", body: "Bias, hallucinations, data leaks, procedures not followed: scenarios written for your use cases, run against your AI systems as they actually run." },
@@ -190,6 +195,11 @@ const en: MainDictionary = {
     intro:
       "Most of a company's AI is already in place, across several vendors. With our partner Wikolabs, the Factory connects it to the Cockpit, keeps it reliable in production and spares you from building a dedicated team.",
     status: "Set up with a subscription, with our partner Wikolabs",
+    partner: {
+      label: "Partner:",
+      name: "Wikolabs",
+      tagline: "Agents on open-weight models, installed on your premises and connected to your ERP, CRM and databases. A six-step method, with a demo at every sprint and your sign-off on each deliverable.",
+    },
     itemsTitle: "What the Factory takes on",
     items: [
       { name: "Connect", body: "Plugging your AI systems into the Cockpit: gateway, logs, then vendor connectors as they become available. You move from the “declared” to the “connected” level." },
