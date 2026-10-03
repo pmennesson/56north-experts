@@ -5,11 +5,11 @@ export async function Hero({ t }: { t: Dictionary["hero"] }) {
   const lp = await getLinker();
   return (
     <section className="overflow-hidden bg-canvas">
-      <Container className="flex flex-col items-center pb-8 pt-20 text-center sm:pt-28">
+      <Container className="flex flex-col items-center pb-8 pt-8 text-center sm:pt-28">
         <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 whitespace-pre-line text-balance">{t.title}</h1>
-        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty sm:text-2xl">{t.subtitle}</p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>
+        <div className="mt-8 flex sm:mt-10 flex-wrap items-center justify-center gap-x-8 gap-y-4">
           <Button href={lp("/contact")} size="lg">
             {t.primaryCta}
           </Button>
