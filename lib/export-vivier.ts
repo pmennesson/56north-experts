@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from "./supabase-server";
 
 /**
  * Export of the `prospects` table (the expert pool) as an Excel workbook:
- * Lire-moi · Synthèse · Vivier (all rows) · one sheet per platform · Pays.
+ * Lire-moi · Synthèse · Vivier (all rows) · one sheet per platform · Pays · Communautés.
  *
  * Personal data: the workbook goes only to NOTIFY_EMAIL (or EXPORT_EMAIL) and,
  * when configured, to the Dropbox folder below. Never written to the public repo.
@@ -28,6 +28,8 @@ export type Prospect = {
   source_type: string | null;
   website: string | null;
   public_email: string | null;
+  public_phone: string | null;
+  contact_source_url: string | null;
   status: string;
   contacted_at: string | null;
   replied_at: string | null;
@@ -79,6 +81,8 @@ const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "m
   { header: "Source", key: "source_type", width: 11 },
   { header: "Site perso", key: "website", width: 30 },
   { header: "E-mail public", key: "public_email", width: 28 },
+  { header: "Téléphone public", key: "public_phone", width: 16 },
+  { header: "Coordonnées lues sur", key: "contact_source_url", width: 40 },
   { header: "Contacté le", key: "contacted_at", width: 12 },
   { header: "Réponse le", key: "replied_at", width: 12 },
   { header: "Notes", key: "notes", width: 40 },
@@ -94,7 +98,7 @@ export async function fetchProspects(): Promise<Prospect[]> {
     const { data, error } = await db
       .from("prospects")
       .select(
-        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,status,contacted_at,replied_at,notes,collected_at,updated_at",
+        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,status,contacted_at,replied_at,notes,collected_at,updated_at",
       )
       .is("erasure_requested_at", null)
       .order("platform")
@@ -137,7 +141,43 @@ function addTable(ws: ExcelJS.Worksheet, rows: Prospect[]) {
   ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: COLUMNS.length } };
 }
 
-export async function buildWorkbook(rows: Prospect[], dateIso: string): Promise<Buffer> {
+export type Community = {
+  platform: string;
+  offer: string;
+  name: string;
+  kind: string | null;
+  country: string | null;
+  city: string | null;
+  language: string | null;
+  url: string;
+  contact_url: string | null;
+  public_email: string | null;
+  size_hint: string | null;
+  last_activity: string | null;
+  how_to_engage: string | null;
+  notes: string | null;
+};
+
+const OFFER_LABEL: Record<string, string> = { experts: "Experts", cockpit: "Cockpit", both: "Experts + Cockpit" };
+
+export async function fetchCommunities(): Promise<Community[]> {
+  const db = getSupabaseAdmin();
+  if (!db) return [];
+  const { data, error } = await db
+    .from("communities")
+    .select("platform,offer,name,kind,country,city,language,url,contact_url,public_email,size_hint,last_activity,how_to_engage,notes")
+    .order("country", { nullsFirst: false })
+    .order("platform")
+    .order("name")
+    .limit(5000);
+  if (error) {
+    console.error("[export-vivier] communities", error.message);
+    return [];
+  }
+  return (data ?? []) as Community[];
+}
+
+export async function buildWorkbook(rows: Prospect[], dateIso: string, communities: Community[] = []): Promise<Buffer> {
   const wb = new ExcelJS.Workbook();
   wb.creator = "56North";
   wb.created = new Date();
@@ -152,6 +192,8 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string): Promise<
     "Aucun accès LinkedIn, aucune donnée non publique. Chaque ligne porte sa preuve (titre + lien) : c'est la base de l'information RGPD au premier contact (art. 14).",
     "Score /5 : séniorité, force de la preuve, modules IA, statut indépendant, zone EMEA (1 point chacun). Rareté 1-3 : 3 = distinction officielle (MVP, CTA, GDE…). Un rôle ou une société non affichés plafonnent à 3.",
     "Statut « À contacter » = score 4 ou 5. Message : A = réseau, B = panel de pairs, C = besoin client ouvert.",
+    "E-mail / téléphone publics : relevés uniquement là où la personne les affiche elle-même (site perso ou de sa structure) ; la colonne « Coordonnées lues sur » donne la page. Rien n'est deviné ni acheté.",
+    "Onglet « Communautés » : groupes d'utilisateurs, meetups, associations et conférences liés à nos offres (Europe, Maghreb, Canada) : le moyen de toucher beaucoup d'experts d'un coup (talk, sponsoring, annonce).",
     "La table de référence est `prospects` dans Supabase ; ce classeur en est la copie à la date d'export. Les mentions « à vérifier » dans la colonne Pourquoi se confirment avant tout message.",
     "Ce fichier contient des données personnelles : usage interne 56North, ne pas diffuser.",
   ].forEach((t) => {
@@ -219,6 +261,34 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string): Promise<
   for (const r of rows) if (r.country) byCountry.set(r.country, (byCountry.get(r.country) ?? 0) + 1);
   [...byCountry.entries()].sort((a, b) => b[1] - a[1]).forEach(([c, n]) => pays.addRow({ c, n }));
   styleHeader(pays);
+
+  if (communities.length) {
+    const com = wb.addWorksheet("Communautés");
+    com.columns = [
+      { header: "Pays", key: "country", width: 7 },
+      { header: "Ville", key: "city", width: 14 },
+      { header: "Plateforme", key: "platformLabel", width: 14 },
+      { header: "Offre", key: "offerLabel", width: 16 },
+      { header: "Communauté", key: "name", width: 40 },
+      { header: "Type", key: "kind", width: 12 },
+      { header: "Langue", key: "language", width: 8 },
+      { header: "Taille affichée", key: "size_hint", width: 20 },
+      { header: "Dernière activité", key: "last_activity", width: 20 },
+      { header: "Comment s'y engager", key: "how_to_engage", width: 40 },
+      { header: "Lien", key: "url", width: 45 },
+      { header: "Contact / proposer un talk", key: "contact_url", width: 40 },
+      { header: "E-mail public", key: "public_email", width: 28 },
+      { header: "Notes", key: "notes", width: 40 },
+    ];
+    for (const c of communities) {
+      com.addRow({
+        ...c,
+        platformLabel: PLATFORM_LABEL[c.platform] ?? (c.platform === "ai-governance" ? "Gouvernance IA" : c.platform),
+        offerLabel: OFFER_LABEL[c.offer] ?? c.offer,
+      });
+    }
+    styleHeader(com);
+  }
 
   return Buffer.from(await wb.xlsx.writeBuffer());
 }

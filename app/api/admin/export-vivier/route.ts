@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
-import { buildWorkbook, emailWorkbook, fetchProspects, fingerprint, summaryText, uploadToDropbox } from "@/lib/export-vivier";
+import { buildWorkbook, emailWorkbook, fetchCommunities, fetchProspects, fingerprint, summaryText, uploadToDropbox } from "@/lib/export-vivier";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -33,7 +33,8 @@ export async function POST(req: Request) {
 
   try {
     const rows = await fetchProspects();
-    const fp = fingerprint(rows);
+    const communities = await fetchCommunities();
+    const fp = `${fingerprint(rows)}-c${communities.length}`;
     const since = new URL(req.url).searchParams.get("ifChanged");
     if (since && since === fp) {
       return new NextResponse(null, { status: 204, headers: { "x-vivier-fingerprint": fp } });
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
 
     const dateIso = new Date().toISOString().slice(0, 10);
     const filename = `vivier-experts-ia-${dateIso}.xlsx`;
-    const xlsx = await buildWorkbook(rows, dateIso);
+    const xlsx = await buildWorkbook(rows, dateIso, communities);
 
     let dropbox = false;
     let dropboxError: string | null = null;
