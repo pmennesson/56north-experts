@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { BackToTop } from "@/components/BackToTop";
 import "../globals.css";
 
 /** Both languages are pre-rendered; any other first segment is a 404. */
@@ -54,6 +55,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <Header t={t.nav} />
         <main id="main">{children}</main>
         <Footer t={t} />
+        <BackToTop />
       </body>
     </html>
   );

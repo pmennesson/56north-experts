@@ -277,7 +277,7 @@ export function Faq({ t }: { t: T["faq"] }) {
 /** Mobile-only bottom bar keeping the primary action one tap away. */
 export function StickyCta({ label }: { label: string }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/85 px-4 py-3 backdrop-blur-xl md:hidden">
+    <div data-sticky-cta className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/85 px-4 py-3 backdrop-blur-xl md:hidden">
       <Button href="#diagnostic" className="w-full">
         {label}
       </Button>

@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { BackToTop } from "@/components/BackToTop";
 import "../globals.css";
 
 export const dynamicParams = false;
@@ -55,6 +56,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <Header t={t.nav} />
         <main id="main">{children}</main>
         <Footer t={t.footer} />
+        <BackToTop />
       </body>
     </html>
   );
