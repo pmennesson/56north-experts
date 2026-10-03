@@ -43,8 +43,6 @@ const fr = {
       label: "Note de navigabilité",
       score: "66",
       outOf: "sur 100",
-      letter: "C",
-      letterLabel: "lettre",
       trend: "+ 4 points sur 30 jours",
       dials: [
         { name: "Fiabilité", value: 71 },

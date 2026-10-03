@@ -6,9 +6,14 @@ import { useEffect, useRef, useState } from "react";
  * The airworthiness score "calculating itself" in the hero.
  *
  * Server-rendered with the final values (SEO, no-JS, reduced motion). Once mounted,
- * if the visitor allows motion, the figure replays from zero: the five dials fill one
- * after the other, the score counts up, then the letter and the trend appear.
- * Pure CSS transitions + one requestAnimationFrame counter, no dependency.
+ * if the visitor allows motion, the figure replays from zero: the headline bar fills,
+ * the five dials fill one after the other, and the score counts up.
+ *
+ * ONE SHAPE, TOP TO BOTTOM. The global note is a BAR — like the five dials below it,
+ * and like the Cockpit app (D-257): the app dropped the letter-in-a-gauge for a single
+ * coloured bar, and the five dials on this very card were already bars. The gauge arc and
+ * the "C" letter were the last element left in the old style; this aligns the headline
+ * with the rest, here and with the product.
  */
 
 type Dial = { name: string; value: number };
@@ -16,8 +21,6 @@ type Props = {
   label: string;
   score: string;
   outOf: string;
-  letter: string;
-  letterLabel: string;
   trend: string;
   dials: Dial[];
   caption: string;
@@ -71,64 +74,43 @@ export function ScoreBoard(t: Props) {
   const running = phase === "run";
   const atZero = phase === "zero";
   const lastDialEnd = (t.dials.length - 1) * DIAL_DELAY + DIAL_DURATION;
-  // Gauge arc: 270° sweep, radius 54 → circumference ≈ 339, arc length ≈ 254.
-  const arc = 254;
-  const gaugeValue = atZero ? 0 : target;
 
   return (
     <figure
       className="reveal mx-auto max-w-2xl rounded-[32px] bg-surface p-6 shadow-[0_30px_80px_-20px_rgb(0_0_0/0.18)] ring-1 ring-line sm:p-8"
       data-phase={phase}
     >
-      <div className="flex items-end justify-between gap-4">
-        <div className="text-left">
-          <p className="text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{t.label}</p>
-          <p className="mt-2 flex items-baseline gap-2">
-            <span className="text-6xl font-semibold tracking-[-0.04em] tabular-nums">{shown}</span>
-            <span className="text-[17px] text-fg-muted">{t.outOf}</span>
-          </p>
-          <p
-            className="mt-1 text-[15px] font-medium text-signal"
-            style={{
-              opacity: atZero ? 0 : 1,
-              transform: atZero ? "translateY(6px)" : "none",
-              transition: running ? `opacity 500ms ease ${COUNT_DURATION}ms, transform 500ms ease ${COUNT_DURATION}ms` : "none",
-            }}
-          >
-            {t.trend}
-          </p>
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <span className="relative flex h-20 w-20 items-center justify-center" aria-label={`${t.letterLabel} ${t.letter}`}>
-            <svg viewBox="0 0 120 120" className="absolute inset-0 h-full w-full -rotate-[135deg]" aria-hidden>
-              <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" className="text-fg/[0.06]" strokeDasharray={`${arc} 999`} />
-              <circle
-                cx="60"
-                cy="60"
-                r="54"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="6"
-                strokeLinecap="round"
-                className="text-accent"
-                strokeDasharray={`${(arc * gaugeValue) / 100} 999`}
-                style={{ transition: running ? `stroke-dasharray ${COUNT_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1)` : "none" }}
-              />
-            </svg>
-            <span
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-canvas-alt text-3xl font-semibold"
-              style={{
-                opacity: atZero ? 0 : 1,
-                transform: atZero ? "scale(0.6)" : "scale(1)",
-                transition: running ? `opacity 450ms ease ${COUNT_DURATION - 200}ms, transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) ${COUNT_DURATION - 200}ms` : "none",
-              }}
-            >
-              {t.letter}
-            </span>
-          </span>
-          <span className="text-[12px] text-fg-subtle">{t.letterLabel}</span>
-        </div>
+      <div className="text-left">
+        <p className="text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{t.label}</p>
+        <p className="mt-2 flex items-baseline gap-2">
+          <span className="text-6xl font-semibold tracking-[-0.04em] tabular-nums">{shown}</span>
+          <span className="text-[17px] text-fg-muted">{t.outOf}</span>
+        </p>
+        <p
+          className="mt-1 text-[15px] font-medium text-signal"
+          style={{
+            opacity: atZero ? 0 : 1,
+            transform: atZero ? "translateY(6px)" : "none",
+            transition: running ? `opacity 500ms ease ${COUNT_DURATION}ms, transform 500ms ease ${COUNT_DURATION}ms` : "none",
+          }}
+        >
+          {t.trend}
+        </p>
       </div>
+
+      {/* LA NOTE GLOBALE, EN BARRE — plus épaisse que les cadrans (c'est le titre),
+          même couleur, même remplissage animé. Décorative : la valeur est déjà
+          lue en toutes lettres par le grand nombre au-dessus. */}
+      <div className="mt-5 h-2.5 overflow-hidden rounded-full bg-fg/[0.06]" aria-hidden>
+        <span
+          className="block h-full rounded-full bg-accent"
+          style={{
+            width: `${atZero ? 0 : target}%`,
+            transition: running ? `width ${COUNT_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1)` : "none",
+          }}
+        />
+      </div>
+
       <ul className="mt-6 space-y-4 border-t border-line pt-6">
         {t.dials.map((d, i) => (
           <li key={d.name} className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 text-left sm:grid-cols-[150px_1fr_auto]">

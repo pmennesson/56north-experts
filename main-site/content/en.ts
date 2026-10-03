@@ -36,8 +36,6 @@ const en: MainDictionary = {
       label: "Airworthiness score",
       score: "66",
       outOf: "out of 100",
-      letter: "C",
-      letterLabel: "grade",
       trend: "+4 points over 30 days",
       dials: [
         { name: "Reliability", value: 71 },
