@@ -8,6 +8,7 @@ import { organizationLd, websiteLd } from "@/lib/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "../globals.css";
 
 /** Both languages are pre-rendered; any other first segment is a 404. */
@@ -42,6 +43,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   return (
     <html lang={lang} className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="min-h-dvh">
+        <ScrollToTop />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white"

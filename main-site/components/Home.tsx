@@ -9,11 +9,11 @@ type T = Dictionary;
 export function Hero({ t }: { t: T["hero"] }) {
   return (
     <section className="overflow-hidden bg-canvas">
-      <Container className="flex flex-col items-center pb-8 pt-20 text-center sm:pt-28">
+      <Container className="flex flex-col items-center pb-8 pt-10 text-center sm:pt-28">
         <Eyebrow>{t.eyebrow}</Eyebrow>
-        <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.4rem,5.4vw,4.4rem)]">{t.title}</h1>
-        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty sm:text-2xl">{t.subtitle}</p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.1rem,5.4vw,4.4rem)]">{t.title}</h1>
+        <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-10">
           <Button href="#diagnostic" size="lg">
             {t.primary}
           </Button>
@@ -23,7 +23,7 @@ export function Hero({ t }: { t: T["hero"] }) {
         </div>
         <p className="mt-4 max-w-md text-[15px] text-fg-subtle">{t.reassurance}</p>
       </Container>
-      <div className="relative mt-12 sm:mt-16">
+      <div className="relative mt-8 sm:mt-16">
         <div className="absolute inset-x-0 bottom-0 top-1/2 bg-canvas-alt" aria-hidden />
         <Container className="relative pb-24">
           <Board t={t.board} />
