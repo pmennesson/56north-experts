@@ -24,6 +24,20 @@ sync_caddy() {
   fi
 }
 
+# The export timer lives in /etc/systemd: a schedule change in git must be
+# re-installed. Done whenever deploy/install-export-timer.sh's hash changes.
+sync_export_timer() {
+  local f="deploy/install-export-timer.sh" st="/var/lib/56north-vivier-timer.sha" h
+  [ -f "$f" ] || return 0
+  h=$(sha256sum "$f" | cut -d' ' -f1)
+  if [ "$(cat "$st" 2>/dev/null)" != "$h" ]; then
+    if bash "$f" >> "$LOG" 2>&1; then
+      echo "$h" > "$st"
+      echo "$(date -Is) export timer re-installed" >> "$LOG"
+    fi
+  fi
+}
+
 STATE="/var/lib/56north-deployed"        # SHA of the last successful build
 
 git fetch -q origin main
@@ -45,6 +59,7 @@ if $COMPOSE up -d --build --remove-orphans >> "$LOG" 2>&1; then
   docker builder prune -f --filter until=72h >/dev/null 2>&1 || true
   echo "$REMOTE" > "$STATE"
   echo "$(date -Is) deployed ${REMOTE:0:7}" >> "$LOG"
+  sync_export_timer
 else
   echo "$(date -Is) FAILED ${REMOTE:0:7} (previous version still running)" >> "$LOG"
   exit 1
