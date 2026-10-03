@@ -30,6 +30,7 @@ export type Prospect = {
   public_email: string | null;
   public_phone: string | null;
   contact_source_url: string | null;
+  certifications: string | null;
   status: string;
   contacted_at: string | null;
   replied_at: string | null;
@@ -64,10 +65,10 @@ const MESSAGE_LABEL: Record<string, string> = {
 };
 
 const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "message"; width: number }[] = [
+  { header: "Pays", key: "country", width: 7 },
   { header: "Nom", key: "name", width: 26 },
   { header: "Rôle", key: "role", width: 34 },
   { header: "Société", key: "company", width: 24 },
-  { header: "Pays", key: "country", width: 7 },
   { header: "Langue", key: "language", width: 8 },
   { header: "Score /5", key: "score", width: 9 },
   { header: "Rareté", key: "rarity", width: 8 },
@@ -82,6 +83,7 @@ const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "m
   { header: "Site perso", key: "website", width: 30 },
   { header: "E-mail public", key: "public_email", width: 28 },
   { header: "Téléphone public", key: "public_phone", width: 16 },
+  { header: "Certifications (source publique)", key: "certifications", width: 40 },
   { header: "Coordonnées lues sur", key: "contact_source_url", width: 40 },
   { header: "Contacté le", key: "contacted_at", width: 12 },
   { header: "Réponse le", key: "replied_at", width: 12 },
@@ -98,10 +100,11 @@ export async function fetchProspects(): Promise<Prospect[]> {
     const { data, error } = await db
       .from("prospects")
       .select(
-        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,status,contacted_at,replied_at,notes,collected_at,updated_at",
+        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,status,contacted_at,replied_at,notes,collected_at,updated_at",
       )
       .is("erasure_requested_at", null)
       .order("platform")
+      .order("country", { nullsFirst: false })
       .order("score", { ascending: false })
       .order("rarity", { ascending: false })
       .order("name")
@@ -166,8 +169,9 @@ export async function fetchCommunities(): Promise<Community[]> {
   const { data, error } = await db
     .from("communities")
     .select("platform,offer,name,kind,country,city,language,url,contact_url,public_email,size_hint,last_activity,how_to_engage,notes")
-    .order("country", { nullsFirst: false })
     .order("platform")
+    .order("country", { nullsFirst: false })
+    .order("city", { nullsFirst: false })
     .order("name")
     .limit(5000);
   if (error) {
@@ -265,9 +269,9 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
   if (communities.length) {
     const com = wb.addWorksheet("Communautés");
     com.columns = [
+      { header: "Plateforme", key: "platformLabel", width: 14 },
       { header: "Pays", key: "country", width: 7 },
       { header: "Ville", key: "city", width: 14 },
-      { header: "Plateforme", key: "platformLabel", width: 14 },
       { header: "Offre", key: "offerLabel", width: 16 },
       { header: "Communauté", key: "name", width: 40 },
       { header: "Type", key: "kind", width: 12 },
