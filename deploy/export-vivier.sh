@@ -17,6 +17,12 @@ URL="${EXPORT_URL:-https://experts.56north.io/api/admin/export-vivier}"
 TOKEN="$(grep -E '^EXPORT_TOKEN=' "$ENV_FILE" | cut -d= -f2- | tr -d '"'"'" | tr -d '\r')"
 [ -n "$TOKEN" ] || { echo "export-vivier: EXPORT_TOKEN absent de .env.production" >&2; exit 1; }
 
+# 1) Coordonnées publiques : on examine jusqu'à 40 sites pas encore lus (long : ~2 min).
+ENRICH_URL="${ENRICH_URL:-https://experts.56north.io/api/admin/enrich-vivier}"
+ENRICH="$(curl -sS -X POST -H "x-export-token: $TOKEN" --max-time 290 "$ENRICH_URL?limit=40" || true)"
+echo "enrich-vivier: ${ENRICH:0:300}"
+
+# 2) Export si la base a changé.
 QUERY=""
 if [ "${1:-}" != "--force" ] && [ -f "$STATE" ]; then
   QUERY="?ifChanged=$(cat "$STATE")"
