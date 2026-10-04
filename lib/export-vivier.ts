@@ -31,6 +31,7 @@ export type Prospect = {
   public_phone: string | null;
   contact_source_url: string | null;
   certifications: string | null;
+  pool: string | null;
   status: string;
   contacted_at: string | null;
   replied_at: string | null;
@@ -64,8 +65,9 @@ const MESSAGE_LABEL: Record<string, string> = {
   C_need: "C (besoin client)",
 };
 
-const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "message"; width: number }[] = [
+const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "message" | "poolLabel"; width: number }[] = [
   { header: "Pays", key: "country", width: 7 },
+  { header: "Vivier", key: "poolLabel", width: 11 },
   { header: "Nom", key: "name", width: 26 },
   { header: "Rôle", key: "role", width: 34 },
   { header: "Société", key: "company", width: 24 },
@@ -100,7 +102,7 @@ export async function fetchProspects(): Promise<Prospect[]> {
     const { data, error } = await db
       .from("prospects")
       .select(
-        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,status,contacted_at,replied_at,notes,collected_at,updated_at",
+        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,pool,status,contacted_at,replied_at,notes,collected_at,updated_at",
       )
       .is("erasure_requested_at", null)
       .order("platform")
@@ -136,6 +138,7 @@ function addTable(ws: ExcelJS.Worksheet, rows: Prospect[]) {
     ws.addRow({
       ...r,
       statut: STATUS_LABEL[r.status] ?? r.status,
+      poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
       message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
       modules: (r.ai_modules ?? []).join(", "),
     });
@@ -245,6 +248,7 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
       ...r,
       platform: PLATFORM_LABEL[r.platform] ?? r.platform,
       statut: STATUS_LABEL[r.status] ?? r.status,
+      poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
       message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
       modules: (r.ai_modules ?? []).join(", "),
     });
