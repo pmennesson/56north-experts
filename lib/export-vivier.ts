@@ -38,6 +38,7 @@ export type Prospect = {
   notes: string | null;
   collected_at: string | null;
   updated_at: string | null;
+  created_at: string | null;
 };
 
 export const PLATFORM_LABEL: Record<string, string> = {
@@ -102,7 +103,7 @@ export async function fetchProspects(): Promise<Prospect[]> {
     const { data, error } = await db
       .from("prospects")
       .select(
-        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,pool,status,contacted_at,replied_at,notes,collected_at,updated_at",
+        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,pool,status,contacted_at,replied_at,notes,collected_at,updated_at,created_at",
       )
       .is("erasure_requested_at", null)
       .order("platform")
@@ -184,7 +185,20 @@ export async function fetchCommunities(): Promise<Community[]> {
   return (data ?? []) as Community[];
 }
 
-export async function buildWorkbook(rows: Prospect[], dateIso: string, communities: Community[] = []): Promise<Buffer> {
+/** Rows added to the table after `since` (ISO timestamp): the "new candidates". */
+export function newSince(rows: Prospect[], since: string | null): Prospect[] {
+  if (!since) return [];
+  const t = Date.parse(since);
+  if (Number.isNaN(t)) return [];
+  return rows.filter((r) => r.created_at && Date.parse(r.created_at) > t);
+}
+
+export async function buildWorkbook(
+  rows: Prospect[],
+  dateIso: string,
+  communities: Community[] = [],
+  since: string | null = null,
+): Promise<Buffer> {
   const wb = new ExcelJS.Workbook();
   wb.creator = "56North";
   wb.created = new Date();
@@ -198,6 +212,9 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
     `Vivier d'experts IA 56North — export du ${dateIso}. ${total} personnes repérées sur des sources publiques (programmes de conférences, groupes communautaires, blogs, GitHub, podcasts).`,
     "Aucun accès LinkedIn, aucune donnée non publique. Chaque ligne porte sa preuve (titre + lien) : c'est la base de l'information RGPD au premier contact (art. 14).",
     "Score /5 : séniorité, force de la preuve, modules IA, statut indépendant, zone EMEA (1 point chacun). Rareté 1-3 : 3 = distinction officielle (MVP, CTA, GDE…). Un rôle ou une société non affichés plafonnent à 3.",
+    since
+      ? `Onglet « Nouveaux » : les ${newSince(rows, since).length} candidats ajoutés depuis l'envoi précédent (${since.slice(0, 16).replace("T", " ")} UTC). Les onglets « Déjà en base » et par plateforme ne contiennent que les candidats déjà connus.`
+      : "Envoi complet : tous les candidats sont dans l'onglet « Vivier » et les onglets par plateforme.",
     "Statut « À contacter » = score 4 ou 5. Message : A = réseau, B = panel de pairs, C = besoin client ouvert.",
     "E-mail / téléphone publics : relevés uniquement là où la personne les affiche elle-même (site perso ou de sa structure) ; la colonne « Coordonnées lues sur » donne la page. Rien n'est deviné ni acheté.",
     "Onglet « Communautés » : groupes d'utilisateurs, meetups, associations et conférences liés à nos offres (Europe, Maghreb, Canada) : le moyen de toucher beaucoup d'experts d'un coup (talk, sponsoring, annonce).",
@@ -212,17 +229,22 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
   const syn = wb.addWorksheet("Synthèse");
   syn.columns = [
     { header: "Plateforme", key: "p", width: 16 },
+    { header: "Nouveaux", key: "nv", width: 10 },
     { header: "Total", key: "n", width: 8 },
     { header: "À contacter (score ≥ 4)", key: "c", width: 22 },
     { header: "Score 5", key: "s5", width: 9 },
     { header: "Contactés", key: "k", width: 10 },
     { header: "Réponses", key: "r", width: 10 },
   ];
+  const fresh = newSince(rows, since);
+  const freshSet = new Set(fresh);
+  const known = since ? rows.filter((r) => !freshSet.has(r)) : rows;
   const platforms = [...new Set(rows.map((r) => r.platform))].sort();
   for (const p of platforms) {
     const g = rows.filter((r) => r.platform === p);
     syn.addRow({
       p: PLATFORM_LABEL[p] ?? p,
+      nv: fresh.filter((r) => r.platform === p).length,
       n: g.length,
       c: g.filter((r) => r.status === "to_contact").length,
       s5: g.filter((r) => r.score === 5).length,
@@ -232,6 +254,7 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
   }
   const tot = syn.addRow({
     p: "TOTAL",
+    nv: fresh.length,
     n: total,
     c: toContact,
     s5: rows.filter((r) => r.score === 5).length,
@@ -241,23 +264,32 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
   tot.font = { bold: true };
   styleHeader(syn);
 
-  const all = wb.addWorksheet("Vivier");
-  all.columns = [{ header: "Plateforme", key: "platform", width: 14 }, ...COLUMNS.map((c) => ({ header: c.header, key: c.key, width: c.width }))];
-  for (const r of rows) {
-    all.addRow({
-      ...r,
-      platform: PLATFORM_LABEL[r.platform] ?? r.platform,
-      statut: STATUS_LABEL[r.status] ?? r.status,
-      poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
-      message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
-      modules: (r.ai_modules ?? []).join(", "),
-    });
+  const fullSheet = (name: string, list: Prospect[]) => {
+    const ws = wb.addWorksheet(name);
+    ws.columns = [{ header: "Plateforme", key: "platform", width: 14 }, ...COLUMNS.map((c) => ({ header: c.header, key: c.key, width: c.width }))];
+    for (const r of list) {
+      ws.addRow({
+        ...r,
+        platform: PLATFORM_LABEL[r.platform] ?? r.platform,
+        statut: STATUS_LABEL[r.status] ?? r.status,
+        poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
+        message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
+        modules: (r.ai_modules ?? []).join(", "),
+      });
+    }
+    styleHeader(ws);
+    ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: COLUMNS.length + 1 } };
+  };
+  if (since) {
+    fullSheet("Nouveaux", fresh);
+    fullSheet("Déjà en base", known);
+  } else {
+    fullSheet("Vivier", rows);
   }
-  styleHeader(all);
-  all.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: COLUMNS.length + 1 } };
 
   for (const p of platforms) {
-    addTable(wb.addWorksheet((PLATFORM_LABEL[p] ?? p).slice(0, 31)), rows.filter((r) => r.platform === p));
+    const g = known.filter((r) => r.platform === p);
+    if (g.length) addTable(wb.addWorksheet((PLATFORM_LABEL[p] ?? p).slice(0, 31)), g);
   }
 
   const pays = wb.addWorksheet("Pays");
@@ -302,7 +334,7 @@ export async function buildWorkbook(rows: Prospect[], dateIso: string, communiti
 }
 
 /** Sends the workbook as an attachment through Resend. Throws on failure. */
-export async function emailWorkbook(xlsx: Buffer, filename: string, summary: string) {
+export async function emailWorkbook(xlsx: Buffer, filename: string, summary: string, freshCount: number | null = null) {
   const key = process.env.RESEND_API_KEY;
   const to = process.env.EXPORT_EMAIL || process.env.NOTIFY_EMAIL;
   if (!key || !to) throw new Error("RESEND_API_KEY / NOTIFY_EMAIL missing");
@@ -313,7 +345,7 @@ export async function emailWorkbook(xlsx: Buffer, filename: string, summary: str
     body: JSON.stringify({
       from,
       to: [to],
-      subject: `Vivier experts IA — ${filename}`,
+      subject: freshCount ? `Vivier experts IA — ${freshCount} nouveaux candidats` : `Vivier experts IA — ${filename}`,
       text: summary,
       attachments: [{ filename, content: xlsx.toString("base64") }],
     }),
@@ -357,7 +389,13 @@ export async function uploadToDropbox(xlsx: Buffer, filename: string): Promise<b
   return true;
 }
 
-export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean): string {
+export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean, since: string | null = null): string {
+  const fresh = newSince(rows, since);
+  const freshLines = [...new Set(fresh.map((r) => r.platform))].sort().map((p) => {
+    const g = fresh.filter((r) => r.platform === p);
+    const nearshore = g.filter((r) => r.pool === "nearshore").length;
+    return `  ${PLATFORM_LABEL[p] ?? p} : ${g.length}${nearshore ? ` (dont ${nearshore} nearshore)` : ""}`;
+  });
   const platforms = [...new Set(rows.map((r) => r.platform))].sort();
   const lines = platforms.map((p) => {
     const g = rows.filter((r) => r.platform === p);
@@ -365,7 +403,15 @@ export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean)
   });
   return [
     `Export du vivier experts IA au ${dateIso}.`,
-    `${rows.length} personnes, ${rows.filter((r) => r.status === "to_contact").length} à contacter.`,
+    ...(since
+      ? [
+          `${fresh.length} nouveaux candidats depuis l'envoi précédent (onglet « Nouveaux ») :`,
+          ...freshLines,
+          `${rows.length - fresh.length} candidats déjà en base (onglet « Déjà en base »).`,
+          "",
+        ]
+      : []),
+    `Total : ${rows.length} personnes, ${rows.filter((r) => r.status === "to_contact").length} à contacter.`,
     "",
     ...lines,
     "",

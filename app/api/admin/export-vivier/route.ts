@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
-import { buildWorkbook, emailWorkbook, fetchCommunities, fetchProspects, fingerprint, summaryText, uploadToDropbox } from "@/lib/export-vivier";
+import { buildWorkbook, emailWorkbook, fetchCommunities, fetchProspects, newSince, summaryText, uploadToDropbox } from "@/lib/export-vivier";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,9 +14,12 @@ export const dynamic = "force-dynamic";
  * Without EXPORT_TOKEN in the environment the route does not exist (404).
  *
  * Query:
- *   ?ifChanged=<fingerprint>  — skip (204) when the table has not changed since
- *                               that fingerprint; the current one is always
- *                               returned in the x-vivier-fingerprint header.
+ *   ?since=<ISO timestamp>  — send only if candidates were ADDED after that time
+ *                             (204 otherwise). New candidates get their own sheet,
+ *                             separate from those already in the base.
+ *   (no since)              — full export, sent unconditionally (manual --force).
+ * The time of this check is returned in the x-vivier-now header: the caller
+ * stores it and passes it as `since` next time.
  *
  * Called by deploy/export-vivier.sh from the server, never from a browser.
  */
@@ -32,17 +35,18 @@ export async function POST(req: Request) {
   }
 
   try {
+    const now = new Date().toISOString();
+    const since = new URL(req.url).searchParams.get("since");
     const rows = await fetchProspects();
-    const communities = await fetchCommunities();
-    const fp = `${fingerprint(rows)}-c${communities.length}`;
-    const since = new URL(req.url).searchParams.get("ifChanged");
-    if (since && since === fp) {
-      return new NextResponse(null, { status: 204, headers: { "x-vivier-fingerprint": fp } });
+    const fresh = newSince(rows, since);
+    if (since && fresh.length === 0) {
+      return new NextResponse(null, { status: 204, headers: { "x-vivier-now": now } });
     }
+    const communities = await fetchCommunities();
 
     const dateIso = new Date().toISOString().slice(0, 10);
     const filename = `vivier-experts-ia-${dateIso}.xlsx`;
-    const xlsx = await buildWorkbook(rows, dateIso, communities);
+    const xlsx = await buildWorkbook(rows, dateIso, communities, since);
 
     let dropbox = false;
     let dropboxError: string | null = null;
@@ -53,11 +57,11 @@ export async function POST(req: Request) {
       console.error("[export-vivier] dropbox", dropboxError);
     }
 
-    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox));
+    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox, since), since ? fresh.length : null);
 
     return NextResponse.json(
-      { ok: true, rows: rows.length, filename, dropbox, dropboxError, bytes: xlsx.length },
-      { headers: { "x-vivier-fingerprint": fp } },
+      { ok: true, rows: rows.length, fresh: fresh.length, filename, dropbox, dropboxError, bytes: xlsx.length },
+      { headers: { "x-vivier-now": now } },
     );
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
