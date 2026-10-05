@@ -4,6 +4,8 @@ import { buildMetadata } from "@/lib/seo";
 import { getDictionary, getLocale } from "@/lib/i18n";
 import { formatDate, getPublishedArticles } from "@/lib/articles";
 import { PageHero } from "@/components/PageHero";
+import { MainSiteReads } from "@/components/MainSiteReads";
+import { getMainSiteArticles } from "@/lib/main-site-feed";
 import { Chevron, Container, Section } from "@/components/ui/primitives";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,6 +25,7 @@ export default async function InsightsPage() {
   const locale = await getLocale();
   const { insights: i } = await getDictionary(locale);
   const list = getPublishedArticles(locale);
+  const mainSite = await getMainSiteArticles(locale);
   return (
     <>
       <PageHero eyebrow={i.eyebrow} title={i.title} intro={i.intro} />
@@ -49,6 +52,7 @@ export default async function InsightsPage() {
               ))}
         </Container>
       </Section>
+      <MainSiteReads t={i.mainSite} items={mainSite} locale={locale} />
     </>
   );
 }

@@ -11,6 +11,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/home/Sections";
 import { StickyCta } from "@/components/home/Founder";
 import { CockpitLink } from "@/components/CockpitLink";
+import { MainSiteReads } from "@/components/MainSiteReads";
+import { getMainSiteArticles } from "@/lib/main-site-feed";
 import { Check, Chevron, Container, Section } from "@/components/ui/primitives";
 
 type Props = PageProps<"/[lang]/insights/[slug]">;
@@ -52,6 +54,7 @@ export default async function ArticlePage({ params }: Props) {
   const lp = (p: string) => localePath(locale, p);
   const practices = a.practices.map((s) => getEcosystem(s, locale)).filter((e) => !!e);
   const more = getPublishedArticles(locale).filter((x) => x.id !== a.id).slice(0, 3);
+  const mainSite = await getMainSiteArticles(locale);
 
   return (
     <>
@@ -206,6 +209,7 @@ export default async function ArticlePage({ params }: Props) {
         </Section>
       )}
 
+      <MainSiteReads t={i.mainSite} items={mainSite} locale={locale} />
       <CockpitLink t={t.cockpit} narrow />
       <CtaBand t={{ ...t.cta, title: i.ctaTitle, body: i.ctaBody }} />
       <StickyCta href={lp("/contact")} label={t.hero.primaryCta} />

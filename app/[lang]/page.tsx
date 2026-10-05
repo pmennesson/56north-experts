@@ -4,6 +4,7 @@ import { getEcosystems } from "@/lib/ecosystems";
 import { buildMetadata, faqLd, serviceCatalogLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { getPublishedArticles } from "@/lib/articles";
+import { getMainSiteArticles } from "@/lib/main-site-feed";
 import { Hero } from "@/components/home/Hero";
 import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
 import { Community, CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
@@ -19,11 +20,17 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getDictionary(locale);
-  const latest = getPublishedArticles(locale)[0];
+  // "News alert": the newest article across both sites. A 56north.io article is linked, never copied.
+  const own = getPublishedArticles(locale)[0];
+  const [parent] = await getMainSiteArticles(locale, 1);
+  const alert =
+    parent && (!own || parent.published > own.published)
+      ? { title: parent.title, href: parent.url }
+      : own && { title: own.title, href: localePath(locale, "/insights") };
   return (
     <>
       <JsonLd data={[serviceCatalogLd(getEcosystems(locale), locale), faqLd(t.faq.items)]} />
-      <Hero t={t.hero} alert={latest && { title: latest.title, href: localePath(locale, "/insights") }} />
+      <Hero t={t.hero} alert={alert || undefined} />
       <VendorBar t={t.vendorBar} linkLabel={t.practice.linkLabel} />
       <EcosystemGrid t={t.ecosystems} />
       <ServiceLevels t={t.serviceLevels} />

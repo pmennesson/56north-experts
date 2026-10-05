@@ -245,6 +245,12 @@ const en = {
     preferEmail: "Prefer email? Write to",
   },
   insights: {
+    /** Block pointing to the governance / incident articles of 56north.io (linked, never duplicated). */
+    mainSite: {
+      title: "Read on 56north.io",
+      intro: "Incidents, the EU AI Act and enterprise AI governance: the articles of 56north.io, our AI oversight platform.",
+      all: "All 56north.io articles",
+    },
     metaTitle: "Guides to integrate, run and govern enterprise AI",
     metaDescription:
       "Practical guides on the AI of Microsoft, Salesforce, SAP, ServiceNow, Google Cloud and Workday: integration, day-to-day use, maintenance, EU AI Act and risks.",

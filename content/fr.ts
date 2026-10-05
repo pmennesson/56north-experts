@@ -246,6 +246,11 @@ const fr: Dictionary = {
     preferEmail: "Vous préférez l'e-mail ? Écrivez à",
   },
   insights: {
+    mainSite: {
+      title: "À lire sur 56north.io",
+      intro: "Incidents, AI Act et gouvernance des IA d'entreprise : les articles de 56north.io, notre plateforme de pilotage des IA.",
+      all: "Tous les articles de 56north.io",
+    },
     metaTitle: "Guides pour intégrer, exploiter et encadrer l'IA d'entreprise",
     metaDescription:
       "Des guides pratiques sur l'IA de Microsoft, Salesforce, SAP, ServiceNow, Google Cloud et Workday : intégration, usage, maintenance, AI Act et risques.",
