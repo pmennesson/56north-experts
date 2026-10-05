@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { getLocale, type Dictionary } from "@/lib/i18n";
-import { pagePaths } from "@/lib/seo";
+import { feedPath, pagePaths } from "@/lib/seo";
 import { Container } from "@/components/ui/primitives";
 
 export async function Footer({ t }: { t: Dictionary["footer"] }) {
@@ -10,7 +10,13 @@ export async function Footer({ t }: { t: Dictionary["footer"] }) {
     <footer className="bg-canvas-alt pb-20 text-[12px] text-fg-muted md:pb-0">
       <Container className="flex flex-col gap-4 py-10">
         <p className="leading-relaxed text-fg-subtle">{t.tagline}</p>
-        <p>
+        <p className="flex flex-wrap gap-x-5 gap-y-2">
+          <Link href={pagePaths.articles[locale]} className="text-link hover:underline">
+            {t.articles}
+          </Link>
+          <a href={feedPath(locale)} className="text-link hover:underline">
+            RSS
+          </a>
           <a href={site.experts} className="text-link hover:underline">
             {t.experts}
           </a>

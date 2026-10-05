@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import { articles } from "@/content/articles";
-import type { Article, ArticleVersion } from "@/content/articles/types";
+import type { Article, ArticleVersion, DangerAdvice } from "@/content/articles/types";
 import { frenchTypo, localePath, type Locale } from "@/lib/locale";
 
 export type LocalizedArticle = Omit<Article, "versions" | "category"> &
@@ -16,11 +16,42 @@ export const articleLanguages = (a: Article): Record<Locale | "x-default", strin
   "x-default": articlePath(a, "en"),
 });
 
+/** Column titles of the danger / advice block. */
+export const dangerLabels: Record<Locale, { danger: string; advice: string }> = {
+  en: { danger: "The danger", advice: "The advice" },
+  fr: { danger: "Le danger", advice: "Le conseil" },
+};
+
+/** Where the danger / advice block goes in the Markdown body. */
+const DANGER_TOKEN = "[[danger-conseil]]";
+
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+/**
+ * The danger / advice block as a real <table>: search engines and AI assistants read tables well.
+ * On a phone the CSS turns each row into a card, using data-label as the cell title.
+ */
+function dangersHtml(rows: DangerAdvice[], locale: Locale): string {
+  const l = dangerLabels[locale];
+  const body = rows
+    .map(
+      (r) =>
+        `<tr><td class="da-danger" data-label="${esc(l.danger)}">${esc(r.danger)}</td><td class="da-advice" data-label="${esc(l.advice)}">${esc(r.advice)}</td></tr>`,
+    )
+    .join("");
+  return `<table class="danger-advice"><thead><tr><th scope="col" class="da-danger">${esc(l.danger)}</th><th scope="col" class="da-advice">${esc(l.advice)}</th></tr></thead><tbody>${body}</tbody></table>`;
+}
+
 function localize(a: Article, locale: Locale): LocalizedArticle {
   const raw = a.versions[locale];
   const v = locale === "fr" ? frenchTypo(raw) : raw;
-  const html = marked.parse(v.body.trim(), { async: false, gfm: true }) as string;
-  const words = v.body.split(/\s+/).length;
+  let html = marked.parse(v.body.trim(), { async: false, gfm: true }) as string;
+  if (v.dangers?.length) {
+    const block = dangersHtml(v.dangers, locale);
+    const token = `<p>${DANGER_TOKEN}</p>`;
+    html = html.includes(token) ? html.replace(token, block) : `${html}\n${block}`;
+  }
+  const words = [v.body, ...(v.dangers ?? []).flatMap((d) => [d.danger, d.advice])].join(" ").split(/\s+/).length;
   return {
     id: a.id,
     status: a.status,

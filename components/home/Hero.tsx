@@ -1,11 +1,13 @@
 import { getLinker, type Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow } from "@/components/ui/primitives";
+import { NewsAlert } from "@/components/NewsAlert";
 
-export async function Hero({ t }: { t: Dictionary["hero"] }) {
+export async function Hero({ t, alert }: { t: Dictionary["hero"]; alert?: { title: string; href: string } }) {
   const lp = await getLinker();
   return (
     <section className="overflow-hidden bg-canvas">
-      <Container className="flex flex-col items-center pb-8 pt-8 text-center sm:pt-28">
+      <Container className={`flex flex-col items-center pb-8 pt-8 text-center ${alert ? "sm:pt-20" : "sm:pt-28"}`}>
+        {alert && <NewsAlert label={t.alert.label} all={t.alert.all} title={alert.title} href={alert.href} />}
         <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 whitespace-pre-line text-balance">{t.title}</h1>
         <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>

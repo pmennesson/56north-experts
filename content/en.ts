@@ -34,6 +34,8 @@ const en = {
     primaryCta: "Request experts",
     secondaryCta: "How it works",
     reassurance: "Free to brief. No commitment until you choose a profile.",
+    /** "News alert" pill above the title: the latest published article, linking to the list. */
+    alert: { label: "News alert", all: "See all articles" },
     shortlist: {
       label: "Example shortlist",
       brief: "Agentforce Architect · Paris · 6 months",

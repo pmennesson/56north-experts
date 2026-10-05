@@ -24,6 +24,7 @@
   --color-accent-hover: #0077ed;
   --color-link: #0066cc;
   --color-signal: #1a7f37;
+  --color-alert: #b42318;
 
   --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
 }
@@ -133,5 +134,83 @@
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Danger / advice: the block every new article carries. Red on the
+   left, green on the right. Unlayered on purpose: it overrides the
+   generic table styles of the article page.
+------------------------------------------------------------------- */
+.prose-article table.danger-advice {
+  display: table;
+  width: 100%;
+  overflow: visible;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.prose-article .danger-advice th {
+  width: 50%;
+  padding: 0 1rem 0.25rem;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.prose-article .danger-advice th.da-danger,
+.prose-article .danger-advice td.da-danger::before {
+  color: #b42318;
+}
+.prose-article .danger-advice th.da-advice,
+.prose-article .danger-advice td.da-advice::before {
+  color: var(--color-signal);
+}
+.prose-article .danger-advice td {
+  border-top: 0;
+  padding: 1rem;
+  font-weight: 400;
+  color: var(--color-fg);
+}
+.prose-article .danger-advice td.da-danger {
+  border-radius: 16px 0 0 16px;
+  background: #fef3f2;
+}
+.prose-article .danger-advice td.da-advice {
+  border-radius: 0 16px 16px 0;
+  background: #eff8f1;
+}
+/* On a phone each row becomes a card, and data-label gives each cell its title. */
+@media (max-width: 639px) {
+  .prose-article table.danger-advice,
+  .prose-article .danger-advice tbody,
+  .prose-article .danger-advice tr,
+  .prose-article .danger-advice td {
+    display: block;
+  }
+  .prose-article .danger-advice thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .prose-article .danger-advice tr {
+    margin-top: 0.75rem;
+  }
+  .prose-article .danger-advice td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .prose-article .danger-advice td.da-danger {
+    border-radius: 16px 16px 0 0;
+  }
+  .prose-article .danger-advice td.da-advice {
+    border-radius: 0 0 16px 16px;
   }
 }

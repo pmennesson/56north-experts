@@ -14,3 +14,15 @@ Deployment: service `main` in `deploy/docker-compose.yml`; preview at `new.56nor
 ```bash
 npm install && npm run dev   # http://localhost:3000
 ```
+
+## Articles (`/articles`, `/en/articles`)
+
+One file per article in `content/articles/`, imported in `content/articles/index.ts`. Each language has its own slug.
+`status: "draft"` keeps a page reachable by URL, unlisted and noindex; `"published"` lists it, indexes it, and shows it
+in the "Alerte actu" pill of the home page, in the sitemap, the RSS feeds (`/feed.xml`, `/en/feed.xml`), `/llms.txt`
+and `/llms-full.txt` (full text in Markdown for AI assistants).
+
+Every article carries a danger / advice block: the `dangers` field is required by the type, and the line
+`[[danger-conseil]]` in the Markdown body says where it goes. Sources are opened and dated before publication;
+they are listed at the end of the page and sent as `citation` in the structured data.
+

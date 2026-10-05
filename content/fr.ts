@@ -37,6 +37,7 @@ const fr: Dictionary = {
     primaryCta: "Demander des experts",
     secondaryCta: "Comment ça marche",
     reassurance: "Brief gratuit. Aucun engagement avant d'avoir choisi un profil.",
+    alert: { label: "Alerte actu", all: "Voir tous les articles" },
     shortlist: {
       label: "Exemple de sélection",
       brief: "Architecte Agentforce · Paris · 6 mois",

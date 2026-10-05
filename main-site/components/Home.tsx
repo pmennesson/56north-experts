@@ -1,15 +1,17 @@
 import type { Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow, Section, SectionHeader } from "@/components/ui/primitives";
 import { ScoreBoard } from "@/components/ScoreBoard";
+import { NewsAlert } from "@/components/NewsAlert";
 
 type T = Dictionary;
 
 /* ------------------------------------------------------------------ Hero */
 
-export function Hero({ t }: { t: T["hero"] }) {
+export function Hero({ t, alert }: { t: T["hero"]; alert?: { title: string; href: string } }) {
   return (
     <section className="overflow-hidden bg-canvas">
-      <Container className="flex flex-col items-center pb-8 pt-10 text-center sm:pt-28">
+      <Container className={`flex flex-col items-center pb-8 text-center ${alert ? "pt-8 sm:pt-20" : "pt-10 sm:pt-28"}`}>
+        {alert && <NewsAlert label={t.alert.label} all={t.alert.all} title={alert.title} href={alert.href} />}
         <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.1rem,5.4vw,4.4rem)]">{t.title}</h1>
         <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>

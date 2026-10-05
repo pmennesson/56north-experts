@@ -10,14 +10,18 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
   const locale = await getLocale();
   const home = localePath(locale, "/");
   const anchor = (h: string) => `${home === "/" ? "/" : home}${h}`;
-  const links = [...t.items.map((i) => ({ href: anchor(i.href), label: i.label })), { href: site.experts, label: t.experts }];
+  const links = [
+    ...t.items.map((i) => ({ href: anchor(i.href), label: i.label })),
+    { href: localePath(locale, "/articles"), label: t.articles },
+    { href: site.experts, label: t.experts },
+  ];
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl backdrop-saturate-150">
       <Container className="flex h-12 items-center justify-between gap-6">
         <Link href={home} className="text-[15px] font-semibold tracking-[-0.01em]" aria-label={site.name}>
           {site.name}
         </Link>
-        <nav aria-label="Main" className="hidden items-center gap-6 whitespace-nowrap lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-5 whitespace-nowrap lg:flex xl:gap-6">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="text-[13px] text-fg/80 transition-colors hover:text-fg">
               {l.label}

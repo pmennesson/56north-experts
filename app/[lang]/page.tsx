@@ -3,6 +3,7 @@ import { getDictionary, getLocale, localePath } from "@/lib/i18n";
 import { getEcosystems } from "@/lib/ecosystems";
 import { buildMetadata, faqLd, serviceCatalogLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { getPublishedArticles } from "@/lib/articles";
 import { Hero } from "@/components/home/Hero";
 import { EcosystemGrid, VendorBar } from "@/components/home/Ecosystems";
 import { Community, CtaBand, EngagementModels, Faq, Process, ServiceLevels, Trust } from "@/components/home/Sections";
@@ -18,10 +19,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getDictionary(locale);
+  const latest = getPublishedArticles(locale)[0];
   return (
     <>
       <JsonLd data={[serviceCatalogLd(getEcosystems(locale), locale), faqLd(t.faq.items)]} />
-      <Hero t={t.hero} />
+      <Hero t={t.hero} alert={latest && { title: latest.title, href: localePath(locale, "/insights") }} />
       <VendorBar t={t.vendorBar} linkLabel={t.practice.linkLabel} />
       <EcosystemGrid t={t.ecosystems} />
       <ServiceLevels t={t.serviceLevels} />

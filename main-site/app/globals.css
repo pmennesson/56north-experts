@@ -24,6 +24,7 @@
   --color-accent-hover: #0077ed;
   --color-link: #0066cc;
   --color-signal: #1a7f37;
+  --color-alert: #b42318;
 
   --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
 }
@@ -133,5 +134,139 @@
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Articles — long-form reading styles for the Markdown body.
+------------------------------------------------------------------- */
+.prose-article {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgb(29 29 31 / 0.9);
+}
+.prose-article p {
+  margin-top: 1.25rem;
+}
+.prose-article h2 {
+  margin: 3.5rem 0 1rem;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+  scroll-margin-top: 4.5rem;
+}
+.prose-article ul,
+.prose-article ol {
+  margin-top: 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-article ul {
+  list-style: disc;
+}
+.prose-article ol {
+  list-style: decimal;
+}
+.prose-article li {
+  margin-top: 0.5rem;
+}
+.prose-article strong {
+  font-weight: 600;
+  color: var(--color-fg);
+}
+.prose-article a {
+  color: var(--color-link);
+}
+.prose-article a:hover {
+  text-decoration: underline;
+}
+.prose-article table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.prose-article th {
+  padding: 0 0.75rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+.prose-article td {
+  border-top: 1px solid var(--color-line);
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+/* Danger / advice: the block every article carries. Red on the left, green on the right. */
+.prose-article table.danger-advice {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.danger-advice th {
+  width: 50%;
+  padding: 0 1rem 0.25rem;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.danger-advice th.da-danger,
+.danger-advice td.da-danger::before {
+  color: var(--color-alert);
+}
+.danger-advice th.da-advice,
+.danger-advice td.da-advice::before {
+  color: var(--color-signal);
+}
+.danger-advice td {
+  border-top: 0;
+  padding: 1rem;
+}
+.danger-advice td.da-danger {
+  border-radius: 16px 0 0 16px;
+  background: #fef3f2;
+  color: var(--color-fg);
+}
+.danger-advice td.da-advice {
+  border-radius: 0 16px 16px 0;
+  background: #eff8f1;
+  color: var(--color-fg);
+}
+/* On a phone each row becomes a card, and data-label gives each cell its title. */
+@media (max-width: 639px) {
+  .danger-advice,
+  .danger-advice tbody,
+  .danger-advice tr,
+  .danger-advice td {
+    display: block;
+  }
+  .danger-advice thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .danger-advice tr {
+    margin-top: 0.75rem;
+  }
+  .danger-advice td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .danger-advice td.da-danger {
+    border-radius: 16px 16px 0 0;
+  }
+  .danger-advice td.da-advice {
+    border-radius: 0 0 16px 16px;
   }
 }

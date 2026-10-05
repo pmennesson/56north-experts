@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getDictionary, getLocale } from "@/lib/i18n";
 import { buildMetadata, faqLd, founderLd, pagePaths, serviceLd } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { articlesPath, getPublishedArticles } from "@/lib/articles";
 import { JsonLd } from "@/components/JsonLd";
 import {
   Clock,
@@ -34,6 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const locale = await getLocale();
   const t = await getDictionary(locale);
+  const posts = getPublishedArticles(locale);
   return (
     <>
       <JsonLd
@@ -43,7 +45,7 @@ export default async function Home() {
           founderLd(t.founder.body),
         ]}
       />
-      <Hero t={t.hero} />
+      <Hero t={t.hero} alert={posts[0] && { title: posts[0].seoTitle, href: articlesPath(locale) }} />
       <Definition t={t.definition} />
       <WhyThirdParty t={t.whyThirdParty} />
       <Mirror t={t.mirror} />
@@ -59,7 +61,8 @@ export default async function Home() {
       <Commitments t={t.commitments} />
       <Founder t={t.founder} linkedin={site.founder.linkedin} name={site.founder.name} />
       <Faq t={t.faq} />
-      <Guides t={t.guides} />
+      {/* Own articles first (internal links), then the platform guides hosted on the experts site. */}
+      <Guides t={{ ...t.guides, items: [...posts.slice(0, 3).map((a) => ({ title: a.title, href: a.path })), ...t.guides.items] }} />
       <Section tone="pearl" id="diagnostic" className="scroll-mt-12">
         <Container className="max-w-[760px]">
           <SectionHeader eyebrow={t.contact.eyebrow} title={t.contact.title} subtitle={t.contact.intro} />
