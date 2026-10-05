@@ -19,9 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getDictionary(locale);
-  // « Alerte actu » only for reaction articles (they carry the danger / advice block),
-  // never for the evergreen guides.
-  const latest = getPublishedArticles(locale).find((a) => a.dangers?.length);
+  const latest = getPublishedArticles(locale)[0];
   return (
     <>
       <JsonLd data={[serviceCatalogLd(getEcosystems(locale), locale), faqLd(t.faq.items)]} />
