@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 /**
  * Same page in the other language: /x (French) ↔ /en/x (English).
@@ -18,16 +19,23 @@ export function LangSwitch({ label, short, className = "" }: { label: string; sh
   const raw = usePathname() || "/";
   const path = raw === "/fr" ? "/" : raw.startsWith("/fr/") ? raw.slice(3) : raw;
   const isEn = path === "/en" || path.startsWith("/en/");
-  let target: string;
+  let fallback: string;
   if (isEn) {
     const p = path.slice(3) || "/";
-    target = pairs.find(([, e]) => e === p)?.[0] ?? p;
+    fallback = pairs.find(([, e]) => e === p)?.[0] ?? p;
   } else {
     const p = pairs.find(([f]) => f === path)?.[1] ?? path;
-    target = p === "/" ? "/en" : `/en${p}`;
+    fallback = p === "/" ? "/en" : `/en${p}`;
   }
+  const other = isEn ? "fr" : "en";
+  // Articles have a different slug per language: the page declares it in <link rel="alternate" hreflang>.
+  const [target, setTarget] = useState(fallback);
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${other}"]`);
+    setTarget(link ? new URL(link.href).pathname : fallback);
+  }, [fallback, other]);
   return (
-    <Link href={target} hrefLang={isEn ? "fr" : "en"} lang={isEn ? "fr" : "en"} aria-label={label} className={className}>
+    <Link href={target} hrefLang={other} lang={other} aria-label={label} className={className}>
       {short}
     </Link>
   );
