@@ -375,7 +375,7 @@ const fr = {
     eyebrow: "Articles",
     title: "L'actualité de l'IA d'entreprise,\nlue pour ceux qui en répondent.",
     intro:
-      "Chaque incident public et chaque décision réglementaire, ramenés à trois questions : qu'est-ce qui est établi, où est le danger, que vérifier cette semaine.",
+      "Chaque incident public et chaque décision réglementaire, ramenés à trois questions : qu'est-ce qui est établi, où est le danger, que vérifier cette semaine ?",
     empty: "Les premiers articles arrivent.",
     home: "Accueil",
     read: "Lire l'article",

@@ -367,7 +367,7 @@ const en: MainDictionary = {
     eyebrow: "Articles",
     title: "Enterprise AI news,\nread for those who answer for it.",
     intro:
-      "Each public incident and each regulatory decision, brought down to three questions: what is established, where the danger lies, and what to check this week.",
+      "Each public incident and each regulatory decision, brought down to three questions: what is established, where the danger lies, and what to check this week?",
     empty: "The first articles are on their way.",
     home: "Home",
     read: "Read the article",
