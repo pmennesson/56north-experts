@@ -12,7 +12,8 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "pixelleak-coding-agents",
-  status: "published",
+  // Mis hors ligne le 5 oct. 2026 à la demande de Pascal : publication après cette semaine.
+  status: "draft",
   published: "2026-10-05",
   updated: "2026-10-05",
   category: { fr: "Incident", en: "Incident" },
