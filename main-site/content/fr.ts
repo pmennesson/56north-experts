@@ -19,9 +19,9 @@ const fr = {
   nav: {
     items: [
       { href: "#offre", label: "L'offre" },
-      { href: "#pourquoi-un-tiers", label: "Pourquoi un tiers" },
-      { href: "#cockpit", label: "Le Cockpit" },
-      { href: "#human-in-the-loop", label: "Human in the Loop" },
+      { href: "/gouvernance-ia", label: "Pourquoi un tiers" },
+      { href: "/cockpit", label: "Le Cockpit" },
+      { href: "/human-in-the-loop", label: "Human in the Loop" },
       { href: "#souverainete", label: "Souveraineté" },
     ],
     articles: "Articles",
@@ -71,11 +71,11 @@ const fr = {
     items: [
       {
         name: "La conformité de l'éditeur n'est pas la vôtre",
-        body: "Le règlement européen distingue le fournisseur, qui conçoit l'IA, et le déployeur, qui l'utilise dans ses opérations. L'éditeur répond de son produit. Vous répondez de l'usage que vous en faites : la surveillance humaine, les données d'entrée, l'information des personnes concernées, la conservation des journaux (article 26), et le fait de dire aux gens qu'ils parlent à une machine (article 50). Aucun outil d'éditeur ne porte ces obligations à votre place.",
+        body: "Le règlement européen distingue le fournisseur, qui conçoit l'IA, et le déployeur, qui l'utilise dans ses opérations. L'éditeur répond de son produit. Vous répondez de l'usage que vous en faites : la surveillance humaine, les données d'entrée, l'information des personnes concernées, la conservation des journaux (article 26), et, pour certains usages, l'information des personnes prévue à l'article 50 (reconnaissance des émotions, contenus générés ou manipulés). Aucun outil d'éditeur ne porte ces obligations à votre place.",
       },
       {
         name: "Chaque tour de contrôle ne voit que son écosystème",
-        body: "Une entreprise de taille intermédiaire utilise aujourd'hui l'IA de son CRM, celle de sa suite bureautique, celle de son ERP et celle de son outil de tickets. Quatre éditeurs, quatre tours de contrôle, quatre définitions de la conformité. Aucune ne voit les trois autres. Le registre que demande le règlement est unique ; la note que lit votre comité d'audit aussi.",
+        body: "Une entreprise de taille intermédiaire utilise aujourd'hui l'IA de son CRM, celle de sa suite bureautique, celle de son ERP et celle de son outil de tickets. Quatre éditeurs, quatre tours de contrôle, quatre définitions de la conformité. Aucune ne voit les trois autres. Le registre de vos IA doit être unique ; la note que lit votre comité d'audit aussi.",
       },
       {
         name: "Celui qui vend l'IA ne peut pas la noter",
@@ -132,7 +132,7 @@ const fr = {
       { date: "2 décembre 2027", label: "Haut risque : recrutement, crédit, éducation, biométrie", status: "prepare" },
       { date: "2 août 2028", label: "IA intégrée aux produits déjà réglementés", status: "upcoming" },
     ],
-    sanctions: "Sanctions jusqu'à 35 M€ ou 7 % du chiffre d'affaires mondial.",
+    sanctions: "Sanctions jusqu'à 15 M€ ou 3 % du chiffre d'affaires mondial pour les obligations du déployeur, 35 M€ ou 7 % pour les pratiques interdites.",
   },
   problem: {
     eyebrow: "Le problème",

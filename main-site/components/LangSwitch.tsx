@@ -13,6 +13,10 @@ import { useEffect, useState } from "react";
 const pairs: [string, string][] = [
   ["/mentions-legales", "/legal-notice"],
   ["/confidentialite", "/privacy"],
+  ["/gouvernance-ia", "/ai-governance"],
+  ["/registre-des-ia", "/ai-register"],
+  ["/conformite-ai-act", "/ai-act-compliance"],
+  ["/a-propos", "/about"],
 ];
 
 export function LangSwitch({ label, short, className = "" }: { label: string; short: string; className?: string }) {

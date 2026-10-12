@@ -50,7 +50,21 @@ const chip = {
   upcoming: "bg-fg/[0.06] text-fg-muted",
 } as const;
 
-export function Clock({ t }: { t: T["clock"] }) {
+/** "En savoir plus" link from a home section to its own page (descriptive anchor text). */
+export type More = { href: string; label: string };
+
+function MoreLink({ more }: { more?: More }) {
+  if (!more) return null;
+  return (
+    <div className="reveal mt-8 text-center">
+      <Button href={more.href} variant="link">
+        {more.label}
+      </Button>
+    </div>
+  );
+}
+
+export function Clock({ t, more }: { t: T["clock"]; more?: More }) {
   return (
     <Section tone="pearl" id="horloge" className="scroll-mt-12">
       <Container>
@@ -70,6 +84,7 @@ export function Clock({ t }: { t: T["clock"] }) {
           })}
         </ol>
         <p className="reveal mt-10 text-center text-xl font-semibold tracking-[-0.015em]">{t.sanctions}</p>
+        <MoreLink more={more} />
       </Container>
     </Section>
   );
@@ -137,7 +152,7 @@ export function Offer({ t }: { t: T["offer"] }) {
 
 /* ---------------------------------------------------------------- Cockpit */
 
-export function Cockpit({ t }: { t: T["cockpit"] }) {
+export function Cockpit({ t, more }: { t: T["cockpit"]; more?: More }) {
   return (
     <Section id="cockpit" className="scroll-mt-12">
       <Container>
@@ -163,6 +178,7 @@ export function Cockpit({ t }: { t: T["cockpit"] }) {
           ))}
         </ol>
         <p className="reveal mx-auto mt-12 max-w-2xl text-center text-[17px] leading-relaxed text-fg-muted">{t.report}</p>
+        <MoreLink more={more} />
       </Container>
     </Section>
   );
@@ -305,7 +321,7 @@ export function Definition({ t }: { t: T["definition"] }) {
 
 /* ------------------------- Why a third party (vendor vs deployer, GEO) */
 
-export function WhyThirdParty({ t }: { t: T["whyThirdParty"] }) {
+export function WhyThirdParty({ t, more }: { t: T["whyThirdParty"]; more?: More }) {
   return (
     <Section id="pourquoi-un-tiers" className="scroll-mt-12">
       <Container>
@@ -320,10 +336,15 @@ export function WhyThirdParty({ t }: { t: T["whyThirdParty"] }) {
           ))}
         </ol>
         <p className="reveal mx-auto mt-12 max-w-[760px] text-center text-xl font-medium leading-snug tracking-[-0.015em] text-pretty">{t.closing}</p>
-        <div className="reveal mt-8 text-center">
+        <div className="reveal mt-8 flex flex-col items-center gap-3 text-center">
           <Button href="#cockpit" variant="link">
             {t.link}
           </Button>
+          {more && (
+            <Button href={more.href} variant="link">
+              {more.label}
+            </Button>
+          )}
         </div>
       </Container>
     </Section>
@@ -431,7 +452,7 @@ type OfferDetailT = {
   partner?: { label: string; name: string; url?: string; tagline: string };
 };
 
-export function OfferDetail({ t, id, tone = "white" }: { t: OfferDetailT; id: string; tone?: "white" | "pearl" }) {
+export function OfferDetail({ t, id, tone = "white", more }: { t: OfferDetailT; id: string; tone?: "white" | "pearl"; more?: More }) {
   const card = tone === "pearl" ? "tile-white" : "tile";
   const note = t.proof ?? t.independence;
   return (
@@ -469,10 +490,15 @@ export function OfferDetail({ t, id, tone = "white" }: { t: OfferDetailT; id: st
           ))}
         </ul>
         {note && <p className="reveal mx-auto mt-10 max-w-2xl text-center text-[17px] leading-relaxed text-fg-muted">{note}</p>}
-        <div className="reveal mt-10 flex justify-center">
+        <div className="reveal mt-10 flex flex-col items-center gap-5">
           <Button href="#diagnostic" size="lg">
             {t.cta}
           </Button>
+          {more && (
+            <Button href={more.href} variant="link">
+              {more.label}
+            </Button>
+          )}
         </div>
       </Container>
     </Section>

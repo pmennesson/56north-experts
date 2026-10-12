@@ -2,6 +2,8 @@ import { loadDictionary } from "@/lib/dictionaries";
 import { absoluteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getPublishedArticles } from "@/lib/articles";
+import { loadPillars, pillarKeys } from "@/lib/pillars";
+import { pagePaths } from "@/lib/seo";
 
 /** /llms.txt — plain-text map of the site for AI assistants. */
 export const dynamic = "force-static";
@@ -12,10 +14,15 @@ export async function GET() {
   const plain = (s: string) => s.replace(/ /g, " ");
   const articlesEn = getPublishedArticles("en");
   const articlesFr = getPublishedArticles("fr");
+  const pillarsEn = await loadPillars("en");
+  const pillarsFr = await loadPillars("fr");
   const body = [
     `# ${site.name}`,
     "",
     `> ${en.meta.description}`,
+    "",
+    "## Pages",
+    ...pillarKeys.map((k) => `- [${pillarsEn.pages[k].h1}](${absoluteUrl(pagePaths[k].en)}): ${pillarsEn.pages[k].answer}`),
     "",
     "## What 56North does",
     ...en.offer.layers.map((l) => `- ${l.name} (${l.kind}, ${l.status.toLowerCase()}): ${l.body}`),
@@ -50,6 +57,9 @@ export async function GET() {
     "",
     "## En français",
     plain(`> ${fr.meta.description}`),
+    "",
+    "### Pages",
+    ...pillarKeys.map((k) => plain(`- [${pillarsFr.pages[k].h1}](${absoluteUrl(pagePaths[k].fr)}) : ${pillarsFr.pages[k].answer}`)),
     ...(articlesFr.length ? ["", "### Articles", ...articlesFr.map((a) => plain(`- [${a.title}](${absoluteUrl(a.path)}) : ${a.takeaways[0]}`))] : []),
     "",
   ].join("\n");

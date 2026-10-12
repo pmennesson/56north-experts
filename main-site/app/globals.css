@@ -199,6 +199,20 @@
   padding: 0.75rem;
   vertical-align: top;
 }
+/* Wide tables scroll inside their own box on a phone, never the whole page. */
+.prose-article .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.prose-article .table-scroll table.wide {
+  min-width: 600px;
+}
+@media (max-width: 639px) {
+  .prose-article .table-scroll {
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+  }
+}
 
 /* Danger / advice: the block every article carries. Red on the left, green on the right. */
 .prose-article table.danger-advice {

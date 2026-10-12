@@ -46,7 +46,7 @@ An Agentforce demo takes a few days. An agent that holds up in front of real cus
 ## On go-live day
 
 - **A clear handover to a human.** Define when the agent hands over (sensitive topics, low confidence, explicit request) and check that the service agent receives the conversation history.
-- **Transparency notice.** Tell users they are talking to an AI, in the conversation itself. In the EU this is required by Article 50 of the AI Act since 2 August 2026.
+- **Transparency notice.** Tell users they are talking to an AI, in the conversation itself. In the EU this is required by Article 50 of the AI Act since 2 August 2026 (see [what the AI Act requires of companies using Agentforce](/insights/eu-ai-act-deployer-obligations-copilot-agentforce)).
 - **A cost baseline.** Note the expected volume and estimate the consumption per conversation, so that the first invoice is not the first measurement.
 
 ## In the first weeks
@@ -59,7 +59,7 @@ An Agentforce demo takes a few days. An agent that holds up in front of real cus
 - Launching to all users at once instead of a pilot group.
 - Treating the Einstein Trust Layer as the whole security design: it protects the exchange with the model, not the permissions you give the agent.
 - Measuring success by the number of conversations instead of the share of requests actually resolved.
-- Forgetting the agent after go-live: knowledge ages, and each Salesforce release can change behaviour.
+- Forgetting the agent after go-live: knowledge ages, and each Salesforce release can change behaviour. See [what degrades in an AI agent after go-live, and how to keep control](/insights/maintain-ai-agents-in-production).
 `,
       faq: [
         {
@@ -108,7 +108,7 @@ Une démonstration Agentforce se monte en quelques jours. Un agent qui tient fac
 ## Le jour de la mise en service
 
 - **Un passage clair vers un humain.** Définissez quand l'agent passe la main (sujets sensibles, faible confiance, demande explicite) et vérifiez que le conseiller reçoit l'historique de la conversation.
-- **La mention de transparence.** Dites aux utilisateurs qu'ils s'adressent à une IA, dans la conversation elle-même. Dans l'Union européenne, l'article 50 de l'AI Act l'impose depuis le 2 août 2026.
+- **La mention de transparence.** Dites aux utilisateurs qu'ils s'adressent à une IA, dans la conversation elle-même. Dans l'Union européenne, l'article 50 de l'AI Act l'impose depuis le 2 août 2026 (voir [ce que l'AI Act impose aux entreprises qui utilisent Agentforce](/fr/insights/ai-act-obligations-deployeurs-copilot-agentforce)).
 - **Une base de coût.** Notez le volume attendu et estimez la consommation par conversation, pour que la première facture ne soit pas la première mesure.
 
 ## Les premières semaines
@@ -121,7 +121,7 @@ Une démonstration Agentforce se monte en quelques jours. Un agent qui tient fac
 - Ouvrir l'agent à tous les utilisateurs d'un coup au lieu d'un groupe pilote.
 - Considérer l'Einstein Trust Layer comme toute la sécurité : il protège l'échange avec le modèle, pas les droits que vous donnez à l'agent.
 - Mesurer le succès au nombre de conversations plutôt qu'à la part des demandes réellement résolues.
-- Oublier l'agent après la mise en service : les connaissances vieillissent, et chaque version de Salesforce peut changer son comportement.
+- Oublier l'agent après la mise en service : les connaissances vieillissent, et chaque version de Salesforce peut changer son comportement. Voir [ce qui se dégrade dans un agent IA après sa mise en service, et comment garder le contrôle](/fr/insights/maintenir-agent-ia-en-production).
 `,
       faq: [
         {

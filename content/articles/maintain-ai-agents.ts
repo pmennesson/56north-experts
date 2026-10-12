@@ -28,7 +28,7 @@ const article: Article = {
         "Every agent needs a named owner. Without one, nobody notices drift until a customer, an employee or an auditor does.",
       ],
       body: `
-Most AI projects on enterprise platforms are judged on the go-live date. Then the team moves on to the next use case, and the first agent is left to run. Within a few months, answers get worse, costs go up and nobody can say exactly why. An agent built on Agentforce, Copilot Studio, Joule or Now Assist needs maintenance like any production system, with a few failure modes of its own.
+Most AI projects on enterprise platforms are judged on the go-live date (for Agentforce, see [our 12-point go-live checklist](/insights/agentforce-agent-go-live-checklist)). Then the team moves on to the next use case, and the first agent is left to run. Within a few months, answers get worse, costs go up and nobody can say exactly why. An agent built on Agentforce, Copilot Studio, Joule or Now Assist needs maintenance like any production system, with a few failure modes of its own.
 
 ## What degrades after go-live
 
@@ -36,7 +36,7 @@ Most AI projects on enterprise platforms are judged on the go-live date. Then th
 - **The platform changes under you.** Vendors update their AI features frequently, sometimes including the underlying model or the way the agent plans its steps. Salesforce, for example, ships three major releases a year. A change you did not make can alter how your agent behaves.
 - **Users find new uses.** People ask the agent things it was not designed for. Some of those questions fall outside its instructions, and that is where answers become improvised, or wrong.
 - **Permissions drift.** New data sources are connected, new actions are added, access rights are widened "temporarily". Each change widens what the agent can read or do.
-- **Costs drift.** Longer conversations, more actions per request and more users all raise consumption. Without a cost per conversation tracked monthly, the bill becomes the first alert.
+- **Costs drift.** Longer conversations, more actions per request and more users all raise consumption. Without a cost per conversation tracked monthly, the bill becomes the first alert (see [how Microsoft bills Copilot Credits by usage](/insights/copilot-credits-usage-based-billing)).
 - **Integrations break.** An API changes, a field is renamed, a system is migrated. The agent may not fail visibly: it may simply stop using the data and answer without it.
 
 ## The risks that come with drift
@@ -44,7 +44,7 @@ Most AI projects on enterprise platforms are judged on the go-live date. Then th
 Two risks deserve special attention because they grow over time:
 
 - **Data exposure.** An assistant that searches company content shows users everything they are technically allowed to see. If permissions on shared drives or sites are too broad, the assistant makes that oversharing visible in seconds.
-- **Prompt injection.** Text hidden in a document, an email or a web page can carry instructions that the agent follows. OWASP ranks it as the first risk for applications built on language models. The more data sources and actions an agent has, the larger the exposure.
+- **Prompt injection.** Text hidden in a document, an email or a web page can carry instructions that the agent follows. OWASP ranks it as the first risk for applications built on language models. See [Adversa AI's prompt injection demonstration on GitHub Copilot CLI](/insights/copilot-cli-prompt-injection-autopilot). The more data sources and actions an agent has, the larger the exposure.
 
 ## A monthly routine that keeps control
 
@@ -91,7 +91,7 @@ Give each agent a named owner, a person rather than a team, who answers three qu
         "Chaque agent doit avoir un responsable nommé. Sans lui, personne ne voit la dérive avant un client, un salarié ou un contrôleur.",
       ],
       body: `
-La plupart des projets IA sur les plateformes d'entreprise sont jugés sur leur date de mise en service. Puis l'équipe passe au cas d'usage suivant, et le premier agent tourne seul. En quelques mois, les réponses se dégradent, les coûts montent et personne ne sait dire pourquoi. Un agent construit sur Agentforce, Copilot Studio, Joule ou Now Assist demande une maintenance comme tout système en production, avec quelques pannes qui lui sont propres.
+La plupart des projets IA sur les plateformes d'entreprise sont jugés sur leur date de mise en service (pour Agentforce, voir [notre check-list de mise en production en 12 points](/fr/insights/mise-en-production-agent-agentforce-checklist)). Puis l'équipe passe au cas d'usage suivant, et le premier agent tourne seul. En quelques mois, les réponses se dégradent, les coûts montent et personne ne sait dire pourquoi. Un agent construit sur Agentforce, Copilot Studio, Joule ou Now Assist demande une maintenance comme tout système en production, avec quelques pannes qui lui sont propres.
 
 ## Ce qui se dégrade après la mise en service
 
@@ -99,7 +99,7 @@ La plupart des projets IA sur les plateformes d'entreprise sont jugés sur leur 
 - **La plateforme change sous vos pieds.** Les éditeurs font évoluer leurs fonctions IA souvent, parfois jusqu'au modèle sous-jacent ou à la façon dont l'agent planifie ses étapes. Salesforce, par exemple, publie trois versions majeures par an. Un changement que vous n'avez pas fait peut modifier le comportement de votre agent.
 - **Les utilisateurs inventent de nouveaux usages.** Ils posent à l'agent des questions pour lesquelles il n'a pas été conçu. Une partie sort de ses instructions, et c'est là que les réponses deviennent improvisées, ou fausses.
 - **Les droits d'accès dérivent.** De nouvelles sources de données sont branchées, de nouvelles actions ajoutées, des droits élargis « provisoirement ». Chaque changement étend ce que l'agent peut lire ou faire.
-- **Les coûts dérivent.** Des conversations plus longues, plus d'actions par demande et plus d'utilisateurs font monter la consommation. Sans un coût par conversation suivi chaque mois, c'est la facture qui donne l'alerte.
+- **Les coûts dérivent.** Des conversations plus longues, plus d'actions par demande et plus d'utilisateurs font monter la consommation. Sans un coût par conversation suivi chaque mois, c'est la facture qui donne l'alerte (voir [comment Microsoft facture les crédits Copilot à l'usage](/fr/insights/copilot-credits-facturation-a-l-usage)).
 - **Les intégrations cassent.** Une API change, un champ est renommé, un système migre. L'agent ne tombe pas forcément en panne visible : il peut simplement cesser d'utiliser la donnée et répondre sans elle.
 
 ## Les risques qui accompagnent la dérive
@@ -107,7 +107,7 @@ La plupart des projets IA sur les plateformes d'entreprise sont jugés sur leur 
 Deux risques méritent une attention particulière, parce qu'ils grandissent avec le temps :
 
 - **L'exposition des données.** Un assistant qui fouille les contenus de l'entreprise montre à chaque utilisateur tout ce qu'il a techniquement le droit de voir. Si les droits sur les dossiers et les sites partagés sont trop larges, l'assistant rend ce surpartage visible en quelques secondes.
-- **L'injection de prompt.** Un texte caché dans un document, un e-mail ou une page web peut contenir des instructions que l'agent exécute. L'OWASP la classe en tête des risques des applications fondées sur des modèles de langage. Plus un agent a de sources de données et d'actions, plus l'exposition est grande.
+- **L'injection de prompt.** Un texte caché dans un document, un e-mail ou une page web peut contenir des instructions que l'agent exécute. L'OWASP la classe en tête des risques des applications fondées sur des modèles de langage. Voir [la démonstration d'injection de prompt d'Adversa AI sur GitHub Copilot CLI](/fr/insights/copilot-cli-injection-de-prompt-autopilot). Plus un agent a de sources de données et d'actions, plus l'exposition est grande.
 
 ## Une routine mensuelle pour garder le contrôle
 

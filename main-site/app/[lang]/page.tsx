@@ -24,6 +24,7 @@ import {
   StickyCta,
 } from "@/components/Home";
 import { DiagnosticForm } from "@/components/DiagnosticForm";
+import { loadPillars } from "@/lib/pillars";
 import { Container, Section, SectionHeader } from "@/components/ui/primitives";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -36,26 +37,29 @@ export default async function Home() {
   const locale = await getLocale();
   const t = await getDictionary(locale);
   const posts = getPublishedArticles(locale);
+  // Each section links to its own page: descriptive anchors, the pages' main internal links.
+  const { ui } = await loadPillars(locale);
+  const more = (key: "cockpit" | "hitl" | "factory" | "governance" | "compliance", label: string) => ({ href: pagePaths[key][locale], label });
   return (
     <>
       <JsonLd
         data={[
           serviceLd(locale, t.offer.title, t.offer.intro, t.offer.plans),
           faqLd(t.faq.items),
-          founderLd(t.founder.body),
+          founderLd(t.founder.body, locale),
         ]}
       />
       <Hero t={t.hero} alert={posts[0] && { title: posts[0].seoTitle, href: articlesPath(locale) }} />
       <Definition t={t.definition} />
-      <WhyThirdParty t={t.whyThirdParty} />
+      <WhyThirdParty t={t.whyThirdParty} more={more("governance", ui.more.whyThirdParty)} />
       <Mirror t={t.mirror} />
-      <Clock t={t.clock} />
+      <Clock t={t.clock} more={more("compliance", ui.more.clock)} />
       <Problem t={t.problem} />
       <Offer t={t.offer} />
       <MidCta label={t.hero.primary} reassurance={t.hero.reassurance} tone="pearl" />
-      <Cockpit t={t.cockpit} />
-      <OfferDetail t={t.hitl} id="human-in-the-loop" tone="pearl" />
-      <OfferDetail t={t.factoryOffer} id="factory" />
+      <Cockpit t={t.cockpit} more={more("cockpit", ui.more.cockpit)} />
+      <OfferDetail t={t.hitl} id="human-in-the-loop" tone="pearl" more={more("hitl", ui.more.hitl)} />
+      <OfferDetail t={t.factoryOffer} id="factory" more={more("factory", ui.more.factory)} />
       <Sovereignty t={t.sovereignty} />
       <Factory t={t.factory} />
       <Commitments t={t.commitments} />

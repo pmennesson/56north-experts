@@ -96,7 +96,7 @@ Vous êtes concerné à deux titres :
 
 Elle écrit trois listes pour chaque agent : ce qu'il peut faire seul, ce qui demande l'accord d'une personne, ce qui lui est interdit. Elle lui donne un responsable nommé, une personne et non une équipe. Elle relit le chemin suivi par l'agent en plus du résultat qu'il rend.
 
-Elle tient aussi un registre de toutes ses IA en service, avec pour chacune son usage, son responsable et les preuves datées qui s'y rattachent. C'est le rôle du [Cockpit 56North](/#cockpit). L'offre [Human in the Loop](/#human-in-the-loop), activée sur engagement, prévoit des campagnes de test menées par des humains formés.
+Elle tient aussi un registre de toutes ses IA en service, avec pour chacune son usage, son responsable et les preuves datées qui s'y rattachent. C'est le rôle du [Cockpit 56North](/cockpit). L'offre [Human in the Loop](/human-in-the-loop), activée sur engagement, prévoit des campagnes de test menées par des humains formés.
 `,
       dangers: [
         {
@@ -197,7 +197,7 @@ You are concerned twice over:
 
 It writes three lists for each agent: what the agent may do alone, what needs a person's approval, and what is forbidden. It gives the agent a named owner, a person and not a team. It reviews the path the agent took as well as the result it returns.
 
-It also keeps a register of every AI system in service, with its use, its owner and the dated evidence attached to it. That is the role of the [56North Cockpit](/en#cockpit). The [Human in the Loop](/en#human-in-the-loop) offer, activated on commitment, provides for test campaigns run by trained people.
+It also keeps a register of every AI system in service, with its use, its owner and the dated evidence attached to it. That is the role of the [56North Cockpit](/en/cockpit). The [Human in the Loop](/en/human-in-the-loop) offer, activated on commitment, provides for test campaigns run by trained people.
 `,
       dangers: [
         {

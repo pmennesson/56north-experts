@@ -4,14 +4,25 @@ import { localePath, type Locale } from "@/lib/locale";
 
 export const absoluteUrl = (path = "/") => new URL(path, site.url).toString();
 
-/** Public path of a page per locale. Keys: "home" | "notice" | "privacy". */
+/** Public path of a page per locale. Slugs may differ per language: hreflang, sitemap and the language switch read them here. */
 export const pagePaths = {
   home: { fr: "/", en: "/en" },
   articles: { fr: "/articles", en: "/en/articles" },
   notice: { fr: "/mentions-legales", en: "/en/legal-notice" },
   privacy: { fr: "/confidentialite", en: "/en/privacy" },
+  // Pillar pages (content/pillars): one page per search intent.
+  cockpit: { fr: "/cockpit", en: "/en/cockpit" },
+  hitl: { fr: "/human-in-the-loop", en: "/en/human-in-the-loop" },
+  factory: { fr: "/factory", en: "/en/factory" },
+  governance: { fr: "/gouvernance-ia", en: "/en/ai-governance" },
+  register: { fr: "/registre-des-ia", en: "/en/ai-register" },
+  compliance: { fr: "/conformite-ai-act", en: "/en/ai-act-compliance" },
+  about: { fr: "/a-propos", en: "/en/about" },
 } as const;
 export type PageKey = keyof typeof pagePaths;
+
+/** The founder's page on the sister site: same person, linked both ways. */
+const founderSameAs = [site.founder.linkedin, `${site.experts}/about`];
 
 /** RSS feed of the articles: French at /feed.xml, English at /en/feed.xml. */
 export const feedPath = (locale: Locale) => localePath(locale, "/feed.xml");
@@ -96,20 +107,22 @@ export const organizationLd = (description: string) => ({
   description,
   logo: absoluteUrl("/logo.png"),
   sameAs: [site.experts],
-  founder: { "@id": founderId, "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
+  founder: { "@id": founderId, "@type": "Person", name: site.founder.name, url: absoluteUrl(pagePaths.about.fr), sameAs: founderSameAs },
   subOrganization: { "@type": "ProfessionalService", name: "56North Experts", url: site.experts },
   knowsAbout: ["AI governance", "EU AI Act", "AI risk management", "AI compliance evidence"],
 });
 
-export const founderLd = (description: string) => ({
+/** The founder, whose page is /a-propos (/en/about): the url every Person reference points to. */
+export const founderLd = (description: string, locale: Locale = "fr") => ({
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": founderId,
   name: site.founder.name,
   jobTitle: "Founder",
   description,
+  url: absoluteUrl(pagePaths.about[locale]),
   worksFor: { "@id": orgId },
-  sameAs: [site.founder.linkedin],
+  sameAs: founderSameAs,
   image: absoluteUrl("/founder.jpg"),
 });
 
@@ -152,7 +165,13 @@ export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
 });
 
 const blogId = (locale: Locale) => `${absoluteUrl(pagePaths.articles[locale])}#blog`;
-const authorLd = { "@id": founderId, "@type": "Person", name: site.founder.name, url: site.founder.linkedin, sameAs: [site.founder.linkedin] };
+const authorLd = (locale: Locale) => ({
+  "@id": founderId,
+  "@type": "Person",
+  name: site.founder.name,
+  url: absoluteUrl(pagePaths.about[locale]),
+  sameAs: founderSameAs,
+});
 
 /** The articles section as a Blog entity, with its posts: one object search engines and assistants can walk. */
 export const blogLd = (
@@ -176,7 +195,7 @@ export const blogLd = (
     url: absoluteUrl(p.path),
     datePublished: p.published,
     dateModified: p.updated,
-    author: authorLd,
+    author: authorLd(locale),
   })),
 });
 
@@ -213,8 +232,39 @@ export const articleLd = (a: {
   mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(a.path) },
   image: absoluteUrl(`${a.path}/opengraph-image`),
   isPartOf: { "@id": blogId(a.locale) },
-  author: authorLd,
+  author: authorLd(a.locale),
   publisher: { "@id": orgId },
   citation: a.sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })),
+  speakable: { "@type": "SpeakableSpecification", cssSelector: ["[data-speakable]"] },
+});
+
+/** One offer on its own page (pillar pages): a Service whose provider is the Organization above. */
+export const offerServiceLd = (o: { name: string; serviceType: string; description: string; path: string; locale: Locale }) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${absoluteUrl(o.path)}#service`,
+  name: o.name,
+  serviceType: o.serviceType,
+  description: o.description,
+  provider: { "@id": orgId },
+  areaServed: "Europe",
+  availableLanguage: ["fr", "en"],
+  url: absoluteUrl(o.path),
+  inLanguage: o.locale,
+});
+
+/** A pillar page as a WebPage, part of the site, with its speakable summary. */
+export const webPageLd = (p: { path: string; name: string; description: string; locale: Locale; updated: string; about?: boolean }) => ({
+  "@context": "https://schema.org",
+  "@type": p.about ? "AboutPage" : "WebPage",
+  "@id": `${absoluteUrl(p.path)}#webpage`,
+  url: absoluteUrl(p.path),
+  name: p.name,
+  description: p.description,
+  inLanguage: p.locale,
+  dateModified: p.updated,
+  isPartOf: { "@id": `${site.url}/#website` },
+  publisher: { "@id": orgId },
+  ...(p.about ? { mainEntity: { "@id": founderId } } : {}),
   speakable: { "@type": "SpeakableSpecification", cssSelector: ["[data-speakable]"] },
 });

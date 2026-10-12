@@ -91,7 +91,7 @@ An agent with a mailbox and a directory entry is an account in its own right. It
 
 The agent's real scope is the state of your sharing. If it "sees only what you share with it", any folder open to the whole company is readable by it. Existing oversharing on your Drive becomes its playing field.
 
-An agent that writes to third parties from its own address raises the question of informing people. Article 50 of the AI Act has applied since 2 August 2026. It requires providers to design systems that interact directly with people so that those people know they are dealing with an AI, unless it is obvious. The European Commission cites AI agents among its examples. How this applies to an email sent by a coworker agent, and what falls to the company using it, is not settled here: check it with your legal team. Nothing stops you from saying it in the signature in the meantime.
+An agent that writes to third parties from its own address raises the question of informing people. Article 50 of the AI Act has applied since 2 August 2026 (see [what the AI Act requires of companies that deploy AI](/insights/eu-ai-act-deployer-obligations-copilot-agentforce)). It requires providers to design systems that interact directly with people so that those people know they are dealing with an AI, unless it is obvious. The European Commission cites AI agents among its examples. How this applies to an email sent by a coworker agent, and what falls to the company using it, is not settled here: check it with your legal team. Nothing stops you from saying it in the signature in the meantime.
 
 The gap is not specific to Google. In a survey released in early October by SailPoint, a vendor of identity security tools, of 340 identity, IT, cybersecurity and risk leaders: 79% of organisations run AI agents in production, 2% use identity tools built to govern them. 57% say they are confident about meeting regulatory requirements, 43% say they are prepared to produce verifiable evidence in an AI-related audit. SailPoint sells these tools: read these figures as a vendor's.
 
@@ -102,7 +102,7 @@ The gap is not specific to Google. In a survey released in early October by Sail
 ## To decide before switching it on
 
 1. **Who can create a coworker agent.** Restrict it to a group, not to every manager.
-2. **Who owns each agent.** One named person per agent, recorded in your AI register on the day it is created.
+2. **Who owns each agent.** One named person per agent, recorded in your AI register on the day it is created, as for [any AI agent in production](/insights/maintain-ai-agents-in-production).
 3. **What it can see.** Review company-wide shares and public links before the first agent arrives.
 4. **How to stop it.** A written procedure: suspend the account, hand over mailbox and files, revoke access. The same as for someone leaving.
 5. **What it can spend.** A cap per project if your console offers it, otherwise a monthly review of consumption.
@@ -201,7 +201,7 @@ Un agent qui a une boîte mail et une entrée dans l'annuaire est un compte à p
 
 Le périmètre réel de l'agent, c'est l'état de vos partages. S'il « ne voit que ce que vous partagez avec lui », tout dossier ouvert à toute l'entreprise lui est lisible. Le surpartage déjà présent sur votre Drive devient son terrain.
 
-Un agent qui écrit à des tiers depuis sa propre adresse pose la question de l'information des personnes. L'article 50 de l'AI Act s'applique depuis le 2 août 2026. Il demande aux fournisseurs de concevoir les systèmes qui interagissent directement avec des personnes de sorte qu'elles sachent qu'elles ont affaire à une IA, sauf si c'est évident. La Commission européenne cite les agents d'IA parmi ses exemples. La façon dont cela s'applique à un e-mail envoyé par un agent collègue, et ce qui revient à l'entreprise qui l'utilise, n'est pas tranchée ici : voyez-le avec votre juriste. Rien n'empêche, en attendant, de le dire dans la signature.
+Un agent qui écrit à des tiers depuis sa propre adresse pose la question de l'information des personnes. L'article 50 de l'AI Act s'applique depuis le 2 août 2026 (voir [ce que l'AI Act impose aux entreprises qui déploient l'IA](/fr/insights/ai-act-obligations-deployeurs-copilot-agentforce)). Il demande aux fournisseurs de concevoir les systèmes qui interagissent directement avec des personnes de sorte qu'elles sachent qu'elles ont affaire à une IA, sauf si c'est évident. La Commission européenne cite les agents d'IA parmi ses exemples. La façon dont cela s'applique à un e-mail envoyé par un agent collègue, et ce qui revient à l'entreprise qui l'utilise, n'est pas tranchée ici : voyez-le avec votre juriste. Rien n'empêche, en attendant, de le dire dans la signature.
 
 Le décalage n'est pas propre à Google. Dans une enquête publiée début octobre par SailPoint, éditeur d'outils de sécurité des identités, auprès de 340 responsables identité, informatique, cybersécurité et risques : 79 % des organisations font tourner des agents d'IA en production, 2 % utilisent des outils d'identité conçus pour les gouverner. 57 % se disent confiantes face aux exigences réglementaires, 43 % se disent prêtes à produire des preuves vérifiables lors d'un audit lié à l'IA. SailPoint vend ces outils : lisez ces chiffres comme ceux d'un éditeur.
 
@@ -212,7 +212,7 @@ Le décalage n'est pas propre à Google. Dans une enquête publiée début octob
 ## À trancher avant toute activation
 
 1. **Qui peut créer un agent collègue.** Un groupe restreint, pas chaque manager.
-2. **Qui est responsable de chaque agent.** Une personne nommée par agent, inscrite au registre des IA le jour de la création.
+2. **Qui est responsable de chaque agent.** Une personne nommée par agent, inscrite au registre des IA le jour de la création, comme pour [tout agent IA en production](/fr/insights/maintenir-agent-ia-en-production).
 3. **Ce qu'il peut voir.** Revoir les partages ouverts à toute l'entreprise et les liens publics avant l'arrivée du premier agent.
 4. **Comment on l'arrête.** Une procédure écrite : suspension du compte, transfert de la boîte et des fichiers, révocation des accès. La même que pour un départ.
 5. **Ce qu'il peut dépenser.** Un plafond par projet si votre console le propose, sinon une revue mensuelle de la consommation.

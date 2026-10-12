@@ -96,7 +96,7 @@ This arithmetic is ours, based on Microsoft's public figures; the example of 100
 
 ## What a solid team does differently
 
-It treats Copilot spending as consumption to be steered. Each use case has an owner, a limit and a monthly review that sets the cost against the result. It redoes the sums at each vendor announcement, because the list of usage-billed services is growing: Microsoft writes that it is working to bring more agents and services into this model.
+It treats Copilot spending as consumption to be steered. Each use case has an owner, a limit and a monthly review that sets the cost against the result, as in [the routine for maintaining an AI agent in production](/insights/maintain-ai-agents-in-production). It redoes the sums at each vendor announcement, because the list of usage-billed services is growing: Microsoft writes that it is working to bring more agents and services into this model.
 `,
       dangers: [
         {
@@ -199,7 +199,7 @@ Ce calcul est le nôtre, à partir des chiffres publics de Microsoft ; l'exemple
 
 ## Ce qu'une équipe solide fait différemment
 
-Elle traite la dépense Copilot comme une consommation à piloter. Chaque cas d'usage a un responsable, un plafond et une revue mensuelle qui met le coût en face du résultat. Elle refait le calcul à chaque annonce de l'éditeur, parce que la liste des services facturés à l'usage s'allonge : Microsoft écrit qu'elle travaille à y faire entrer d'autres agents et services.
+Elle traite la dépense Copilot comme une consommation à piloter. Chaque cas d'usage a un responsable, un plafond et une revue mensuelle qui met le coût en face du résultat, comme dans [la routine pour maintenir un agent IA en production](/fr/insights/maintenir-agent-ia-en-production). Elle refait le calcul à chaque annonce de l'éditeur, parce que la liste des services facturés à l'usage s'allonge : Microsoft écrit qu'elle travaille à y faire entrer d'autres agents et services.
 `,
       dangers: [
         {

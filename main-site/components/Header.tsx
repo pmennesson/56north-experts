@@ -13,7 +13,8 @@ export async function Header({ t }: { t: Dictionary["nav"] }) {
   const experts = locale === "fr" ? `${site.experts}/fr` : site.experts;
   const anchor = (h: string) => `${home === "/" ? "/" : home}${h}`;
   const links = [
-    ...t.items.map((i) => ({ href: anchor(i.href), label: i.label })),
+    // "#x": a section of the home page; "/x": a page of its own (localised).
+    ...t.items.map((i) => ({ href: i.href.startsWith("#") ? anchor(i.href) : localePath(locale, i.href), label: i.label })),
     { href: localePath(locale, "/articles"), label: t.articles },
     { href: experts, label: t.experts },
   ];

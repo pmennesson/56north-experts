@@ -12,9 +12,9 @@ const en: MainDictionary = {
   nav: {
     items: [
       { href: "#offre", label: "What we do" },
-      { href: "#pourquoi-un-tiers", label: "Why a third party" },
-      { href: "#cockpit", label: "The Cockpit" },
-      { href: "#human-in-the-loop", label: "Human in the Loop" },
+      { href: "/ai-governance", label: "Why a third party" },
+      { href: "/cockpit", label: "The Cockpit" },
+      { href: "/human-in-the-loop", label: "Human in the Loop" },
       { href: "#souverainete", label: "Sovereignty" },
     ],
     articles: "Articles",
@@ -63,11 +63,11 @@ const en: MainDictionary = {
     items: [
       {
         name: "The vendor's compliance is not yours",
-        body: "The EU regulation separates the provider, who designs the AI, from the deployer, who uses it in its operations. The vendor answers for its product. You answer for how you use it: human oversight, input data, informing the people concerned, keeping the logs (Article 26), and telling people they are talking to a machine (Article 50). No vendor tool carries these obligations on your behalf.",
+        body: "The EU regulation separates the provider, who designs the AI, from the deployer, who uses it in its operations. The vendor answers for its product. You answer for how you use it: human oversight, input data, informing the people concerned, keeping the logs (Article 26) and, for certain uses, the information Article 50 requires (emotion recognition, generated or manipulated content). No vendor tool carries these obligations on your behalf.",
       },
       {
         name: "Each control tower sees only its own ecosystem",
-        body: "A mid-sized company now runs the AI in its CRM, the one in its office suite, the one in its ERP and the one in its ticketing tool. Four vendors, four control towers, four definitions of compliance. None of them sees the other three. The registry the regulation requires is one; so is the score your audit committee reads.",
+        body: "A mid-sized company now runs the AI in its CRM, the one in its office suite, the one in its ERP and the one in its ticketing tool. Four vendors, four control towers, four definitions of compliance. None of them sees the other three. You need one AI register, and one score for your audit committee.",
       },
       {
         name: "Whoever sells the AI cannot grade it",
@@ -124,7 +124,7 @@ const en: MainDictionary = {
       { date: "2 December 2027", label: "High risk: recruitment, credit, education, biometrics", status: "prepare" },
       { date: "2 August 2028", label: "AI built into products that are already regulated", status: "upcoming" },
     ],
-    sanctions: "Penalties of up to €35M or 7% of worldwide turnover.",
+    sanctions: "Penalties of up to €15M or 3% of worldwide turnover for deployer obligations, €35M or 7% for prohibited practices.",
   },
   problem: {
     eyebrow: "The problem",

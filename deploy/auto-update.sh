@@ -38,7 +38,23 @@ sync_export_timer() {
   fi
 }
 
-STATE="/var/lib/56north-deployed"        # SHA of the last successful build
+# IndexNow (deploy/indexnow.sh): notify search engines of new or changed pages.
+# Detached so it neither delays this run nor holds the lock. Under the systemd
+# oneshot service a plain `nohup ... &` would be killed with the unit's cgroup
+# as soon as this script exits: systemd-run gives it its own transient unit.
+notify_indexnow() {
+  local f="$DIR/deploy/indexnow.sh"
+  [ -f "$f" ] || return 0
+  if command -v systemd-run >/dev/null 2>&1 && [ -n "${INVOCATION_ID:-}" ] \
+     && systemd-run --quiet --no-block --collect --unit="56north-indexnow-$(date +%s)" \
+          /bin/bash -c "exec bash '$f' >> '$LOG' 2>&1" 9>&- >/dev/null 2>&1; then
+    return 0
+  fi
+  nohup setsid bash "$f" >> "$LOG" 2>&1 9>&- < /dev/null &
+  return 0
+}
+
+STATE="/var/lib/56north-deployed"       # SHA of the last successful build
 
 git fetch -q origin main
 REMOTE=$(git rev-parse origin/main)
@@ -60,6 +76,7 @@ if $COMPOSE up -d --build --remove-orphans >> "$LOG" 2>&1; then
   echo "$REMOTE" > "$STATE"
   echo "$(date -Is) deployed ${REMOTE:0:7}" >> "$LOG"
   sync_export_timer
+  notify_indexnow
 else
   echo "$(date -Is) FAILED ${REMOTE:0:7} (previous version still running)" >> "$LOG"
   exit 1

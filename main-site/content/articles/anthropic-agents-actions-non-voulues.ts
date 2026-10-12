@@ -107,7 +107,7 @@ Une liste d'interdits laisse des trous, et même un interdit écrit en toutes le
 
 Elle décide, pour chaque agent, ce qu'il a le droit de toucher, et elle l'impose par la configuration plutôt que par la consigne. Elle traite un environnement de test qui atteint de vrais systèmes comme un environnement réel. Elle relit ses journaux sans attendre qu'un éditeur la prévienne.
 
-Elle tient aussi un registre de toutes ses IA en service, avec pour chacune son usage, son responsable et les preuves datées qui s'y rattachent. C'est le rôle du [Cockpit 56North](/#cockpit).
+Elle tient aussi un registre de toutes ses IA en service, avec pour chacune son usage, son responsable et les preuves datées qui s'y rattachent. C'est le rôle du [Cockpit 56North](/cockpit).
 `,
       dangers: [
         {
@@ -218,7 +218,7 @@ A list of prohibitions leaves gaps, and even a prohibition spelled out in full d
 
 It decides, for each agent, what the agent is allowed to touch, and enforces it through configuration rather than instructions. It treats a test environment that reaches real systems as a real environment. It reviews its logs without waiting for a vendor to warn it.
 
-It also keeps a register of every AI system in service, with its use, its owner and the dated evidence attached to it. That is the role of the [56North Cockpit](/en#cockpit).
+It also keeps a register of every AI system in service, with its use, its owner and the dated evidence attached to it. That is the role of the [56North Cockpit](/en/cockpit).
 `,
       dangers: [
         {

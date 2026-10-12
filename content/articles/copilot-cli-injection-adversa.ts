@@ -72,7 +72,7 @@ A coding agent reads what you ask it to read. If that content contains instructi
 
 An AI agent takes instructions from the person using it. It also reads content: web pages, files, emails. Prompt injection means hiding instructions inside that content. The agent cannot always tell the user's request apart from text placed by someone else, and it executes both.
 
-The risk grows with what the agent can do. An assistant that only writes text can produce a wrong answer. An agent that runs commands, reads files and connects to the network can act.
+The risk grows with what the agent can do. An assistant that only writes text can produce a wrong answer. An agent that runs commands, reads files and connects to the network can act. It is one of [the risks that grow as an AI agent runs in production](/insights/maintain-ai-agents-in-production).
 
 ## What Adversa showed
 
@@ -178,7 +178,7 @@ Un agent de code lit ce qu'on lui demande de lire. Si ce contenu porte des instr
 
 Un agent d'IA reçoit des instructions de la personne qui l'utilise. Il lit aussi des contenus : pages web, fichiers, courriels. L'injection de prompt consiste à cacher des instructions dans ces contenus. L'agent ne distingue pas toujours la demande de l'utilisateur d'un texte placé par quelqu'un d'autre, et il exécute les deux.
 
-Le risque grandit avec ce que l'agent a le droit de faire. Un assistant qui ne fait qu'écrire peut produire une réponse fausse. Un agent qui lance des commandes, lit des fichiers et se connecte au réseau peut agir.
+Le risque grandit avec ce que l'agent a le droit de faire. Un assistant qui ne fait qu'écrire peut produire une réponse fausse. Un agent qui lance des commandes, lit des fichiers et se connecte au réseau peut agir. C'est l'un des [risques qui grandissent avec la vie d'un agent IA en production](/fr/insights/maintenir-agent-ia-en-production).
 
 ## Ce qu'Adversa a montré
 

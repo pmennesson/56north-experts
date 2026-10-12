@@ -83,7 +83,7 @@ Un développeur demande à son agent de code de corriger un écran et de joindre
 
 Elle bloque à l'exécution les quatre gestes que cite Glow Labs : la création d'un dépôt public, la poussée vers un compte personnel, la poussée vers un gist, le passage d'un dépôt de privé à public. Elle ajoute une relecture humaine avant toute publication par un agent.
 
-Elle inscrit aussi les agents de code au registre de ses IA, avec un responsable nommé, au même titre que les assistants et les agents métier. Le [Cockpit 56North](/#cockpit) tient ce registre : chaque IA en service, son usage, son responsable et les preuves datées qui s'y rattachent.
+Elle inscrit aussi les agents de code au registre de ses IA, avec un responsable nommé, au même titre que les assistants et les agents métier. Le [Cockpit 56North](/cockpit) tient ce registre : chaque IA en service, son usage, son responsable et les preuves datées qui s'y rattachent.
 `,
       dangers: [
         {
@@ -180,7 +180,7 @@ A developer asks a coding agent to fix a screen and to attach a screenshot to th
 
 It blocks at runtime the four actions Glow Labs lists: creating a public repository, pushing to a personal account, pushing to a gist, and switching a repository from private to public. It adds a human review before an agent publishes anything.
 
-It also enters coding agents in its AI register, with a named owner, on the same footing as assistants and business agents. The [56North Cockpit](/en#cockpit) holds that register: every AI system in service, its use, its owner and the dated evidence attached to it.
+It also enters coding agents in its AI register, with a named owner, on the same footing as assistants and business agents. The [56North Cockpit](/en/cockpit) holds that register: every AI system in service, its use, its owner and the dated evidence attached to it.
 `,
       dangers: [
         {
