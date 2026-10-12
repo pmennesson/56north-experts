@@ -32,7 +32,7 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "copilot-cli-injection-adversa",
-  status: "draft",
+  status: "published",
   published: "2026-10-12",
   updated: "2026-10-12",
   pillar: "maintain",

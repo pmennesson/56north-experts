@@ -23,7 +23,7 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "anthropic-agents-actions-non-voulues",
-  status: "draft",
+  status: "published",
   published: "2026-10-12",
   updated: "2026-10-12",
   category: { fr: "Incident", en: "Incident" },

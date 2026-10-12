@@ -23,7 +23,7 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "google-gemini-agents-collegues-workspace",
-  status: "draft",
+  status: "published",
   published: "2026-10-12",
   updated: "2026-10-12",
   pillar: "use",
