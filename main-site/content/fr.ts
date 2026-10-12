@@ -33,6 +33,8 @@ const fr = {
     switchShort: "EN",
   },
   hero: {
+    /** Baseline de marque, retenue le 10/10/2026. */
+    baseline: "Vos IA sous contrôle.",
     eyebrow: "Tiers indépendant · Preuves AI Act pour les entreprises qui déploient l'IA",
     title: "Vos éditeurs prouvent que leur IA est conforme.\nQui prouve que la vôtre l'est ?",
     subtitle:
@@ -403,7 +405,7 @@ const fr = {
   },
   footer: {
     articles: "Articles",
-    tagline: "Gouvernance des IA d'entreprise · Hébergé chez un opérateur français · Méthodologie de notation versionnée",
+    tagline: "Vos IA sous contrôle · Gouvernance des IA d'entreprise · Hébergé chez un opérateur français · Méthodologie de notation versionnée",
     experts: "56North Experts, le réseau d'experts IA",
     notice: "Mentions légales",
     privacy: "Politique de confidentialité",

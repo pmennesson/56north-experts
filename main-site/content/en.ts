@@ -26,6 +26,8 @@ const en: MainDictionary = {
     switchShort: "FR",
   },
   hero: {
+    /** Baseline de marque, retenue le 10/10/2026. */
+    baseline: "Your AI, under control.",
     eyebrow: "Independent third party · EU AI Act evidence for companies that deploy AI",
     title: "Your vendors prove their AI is compliant.\nWho proves yours is?",
     subtitle:
@@ -395,7 +397,7 @@ const en: MainDictionary = {
   },
   footer: {
     articles: "Articles",
-    tagline: "Enterprise AI governance · Hosted by a French provider · Versioned scoring methodology",
+    tagline: "Your AI, under control · Enterprise AI governance · Hosted by a French provider · Versioned scoring methodology",
     experts: "56North Experts, the AI expert network",
     notice: "Legal notice",
     privacy: "Privacy policy",
