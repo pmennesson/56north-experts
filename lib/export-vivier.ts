@@ -32,6 +32,7 @@ export type Prospect = {
   contact_source_url: string | null;
   certifications: string | null;
   pool: string | null;
+  profile_type: string | null;
   status: string;
   contacted_at: string | null;
   replied_at: string | null;
@@ -66,9 +67,17 @@ const MESSAGE_LABEL: Record<string, string> = {
   C_need: "C (besoin client)",
 };
 
-const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "message" | "poolLabel"; width: number }[] = [
+/** Profile type (prospects.profile_type). */
+const PROFILE_LABEL: Record<string, string> = {
+  platform_ai: "IA de la plateforme",
+  platform_data: "Données de la plateforme",
+  adoption: "Adoption et mesure",
+};
+
+const COLUMNS: { header: string; key: keyof Prospect | "modules" | "statut" | "message" | "poolLabel" | "profileLabel"; width: number }[] = [
   { header: "Pays", key: "country", width: 7 },
   { header: "Vivier", key: "poolLabel", width: 11 },
+  { header: "Type de profil", key: "profileLabel", width: 20 },
   { header: "Nom", key: "name", width: 26 },
   { header: "Rôle", key: "role", width: 34 },
   { header: "Société", key: "company", width: 24 },
@@ -103,7 +112,7 @@ export async function fetchProspects(): Promise<Prospect[]> {
     const { data, error } = await db
       .from("prospects")
       .select(
-        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,pool,status,contacted_at,replied_at,notes,collected_at,updated_at,created_at",
+        "platform,name,role,company,country,language,score,rarity,message_type,channel,ai_modules,score_reason,proof_title,proof_url,source_type,website,public_email,public_phone,contact_source_url,certifications,pool,profile_type,status,contacted_at,replied_at,notes,collected_at,updated_at,created_at",
       )
       .is("erasure_requested_at", null)
       .order("platform")
@@ -140,6 +149,7 @@ function addTable(ws: ExcelJS.Worksheet, rows: Prospect[]) {
       ...r,
       statut: STATUS_LABEL[r.status] ?? r.status,
       poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
+      profileLabel: PROFILE_LABEL[r.profile_type ?? "platform_ai"] ?? r.profile_type,
       message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
       modules: (r.ai_modules ?? []).join(", "),
     });
@@ -273,6 +283,7 @@ export async function buildWorkbook(
         platform: PLATFORM_LABEL[r.platform] ?? r.platform,
         statut: STATUS_LABEL[r.status] ?? r.status,
         poolLabel: r.pool === "nearshore" ? "Nearshore" : "Expert",
+      profileLabel: PROFILE_LABEL[r.profile_type ?? "platform_ai"] ?? r.profile_type,
         message: r.message_type ? MESSAGE_LABEL[r.message_type] ?? r.message_type : "",
         modules: (r.ai_modules ?? []).join(", "),
       });
