@@ -9,6 +9,8 @@ export async function Footer({ t }: { t: Dictionary }) {
   const locale = await getLocale();
   const lp = (p: string) => localePath(locale, p);
   const f = t.footer;
+  // 56north.io serves French unprefixed and English under /en.
+  const parentUrl = locale === "fr" ? siteConfig.parent.url : `${siteConfig.parent.url}/en`;
   const cols = [
     {
       title: f.practices,
@@ -33,7 +35,7 @@ export async function Footer({ t }: { t: Dictionary }) {
       title: f.company,
       links: [
         { href: lp("/about"), label: t.nav.about },
-        { href: siteConfig.parent.url, label: f.platform },
+        { href: parentUrl, label: f.platform },
         { href: `mailto:${siteConfig.email}`, label: f.contact },
         { href: siteConfig.linkedinCompany || siteConfig.founder.linkedin, label: "LinkedIn" },
       ],
@@ -64,7 +66,7 @@ export async function Footer({ t }: { t: Dictionary }) {
         </div>
         <p className="border-t border-line pt-4">
           Copyright © {new Date().getFullYear()} {siteConfig.legalName}. {f.rights}{" "}
-          <a href={siteConfig.parent.url} className="hover:text-fg hover:underline">
+          <a href={parentUrl} className="hover:text-fg hover:underline">
             {siteConfig.parent.name}
           </a>
           , {f.tagline}.

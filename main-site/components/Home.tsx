@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow, Section, SectionHeader } from "@/components/ui/primitives";
 import { ScoreBoard } from "@/components/ScoreBoard";
@@ -381,8 +382,7 @@ export function Founder({ t, linkedin, name }: { t: T["founder"]; linkedin: stri
   return (
     <Section>
       <Container className="reveal flex flex-col items-center gap-6 text-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/founder.jpg" alt={name} width={112} height={112} className="h-28 w-28 rounded-full object-cover" />
+        <Image src="/founder.jpg" alt={name} width={112} height={112} className="h-28 w-28 rounded-full object-cover" />
         <p className="text-[17px] font-semibold text-signal">{t.eyebrow}</p>
         <h2 className="headline-lg max-w-3xl text-balance">{t.title}</h2>
         <p className="max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty">{t.body}</p>

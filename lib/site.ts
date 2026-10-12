@@ -17,6 +17,8 @@ export const siteConfig = {
     address: ["c/o Legis Corporate Secretarial Services Ltd", "6 Edith Cavell Street", "Port Louis", "Mauritius"],
   },
   legalUpdated: "30 September 2026",
+  /** Same date, ISO: lastModified of the legal pages in the sitemap. Keep both in step. */
+  legalUpdatedIso: "2026-09-30",
   tagline: "Senior AI experts for the enterprise platforms you already run.",
   description:
     "Staff augmentation and expert delegation for AI modules on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Senior consultants sourced through specialist practitioner communities, vetted by peers, deployed across Europe, the Middle East and Africa.",

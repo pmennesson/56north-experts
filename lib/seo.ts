@@ -14,6 +14,7 @@ export const languageAlternates = (path: string) => ({
 /** One call per page: title, description, canonical, OpenGraph, Twitter. */
 export function buildMetadata({
   title,
+  socialTitle,
   description,
   path = "/",
   ogImage,
@@ -24,9 +25,11 @@ export function buildMetadata({
   article,
 }: {
   title: string;
+  /** Full headline for social cards when the tab title is a shortened one. */
+  socialTitle?: string;
   description: string;
   path?: string;
-  /** Omit to use the generated app/opengraph-image. */
+  /** Omit to use the generated card of the home page in the page's language (app/[lang]/opengraph-image). */
   ogImage?: string;
   noIndex?: boolean;
   /** Skip the "%s · Brand" template (home page). */
@@ -39,7 +42,17 @@ export function buildMetadata({
   article?: { publishedTime: string; modifiedTime?: string; authors: string[]; section?: string };
 }): Metadata {
   const url = languages ? languages[locale] : localePath(locale, path);
-  const images = ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: title }] : undefined;
+  // A page that sets openGraph replaces its parents' (shallow merge), file-based card included:
+  // without an explicit image, fall back to the home card of the same language.
+  // Articles carry their own opengraph-image in their segment: leave images unset there so Next.js uses it.
+  const shared = socialTitle ?? title;
+  const card = (kind: "opengraph" | "twitter") => absoluteUrl(`/${locale}/${kind}-image`);
+  const ogImages = ogImage
+    ? [{ url: ogImage, width: 1200, height: 630, alt: shared }]
+    : article
+      ? undefined
+      : [{ url: card("opengraph"), width: 1200, height: 630, alt: shared }];
+  const twImages = ogImage ? ogImages : article ? undefined : [{ url: card("twitter"), width: 1200, height: 630, alt: shared }];
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -52,14 +65,16 @@ export function buildMetadata({
       ...(article ? { type: "article" as const, ...article } : { type: "website" as const }),
       url,
       siteName: siteConfig.name,
-      title,
+      title: shared,
       description,
       locale: locale === "fr" ? "fr_FR" : "en_US",
       alternateLocale: locale === "fr" ? ["en_US"] : ["fr_FR"],
-      ...(images && { images }),
+      ...(ogImages && { images: ogImages }),
     },
-    twitter: { card: "summary_large_image", title, description, ...(images && { images }) },
-    robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
+    twitter: { card: "summary_large_image", title: shared, description, ...(twImages && { images: twImages }) },
+    robots: noIndex
+      ? { index: false, follow: false }
+      : { index: true, follow: true, "max-image-preview": "large" },
   };
 }
 
@@ -95,8 +110,9 @@ export const organizationLd = (description: string) => ({
   url: siteConfig.url,
   email: siteConfig.email,
   description,
+  logo: absoluteUrl("/logo.png"),
   areaServed: siteConfig.areaServed,
-  ...(siteConfig.linkedinCompany ? { sameAs: [siteConfig.linkedinCompany] } : {}),
+  sameAs: [siteConfig.parent.url, ...(siteConfig.linkedinCompany ? [siteConfig.linkedinCompany] : [])],
   parentOrganization: { "@type": "Organization", name: siteConfig.parent.name, url: siteConfig.parent.url },
   founder: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name },
   knowsAbout: [
@@ -176,6 +192,34 @@ export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
   })),
 });
 
+const blogId = (locale: Locale) => `${absoluteUrl(localePath(locale, "/insights"))}#blog`;
+
+/** The insights section as a Blog entity, with its posts: one object search engines and assistants can walk. */
+export const blogLd = (
+  locale: Locale,
+  name: string,
+  description: string,
+  posts: { title: string; path: string; description: string; published: string; updated: string }[],
+) => ({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": blogId(locale),
+  url: absoluteUrl(localePath(locale, "/insights")),
+  name,
+  description,
+  inLanguage: locale,
+  publisher: { "@id": orgId },
+  blogPost: posts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    description: p.description,
+    url: absoluteUrl(p.path),
+    datePublished: `${p.published}T08:00:00+02:00`,
+    dateModified: `${p.updated}T08:00:00+02:00`,
+    author: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name, url: absoluteUrl(localePath(locale, "/about")) },
+  })),
+});
+
 /** Article / BlogPosting with the founder as author (E-E-A-T). */
 export const articleLd = (a: {
   url: string;
@@ -191,14 +235,14 @@ export const articleLd = (a: {
   "@type": "BlogPosting",
   headline: a.title,
   description: a.description,
-  datePublished: a.datePublished,
-  dateModified: a.dateModified,
+  datePublished: `${a.datePublished}T08:00:00+02:00`,
+  dateModified: `${a.dateModified}T08:00:00+02:00`,
   inLanguage: a.locale,
   articleSection: a.section,
   keywords: a.keywords.join(", "),
   mainEntityOfPage: absoluteUrl(a.url),
   url: absoluteUrl(a.url),
-  image: `${a.url.replace(/\/$/, "")}/opengraph-image`,
+  image: absoluteUrl(`${a.url.replace(/\/$/, "")}/opengraph-image`),
   author: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name, url: absoluteUrl(localePath(a.locale, "/about")) },
   publisher: { "@id": orgId },
 });

@@ -29,7 +29,16 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     applicationName: siteConfig.name,
     category: "business",
     formatDetection: { email: false, telephone: false, address: false },
+    ...siteVerification(),
   };
+}
+
+/** Search Console / Bing Webmaster tokens, from the environment: nothing is emitted while they are empty. */
+function siteVerification(): Pick<Metadata, "verification"> {
+  const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  const bing = process.env.BING_SITE_VERIFICATION?.trim();
+  if (!google && !bing) return {};
+  return { verification: { ...(google && { google }), ...(bing && { other: { "msvalidate.01": bing } }) } };
 }
 
 export const viewport: Viewport = {

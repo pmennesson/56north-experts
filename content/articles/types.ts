@@ -7,6 +7,8 @@ export type ArticleVersion = {
   /** URL slug in this language (each language has its own, for search). */
   slug: string;
   title: string;
+  /** Short title for the browser tab and search results: 60 characters at most, the main query first. The full title stays on social cards. */
+  seoTitle?: string;
   /** Meta description: 140–160 characters, contains the target query. */
   description: string;
   /** The query this version targets. One article, one main query. */

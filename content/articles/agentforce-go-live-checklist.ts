@@ -17,6 +17,7 @@ const article: Article = {
     en: {
       slug: "agentforce-agent-go-live-checklist",
       title: "Putting an Agentforce agent into production: a 12-point checklist",
+      seoTitle: "Agentforce go-live checklist: 12 points before production",
       description:
         "Before an Agentforce agent goes live: scope, data, permissions, testing, escalation, costs and AI Act transparency. A 12-point checklist for Salesforce teams.",
       keyword: "Agentforce go-live checklist",
@@ -78,8 +79,9 @@ An Agentforce demo takes a few days. An agent that holds up in front of real cus
     fr: {
       slug: "mise-en-production-agent-agentforce-checklist",
       title: "Mettre un agent Agentforce en production : la check-list en 12 points",
+      seoTitle: "Mise en production Agentforce : la check-list en 12 points",
       description:
-        "Avant la mise en service d'un agent Agentforce : périmètre, données, droits, tests, escalade, coûts et transparence AI Act. Une check-list en 12 points pour les équipes Salesforce.",
+        "Avant la mise en service d'un agent Agentforce : périmètre, données, droits, tests, escalade, coûts, transparence AI Act. 12 points pour les équipes Salesforce.",
       keyword: "mise en production agent Agentforce",
       niche: ["tester un agent Agentforce avant mise en production", "droits agent Agentforce moindre privilège", "escalade agent Agentforce vers conseiller", "limites Einstein Trust Layer", "agent Agentforce mention IA obligatoire"],
       takeaways: [

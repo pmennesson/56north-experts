@@ -24,8 +24,9 @@ const article: Article = {
     en: {
       slug: "eu-ai-act-deployer-obligations-copilot-agentforce",
       title: "EU AI Act: what companies using Copilot, Agentforce or Joule must do now",
+      seoTitle: "EU AI Act deployer obligations: Copilot, Agentforce, Joule",
       description:
-        "Using Copilot, Agentforce, Joule or Now Assist makes you a deployer under the EU AI Act. What applies since August 2026, what moves to December 2027, and where to start.",
+        "Copilot, Agentforce, Joule or Now Assist make you a deployer under the EU AI Act. What applies since August 2026, what moves to December 2027, where to start.",
       keyword: "EU AI Act deployer obligations",
       niche: ["AI Act Copilot obligations", "AI Act Agentforce compliance", "AI Act chatbot disclosure requirement", "AI Act December 2027 high-risk deadline", "is my company a deployer under the AI Act"],
       takeaways: [
@@ -92,14 +93,15 @@ Public bodies, and companies that score credit or price life and health insuranc
 4. **Close the transparency gaps now.** That is the obligation in force today.
 5. **Start the evidence file** for any use that could be high-risk: design decisions, tests, oversight, incidents. Evidence produced after the fact convinces nobody.
 
-This work needs people who know both the platform and the regulation. Our experts on [Microsoft](/experts/microsoft), [Salesforce](/experts/salesforce), [SAP](/experts/sap), [ServiceNow](/experts/servicenow) and [Workday](/experts/workday) are briefed on the obligations that apply to their scope. For the governance itself (inventory, classification, evidence), see [56North](https://56north.io).
+This work needs people who know both the platform and the regulation. Our experts on [Microsoft](/experts/microsoft), [Salesforce](/experts/salesforce), [SAP](/experts/sap), [ServiceNow](/experts/servicenow) and [Workday](/experts/workday) are briefed on the obligations that apply to their scope. For the governance itself (inventory, classification, evidence), see [56North](https://56north.io/en).
 `,
     },
     fr: {
       slug: "ai-act-obligations-deployeurs-copilot-agentforce",
       title: "AI Act : ce que doivent faire les entreprises qui utilisent Copilot, Agentforce ou Joule",
+      seoTitle: "AI Act : obligations du déployeur Copilot, Agentforce, Joule",
       description:
-        "Utiliser Copilot, Agentforce, Joule ou Now Assist fait de vous un déployeur au sens de l'AI Act. Ce qui s'applique depuis août 2026, ce qui est reporté à décembre 2027, et par où commencer.",
+        "Copilot, Agentforce, Joule ou Now Assist font de vous un déployeur AI Act : ce qui s'applique depuis août 2026, ce qui attend décembre 2027, par où commencer.",
       keyword: "AI Act obligations déployeur",
       niche: ["AI Act Copilot obligations entreprise", "AI Act Agentforce conformité", "AI Act chatbot mention obligatoire", "AI Act haut risque décembre 2027", "suis-je déployeur AI Act"],
       takeaways: [

@@ -13,7 +13,8 @@ import { Container, Section, SectionHeader } from "@/components/ui/primitives";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const { about } = await getDictionary(locale);
-  return buildMetadata({ title: about.metaTitle, description: about.metaDescription, path: "/about", locale });
+  // The title already names the brand: no "· 56North Experts" suffix.
+  return buildMetadata({ title: about.metaTitle, description: about.metaDescription, path: "/about", locale, absoluteTitle: true });
 }
 
 export default async function AboutPage() {

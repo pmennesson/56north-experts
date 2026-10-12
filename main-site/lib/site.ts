@@ -14,4 +14,6 @@ export const site = {
   },
   founder: { name: "Pascal Mennesson", linkedin: "https://www.linkedin.com/in/pascal-mennesson" },
   legalUpdated: { fr: "1er octobre 2026", en: "1 October 2026" },
+  /** Same date, ISO: lastModified of the legal pages in the sitemap. Keep both in step. */
+  legalUpdatedIso: "2026-10-01",
 } as const;

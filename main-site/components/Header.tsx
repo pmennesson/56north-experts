@@ -9,11 +9,13 @@ import { MobileMenu } from "@/components/MobileMenu";
 export async function Header({ t }: { t: Dictionary["nav"] }) {
   const locale = await getLocale();
   const home = localePath(locale, "/");
+  // experts.56north.io serves English unprefixed and French under /fr.
+  const experts = locale === "fr" ? `${site.experts}/fr` : site.experts;
   const anchor = (h: string) => `${home === "/" ? "/" : home}${h}`;
   const links = [
     ...t.items.map((i) => ({ href: anchor(i.href), label: i.label })),
     { href: localePath(locale, "/articles"), label: t.articles },
-    { href: site.experts, label: t.experts },
+    { href: experts, label: t.experts },
   ];
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl backdrop-saturate-150">

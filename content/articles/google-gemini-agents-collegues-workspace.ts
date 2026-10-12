@@ -43,6 +43,7 @@ const article: Article = {
     en: {
       slug: "google-gemini-coworker-agents-workspace-account",
       title: "Who manages an agent that has its own mailbox? Google gives Gemini coworker agents a Workspace account",
+      seoTitle: "Gemini coworker agent Workspace account: who manages it?",
       description:
         "Google's Gemini coworker agents get their own Workspace account, email and directory entry. What it means for owners, Drive sharing, logs and the AI Act.",
       keyword: "Gemini coworker agent Workspace account",
@@ -110,7 +111,7 @@ The gap is not specific to Google. In a survey released in early October by Sail
 
 It ties each agent to a person, reads its action log at fixed intervals, and treats the creation of an agent like an arrival and its deletion like a departure. It applies the same grid to agents on other platforms: the vendor changes, the questions stay the same.
 
-This set-up needs people who know Workspace and Google Cloud from the inside. Our [Google Cloud](/experts/google-cloud) experts can frame these choices with your teams. For the governance itself (register, owners, evidence), see [56North](https://56north.io).
+This set-up needs people who know Workspace and Google Cloud from the inside. Our [Google Cloud](/experts/google-cloud) experts can frame these choices with your teams. For the governance itself (register, owners, evidence), see [56North](https://56north.io/en).
 `,
       dangers: [
         {
@@ -152,6 +153,7 @@ This set-up needs people who know Workspace and Google Cloud from the inside. Ou
     fr: {
       slug: "google-gemini-agents-collegues-compte-workspace",
       title: "Qui est le manager d'un agent qui a sa propre boîte mail ? Google donne aux agents Gemini « collègues » un compte Workspace",
+      seoTitle: "Agent Gemini « collègue », compte Workspace : quel manager ?",
       description:
         "Les agents Gemini « collègues » de Google ont leur compte Workspace, leur e-mail et leur place dans l'annuaire. Responsable, partages, AI Act : à trancher.",
       keyword: "agent Gemini collègue compte Workspace",

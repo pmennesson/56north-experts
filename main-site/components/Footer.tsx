@@ -17,7 +17,7 @@ export async function Footer({ t }: { t: Dictionary["footer"] }) {
           <a href={feedPath(locale)} className="text-link hover:underline">
             RSS
           </a>
-          <a href={site.experts} className="text-link hover:underline">
+          <a href={locale === "fr" ? `${site.experts}/fr` : site.experts} className="text-link hover:underline">
             {t.experts}
           </a>
         </p>

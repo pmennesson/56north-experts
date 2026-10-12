@@ -30,14 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!found) return {};
   const { article, localized: a } = found;
   return buildMetadata({
-    title: a.title,
+    title: a.seoTitle ?? a.title,
+    socialTitle: a.title,
     description: a.description,
     locale,
     languages: articleLanguages(article),
     noIndex: a.status !== "published",
     article: {
-      publishedTime: a.published,
-      modifiedTime: a.updated,
+      publishedTime: `${a.published}T08:00:00+02:00`,
+      modifiedTime: `${a.updated}T08:00:00+02:00`,
       authors: [siteConfig.founder.name],
       section: a.category,
     },
@@ -53,7 +54,13 @@ export default async function ArticlePage({ params }: Props) {
   const i = t.insights;
   const lp = (p: string) => localePath(locale, p);
   const practices = a.practices.map((s) => getEcosystem(s, locale)).filter((e) => !!e);
-  const more = getPublishedArticles(locale).filter((x) => x.id !== a.id).slice(0, 3);
+  // Related first: shared practices, then same pillar, then the most recent.
+  const shared = (x: { practices: string[] }) => x.practices.filter((p) => a.practices.includes(p)).length;
+  const samePillar = (x: { pillar: string }) => (x.pillar === a.pillar ? 1 : 0);
+  const more = getPublishedArticles(locale)
+    .filter((x) => x.id !== a.id)
+    .sort((x, y) => shared(y) - shared(x) || samePillar(y) - samePillar(x) || y.published.localeCompare(x.published))
+    .slice(0, 3);
   const mainSite = await getMainSiteArticles(locale);
 
   return (

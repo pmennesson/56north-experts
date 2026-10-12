@@ -52,7 +52,8 @@ export default async function EcosystemPage({ params }: Props) {
           faqLd(e.faq),
           breadcrumbLd([
             { name: p.home, path: lp("/") },
-            { name: p.breadcrumb, path: lp("/#ecosystems") },
+            // No fragment in structured data: crawlers drop #anchors, the practices list lives on the home page.
+            { name: p.breadcrumb, path: lp("/") },
             { name: e.name, path: lp(`/experts/${e.slug}`) },
           ]),
         ]}

@@ -49,6 +49,7 @@ const article: Article = {
     en: {
       slug: "copilot-cli-prompt-injection-autopilot",
       title: "Flaw or user manual? GitHub validates Adversa's Copilot CLI demo and declines to call it a vulnerability",
+      seoTitle: "Copilot CLI prompt injection: GitHub says it is not a flaw",
       description:
         "Adversa AI got GitHub Copilot CLI in autopilot mode to send a secrets file to a third party. GitHub says it is not a product flaw. What to set on your side.",
       keyword: "Copilot CLI prompt injection",
@@ -154,6 +155,7 @@ Our [Microsoft experts](/experts/microsoft) can audit how coding agents are conf
     fr: {
       slug: "copilot-cli-injection-de-prompt-autopilot",
       title: "Faille ou mode d'emploi ? GitHub valide la démonstration d'Adversa sur Copilot CLI et refuse d'y voir une vulnérabilité",
+      seoTitle: "Injection de prompt Copilot CLI : pas une faille pour GitHub",
       description:
         "Adversa AI a fait envoyer à un tiers un fichier de secrets par GitHub Copilot CLI en mode autopilot. GitHub n'y voit pas de faille. Ce qu'il faut régler.",
       keyword: "injection de prompt Copilot CLI",

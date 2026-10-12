@@ -24,11 +24,12 @@ export async function buildFeed(locale: Locale): Promise<string> {
       <pubDate>${new Date(`${a.published}T12:00:00Z`).toUTCString()}</pubDate>
       <description>${esc(a.description)}</description>
       <category>${esc(a.category)}</category>
+      <dc:creator>${esc(siteConfig.founder.name)}</dc:creator>
     </item>`,
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>${esc(`${siteConfig.name} · ${nav.insights}`)}</title>
     <link>${absoluteUrl(localePath(locale, "/insights"))}</link>

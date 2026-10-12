@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { buildMetadata } from "@/lib/seo";
-import { getDictionary, getLocale } from "@/lib/i18n";
+import { blogLd, breadcrumbLd, buildMetadata } from "@/lib/seo";
+import { getDictionary, getLocale, localePath } from "@/lib/i18n";
 import { formatDate, getPublishedArticles } from "@/lib/articles";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { MainSiteReads } from "@/components/MainSiteReads";
 import { getMainSiteArticles } from "@/lib/main-site-feed";
@@ -23,11 +24,23 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function InsightsPage() {
   const locale = await getLocale();
-  const { insights: i } = await getDictionary(locale);
+  const t = await getDictionary(locale);
+  const i = t.insights;
   const list = getPublishedArticles(locale);
   const mainSite = await getMainSiteArticles(locale);
   return (
     <>
+      {list.length > 0 && (
+        <JsonLd
+          data={[
+            blogLd(locale, i.metaTitle, i.metaDescription, list),
+            breadcrumbLd([
+              { name: t.practice.home, path: localePath(locale, "/") },
+              { name: i.eyebrow, path: localePath(locale, "/insights") },
+            ]),
+          ]}
+        />
+      )}
       <PageHero eyebrow={i.eyebrow} title={i.title} intro={i.intro} />
       <Section>
         <Container className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

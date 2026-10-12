@@ -14,6 +14,9 @@ export function proxy(request: NextRequest) {
   if (pathname === "/fr" || pathname.startsWith("/fr/")) return NextResponse.next();
 
   if (pathname === "/en" || pathname.startsWith("/en/")) {
+    // Social cards are requested at their prerendered /en/... address: serve them directly, with no redirect.
+    // (Unprefixed card URLs still fall through to the rewrite below.)
+    if (/\/(opengraph|twitter)-image$/.test(pathname)) return NextResponse.next();
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(3) || "/";
     return NextResponse.redirect(url, 308);

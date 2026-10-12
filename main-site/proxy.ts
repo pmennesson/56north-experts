@@ -12,10 +12,10 @@ export function proxy(request: NextRequest) {
 
   if (pathname === "/en" || pathname.startsWith("/en/")) return NextResponse.next();
 
-  // Social cards are requested at their prerendered /fr/... address: serve them directly, with no redirect.
-  if (/\/(opengraph|twitter)-image$/.test(pathname)) return NextResponse.next();
-
   if (pathname === "/fr" || pathname.startsWith("/fr/")) {
+    // Social cards are requested at their prerendered /fr/... address: serve them directly, with no redirect.
+    // (Unprefixed card URLs, as in the article JSON-LD, still fall through to the rewrite below.)
+    if (/\/(opengraph|twitter)-image$/.test(pathname)) return NextResponse.next();
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(3) || "/";
     return NextResponse.redirect(url, 308);

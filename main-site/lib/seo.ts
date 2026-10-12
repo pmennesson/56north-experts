@@ -46,6 +46,14 @@ export function buildMetadata({
 }): Metadata {
   const paths = customPaths ?? pagePaths[page ?? "home"];
   const url = paths[locale];
+  const shared = socialTitle ?? title;
+  // A page that sets openGraph replaces its parents' (shallow merge), file-based card included:
+  // fall back to the home card of the same language. Articles carry their own opengraph-image
+  // in their segment: leave images unset there so Next.js uses it.
+  const card = (kind: "opengraph" | "twitter") =>
+    article ? undefined : [{ url: absoluteUrl(`/${locale}/${kind}-image`), width: 1200, height: 630, alt: shared }];
+  const ogImages = card("opengraph");
+  const twImages = card("twitter");
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -61,12 +69,13 @@ export function buildMetadata({
       ...(article ? { type: "article" as const, ...article } : { type: "website" as const }),
       url,
       siteName: site.name,
-      title: socialTitle ?? title,
+      title: shared,
       description,
       locale: locale === "fr" ? "fr_FR" : "en_GB",
       alternateLocale: locale === "fr" ? ["en_GB"] : ["fr_FR"],
+      ...(ogImages && { images: ogImages }),
     },
-    twitter: { card: "summary_large_image", title: socialTitle ?? title, description },
+    twitter: { card: "summary_large_image", title: shared, description, ...(twImages && { images: twImages }) },
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
@@ -85,6 +94,8 @@ export const organizationLd = (description: string) => ({
   url: site.url,
   email: site.email,
   description,
+  logo: absoluteUrl("/logo.png"),
+  sameAs: [site.experts],
   founder: { "@id": founderId, "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
   subOrganization: { "@type": "ProfessionalService", name: "56North Experts", url: site.experts },
   knowsAbout: ["AI governance", "EU AI Act", "AI risk management", "AI compliance evidence"],

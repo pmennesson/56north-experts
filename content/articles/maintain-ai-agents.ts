@@ -17,6 +17,7 @@ const article: Article = {
     en: {
       slug: "maintain-ai-agents-in-production",
       title: "Maintaining AI agents in production: what degrades, and how to keep control",
+      seoTitle: "Maintaining AI agents in production: what degrades",
       description:
         "An AI agent on Agentforce, Copilot Studio or Now Assist degrades after go-live. Six things that drift, a monthly routine to catch them, and the risks to watch.",
       keyword: "maintain AI agent in production",
@@ -79,8 +80,9 @@ Give each agent a named owner, a person rather than a team, who answers three qu
     fr: {
       slug: "maintenir-agent-ia-en-production",
       title: "Maintenir un agent IA en production : ce qui se dégrade, et comment garder le contrôle",
+      seoTitle: "Maintenir un agent IA en production : ce qui se dégrade",
       description:
-        "Un agent IA sur Agentforce, Copilot Studio ou Now Assist se dégrade après la mise en service. Six dérives, une routine mensuelle pour les repérer, et les risques à surveiller.",
+        "Un agent IA sur Agentforce, Copilot Studio ou Now Assist se dégrade après sa mise en service. Six dérives, une routine mensuelle pour les repérer, les risques.",
       keyword: "maintenir agent IA en production",
       niche: ["dérive agent IA en production", "maintenance agent Copilot Studio", "tests de non-régression agent Agentforce", "coût par conversation agent IA", "injection de prompt agent IA entreprise"],
       takeaways: [

@@ -50,7 +50,17 @@ export default async function ArticlePage({ params }: Props) {
   const i = t.articles;
   const home = localePath(locale, "/");
   const list = pagePaths.articles[locale];
-  const more = getPublishedArticles(locale).filter((x) => x.id !== a.id).slice(0, 3);
+  // Related first: same dial, then same category, then the most recent.
+  const same = (x: string, y: string) => (x === y ? 1 : 0);
+  const more = getPublishedArticles(locale)
+    .filter((x) => x.id !== a.id)
+    .sort(
+      (x, y) =>
+        same(y.dial, a.dial) - same(x.dial, a.dial) ||
+        same(y.category, a.category) - same(x.category, a.category) ||
+        y.published.localeCompare(x.published),
+    )
+    .slice(0, 3);
   const diagnostic = `${home === "/" ? "/" : home}#diagnostic`;
 
   return (

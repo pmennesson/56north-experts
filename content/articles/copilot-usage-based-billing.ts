@@ -35,6 +35,7 @@ const article: Article = {
     en: {
       slug: "copilot-credits-usage-based-billing",
       title: "Copilot: the flat fee does not cover everything. Microsoft bills advanced AI by usage, at $0.01 per credit",
+      seoTitle: "Copilot Credits: usage-based billing at $0.01 per credit",
       description:
         "Microsoft 365 Copilot adds usage-based billing: Copilot Credits at $0.01, on by default for new CSP Business licences from 1 December 2026. What to set up.",
       keyword: "Copilot Credits usage-based billing",
@@ -137,6 +138,7 @@ It treats Copilot spending as consumption to be steered. Each use case has an ow
     fr: {
       slug: "copilot-credits-facturation-a-l-usage",
       title: "Copilot : le forfait ne couvre pas tout. Microsoft facture l'IA avancée à l'usage, 0,01 $ le crédit",
+      seoTitle: "Crédits Copilot : facturation à l'usage, 0,01 $ le crédit",
       description:
         "Microsoft 365 Copilot : l'IA avancée facturée à l'usage, 0,01 $ le crédit, par défaut sur les nouvelles licences Business en CSP au 1er décembre 2026.",
       keyword: "crédits Copilot facturation à l'usage",
