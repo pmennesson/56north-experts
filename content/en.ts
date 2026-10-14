@@ -109,7 +109,7 @@ const en = {
     eyebrow: "Why it works",
     title: "Built for procurement.\nAnd for delivery.",
     items: [
-      { name: "Found where experts are.", body: "The best specialists are rarely on job boards. We find them in user groups, community forums, meetups and conference talks.", href: "/talents#community", linkLabel: "Our community programme" },
+      { name: "Found where experts are.", body: "The best specialists are rarely on job boards. We find them in user groups, community forums, meetups and conference talks.", href: "/talents#community", linkLabel: "How to join the network" },
       { name: "Peer-led vetting", body: "A senior practitioner of the same platform interviews every candidate. Credentials verified. Two enterprise references." },
       { name: "Contract-ready", body: "Framework agreement, NDA, IP assignment and GDPR terms, ready to sign." },
       { name: "AI Act literate", body: "Experts briefed on the obligations that apply to their scope: risk, logging, oversight." },
@@ -376,61 +376,109 @@ const en = {
     secondary: "Join the network",
   },
   talents: {
-    metaTitle: "Join our network of senior enterprise AI experts",
+    metaTitle: "Join our senior enterprise AI expert network",
     metaDescription:
-      "Senior specialists on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow or Workday AI: join a community-led network for enterprise missions. Referral fees, paid vetting panel, practitioner meetups.",
+      "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts: peer vetting, applications open to all.",
     hero: {
-      eyebrow: "For experts",
-      title: "Your next mission.\nFound by your peers.",
+      eyebrow: "For experts · Admission-based network",
+      title: "A circle of practitioners.\nNot a CV database.",
       intro:
-        "No job boards. Missions travel through the practitioner communities of each platform. If you build, speak or answer questions in yours, we want to meet you.",
-      cta: "Apply to the network",
-      secondary: "How the community works",
-    },
-    promises: {
-      eyebrow: "What you get",
-      title: "A network run by practitioners.",
-      items: [
-        { name: "Missions matched to your stack", body: "We only send missions on the modules you have shipped. No keyword-matched spam." },
-        { name: "Peer-level conversation", body: "Your technical interview is with a senior practitioner of your platform, not a generalist recruiter." },
-        { name: "Transparent terms", body: "Day rate, duration and client context shared before your profile is presented. Nothing is sent without your consent." },
-        { name: "Paid on time", body: "Monthly invoicing with fixed payment terms, whatever the client's country." }, // TODO: confirm payment terms
+        "56North Experts brings together senior specialists in the AI modules of Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. You get in on a peer's judgement, never on a keyword. And the door stays open: anyone can apply, and every application is read by a practitioner of their platform.",
+      cta: "Apply",
+      secondary: "How to get in",
+      facts: [
+        { value: "Admission", label: "A technical conversation with a senior peer of your platform" },
+        { value: "2 weeks", label: "To get back to you, whether or not a mission is open" },
+        { value: "Your consent", label: "Nothing is sent to a client without it" },
       ],
     },
-    community: {
-      eyebrow: "Community programme",
-      title: "We give back to the communities we source from.",
-      subtitle: "Four ways. Each one is also how clients can check that our network is real.",
-      // TODO: validate each mechanism and its terms before publishing
+    doors: {
+      eyebrow: "Three ways in",
+      title: "Exclusive does not mean closed.",
+      subtitle:
+        "The network is selective on level, not on background. Your employer, your country or your path matter little: what counts is what you have delivered.",
       items: [
         {
-          name: "Peer referrals",
-          body: "Recommend a specialist you trust. If they are placed on a mission, you receive a referral fee.",
-          tag: "Referral fee",
+          tag: "Invitation",
+          name: "We come to you",
+          body: "We spot practitioners where they work: conferences, user groups, forums, public repositories. If you get our message, one of your public contributions caught our attention.",
         },
         {
-          name: "Paid vetting panel",
-          body: "Senior experts can join the panel that interviews candidates on their platform. Each technical interview is paid, and panel members see missions first.",
-          tag: "Paid per interview",
+          tag: "Referral",
+          name: "A member puts you forward",
+          body: "A network expert can recommend a peer they trust. Their referral is read first. It does not replace the conversation with a peer.",
         },
         {
-          name: "Meetups and user groups",
-          body: "We host and sponsor practitioner meetups on enterprise AI: real delivery stories, no sales pitches. Venue, food and speaker logistics on us.",
-          tag: "Host & sponsor",
-        },
-        {
-          name: "Contribution counts",
-          body: "Talks, community answers, open-source work and recognised contributor status weigh in our vetting as much as a CV. We ask about them in every interview.",
-          tag: "Recognition",
+          tag: "Application",
+          name: "You knock on the door",
+          body: "No invitation needed. Five minutes of form, and a practitioner of your platform replies within two weeks.",
         },
       ],
       partnersTitle: "Communities we are active in",
     },
+    admission: {
+      eyebrow: "Admission",
+      title: "Three steps.\nAll run by peers.",
+      subtitle: "The same for everyone, invited or not.",
+      steps: [
+        { name: "Review", body: "A senior practitioner of your platform reads your application: modules delivered, contributions, certifications." },
+        { name: "Peer conversation", body: "A technical conversation with an expert who has delivered the same modules: your projects, your choices, what went wrong and what you changed. No multiple-choice quiz." },
+        { name: "Admission", body: "Certifications checked, two enterprise references, then you join the network. You are only put forward on the modules you master." },
+      ],
+    },
+    standard: {
+      eyebrow: "What the network expects",
+      title: "A level, not a template.",
+      items: [
+        { name: "AI in production", body: "AI modules of your platform live with real users, not just demos." },
+        { name: "Decisions you owned", body: "Usually ten years or more with large organisations, with architecture choices you answered for." },
+        { name: "Recognised contribution", body: "Talks, forum answers, open-source code, vendor distinctions: they count as much as the CV." },
+        { name: "Knowing when to say no", body: "Facing a client in a hurry, offering an alternative rather than a comfortable yes. That is what we expect of an expert we put in front of a CIO." },
+      ],
+      openNote:
+        "Not quite there yet? Apply anyway. If the timing is not right, we will tell you why, and we will stay in touch.",
+    },
+    promises: {
+      eyebrow: "What you get",
+      title: "What the network gives you.",
+      items: [
+        { name: "Missions matched to your stack", body: "We only send missions on the modules you have shipped. No keyword-matched spam." },
+        { name: "A panel of peers", body: "You are assessed by practitioners. Once a member, you can join your platform's panel: every interview there is paid." },
+        { name: "Transparent terms", body: "Day rate, duration and client context shared before your profile is presented. Nothing is sent without your consent." },
+        { name: "Your independence protected", body: "56North never audits a system built by a network expert at the same client. You are never put in a conflict of interest." },
+      ],
+    },
+    faq: {
+      eyebrow: "Questions",
+      title: "Questions experts ask.",
+      items: [
+        {
+          q: "Do I need to be a freelancer?",
+          a: "No. Freelancers and one-person companies are the most common cases. If you are employed, say so in your application: we discuss it openly.",
+        },
+        {
+          q: "Who decides my day rate?",
+          a: "You state yours in your application. For each mission, the rate, duration and client context are shown to you before any proposal, and nothing is sent without your consent.",
+        },
+        {
+          q: "What if I am not admitted?",
+          a: "We tell you why. You can apply again when your experience has moved on, for instance after a new project in production.",
+        },
+        {
+          q: "Does membership commit me to anything?",
+          a: "No. You never have to accept a mission, and you can leave the network and ask for your data to be deleted at any time.",
+        },
+        {
+          q: "Do clients see my profile?",
+          a: "Profiles stay anonymous. Your name is only shared with a client for a specific mission, and only with your consent.",
+        },
+      ],
+    },
     apply: {
       eyebrow: "Apply",
-      title: "Join the network.",
+      title: "Knock on the door.",
       subtitle:
-        "Five minutes. A practitioner of your platform reviews every application personally and replies within two weeks, whether or not we have a mission open.",
+        "No invitation needed. Five minutes. A practitioner of your platform reads every application and replies within two weeks, whether or not we have a mission open.",
       success: "Application received. A practitioner of your platform will get back to you within two weeks.",
     },
   },
@@ -447,7 +495,7 @@ const en = {
     experts: "Experts",
     company: "Company",
     join: "Join the network",
-    community: "Community programme",
+    community: "How to join the network",
     platform: "56North Cockpit (AI governance)",
     contact: "Contact",
     rights: "All rights reserved. Part of",

@@ -111,7 +111,7 @@ const fr: Dictionary = {
     eyebrow: "Pourquoi ça marche",
     title: "Pensé pour les achats.\nEt pour les projets.",
     items: [
-      { name: "Là où sont les experts.", body: "Les meilleurs spécialistes sont rarement sur les job boards. Nous les trouvons dans les groupes d'utilisateurs, les forums communautaires, les meetups et les conférences.", href: "/talents#community", linkLabel: "Notre programme communautaire" },
+      { name: "Là où sont les experts.", body: "Les meilleurs spécialistes sont rarement sur les job boards. Nous les trouvons dans les groupes d'utilisateurs, les forums communautaires, les meetups et les conférences.", href: "/talents#community", linkLabel: "Comment entrer dans le réseau" },
       { name: "Évaluation par les pairs", body: "Un praticien senior de la même plateforme reçoit chaque candidat en entretien. Certifications vérifiées. Deux références en grand compte." },
       { name: "Prêt à contractualiser", body: "Contrat-cadre, accord de confidentialité, cession de propriété intellectuelle et clauses RGPD, prêts à signer." },
       { name: "Au fait de l'AI Act", body: "Experts informés des obligations qui s'appliquent à leur périmètre : risques, journalisation, supervision humaine." },
@@ -374,61 +374,109 @@ const fr: Dictionary = {
     secondary: "Rejoindre le réseau",
   },
   talents: {
-    metaTitle: "Rejoignez notre réseau d'experts IA seniors",
+    metaTitle: "Rejoindre le réseau d'experts IA seniors, sur admission",
     metaDescription:
-      "Spécialistes seniors IA sur Microsoft, Salesforce, Google Cloud, SAP, ServiceNow ou Workday : rejoignez un réseau communautaire pour des missions en grand compte. Primes de recommandation, jury d'évaluation rémunéré, meetups de praticiens.",
+      "Réseau sur admission d'experts IA seniors Microsoft, Salesforce, Google Cloud, SAP, ServiceNow et Workday : évaluation par un pair, candidature ouverte à tous.",
     hero: {
-      eyebrow: "Pour les experts",
-      title: "Votre prochaine mission.\nTrouvée par vos pairs.",
+      eyebrow: "Pour les experts · Réseau sur admission",
+      title: "Un cercle de praticiens.\nPas une base de CV.",
       intro:
-        "Pas de job board. Les missions circulent dans les communautés de praticiens de chaque plateforme. Si vous construisez, intervenez ou répondez aux questions dans la vôtre, nous voulons vous rencontrer.",
-      cta: "Rejoindre le réseau",
-      secondary: "Le fonctionnement communautaire",
-    },
-    promises: {
-      eyebrow: "Ce que vous y gagnez",
-      title: "Un réseau animé par des praticiens.",
-      items: [
-        { name: "Des missions à votre mesure", body: "Nous ne vous proposons que des missions sur les modules que vous avez livrés. Pas de spam par mots-clés." },
-        { name: "Un échange entre pairs", body: "Votre entretien technique se fait avec un praticien senior de votre plateforme, pas avec un recruteur généraliste." },
-        { name: "Des conditions transparentes", body: "Taux journalier, durée et contexte client partagés avant toute présentation. Rien n'est envoyé sans votre accord." },
-        { name: "Payé à l'heure", body: "Facturation mensuelle avec des délais de paiement fixes, quel que soit le pays du client." }, // TODO: confirmer les délais de paiement
+        "56North Experts réunit des spécialistes seniors des modules IA de Microsoft, Salesforce, Google Cloud, SAP, ServiceNow et Workday. On y entre sur l'avis d'un pair, jamais sur un mot-clé. Et la porte reste ouverte : chacun peut candidater, chaque candidature est lue par un praticien de sa plateforme.",
+      cta: "Candidater",
+      secondary: "Comment on entre",
+      facts: [
+        { value: "Sur admission", label: "Un échange technique avec un pair senior de votre plateforme" },
+        { value: "2 semaines", label: "Pour vous répondre, qu'une mission soit ouverte ou non" },
+        { value: "Votre accord", label: "Rien n'est envoyé à un client sans lui" },
       ],
     },
-    community: {
-      eyebrow: "Programme communautaire",
-      title: "Nous rendons aux communautés où nous recrutons.",
-      subtitle: "De quatre façons. Chacune permet aussi à nos clients de vérifier que notre réseau est réel.",
-      // TODO: valider chaque mécanisme et ses conditions avant publication
+    doors: {
+      eyebrow: "Trois portes d'entrée",
+      title: "Exclusif ne veut pas dire fermé.",
+      subtitle:
+        "Le réseau est sélectif sur le niveau, pas sur l'origine. Votre employeur, votre pays ou votre parcours importent peu : ce qui compte, c'est ce que vous avez livré.",
       items: [
         {
-          name: "Recommandation entre pairs",
-          body: "Recommandez un spécialiste en qui vous avez confiance. S'il est placé en mission, vous recevez une prime de recommandation.",
-          tag: "Prime de recommandation",
+          tag: "Invitation",
+          name: "Nous venons à vous",
+          body: "Nous repérons les praticiens là où ils travaillent : conférences, groupes d'utilisateurs, forums, dépôts publics. Si vous recevez notre message, c'est qu'un de vos travaux publics a retenu notre attention.",
         },
         {
-          name: "Jury d'évaluation rémunéré",
-          body: "Les experts seniors peuvent rejoindre le jury qui reçoit les candidats de leur plateforme. Chaque entretien technique est rémunéré, et les membres du jury voient les missions en premier.",
-          tag: "Rémunéré par entretien",
+          tag: "Recommandation",
+          name: "Un membre vous propose",
+          body: "Un expert du réseau peut recommander un pair en qui il a confiance. Sa recommandation est lue en priorité. Elle ne dispense pas de l'échange avec un pair.",
         },
         {
-          name: "Meetups et groupes d'utilisateurs",
-          body: "Nous organisons et sponsorisons des meetups de praticiens sur l'IA d'entreprise : de vrais retours de projets, pas de discours commercial. Salle, repas et logistique des intervenants à notre charge.",
-          tag: "Organisation et sponsoring",
-        },
-        {
-          name: "La contribution compte",
-          body: "Conférences, réponses sur les forums, open source et statuts de contributeur reconnu pèsent autant qu'un CV dans notre évaluation. Nous en parlons à chaque entretien.",
-          tag: "Reconnaissance",
+          tag: "Candidature",
+          name: "Vous frappez à la porte",
+          body: "Aucune invitation nécessaire. Cinq minutes de formulaire, et un praticien de votre plateforme vous répond sous deux semaines.",
         },
       ],
       partnersTitle: "Communautés où nous sommes actifs",
     },
+    admission: {
+      eyebrow: "L'admission",
+      title: "Trois étapes.\nToutes menées par des pairs.",
+      subtitle: "Les mêmes pour tout le monde, invité ou non.",
+      steps: [
+        { name: "Lecture", body: "Un praticien senior de votre plateforme lit votre candidature : modules livrés, contributions, certifications." },
+        { name: "Échange entre pairs", body: "Une conversation technique avec un expert qui a livré les mêmes modules : vos projets, vos choix, ce qui a mal tourné et ce que vous avez changé. Pas de questionnaire à choix multiples." },
+        { name: "Admission", body: "Certifications vérifiées, deux références en grand compte, puis l'entrée dans le réseau. Vous n'êtes proposé que sur les modules que vous maîtrisez." },
+      ],
+    },
+    standard: {
+      eyebrow: "Ce que le réseau attend",
+      title: "Un niveau, pas un profil type.",
+      items: [
+        { name: "Des IA en production", body: "Des modules IA de votre plateforme mis en service chez de vrais utilisateurs, pas seulement des démonstrations." },
+        { name: "Des décisions assumées", body: "En général dix ans ou plus auprès de grandes organisations, avec des choix d'architecture dont vous avez répondu." },
+        { name: "Une contribution reconnue", body: "Conférences, réponses sur les forums, code ouvert, distinctions d'éditeur : elles comptent autant que le CV." },
+        { name: "Savoir dire non", body: "Face à un client pressé, proposer une alternative plutôt qu'un oui de confort. C'est ce qu'on attend d'un expert qu'on présente à un DSI." },
+      ],
+      openNote:
+        "Pas encore tout à fait là ? Candidatez quand même. Si le moment n'est pas venu, nous vous disons pourquoi, et nous gardons le contact pour la suite.",
+    },
+    promises: {
+      eyebrow: "Ce que vous y gagnez",
+      title: "Ce que le réseau vous apporte.",
+      items: [
+        { name: "Des missions à votre mesure", body: "Nous ne vous proposons que des missions sur les modules que vous avez livrés. Pas de sollicitations envoyées par mots-clés." },
+        { name: "Un jury de pairs", body: "Vous êtes évalué entre praticiens. Une fois membre, vous pouvez rejoindre le jury de votre plateforme : chaque entretien y est rémunéré." },
+        { name: "Des conditions transparentes", body: "Taux journalier, durée et contexte client partagés avant toute présentation. Rien n'est envoyé sans votre accord." },
+        { name: "Votre indépendance protégée", body: "56North n'audite jamais un système construit par un expert du réseau chez le même client. Vous n'êtes jamais juge et partie." },
+      ],
+    },
+    faq: {
+      eyebrow: "Questions fréquentes",
+      title: "Les questions des experts.",
+      items: [
+        {
+          q: "Faut-il être indépendant ?",
+          a: "Non. Les indépendants et les sociétés personnelles sont les cas les plus courants. Si vous êtes salarié, dites-le dans votre candidature : nous en parlons ouvertement.",
+        },
+        {
+          q: "Qui décide de mon taux journalier ?",
+          a: "Vous indiquez le vôtre dans votre candidature. Pour chaque mission, le taux, la durée et le contexte client vous sont présentés avant toute proposition, et rien n'est envoyé sans votre accord.",
+        },
+        {
+          q: "Et si je ne suis pas admis ?",
+          a: "Nous vous disons pourquoi. Vous pouvez candidater de nouveau quand votre expérience a évolué, par exemple après un nouveau projet en production.",
+        },
+        {
+          q: "Être membre m'engage-t-il ?",
+          a: "Non. Vous n'êtes tenu d'accepter aucune mission, et vous pouvez quitter le réseau et demander la suppression de vos données à tout moment.",
+        },
+        {
+          q: "Les clients voient-ils mon profil ?",
+          a: "Les profils restent anonymes. Votre nom n'est communiqué à un client que pour une mission précise, et seulement avec votre accord.",
+        },
+      ],
+    },
     apply: {
       eyebrow: "Candidature",
-      title: "Rejoignez le réseau.",
+      title: "Frappez à la porte.",
       subtitle:
-        "Cinq minutes. Un praticien de votre plateforme lit chaque candidature et vous répond sous deux semaines, qu'une mission soit ouverte ou non.",
+        "Aucune invitation nécessaire. Cinq minutes. Un praticien de votre plateforme lit chaque candidature et vous répond sous deux semaines, qu'une mission soit ouverte ou non.",
       success: "Candidature reçue. Un praticien de votre plateforme vous répond sous deux semaines.",
     },
   },
@@ -445,7 +493,7 @@ const fr: Dictionary = {
     experts: "Experts",
     company: "Société",
     join: "Rejoindre le réseau",
-    community: "Programme communautaire",
+    community: "Comment entrer dans le réseau",
     platform: "Le Cockpit 56North (gouvernance IA)",
     contact: "Contact",
     rights: "Tous droits réservés. Membre de",
