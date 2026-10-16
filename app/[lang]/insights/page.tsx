@@ -42,7 +42,7 @@ export default async function InsightsPage() {
         />
       )}
       <PageHero eyebrow={i.eyebrow} title={i.title} intro={i.intro} />
-      <Section>
+      <Section className="!pt-0 sm:!pt-4">
         <Container className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {list.length > 0
             ? list.map((a) => (
