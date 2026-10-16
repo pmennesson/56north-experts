@@ -45,10 +45,8 @@ export async function Footer({ t }: { t: Dictionary }) {
   return (
     <footer className="bg-canvas-alt pb-20 text-[12px] text-fg-muted md:pb-0">
       <Container className="py-10">
-        <p className="border-b border-line pb-4 leading-relaxed text-fg-subtle">
-          {f.independence} {f.disclaimer}
-        </p>
-        <div className="grid grid-cols-2 gap-8 py-8 md:grid-cols-4">
+        {/* Independence rule and trademark notice live on /legal, not in the footer (Pascal, 16/10/2026). */}
+        <div className="grid grid-cols-2 gap-8 pb-8 md:grid-cols-4">
           {cols.map((c) => (
             <div key={c.title}>
               <p className="mb-2 font-semibold text-fg">{c.title}</p>
