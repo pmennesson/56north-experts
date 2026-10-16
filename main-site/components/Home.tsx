@@ -13,8 +13,7 @@ export function Hero({ t, alert }: { t: T["hero"]; alert?: { title: string; href
     <section className="overflow-hidden bg-canvas">
       <Container className={`flex flex-col items-center pb-8 text-center ${alert ? "pt-8 sm:pt-20" : "pt-10 sm:pt-28"}`}>
         {alert && <NewsAlert label={t.alert.label} all={t.alert.all} title={alert.title} href={alert.href} />}
-        <p className="text-[19px] font-semibold tracking-[-0.01em] text-fg sm:text-[22px]">{t.baseline}</p>
-        <Eyebrow className="mt-3">{t.eyebrow}</Eyebrow>
+        <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.1rem,5.4vw,4.4rem)]">{t.title}</h1>
         <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-10">

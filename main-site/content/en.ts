@@ -28,13 +28,13 @@ const en: MainDictionary = {
   hero: {
     /** Baseline de marque, retenue le 10/10/2026. */
     baseline: "Your AI, under control.",
-    eyebrow: "Independent third party · EU AI Act evidence for companies that deploy AI",
+    eyebrow: "Your AI, under control.",
     title: "Your vendors prove their AI is compliant.\nWho proves yours is?",
     subtitle:
-      "56North is the independent third party that inventories every AI system in your company, whatever the vendor, puts them to the test through auditors who sell you nothing else, and gathers the dated, sealed evidence a regulator accepts.",
+      "The independent third party that inventories all your AI, puts it to the test and gathers the dated, sealed EU AI Act evidence a regulator accepts.",
     primary: "Request an assessment",
     secondary: "Why a third party",
-    reassurance: "A free 30-minute first conversation, no commitment. If the timing is not right, we will tell you.",
+    reassurance: "A free 30-minute first conversation, no commitment.",
     alert: { label: "News alert", all: "See all articles" },
     board: {
       label: "Airworthiness score",

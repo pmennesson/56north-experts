@@ -35,13 +35,13 @@ const fr = {
   hero: {
     /** Baseline de marque, retenue le 10/10/2026. */
     baseline: "Vos IA sous contrôle.",
-    eyebrow: "Tiers indépendant · Preuves AI Act pour les entreprises qui déploient l'IA",
+    eyebrow: "Vos IA sous contrôle.",
     title: "Vos éditeurs prouvent que leur IA est conforme.\nQui prouve que la vôtre l'est ?",
     subtitle:
-      "56North est le tiers indépendant qui recense toutes les IA de votre entreprise, quels que soient leurs éditeurs, les met à l'épreuve par des auditeurs qui ne vous vendent rien d'autre, et rassemble les preuves datées et scellées qu'un contrôleur accepte.",
+      "Le tiers indépendant qui recense toutes vos IA, les met à l'épreuve et rassemble les preuves AI Act, datées et scellées, qu'un contrôleur accepte.",
     primary: "Demander un diagnostic",
     secondary: "Pourquoi un tiers",
-    reassurance: "Premier échange de 30 minutes offert, sans engagement. Si ce n'est pas le bon moment, nous vous le dirons.",
+    reassurance: "Premier échange de 30 minutes offert, sans engagement.",
     /** Pastille « alerte actu » au-dessus du titre : le dernier article publié, lien vers la liste. */
     alert: { label: "Alerte actu", all: "Voir tous les articles" },
     board: {
