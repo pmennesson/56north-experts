@@ -51,7 +51,7 @@ export default async function Home() {
       />
       <Hero t={t.hero} alert={posts[0] && { title: posts[0].seoTitle, href: articlesPath(locale) }} />
       <Definition t={t.definition} />
-      <WhyThirdParty t={t.whyThirdParty} more={more("governance", ui.more.whyThirdParty)} />
+      <WhyThirdParty t={t.whyThirdParty} more={more("governance", ui.more.whyThirdParty)} evidenceHref={`${pagePaths.compliance[locale]}#dossier-de-preuves`} />
       <Mirror t={t.mirror} />
       <Clock t={t.clock} more={more("compliance", ui.more.clock)} />
       <Problem t={t.problem} />

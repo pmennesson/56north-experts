@@ -432,19 +432,7 @@ Le règlement distingue le **fournisseur**, qui développe un système d'IA et l
 
 Cette page porte sur les preuves. Le détail des obligations, plateforme par plateforme, est dans notre guide [AI Act : ce que doivent faire les entreprises qui utilisent Copilot, Agentforce ou Joule](${deployerGuide.fr}).
 
-## Les obligations qui appellent une preuve
-
-| Obligation | Article | Depuis | Preuve à conserver |
-|---|---|---|---|
-| Favoriser la maîtrise de l'IA du personnel | 4 | 2 février 2025 | Les mesures prises, qui en a bénéficié, à quelle date |
-| Informer les personnes exposées à la reconnaissance des émotions ou à la catégorisation biométrique | 50(3) | 2 août 2026 | Le texte d'information et sa date de mise en place |
-| Signaler les hypertrucages et les textes générés publiés pour informer le public | 50(4) | 2 août 2026 | Les mentions affichées, la règle de relecture humaine le cas échéant |
-| Haut risque : utiliser le système selon sa notice | 26(1) | 2 décembre 2027 | La notice reçue, les mesures prises pour la suivre |
-| Haut risque : surveillance humaine par des personnes compétentes | 26(2) | 2 décembre 2027 | La désignation nominative, la formation suivie |
-| Haut risque : surveiller, signaler les risques et incidents | 26(5) | 2 décembre 2027 | Les constats, les signalements, les suspensions |
-| Haut risque : conserver les journaux | 26(6) | 2 décembre 2027 | Les journaux, au moins six mois |
-| Haut risque : informer les salariés et leurs représentants | 26(7) | 2 décembre 2027 | L'information faite, avant la mise en service |
-| Haut risque : informer les personnes concernées par une décision | 26(11) | 2 décembre 2027 | Le texte d'information et le parcours où il apparaît |
+[[dossier-de-preuves]]
 
 L'information prévue à l'article 50 doit être donnée au plus tard lors de la première interaction ou exposition. Les organismes publics, les entités privées fournissant des services publics et certains autres déployeurs doivent en outre conduire une analyse d'impact sur les droits fondamentaux avant de déployer un système à haut risque (article 27).
 

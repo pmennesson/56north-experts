@@ -7,6 +7,10 @@ import { breadcrumbLd, buildMetadata, faqLd, founderLd, offerServiceLd, pagePath
 import { getPillar, PILLARS_UPDATED } from "@/lib/pillars";
 import type { PillarKey } from "@/content/pillars/types";
 import { JsonLd } from "@/components/JsonLd";
+import { EvidenceMap } from "@/components/EvidenceMap";
+
+/** Token in a pillar body, alone in its paragraph, replaced by the evidence-file map (compliance page). */
+const EVIDENCE_TOKEN = "<p>[[dossier-de-preuves]]</p>";
 import { Button, Chevron, Container, Eyebrow, Section } from "@/components/ui/primitives";
 
 /** Metadata of a pillar page: canonical, hreflang (fr, en, x-default) and social card, as on every page. */
@@ -91,7 +95,12 @@ export async function PillarPage({ locale, pageKey }: { locale: Locale; pageKey:
             {page.answer}
           </p>
 
-          <div className="prose-article mt-4" dangerouslySetInnerHTML={{ __html: page.html }} />
+          {page.html.split(EVIDENCE_TOKEN).map((part, i, parts) => (
+            <div key={i}>
+              <div className="prose-article mt-4" dangerouslySetInnerHTML={{ __html: part }} />
+              {i < parts.length - 1 && <EvidenceMap locale={locale} />}
+            </div>
+          ))}
 
           <div className="mt-12 flex flex-col items-start gap-3 rounded-3xl border border-line p-7 sm:p-8">
             <p className="text-[19px] font-semibold tracking-[-0.01em]">{ui.ctaTitle}</p>

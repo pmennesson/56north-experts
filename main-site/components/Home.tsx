@@ -321,7 +321,7 @@ export function Definition({ t }: { t: T["definition"] }) {
 
 /* ------------------------- Why a third party (vendor vs deployer, GEO) */
 
-export function WhyThirdParty({ t, more }: { t: T["whyThirdParty"]; more?: More }) {
+export function WhyThirdParty({ t, more, evidenceHref = "#cockpit" }: { t: T["whyThirdParty"]; more?: More; evidenceHref?: string }) {
   return (
     <Section id="pourquoi-un-tiers" className="scroll-mt-12">
       <Container>
@@ -337,7 +337,7 @@ export function WhyThirdParty({ t, more }: { t: T["whyThirdParty"]; more?: More 
         </ol>
         <p className="reveal mx-auto mt-12 max-w-[760px] text-center text-xl font-medium leading-snug tracking-[-0.015em] text-pretty">{t.closing}</p>
         <div className="reveal mt-8 flex flex-col items-center gap-3 text-center">
-          <Button href="#cockpit" variant="link">
+          <Button href={evidenceHref} variant="link">
             {t.link}
           </Button>
           {more && (

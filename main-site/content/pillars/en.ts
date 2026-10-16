@@ -425,19 +425,7 @@ The regulation separates the **provider**, who develops an AI system and places 
 
 This page is about evidence. The obligations themselves, platform by platform, are covered in our guide [EU AI Act: what companies using Copilot, Agentforce or Joule must do now](${deployerGuide.en}).
 
-## The obligations that call for evidence
-
-| Obligation | Article | Applies from | Evidence to keep |
-|---|---|---|---|
-| Support the AI literacy of staff | 4 | 2 February 2025 | The measures taken, who benefited, on what date |
-| Inform people exposed to emotion recognition or biometric categorisation | 50(3) | 2 August 2026 | The information text and the date it was put in place |
-| Disclose deepfakes and generated text published to inform the public | 50(4) | 2 August 2026 | The disclosures shown, and the human review rule where it applies |
-| High risk: use the system according to its instructions | 26(1) | 2 December 2027 | The instructions received, the measures taken to follow them |
-| High risk: human oversight by competent people | 26(2) | 2 December 2027 | The named assignment, the training followed |
-| High risk: monitor, report risks and incidents | 26(5) | 2 December 2027 | Findings, reports, suspensions |
-| High risk: keep the logs | 26(6) | 2 December 2027 | The logs, for at least six months |
-| High risk: inform workers and their representatives | 26(7) | 2 December 2027 | The information given, before putting into service |
-| High risk: inform people subject to a decision | 26(11) | 2 December 2027 | The information text and where it appears |
+[[dossier-de-preuves]]
 
 The information required by Article 50 must be given at the latest at the first interaction or exposure. Bodies governed by public law, private entities providing public services and certain other deployers must also carry out a fundamental rights impact assessment before deploying a high-risk system (Article 27).
 
