@@ -39,7 +39,7 @@ export function GET() {
     "- [Cockpit 56North (français)](https://56north.io)",
     "",
     "## Contact",
-    `- [Request experts](${absoluteUrl("/contact")}) — free to brief, no commitment until a profile is chosen`,
+    `- [Let's talk about your project](${absoluteUrl("/contact")}) — free to brief, no commitment until a profile is chosen`,
     `- [About](${absoluteUrl("/about")})`,
     `- [Join the expert network](${absoluteUrl("/talents")})`,
     `- Email: ${siteConfig.email}`,
@@ -48,7 +48,7 @@ export function GET() {
     "## Version française",
     `Le site existe en français sous ${absoluteUrl("/fr")} : délégation d'experts IA seniors en régie, mêmes services et mêmes engagements.`,
     ...getEcosystems("fr").map((e) => `- [${e.name}](${absoluteUrl(`/fr/experts/${e.slug}`)})`),
-    `- [Demander des experts](${absoluteUrl("/fr/contact")})`,
+    `- [Parlons de votre projet](${absoluteUrl("/fr/contact")})`,
     `- [Rejoindre le réseau](${absoluteUrl("/fr/talents")})`,
     "",
   ].join("\n");

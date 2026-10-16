@@ -11,7 +11,7 @@ const fr: Dictionary = {
     apply: "Candidater",
     talents: "Pour les experts",
     insights: "Ressources",
-    contact: "Demander des experts",
+    contact: "Parlons de votre projet",
     contactShort: "Contact",
     about: "À propos",
     cockpit: "Le Cockpit",
@@ -35,7 +35,7 @@ const fr: Dictionary = {
     title: "Experts IA seniors.\nÉvalués par leurs pairs.",
     subtitle:
       "Pour les modules IA de Microsoft, Salesforce, Google Cloud, SAP, ServiceNow et Workday. Trouvés dans les communautés où travaillent les meilleurs spécialistes.",
-    primaryCta: "Demander des experts",
+    primaryCta: "Parlons de votre projet",
     secondaryCta: "Comment ça marche",
     reassurance: "Brief gratuit. Aucun engagement avant d'avoir choisi un profil.",
     alert: { label: "Alerte actu", all: "Voir tous les articles" },
@@ -186,14 +186,14 @@ const fr: Dictionary = {
     guidesTitle: "Guides pour les équipes {vendor}",
     breadcrumb: "Expertises",
     home: "Accueil",
-    request: "Demander des experts",
-    requestVendor: "Demander des experts {vendor}",
+    request: "Parlons de votre projet",
+    requestVendor: "Parlons de votre projet {vendor}",
     modulesLink: "Modules couverts",
     answerSuffix:
       "En régie, en équipe dédiée ou en architecture à temps partagé, avec des profils issus des communautés de praticiens {vendor} et évalués par un pair senior.",
     modulesEyebrow: "Modules",
     modulesTitle: "Ce que livrent nos experts {vendor}.",
-    rolesTitle: "Les rôles que nous plaçons",
+    rolesTitle: "Les rôles que nous couvrons",
     credentialsTitle: "Les certifications que nous vérifions",
     credentialsNote: "Contrôlées auprès du registre public de l'éditeur quand il existe.",
     faqTitle: "Experts IA {vendor} : vos questions.",
@@ -207,9 +207,9 @@ const fr: Dictionary = {
     metaDescription:
       "Qui dirige 56North Experts, comment nous trouvons et évaluons les spécialistes IA seniors, et la règle d'indépendance qui sépare placement et audit. Fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group.",
     eyebrow: "À propos",
-    title: "Des seniors.\nPlacés avec soin.",
+    title: "Des seniors.\nChoisis par leurs pairs.",
     intro:
-      "56North Experts est le réseau d'experts de 56North. Nous plaçons des spécialistes seniors sur les modules IA des plateformes que les entreprises utilisent déjà, en Europe, au Moyen-Orient et en Afrique.",
+      "56North Experts est le réseau d'experts de 56North. Nous réunissons des spécialistes seniors des modules IA des plateformes que les entreprises utilisent déjà, et nous les engageons sur leurs projets en Europe, au Moyen-Orient et en Afrique.",
     principlesEyebrow: "Notre méthode",
     principlesTitle: "Trois principes.",
     principles: [
@@ -230,11 +230,11 @@ const fr: Dictionary = {
     legalLink: "Mentions légales",
   },
   contactPage: {
-    metaTitle: "Demander des experts IA seniors",
+    metaTitle: "Experts IA seniors : parlons de votre projet",
     metaDescription:
       "Envoyez votre besoin d'experts IA Microsoft, Salesforce, Google Cloud, SAP ou ServiceNow. Un responsable d'expertise vous répond sous un jour ouvré et cherche dans les communautés de spécialistes.",
-    eyebrow: "Demande d'experts",
-    title: "Décrivez-nous le poste.",
+    eyebrow: "Votre projet",
+    title: "Parlons de votre projet.",
     intro:
       "Deux minutes. Un responsable d'expertise vous rappelle sous un jour ouvré, puis vous présente deux ou trois profils évalués par des pairs, avec un délai réaliste annoncé dès le départ.",
     nextTitle: "La suite",
@@ -283,7 +283,7 @@ const fr: Dictionary = {
     title: "Cette page n'existe pas.",
     body: "L'expert que vous cherchez n'est peut-être qu'à un brief de distance.",
     home: "Accueil",
-    cta: "Demander des experts",
+    cta: "Parlons de votre projet",
   },
   legal: {
     updatedLabel: "Dernière mise à jour :",
@@ -369,9 +369,9 @@ const fr: Dictionary = {
     error: "Un problème est survenu de notre côté. Écrivez-nous à {email}, nous vous répondrons directement.",
   },
   cta: {
-    title: "Décrivez-nous le poste.",
+    title: "Vous avez un projet ? Parlons-en.",
     body: "Brief gratuit. Un responsable d'expertise vous répond sous un jour ouvré.",
-    primary: "Demander des experts",
+    primary: "Décrire votre projet",
     secondary: "Rejoindre le réseau",
   },
   talents: {

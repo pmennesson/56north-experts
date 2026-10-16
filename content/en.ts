@@ -8,7 +8,7 @@ const en = {
     apply: "Apply",
     talents: "For experts",
     insights: "Insights",
-    contact: "Request experts",
+    contact: "Let's talk about your project",
     contactShort: "Contact",
     about: "About",
     cockpit: "Cockpit",
@@ -32,7 +32,7 @@ const en = {
     title: "Senior AI experts.\nVetted by peers.",
     subtitle:
       "For the AI modules of Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Found in the communities where the best specialists actually work.",
-    primaryCta: "Request experts",
+    primaryCta: "Let's talk about your project",
     secondaryCta: "How it works",
     reassurance: "Free to brief. No commitment until you choose a profile.",
     /** "News alert" pill above the title: the latest published article, linking to the list. */
@@ -185,14 +185,14 @@ const en = {
     guidesTitle: "Guides for {vendor} teams",
     breadcrumb: "Practices",
     home: "Home",
-    request: "Request experts",
-    requestVendor: "Request {vendor} experts",
+    request: "Let's talk about your project",
+    requestVendor: "Let's talk about your {vendor} project",
     modulesLink: "Modules covered",
     answerSuffix:
       "Delivered through staff augmentation, dedicated squads or fractional architecture, sourced through the {vendor} practitioner communities and vetted by a senior peer.",
     modulesEyebrow: "Modules",
     modulesTitle: "What our {vendor} experts deliver.",
-    rolesTitle: "Roles we staff",
+    rolesTitle: "Roles we cover",
     credentialsTitle: "Credentials we verify",
     credentialsNote: "Checked against the vendor's public credential registry where available.",
     faqTitle: "{vendor} AI staffing, answered.",
@@ -206,9 +206,9 @@ const en = {
     metaDescription:
       "Who runs 56North Experts, how we source and vet senior AI specialists, and the independence rule that separates staffing from AI audits. Founded by Pascal Mennesson, co-founder of Maltem Consulting Group.",
     eyebrow: "About",
-    title: "Senior people.\nPlaced with care.",
+    title: "Senior people.\nChosen by their peers.",
     intro:
-      "56North Experts is the expert network of 56North. We place senior specialists on the AI modules of the enterprise platforms companies already run, across Europe, the Middle East and Africa.",
+      "56North Experts is the expert network of 56North. We bring together senior specialists in the AI modules of the enterprise platforms companies already run, and engage them on their projects across Europe, the Middle East and Africa.",
     principlesEyebrow: "How we work",
     principlesTitle: "Three principles.",
     principles: [
@@ -229,11 +229,11 @@ const en = {
     legalLink: "Legal notice",
   },
   contactPage: {
-    metaTitle: "Request senior AI experts",
+    metaTitle: "Senior AI experts: let's talk about your project",
     metaDescription:
       "Send a staffing brief for Microsoft, Salesforce, Google Cloud, SAP or ServiceNow AI experts. A practice lead replies within one business day and sources through specialist practitioner communities.",
-    eyebrow: "Staffing request",
-    title: "Tell us the role.",
+    eyebrow: "Your project",
+    title: "Let's talk about your project.",
     intro:
       "Two minutes. A practice lead calls you back within one business day, then introduces two or three peer-vetted profiles, with a realistic lead time given upfront.",
     nextTitle: "What happens next",
@@ -283,7 +283,7 @@ const en = {
     title: "This page does not exist.",
     body: "The expert you are looking for might still be one brief away.",
     home: "Home",
-    cta: "Request experts",
+    cta: "Let's talk about your project",
   },
   legal: {
     updatedLabel: "Last updated:",
@@ -371,9 +371,9 @@ const en = {
     error: "Something went wrong on our side. Please email {email} and we will answer directly.",
   },
   cta: {
-    title: "Tell us the role.",
+    title: "Have a project? Let's talk.",
     body: "Free to brief. A practice lead replies within one business day.",
-    primary: "Request experts",
+    primary: "Describe your project",
     secondary: "Join the network",
   },
   talents: {
