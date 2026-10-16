@@ -100,9 +100,18 @@ export function ApplicationForm({ lang, t, s, success, privacyHref, ecosystems }
       id: "referral",
       title: t.referral,
       hint: t.referralHint,
-      names: ["referral"],
+      names: ["referral_name", "referral_contact"],
       optional: true,
-      content: <input id="referral" name="referral" placeholder={t.referralPlaceholder} className={input} />,
+      content: (
+        <div className="grid gap-5 sm:grid-cols-2">
+          <BigField label={t.referralName} name="referral_name">
+            <input id="referral_name" name="referral_name" autoComplete="off" className={input} />
+          </BigField>
+          <BigField label={t.referralContact} name="referral_contact">
+            <input id="referral_contact" name="referral_contact" autoComplete="off" placeholder={t.referralContactPlaceholder} className={input} />
+          </BigField>
+        </div>
+      ),
     },
     {
       id: "you",

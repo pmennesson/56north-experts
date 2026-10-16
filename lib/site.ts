@@ -19,9 +19,9 @@ export const siteConfig = {
   legalUpdated: "30 September 2026",
   /** Same date, ISO: lastModified of the legal pages in the sitemap. Keep both in step. */
   legalUpdatedIso: "2026-09-30",
-  tagline: "Senior AI experts for the enterprise platforms you already run.",
+  tagline: "An admission-based network of senior AI experts for the enterprise platforms you already run.",
   description:
-    "Staff augmentation and expert delegation for AI modules on Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday. Senior consultants sourced through specialist practitioner communities, vetted by peers, deployed across Europe, the Middle East and Africa.",
+    "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. Available through staff augmentation, dedicated teams or fractional architecture across Europe, the Middle East and Africa.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://experts.56north.io",
   email: "experts@56north.io",
   /** Founder: shown on /about, linked from the footer, Person JSON-LD. */
@@ -35,10 +35,10 @@ export const siteConfig = {
    * Keep them true: they are contractual in the buyer's eyes.
    */
   serviceLevels: [
-    { value: "Community", label: "Profiles sourced through specialist practitioner communities, not job boards" },
-    { value: "6", label: "Enterprise AI ecosystems covered by dedicated practices" },
-    { value: "3-step", label: "Vetting: peer technical interview, credential check, references" },
-    { value: "10+ yrs", label: "Minimum enterprise delivery experience for senior profiles" },
+    { value: "Community", label: "Members identified in specialist practitioner communities, not on job boards" },
+    { value: "6", label: "Enterprise platforms, each with a dedicated practice" },
+    { value: "3-step", label: "Admission: peer technical interview, credential check, references" },
+    { value: "10+ yrs", label: "Minimum enterprise delivery experience for a senior member" },
   ],
   /**
    * Communities you are genuinely active in. Shown on /talents only when

@@ -30,6 +30,11 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
   if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = t.invalidEmail;
   if (data.linkedin && !/^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\//i.test(data.linkedin)) errors.linkedin = t.invalidLinkedin;
   if (!data.consent) errors.consent = t.consentRequired;
+  // Referral (optional): a name and a way to reach them, an e-mail or a LinkedIn profile.
+  const refContact = data.referral_contact;
+  if (refContact && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(refContact) && !/^(https?:\/\/)?([a-z]{2,3}\.)?linkedin\.com\//i.test(refContact))
+    errors.referral_contact = t.invalidReferralContact;
+  if (refContact && !data.referral_name) errors.referral_name = dict.steps.required;
 
   if (Object.keys(errors).length) return { ok: false, message: t.checkFields, errors };
 
@@ -45,7 +50,7 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
     day_rate: data.rate || null,
     availability: data.availability || null,
     location: data.location || null,
-    referral: data.referral || null,
+    referral: [data.referral_name, refContact].filter(Boolean).join(" · ") || null,
     consent_at: new Date().toISOString(),
     locale,
   });
@@ -66,7 +71,7 @@ export async function submitApplication(_prev: ApplicationState, form: FormData)
       "Day rate": data.rate,
       Availability: data.availability,
       Location: data.location,
-      Referral: data.referral,
+      Referral: [data.referral_name, refContact].filter(Boolean).join(" · "),
       Language: locale === "fr" ? "French (reply in French)" : "English",
     },
     data.email,
