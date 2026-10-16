@@ -8,6 +8,7 @@ import type { Dictionary } from "@/lib/i18n";
 const fr: Dictionary = {
   nav: {
     experts: "Expertises",
+    apply: "Candidater",
     talents: "Pour les experts",
     insights: "Ressources",
     contact: "Demander des experts",

@@ -5,6 +5,7 @@
 const en = {
   nav: {
     experts: "Practices",
+    apply: "Apply",
     talents: "For experts",
     insights: "Insights",
     contact: "Request experts",
