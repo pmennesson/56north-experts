@@ -81,7 +81,7 @@ export default async function EcosystemPage({ params }: Props) {
           <p className="max-w-2xl text-xl leading-relaxed text-fg-muted text-pretty">
             {e.summary} {v(p.answerSuffix)}
           </p>
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          <div data-primary-cta className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <Button href={contact} size="lg">
               {v(p.requestVendor)}
             </Button>

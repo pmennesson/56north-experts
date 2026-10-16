@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n";
 import { Button, Check, Container, Eyebrow, Section, SectionHeader } from "@/components/ui/primitives";
 import { ScoreBoard } from "@/components/ScoreBoard";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { NewsAlert } from "@/components/NewsAlert";
 
 type T = Dictionary;
@@ -16,7 +17,7 @@ export function Hero({ t, alert }: { t: T["hero"]; alert?: { title: string; href
         <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 max-w-5xl whitespace-pre-line text-balance !text-[clamp(2.1rem,5.4vw,4.4rem)]">{t.title}</h1>
         <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-10">
+        <div data-primary-cta className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-10">
           <Button href="#diagnostic" size="lg">
             {t.primary}
           </Button>
@@ -295,13 +296,7 @@ export function Faq({ t }: { t: T["faq"] }) {
 
 /** Mobile-only bottom bar keeping the primary action one tap away. */
 export function StickyCta({ label }: { label: string }) {
-  return (
-    <div data-sticky-cta className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/85 px-4 py-3 backdrop-blur-xl md:hidden">
-      <Button href="#diagnostic" className="w-full">
-        {label}
-      </Button>
-    </div>
-  );
+  return <StickyCtaBar href="#diagnostic" label={label} />;
 }
 
 /* ---------------------------------------------- Definition (quotable, GEO) */

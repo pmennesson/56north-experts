@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getLinker, type Dictionary } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui/primitives";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 
 /**
  * Founder block: authority and a human face before the final call to action.
@@ -48,13 +49,7 @@ export async function Founder({ t }: { t: Dictionary["founder"] }) {
   );
 }
 
-/** Mobile-only bottom bar keeping the primary action one tap away. */
+/** Phone-only bottom bar, hidden while the page's own primary button is on screen. */
 export function StickyCta({ href, label }: { href: string; label: string }) {
-  return (
-    <div data-sticky-cta className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/85 px-4 py-3 backdrop-blur-xl md:hidden">
-      <Button href={href} className="w-full">
-        {label}
-      </Button>
-    </div>
-  );
+  return <StickyCtaBar href={href} label={label} />;
 }

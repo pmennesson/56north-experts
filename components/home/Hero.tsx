@@ -11,7 +11,7 @@ export async function Hero({ t, alert }: { t: Dictionary["hero"]; alert?: { titl
         <Eyebrow>{t.eyebrow}</Eyebrow>
         <h1 className="headline-xl mt-3 whitespace-pre-line text-balance">{t.title}</h1>
         <p className="mt-5 max-w-2xl text-[17px] leading-normal text-fg-muted text-pretty sm:mt-6 sm:text-2xl sm:leading-relaxed">{t.subtitle}</p>
-        <div className="mt-8 flex sm:mt-10 flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <div data-primary-cta className="mt-8 flex sm:mt-10 flex-wrap items-center justify-center gap-x-8 gap-y-4">
           <Button href={lp("/contact")} size="lg">
             {t.primaryCta}
           </Button>
