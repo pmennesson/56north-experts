@@ -197,7 +197,7 @@ const en = {
     credentialsNote: "Checked against the vendor's public credential registry where available.",
     faqTitle: "{vendor} AI expertise: your questions.",
     linkLabel: "{vendor} AI experts",
-    metaTitle: "{vendor} AI experts & consultants for hire",
+    metaTitle: "Senior {vendor} AI experts, vetted by peers",
     metaDescription:
       "Senior {modules} experts, through staff augmentation or dedicated teams. Members of an admission-based network, vetted by peers, across Europe, the Middle East and Africa.",
   },

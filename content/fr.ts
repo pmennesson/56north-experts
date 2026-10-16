@@ -198,7 +198,7 @@ const fr: Dictionary = {
     credentialsNote: "Contrôlées auprès du registre public de l'éditeur quand il existe.",
     faqTitle: "Experts IA {vendor} : vos questions.",
     linkLabel: "Experts IA {vendor}",
-    metaTitle: "Experts et consultants IA {vendor} en régie",
+    metaTitle: "Experts IA {vendor} seniors, admis par leurs pairs",
     metaDescription:
       "Experts seniors {modules} en régie ou en équipe dédiée. Membres d'un réseau sur admission, évalués par leurs pairs, en Europe, au Moyen-Orient et en Afrique.",
   },

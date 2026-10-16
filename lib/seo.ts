@@ -95,7 +95,7 @@ export const founderLd = (locale: Locale = "en") => ({
     locale === "fr"
       ? "Cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 100 consultants dans 12 pays avant sa cession. Fondateur de 56North."
       : "Co-founder of Maltem Consulting Group, grown from 2001 to more than 1,100 consultants in 12 countries before its exit. Founder of 56North.",
-  knowsAbout: ["IT staffing", "Consulting", "Enterprise AI governance"],
+  knowsAbout: ["Enterprise AI expertise", "Consulting", "Enterprise AI governance"],
   sameAs: [siteConfig.founder.linkedin],
   url: absoluteUrl(localePath(locale, "/about")),
   image: absoluteUrl("/founder.jpg"),
@@ -117,7 +117,7 @@ export const organizationLd = (description: string) => ({
   founder: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name },
   knowsAbout: [
     "Staff augmentation",
-    "IT staffing",
+    "Enterprise AI expert network",
     "Enterprise AI",
     "Microsoft Copilot",
     "Salesforce Agentforce",
@@ -146,7 +146,7 @@ export const serviceCatalogLd = (items: Ecosystem[], locale: Locale = "en") => (
   areaServed: siteConfig.areaServed,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Enterprise AI expert staffing",
+    name: "Enterprise AI expert network",
     itemListElement: items.map((e) => ({
       "@type": "Offer",
       itemOffered: {
@@ -162,7 +162,7 @@ export const serviceCatalogLd = (items: Ecosystem[], locale: Locale = "en") => (
 export const ecosystemServiceLd = (e: Ecosystem, locale: Locale = "en") => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  name: `${e.name} expert staffing`,
+  name: `${e.name} AI expert network`,
   serviceType: "IT staff augmentation",
   description: e.summary,
   provider: { "@id": orgId },

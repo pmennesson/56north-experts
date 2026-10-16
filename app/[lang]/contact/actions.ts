@@ -49,7 +49,7 @@ export async function submitStaffingRequest(_prev: LeadState, form: FormData): P
     return { ok: false, message: fill(t.error, { email: siteConfig.email }) };
 
   await notify(
-    `New staffing request: ${data.company} (${data.ecosystem})`,
+    `New project enquiry: ${data.company} (${data.ecosystem})`,
     {
       Name: data.name,
       Email: data.email,

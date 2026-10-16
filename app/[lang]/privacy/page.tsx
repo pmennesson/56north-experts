@@ -32,7 +32,7 @@ function PrivacyEn() {
     <>
       <p>
         This policy explains what personal data {siteConfig.name} collects, why, and what rights you have. It applies
-        to this website ({siteConfig.url.replace("https://", "")}) and to the two forms on it: the staffing request
+        to this website ({siteConfig.url.replace("https://", "")}) and to the two forms on it: the project enquiry
         form and the expert application form.
       </p>
 
@@ -45,7 +45,7 @@ function PrivacyEn() {
       <h2>What we collect and why</h2>
       {[
         {
-          form: "Staffing request form",
+          form: "Project enquiry form",
           data: "Name, work email, company, platform, role needed, engagement model, start date, location, free-text context, language of the form.",
           purpose: "Answer your request and propose suitable experts.",
           basis:
@@ -112,7 +112,7 @@ function PrivacyEn() {
 
       <h2>How long we keep it</h2>
       <ul>
-        <li>Staffing requests: 3 years after our last exchange with you.</li>
+        <li>Project enquiries: 3 years after our last exchange with you.</li>
         <li>Expert applications: 24 months after your last update, unless you ask us to keep your profile longer.</li>
       </ul>
       <p>After these periods, the data is deleted.</p>
@@ -147,7 +147,7 @@ function PrivacyFr() {
       <p>
         Cette politique explique quelles données personnelles {siteConfig.name} collecte, pourquoi, et quels sont vos
         droits. Elle s&apos;applique à ce site ({siteConfig.url.replace("https://", "")}) et à ses deux formulaires : la
-        demande d&apos;experts et la candidature d&apos;expert.
+        demande « Parlons de votre projet » et la candidature d&apos;expert.
       </p>
 
       <h2>Responsable du traitement</h2>
@@ -159,7 +159,7 @@ function PrivacyFr() {
       <h2>Données collectées et finalités</h2>
       {[
         {
-          form: "Formulaire de demande d'experts",
+          form: "Formulaire « Parlons de votre projet »",
           data: "Nom, e-mail professionnel, entreprise, plateforme, profil recherché, mode d'intervention, date de démarrage, lieu, contexte libre, langue du formulaire.",
           purpose: "Répondre à votre demande et vous proposer des experts adaptés.",
           basis:
