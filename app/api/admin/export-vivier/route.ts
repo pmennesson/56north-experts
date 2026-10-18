@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
-import { buildWorkbook, emailWorkbook, fetchClientLeads, fetchCommunities, fetchProspects, newLeadsSince, newSince, summaryText, uploadToDropbox } from "@/lib/export-vivier";
+import { buildWorkbook, emailWorkbook, fetchClientContacts, fetchClientLeads, fetchCommunities, fetchProspects, newContactsSince, newLeadsSince, newSince, summaryText, uploadToDropbox } from "@/lib/export-vivier";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -41,14 +41,16 @@ export async function POST(req: Request) {
     const fresh = newSince(rows, since);
     const leads = await fetchClientLeads();
     const freshLeads = newLeadsSince(leads, since);
-    if (since && fresh.length === 0 && freshLeads.length === 0) {
+    const contacts = await fetchClientContacts();
+    const freshContacts = newContactsSince(contacts, since);
+    if (since && fresh.length === 0 && freshLeads.length === 0 && freshContacts.length === 0) {
       return new NextResponse(null, { status: 204, headers: { "x-vivier-now": now } });
     }
     const communities = await fetchCommunities();
 
     const dateIso = new Date().toISOString().slice(0, 10);
     const filename = `vivier-experts-ia-${dateIso}.xlsx`;
-    const xlsx = await buildWorkbook(rows, dateIso, communities, since, leads);
+    const xlsx = await buildWorkbook(rows, dateIso, communities, since, leads, contacts);
 
     let dropbox = false;
     let dropboxError: string | null = null;
@@ -59,10 +61,10 @@ export async function POST(req: Request) {
       console.error("[export-vivier] dropbox", dropboxError);
     }
 
-    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox, since, leads), since ? fresh.length : null);
+    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox, since, leads, contacts), since ? fresh.length : null);
 
     return NextResponse.json(
-      { ok: true, rows: rows.length, fresh: fresh.length, leads: leads.length, freshLeads: freshLeads.length, filename, dropbox, dropboxError, bytes: xlsx.length },
+      { ok: true, rows: rows.length, fresh: fresh.length, leads: leads.length, freshLeads: freshLeads.length, contacts: contacts.length, freshContacts: freshContacts.length, filename, dropbox, dropboxError, bytes: xlsx.length },
       { headers: { "x-vivier-now": now } },
     );
   } catch (err) {
