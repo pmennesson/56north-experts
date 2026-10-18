@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Installs the daily export of the expert pool (Excel by e-mail, Dropbox when
-# configured). Runs deploy/export-vivier.sh every 2 hours (at :15 UTC); an e-mail
-# goes out only when the table changed since the last export. Idempotent.
+# Installs the single daily e-mail "point quotidien candidats et prospects"
+# (Excel attached, Dropbox when configured). Runs deploy/export-vivier.sh once a
+# day at 05:30 UTC (09:30 Mauritius), after the morning sourcing tasks; the mail
+# goes out only when something changed or a task left a report. Idempotent.
 # Re-run automatically by deploy/auto-update.sh whenever this file changes.
 # Manual run as root:
 #   sudo bash /opt/56north-experts/deploy/install-export-timer.sh
@@ -20,10 +21,10 @@ ExecStart=$DIR/deploy/export-vivier.sh
 UNIT
 cat > /etc/systemd/system/56north-vivier.timer <<UNIT
 [Unit]
-Description=56North: check the expert pool every 2 hours, export if it changed
+Description=56North: daily candidates and prospects digest (09:30 Mauritius)
 
 [Timer]
-OnCalendar=*-*-* 00/2:15:00 UTC
+OnCalendar=*-*-* 05:30:00 UTC
 Persistent=true
 AccuracySec=5min
 
@@ -33,7 +34,5 @@ UNIT
 systemctl daemon-reload
 systemctl enable --now 56north-vivier.timer
 systemctl restart 56north-vivier.timer
-# One check right away, so a change made before this install goes out now.
-systemctl start --no-block 56north-vivier.service || true
-echo "OK : export du vivier installé (toutes les 2 h à :15 UTC, e-mail seulement si la base a changé)."
+echo "OK : point quotidien installé (05:30 UTC = 09:30 Maurice, e-mail seulement s'il y a du nouveau)."
 systemctl list-timers 56north-vivier.timer --no-pager | head -3

@@ -211,6 +211,21 @@ export type ClientLead = {
   jobs: { title: string; url: string | null; location: string | null }[];
 };
 
+export type ActivityReport = { created_at: string; source: string; title: string; body: string };
+
+/** Reports written by the sourcing and monitoring tasks since `since` (table activity_reports). */
+export async function fetchReports(since: string | null): Promise<ActivityReport[]> {
+  const db = getSupabaseAdmin();
+  if (!db) return [];
+  const after = since ?? new Date(Date.now() - 24 * 3600_000).toISOString();
+  const { data, error } = await db.from("activity_reports").select("created_at,source,title,body").gt("created_at", after).order("created_at").limit(50);
+  if (error) {
+    console.error("[export-vivier] activity_reports", error.message);
+    return [];
+  }
+  return (data ?? []) as ActivityReport[];
+}
+
 export type ClientContact = {
   prospect_type: "besoin_immediat" | "cible_role";
   name: string;
@@ -521,7 +536,7 @@ export async function buildWorkbook(
 }
 
 /** Sends the workbook as an attachment through Resend. Throws on failure. */
-export async function emailWorkbook(xlsx: Buffer, filename: string, summary: string, freshCount: number | null = null) {
+export async function emailWorkbook(xlsx: Buffer, filename: string, summary: string, freshCount: number | null = null, subjectOverride: string | null = null) {
   const key = process.env.RESEND_API_KEY;
   const to = process.env.EXPORT_EMAIL || process.env.NOTIFY_EMAIL;
   if (!key || !to) throw new Error("RESEND_API_KEY / NOTIFY_EMAIL missing");
@@ -532,7 +547,7 @@ export async function emailWorkbook(xlsx: Buffer, filename: string, summary: str
     body: JSON.stringify({
       from,
       to: [to],
-      subject: freshCount ? `Vivier experts IA — ${freshCount} nouveaux candidats` : `Vivier experts IA — ${filename}`,
+      subject: subjectOverride ?? (freshCount ? `Vivier experts IA — ${freshCount} nouveaux candidats` : `Vivier experts IA — ${filename}`),
       text: summary,
       attachments: [{ filename, content: xlsx.toString("base64") }],
     }),
@@ -576,7 +591,14 @@ export async function uploadToDropbox(xlsx: Buffer, filename: string): Promise<b
   return true;
 }
 
-export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean, since: string | null = null, leads: ClientLead[] = [], contacts: ClientContact[] = []): string {
+export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean, since: string | null = null, leads: ClientLead[] = [], contacts: ClientContact[] = [], reports: ActivityReport[] = []): string {
+  const reportLines = reports.length
+    ? [
+        "",
+        "——— Comptes rendus des tâches depuis le dernier point ———",
+        ...reports.flatMap((r) => ["", `▸ ${r.title} (${r.created_at.slice(0, 16).replace("T", " ")} UTC)`, r.body.trim()]),
+      ]
+    : [];
   const freshContacts = newContactsSince(contacts, since);
   const contactLine = contacts.length
     ? [
@@ -604,7 +626,8 @@ export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean,
     return `${PLATFORM_LABEL[p] ?? p} : ${g.length} (${g.filter((r) => r.status === "to_contact").length} à contacter)`;
   });
   return [
-    `Export du vivier experts IA au ${dateIso}.`,
+    `Point quotidien 56North — candidats et prospects, au ${dateIso}. Un seul envoi par jour ; le détail est dans le fichier joint.`,
+    "",
     ...(since
       ? [
           `${fresh.length} nouveaux candidats depuis l'envoi précédent (onglet « Nouveaux ») :`,
@@ -620,6 +643,8 @@ export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean,
     ...lines,
     "",
     dropbox ? "Copie déposée dans Dropbox : 56 North / 04 Commercial & Partenariats / Vivier experts IA." : "Dropbox non configuré : le fichier n'est joint qu'à ce message.",
+    ...reportLines,
+    "",
     "Données personnelles, usage interne.",
   ].join("\n");
 }
