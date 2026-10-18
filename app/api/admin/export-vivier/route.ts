@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
-import { buildWorkbook, emailWorkbook, fetchCommunities, fetchProspects, newSince, summaryText, uploadToDropbox } from "@/lib/export-vivier";
+import { buildWorkbook, emailWorkbook, fetchClientLeads, fetchCommunities, fetchProspects, newLeadsSince, newSince, summaryText, uploadToDropbox } from "@/lib/export-vivier";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
  * Without EXPORT_TOKEN in the environment the route does not exist (404).
  *
  * Query:
- *   ?since=<ISO timestamp>  — send only if candidates were ADDED after that time
+ *   ?since=<ISO timestamp>  — send only if candidates (or inferred end clients) were ADDED after that time
  *                             (204 otherwise). New candidates get their own sheet,
  *                             separate from those already in the base.
  *   (no since)              — full export, sent unconditionally (manual --force).
@@ -39,14 +39,16 @@ export async function POST(req: Request) {
     const since = new URL(req.url).searchParams.get("since");
     const rows = await fetchProspects();
     const fresh = newSince(rows, since);
-    if (since && fresh.length === 0) {
+    const leads = await fetchClientLeads();
+    const freshLeads = newLeadsSince(leads, since);
+    if (since && fresh.length === 0 && freshLeads.length === 0) {
       return new NextResponse(null, { status: 204, headers: { "x-vivier-now": now } });
     }
     const communities = await fetchCommunities();
 
     const dateIso = new Date().toISOString().slice(0, 10);
     const filename = `vivier-experts-ia-${dateIso}.xlsx`;
-    const xlsx = await buildWorkbook(rows, dateIso, communities, since);
+    const xlsx = await buildWorkbook(rows, dateIso, communities, since, leads);
 
     let dropbox = false;
     let dropboxError: string | null = null;
@@ -57,10 +59,10 @@ export async function POST(req: Request) {
       console.error("[export-vivier] dropbox", dropboxError);
     }
 
-    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox, since), since ? fresh.length : null);
+    await emailWorkbook(xlsx, filename, summaryText(rows, dateIso, dropbox, since, leads), since ? fresh.length : null);
 
     return NextResponse.json(
-      { ok: true, rows: rows.length, fresh: fresh.length, filename, dropbox, dropboxError, bytes: xlsx.length },
+      { ok: true, rows: rows.length, fresh: fresh.length, leads: leads.length, freshLeads: freshLeads.length, filename, dropbox, dropboxError, bytes: xlsx.length },
       { headers: { "x-vivier-now": now } },
     );
   } catch (err) {

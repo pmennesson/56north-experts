@@ -195,6 +195,113 @@ export async function fetchCommunities(): Promise<Community[]> {
   return (data ?? []) as Community[];
 }
 
+export type ClientLead = {
+  id: string;
+  company: string;
+  country: string | null;
+  sector: string | null;
+  platforms: string[] | null;
+  confidence: string;
+  reasoning: string;
+  evidence_urls: string[] | null;
+  competitors: string[] | null;
+  status: string;
+  first_seen_at: string;
+  last_seen_at: string;
+  contacts: { name: string; role: string | null; source_url: string; source_type: string | null }[];
+  jobs: { title: string; url: string | null; location: string | null }[];
+};
+
+const CONFIDENCE_LABEL: Record<string, string> = { forte: "Forte", moyenne: "Moyenne", hypothese: "Hypothèse" };
+const CONFIDENCE_RANK: Record<string, number> = { forte: 0, moyenne: 1, hypothese: 2 };
+
+/** End clients inferred from competitors' public job ads (tables client_leads, client_contacts, competitor_jobs). */
+export async function fetchClientLeads(): Promise<ClientLead[]> {
+  const db = getSupabaseAdmin();
+  if (!db) return [];
+  const { data, error } = await db
+    .from("client_leads")
+    .select("id,company,country,sector,platforms,confidence,reasoning,evidence_urls,job_ids,competitors,status,first_seen_at,last_seen_at,client_contacts(name,role,source_url,source_type)")
+    .neq("status", "discarded")
+    .limit(5000);
+  if (error) {
+    console.error("[export-vivier] client_leads", error.message);
+    return [];
+  }
+  const jobIds = [...new Set((data ?? []).flatMap((l: { job_ids: string[] | null }) => l.job_ids ?? []))];
+  const jobs = new Map<string, { title: string; url: string | null; location: string | null }>();
+  for (let i = 0; i < jobIds.length; i += 200) {
+    const { data: j } = await db.from("competitor_jobs").select("id,title,url,location").in("id", jobIds.slice(i, i + 200));
+    for (const r of j ?? []) jobs.set(r.id, r);
+  }
+  return (data ?? [])
+    .map((l: Record<string, unknown>) => ({
+      ...(l as unknown as ClientLead),
+      contacts: (l.client_contacts as ClientLead["contacts"]) ?? [],
+      jobs: ((l.job_ids as string[] | null) ?? []).map((id) => jobs.get(id)).filter(Boolean) as ClientLead["jobs"],
+    }))
+    .sort((a, b) => (CONFIDENCE_RANK[a.confidence] ?? 9) - (CONFIDENCE_RANK[b.confidence] ?? 9) || b.last_seen_at.localeCompare(a.last_seen_at));
+}
+
+export function newLeadsSince(leads: ClientLead[], since: string | null): ClientLead[] {
+  if (!since) return [];
+  const t = Date.parse(since);
+  if (Number.isNaN(t)) return [];
+  return leads.filter((l) => Date.parse(l.first_seen_at) > t);
+}
+
+function addClientSheets(wb: ExcelJS.Workbook, leads: ClientLead[], since: string | null) {
+  const fresh = new Set(newLeadsSince(leads, since).map((l) => l.id));
+  const ws = wb.addWorksheet("Clients repérés");
+  ws.columns = [
+    { header: "Nouveau", key: "nv", width: 9 },
+    { header: "Client final (déduit)", key: "company", width: 30 },
+    { header: "Confiance", key: "conf", width: 11 },
+    { header: "Pays", key: "country", width: 7 },
+    { header: "Secteur", key: "sector", width: 20 },
+    { header: "Plateformes", key: "plat", width: 22 },
+    { header: "Concurrent(s) qui recrutent", key: "comp", width: 28 },
+    { header: "Annonces", key: "jobs", width: 60 },
+    { header: "Raisonnement", key: "reasoning", width: 70 },
+    { header: "Preuves (liens)", key: "ev", width: 60 },
+    { header: "Décideurs cités publiquement", key: "dm", width: 50 },
+    { header: "Statut", key: "status", width: 11 },
+    { header: "Repéré le", key: "first", width: 12 },
+  ];
+  for (const l of leads) {
+    const r = ws.addRow({
+      nv: fresh.has(l.id) ? "Oui" : "",
+      company: l.company,
+      conf: CONFIDENCE_LABEL[l.confidence] ?? l.confidence,
+      country: l.country,
+      sector: l.sector,
+      plat: (l.platforms ?? []).map((p) => PLATFORM_LABEL[p] ?? p).join(", "),
+      comp: (l.competitors ?? []).join(", "),
+      jobs: l.jobs.map((j) => `${j.title}${j.location ? ` (${j.location})` : ""}${j.url ? ` — ${j.url}` : ""}`).join("\n"),
+      reasoning: l.reasoning,
+      ev: (l.evidence_urls ?? []).join("\n"),
+      dm: l.contacts.map((c) => `${c.name}${c.role ? `, ${c.role}` : ""}`).join("\n"),
+      status: l.status,
+      first: l.first_seen_at.slice(0, 10),
+    });
+    r.alignment = { wrapText: true, vertical: "top" };
+  }
+  styleHeader(ws);
+  ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: 13 } };
+
+  const dm = wb.addWorksheet("Décideurs clients");
+  dm.columns = [
+    { header: "Client final", key: "company", width: 30 },
+    { header: "Confiance client", key: "conf", width: 14 },
+    { header: "Nom", key: "name", width: 26 },
+    { header: "Fonction (telle que publiée)", key: "role", width: 40 },
+    { header: "Type de source", key: "st", width: 18 },
+    { header: "Lu sur", key: "src", width: 60 },
+  ];
+  for (const l of leads) for (const c of l.contacts) dm.addRow({ company: l.company, conf: CONFIDENCE_LABEL[l.confidence] ?? l.confidence, name: c.name, role: c.role, st: c.source_type, src: c.source_url });
+  styleHeader(dm);
+}
+
 /** Rows added to the table after `since` (ISO timestamp): the "new candidates". */
 export function newSince(rows: Prospect[], since: string | null): Prospect[] {
   if (!since) return [];
@@ -208,6 +315,7 @@ export async function buildWorkbook(
   dateIso: string,
   communities: Community[] = [],
   since: string | null = null,
+  leads: ClientLead[] = [],
 ): Promise<Buffer> {
   const wb = new ExcelJS.Workbook();
   wb.creator = "56North";
@@ -229,6 +337,7 @@ export async function buildWorkbook(
     "E-mail / téléphone publics : relevés uniquement là où la personne les affiche elle-même (site perso ou de sa structure) ; la colonne « Coordonnées lues sur » donne la page. Rien n'est deviné ni acheté.",
     "Onglet « Communautés » : groupes d'utilisateurs, meetups, associations et conférences liés à nos offres (Europe, Maghreb, Canada) : le moyen de toucher beaucoup d'experts d'un coup (talk, sponsoring, annonce).",
     "La table de référence est `prospects` dans Supabase ; ce classeur en est la copie à la date d'export. Les mentions « à vérifier » dans la colonne Pourquoi se confirment avant tout message.",
+    "Onglets « Clients repérés » et « Décideurs clients » : clients finaux DÉDUITS des annonces publiques de nos concurrents (France, Belgique, Suisse, Luxembourg). Confiance « Forte » = deux recoupements indépendants ; « Moyenne » = un seul ; « Hypothèse » = indices sans recoupement, à ne pas utiliser seule. Décideurs : nom et fonction tels que publiés par l'entreprise, un éditeur ou la presse, avec la page lue ; jamais LinkedIn, aucune coordonnée devinée. Ne jamais citer au client l'annonce d'un concurrent comme source.",
     "Ce fichier contient des données personnelles : usage interne 56North, ne pas diffuser.",
   ].forEach((t) => {
     const r = lisez.addRow({ t });
@@ -341,6 +450,8 @@ export async function buildWorkbook(
     styleHeader(com);
   }
 
+  if (leads.length) addClientSheets(wb, leads, since);
+
   return Buffer.from(await wb.xlsx.writeBuffer());
 }
 
@@ -400,7 +511,15 @@ export async function uploadToDropbox(xlsx: Buffer, filename: string): Promise<b
   return true;
 }
 
-export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean, since: string | null = null): string {
+export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean, since: string | null = null, leads: ClientLead[] = []): string {
+  const freshLeads = newLeadsSince(leads, since);
+  const leadLines = leads.length
+    ? [
+        `Clients finaux repérés via les annonces des concurrents : ${leads.length} (${leads.filter((l) => l.confidence === "forte").length} en confiance forte)${since ? `, dont ${freshLeads.length} nouveaux` : ""} — onglets « Clients repérés » et « Décideurs clients ».`,
+        ...freshLeads.slice(0, 10).map((l) => `  ${l.company} (${CONFIDENCE_LABEL[l.confidence] ?? l.confidence}) — ${(l.platforms ?? []).map((p) => PLATFORM_LABEL[p] ?? p).join(", ")} — via ${(l.competitors ?? []).join(", ")}`),
+        "",
+      ]
+    : [];
   const fresh = newSince(rows, since);
   const freshLines = [...new Set(fresh.map((r) => r.platform))].sort().map((p) => {
     const g = fresh.filter((r) => r.platform === p);
@@ -424,6 +543,7 @@ export function summaryText(rows: Prospect[], dateIso: string, dropbox: boolean,
       : []),
     `Total : ${rows.length} personnes, ${rows.filter((r) => r.status === "to_contact").length} à contacter.`,
     "",
+    ...leadLines,
     ...lines,
     "",
     dropbox ? "Copie déposée dans Dropbox : 56 North / 04 Commercial & Partenariats / Vivier experts IA." : "Dropbox non configuré : le fichier n'est joint qu'à ce message.",
