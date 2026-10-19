@@ -40,8 +40,8 @@ const article: Article = {
   versions: {
     fr: {
       slug: "build-augmente-papier-fondateur",
-      title: "Le build augmenté : l'IA va écrire la majorité de votre système d'information. Qui tiendra la plume ?",
-      seoTitle: "Le build augmenté : qui pilote l'IA en entreprise ?",
+      title: "25 ans dans le build, un constat : la valeur passe de la construction au pilotage",
+      seoTitle: "25 ans dans le build : la valeur passe au pilotage de l'IA",
       description:
         "L'IA va produire l'essentiel du logiciel des entreprises. Papier fondateur de 56North : pourquoi le DSI devient architecte et pilote, avec cinq cadrans.",
       keyword: "pilotage de l'IA en entreprise",
@@ -58,6 +58,8 @@ const article: Article = {
         "Le DSI qui réussira la décennie sera l'architecte et le pilote d'un cockpit à cinq cadrans : fiabilité, coûts, preuves AI Act, utilisation, référentiels. Et construire et contrôler doivent rester deux métiers séparés.",
       ],
       body: `
+**Votre IA est déployée. Qui la pilote ?**
+
 J'ai passé vingt-cinq ans à vendre du build.
 
 J'ai cofondé et développé un groupe de conseil et de services numériques : plus de 1 000 collaboratrices et collaborateurs, des plateformes livrées sur quatre continents, puis la cession à un groupe confrère. Le modèle qui a porté cette croissance tenait en une équation simple : les entreprises ont besoin de construire plus de logiciel qu'elles ne savent en produire, et cette rareté se facture à la journée.
@@ -175,8 +177,8 @@ J'ai passé vingt-cinq ans à vendre la construction. Je passerai les suivantes 
     },
     en: {
       slug: "augmented-build-founding-paper",
-      title: "The augmented build: AI is going to write most of your information system. Who will hold the pen?",
-      seoTitle: "The augmented build: who runs AI in the enterprise?",
+      title: "25 years in build, one conclusion: value is moving from building to flying",
+      seoTitle: "25 years in build: value is moving to flying AI",
       description:
         "AI is about to produce most of the software companies run on. 56North's founding paper: why the CIO becomes architect and pilot, with five dials.",
       keyword: "operating AI in the enterprise",
@@ -193,6 +195,8 @@ J'ai passé vingt-cinq ans à vendre la construction. Je passerai les suivantes 
         "The CIO who wins the decade will be the architect and pilot of a cockpit with five dials: reliability, costs, AI Act evidence, usage, reference sources. And building and controlling must remain two separate trades.",
       ],
       body: `
+**Your AI is live. Who is flying it?**
+
 I spent twenty-five years selling build.
 
 I co-founded and grew a digital consulting and services group: more than 1,000 people, platforms delivered on four continents, then a sale to a peer group. The model behind that growth fit in one simple equation: companies need to build more software than they know how to produce, and that scarcity is billed by the day.
