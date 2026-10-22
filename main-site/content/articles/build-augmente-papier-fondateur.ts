@@ -23,9 +23,9 @@ import type { Article } from "./types";
  */
 const article: Article = {
   id: "build-augmente-papier-fondateur",
-  status: "draft",
-  published: "2026-10-20",
-  updated: "2026-10-20",
+  status: "published",
+  published: "2026-10-22",
+  updated: "2026-10-22",
   category: { fr: "Papier fondateur", en: "Founding paper" },
   dial: { fr: "Preuves AI Act", en: "AI Act evidence" },
   sources: [
