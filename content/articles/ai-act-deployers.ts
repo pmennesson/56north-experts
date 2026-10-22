@@ -55,6 +55,15 @@ Most large companies did not build their own AI models. They switched on Microso
 
 The **provider** develops an AI system and places it on the market or puts it into service under its own name. The **deployer** uses it in its business. When you use Copilot as delivered, Microsoft is the provider and you are the deployer. The line moves when you build your own agent on a platform and put it into service under your name, for example a customer-facing assistant on your website: for that system, you may be considered the provider. That matters for the transparency rules below.
 
+## Who is in scope?
+
+The regulation does not sort companies by size or sector, but by use.
+
+- **Every size.** There is no exemption for SMEs. They get lighter requirements, such as simplified documentation and lower fine ceilings, not a waiver.
+- **Beyond the EU.** The regulation applies to deployers established in the Union, and to providers and deployers established elsewhere as soon as the output of the system is used in the Union (Article 2). A Swiss, Mauritian or US company that recruits, assesses or serves people in the Union is in scope.
+- **Every sector.** High risk is defined by use (Annex III): biometrics, critical infrastructure, education, employment and worker management, access to essential services (credit, health and life insurance, public benefits), law enforcement, migration, justice. A hotel chain that screens applicants with AI is in scope just like a bank. On top of that comes AI built into products that are already regulated (Annex I), such as machinery or medical devices.
+- **Out of scope.** Purely personal use, defence and national security, research carried out for its own sake.
+
 ## What already applies
 
 - **Prohibited practices (since 2 February 2025).** Some uses are banned outright, whatever the tool. For companies, the most relevant is emotion recognition in the workplace and in education, except for medical or safety reasons. Check that no HR or employee-monitoring feature does this.
@@ -129,6 +138,15 @@ La plupart des grandes entreprises n'ont pas construit leurs propres modèles d'
 ## Fournisseur ou déployeur : qui êtes-vous ?
 
 Le **fournisseur** développe un système d'IA et le met sur le marché ou en service sous son propre nom. Le **déployeur** l'utilise dans son activité. Quand vous utilisez Copilot tel que livré, Microsoft est le fournisseur et vous êtes le déployeur. La frontière bouge quand vous construisez votre propre agent sur une plateforme et le mettez en service sous votre nom, par exemple un assistant pour vos clients sur votre site : pour ce système, vous pouvez être considéré comme le fournisseur. Cela compte pour les règles de transparence ci-dessous.
+
+## Qui est concerné ?
+
+Le règlement ne trie pas les entreprises par taille ni par secteur, mais par usage.
+
+- **Toutes les tailles.** Il n'existe pas d'exemption pour les PME. Elles bénéficient d'allègements, comme une documentation simplifiée et des plafonds d'amendes plus bas, pas d'une dispense.
+- **Au-delà de l'Union.** Le règlement s'applique aux déployeurs établis dans l'Union, et aux fournisseurs et déployeurs établis ailleurs dès que les résultats produits par le système sont utilisés dans l'Union (article 2). Une entreprise suisse, mauricienne ou américaine qui recrute, évalue ou sert des personnes dans l'Union est concernée.
+- **Tous les secteurs.** Le haut risque se définit par l'usage (annexe III) : biométrie, infrastructures critiques, éducation, emploi et gestion des salariés, accès aux services essentiels (crédit, assurance santé et vie, prestations publiques), répression, migration, justice. Une chaîne d'hôtels qui trie des candidatures avec une IA est concernée au même titre qu'une banque. S'y ajoute l'IA intégrée à des produits déjà réglementés (annexe I), comme les machines ou les dispositifs médicaux.
+- **Hors champ.** Les usages purement personnels, la défense et la sécurité nationale, la recherche scientifique menée pour elle-même.
 
 ## Ce qui s'applique déjà
 

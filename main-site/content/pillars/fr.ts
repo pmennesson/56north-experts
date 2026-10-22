@@ -426,6 +426,15 @@ Dans le [Cockpit](/cockpit), le registre, les classes de risque historisées et 
       keywords: ["preuves de conformité AI Act", "conformité AI Act entreprise", "AI Act déployeur preuves", "dossier de conformité IA", "AI Act article 26"],
       related: ["register", "governance", "cockpit", "hitl"],
       body: `
+## Qui est concerné ?
+
+Le règlement ne trie pas les entreprises par taille ni par secteur, mais par usage.
+
+- **Toutes les tailles.** Il n'existe pas d'exemption pour les PME. Elles bénéficient d'allègements, comme une documentation simplifiée et des plafonds d'amendes plus bas, pas d'une dispense.
+- **Au-delà de l'Union.** Le règlement s'applique aux déployeurs établis dans l'Union, et aux fournisseurs et déployeurs établis ailleurs dès que les résultats produits par le système sont utilisés dans l'Union (article 2). Une entreprise suisse, mauricienne ou américaine qui recrute, évalue ou sert des personnes dans l'Union est concernée.
+- **Tous les secteurs.** Le haut risque se définit par l'usage (annexe III) : biométrie, infrastructures critiques, éducation, emploi et gestion des salariés, accès aux services essentiels (crédit, assurance santé et vie, prestations publiques), répression, migration, justice. Une chaîne d'hôtels qui trie des candidatures avec une IA est concernée au même titre qu'une banque. S'y ajoute l'IA intégrée à des produits déjà réglementés (annexe I), comme les machines ou les dispositifs médicaux.
+- **Hors champ.** Les usages purement personnels, la défense et la sécurité nationale, la recherche scientifique menée pour elle-même.
+
 ## La conformité de l'éditeur n'est pas la vôtre
 
 Le règlement distingue le **fournisseur**, qui développe un système d'IA et le met sur le marché sous son nom, et le **déployeur**, qui l'utilise sous sa propre autorité (article 3). L'éditeur documente son produit. Vous répondez de l'usage que vous en faites. Les preuves de l'un ne couvrent pas les obligations de l'autre.

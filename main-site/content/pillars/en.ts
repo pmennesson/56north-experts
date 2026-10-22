@@ -419,6 +419,15 @@ In the [Cockpit](/en/cockpit), the register, the risk classes kept over time and
       keywords: ["AI Act compliance evidence", "EU AI Act compliance for companies", "AI Act deployer evidence", "AI compliance file", "AI Act Article 26"],
       related: ["register", "governance", "cockpit", "hitl"],
       body: `
+## Who is in scope?
+
+The regulation does not sort companies by size or sector, but by use.
+
+- **Every size.** There is no exemption for SMEs. They get lighter requirements, such as simplified documentation and lower fine ceilings, not a waiver.
+- **Beyond the EU.** The regulation applies to deployers established in the Union, and to providers and deployers established elsewhere as soon as the output of the system is used in the Union (Article 2). A Swiss, Mauritian or US company that recruits, assesses or serves people in the Union is in scope.
+- **Every sector.** High risk is defined by use (Annex III): biometrics, critical infrastructure, education, employment and worker management, access to essential services (credit, health and life insurance, public benefits), law enforcement, migration, justice. A hotel chain that screens applicants with AI is in scope just like a bank. On top of that comes AI built into products that are already regulated (Annex I), such as machinery or medical devices.
+- **Out of scope.** Purely personal use, defence and national security, research carried out for its own sake.
+
 ## The vendor's compliance is not yours
 
 The regulation separates the **provider**, who develops an AI system and places it on the market under its own name, from the **deployer**, who uses it under its own authority (Article 3). The vendor documents its product. You answer for how you use it. One party's evidence does not cover the other's obligations.
