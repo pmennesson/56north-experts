@@ -4,6 +4,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://56north.io",
   email: "contact@56north.io",
   experts: "https://experts.56north.io",
+  /** LinkedIn company page « 56North.io ». */
+  linkedin: "https://www.linkedin.com/company/56north-io/",
   /** Operating company (same as experts.56north.io). */
   company: {
     name: "Swell Invest Ltd",

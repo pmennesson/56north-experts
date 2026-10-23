@@ -26,8 +26,8 @@ export const siteConfig = {
   email: "experts@56north.io",
   /** Founder: shown on /about, linked from the footer, Person JSON-LD. */
   founder: { name: "Pascal Mennesson", linkedin: "https://www.linkedin.com/in/pascal-mennesson" },
-  /** Company page: leave empty until the 56North LinkedIn page exists; the footer then links to the founder. */
-  linkedinCompany: "" as string,
+  /** LinkedIn company page « 56North.io » (shared by 56north.io and 56North Experts). */
+  linkedinCompany: "https://www.linkedin.com/company/56north-io/" as string,
   /** Where you actually operate. Used in JSON-LD areaServed. */
   areaServed: ["Europe", "United Kingdom", "Middle East", "Africa"],
   /**

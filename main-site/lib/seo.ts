@@ -106,7 +106,7 @@ export const organizationLd = (description: string) => ({
   email: site.email,
   description,
   logo: absoluteUrl("/logo.png"),
-  sameAs: [site.experts],
+  sameAs: [site.experts, site.linkedin],
   founder: { "@id": founderId, "@type": "Person", name: site.founder.name, url: absoluteUrl(pagePaths.about.fr), sameAs: founderSameAs },
   subOrganization: { "@type": "ProfessionalService", name: "56North Experts", url: site.experts },
   knowsAbout: ["AI governance", "EU AI Act", "AI risk management", "AI compliance evidence"],

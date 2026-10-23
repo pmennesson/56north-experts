@@ -48,6 +48,10 @@ export async function Footer({ t }: { t: Dictionary["footer"] }) {
           <a href={`mailto:${site.email}`} className="hover:text-fg hover:underline">
             {site.email}
           </a>
+          <span className="mx-2" aria-hidden>|</span>
+          <a href={site.linkedin} rel="noopener" target="_blank" className="hover:text-fg hover:underline">
+            LinkedIn
+          </a>
         </p>
       </Container>
     </footer>
