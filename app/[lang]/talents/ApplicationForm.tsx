@@ -65,14 +65,14 @@ export function ApplicationForm({ lang, t, s, success, privacyHref, ecosystems }
       id: "missions",
       title: t.missions,
       hint: t.missionsHint,
-      names: MISSION_ROWS.flatMap((n) => [`mission_client_${n}`, `mission_year_${n}`, `mission_topic_${n}`]),
+      names: MISSION_ROWS.flatMap((n) => [`mission_client_${n}`, `mission_year_${n}`, `mission_stake_${n}`]),
       optional: true,
       content: (
         <div className="grid gap-5 sm:gap-3">
           <div className="hidden gap-3 text-[15px] font-medium text-fg-muted sm:grid sm:grid-cols-[1fr_7rem_1.3fr]" aria-hidden>
             <span>{t.missionClient}</span>
             <span>{t.missionYear}</span>
-            <span>{t.missionTopic}</span>
+            <span>{t.missionStake}</span>
           </div>
           {MISSION_ROWS.map((n) => (
             <div key={n} className="grid grid-cols-[1fr_7rem] gap-3 sm:grid-cols-[1fr_7rem_1.3fr]">
@@ -94,9 +94,9 @@ export function ApplicationForm({ lang, t, s, success, privacyHref, ecosystems }
                 ))}
               </select>
               <input
-                name={`mission_topic_${n}`}
-                aria-label={`${t.missionTopic} ${n}`}
-                placeholder={n === 1 ? t.missionTopicPlaceholder : undefined}
+                name={`mission_stake_${n}`}
+                aria-label={`${t.missionStake} ${n}`}
+                placeholder={n === 1 ? t.missionStakePlaceholder : undefined}
                 autoComplete="off"
                 maxLength={120}
                 className={`${input} col-span-2 sm:col-span-1`}

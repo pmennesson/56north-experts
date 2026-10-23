@@ -8,7 +8,7 @@ export const MISSION_ROWS = [1, 2, 3] as const;
 const thisYear = new Date().getFullYear();
 export const MISSION_YEARS = [thisYear, thisYear - 1, thisYear - 2, thisYear - 3].map(String);
 
-export type Mission = { client: string; year: string | null; topic: string | null };
+export type Mission = { client: string; year: string | null; stake: string | null };
 
 /** Reads the mission rows from the submitted fields. Rows without a client are dropped. */
 export function parseMissions(data: Record<string, string>): Mission[] {
@@ -19,13 +19,13 @@ export function parseMissions(data: Record<string, string>): Mission[] {
     if (!client) continue;
     const rawYear = data[`mission_year_${n}`] ?? "";
     const year = /^\d{4}$/.test(rawYear) && +rawYear >= 2000 && +rawYear <= maxYear ? rawYear : null;
-    const topic = (data[`mission_topic_${n}`] ?? "").slice(0, 120) || null;
-    missions.push({ client, year, topic });
+    const stake = (data[`mission_stake_${n}`] ?? "").slice(0, 120) || null;
+    missions.push({ client, year, stake });
   }
   return missions;
 }
 
 /** One line per mission, for the alert e-mail. */
 export function formatMissions(missions: Mission[]): string {
-  return missions.map((m) => [m.client, m.year, m.topic].filter(Boolean).join(" · ")).join(" | ");
+  return missions.map((m) => [m.client, m.year, m.stake].filter(Boolean).join(" · ")).join(" | ");
 }
