@@ -229,9 +229,9 @@ Wikolabs installe des agents sur modèles ouverts, chez ses clients, raccordés 
 
 La Factory est mise en place sur abonnement : son périmètre se fixe avec vous, système par système.
 
-## Règle d'indépendance
+## Des preuves vérifiables par tous
 
-Une campagne [Human in the Loop](/human-in-the-loop) ne teste jamais un système que la Factory a construit ou maintient chez le même client. Construire et contrôler restent séparés.
+Tout ce que la Factory construit ou maintient est supervisé dans le Cockpit comme n'importe quelle autre IA, quel qu'en soit l'éditeur. Le rapport de vol est scellé à sa publication : un tiers peut vérifier qu'il n'a pas été modifié. Si vous avez besoin d'un avis de tiers indépendant sur un système construit par la Factory, un auditeur extérieur peut l'établir à partir de ces preuves.
 
 Pour situer cette offre dans l'ensemble, voir la page [Gouvernance IA](/gouvernance-ia).
 `,

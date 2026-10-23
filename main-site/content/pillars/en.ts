@@ -222,9 +222,9 @@ Wikolabs installs agents on open-weight models at its clients' sites, connected 
 
 The Factory is set up with a subscription: its scope is agreed with you, system by system.
 
-## Independence rule
+## Evidence anyone can verify
 
-A [Human in the Loop](/en/human-in-the-loop) campaign never tests a system the Factory built or maintains for the same client. Building and controlling stay separate.
+Everything the Factory builds or maintains is overseen in the Cockpit like any other AI system, whatever its vendor. The flight report is sealed on publication, so a third party can verify it has not been altered. If you need an independent third-party opinion on a system the Factory built, an external auditor can establish it from that evidence.
 
 To see where this offer fits, read [AI governance](/en/ai-governance).
 `,

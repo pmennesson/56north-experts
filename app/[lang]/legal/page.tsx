@@ -57,10 +57,11 @@ export default async function LegalNoticePage() {
             ni affiliée à ces sociétés, ni parrainée ou soutenue par elles.
           </p>
 
-          <h2>Règle d&apos;indépendance</h2>
+          <h2>Neutralité et avis indépendants</h2>
           <p>
-            {siteConfig.parent.name} n&apos;audite ni n&apos;évalue un système IA construit ou maintenu par un expert
-            qu&apos;il a placé chez le même client au cours des 24 mois précédents.
+            {siteConfig.parent.name} ne revend aucune licence et ne dépend d&apos;aucun éditeur d&apos;IA. Sur un système
+            IA réalisé par ses propres équipes, {siteConfig.parent.name} ne délivre pas lui-même d&apos;avis de tiers
+            indépendant : un auditeur extérieur peut l&apos;établir à partir des preuves scellées du Cockpit.
           </p>
 
           <h2>Données personnelles</h2>
@@ -104,10 +105,11 @@ export default async function LegalNoticePage() {
             companies.
           </p>
 
-          <h2>Independence rule</h2>
+          <h2>Neutrality and independent opinions</h2>
           <p>
-            {siteConfig.parent.name} does not audit or rate an AI system built or maintained by an expert it placed
-            with the same client in the previous 24 months.
+            {siteConfig.parent.name} resells no licences and depends on no AI vendor. On an AI system delivered by its
+            own teams, {siteConfig.parent.name} does not itself issue an independent third-party opinion: an external
+            auditor can establish one from the sealed Cockpit evidence.
           </p>
 
           <h2>Personal data</h2>

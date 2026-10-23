@@ -29,7 +29,7 @@ export function GET() {
     `- Areas served: ${siteConfig.areaServed.join(", ")}.`,
     "- Founder: Pascal Mennesson, co-founder of Maltem Consulting Group (grown from 2001 to 1,100+ consultants in 12 countries before its exit).",
     `- Part of ${siteConfig.parent.name} (${siteConfig.parent.url}), an enterprise AI governance platform.`,
-    "- Independence rule: 56North never audits or rates an AI system built or maintained by a network member who worked for the same client in the previous 24 months.",
+    "- Vendor-neutral: 56North resells no licences and depends on no AI vendor. AI systems delivered by 56North Experts teams can be overseen in Cockpit with sealed evidence any third party can verify; 56North does not itself issue an independent third-party opinion on a system its own teams delivered.",
     "",
     ...(getPublishedArticles("en").length
       ? ["## Insights", ...getPublishedArticles("en").map((a) => `- [${a.title}](${absoluteUrl(a.path)}): ${a.takeaways[0]}`), ""]

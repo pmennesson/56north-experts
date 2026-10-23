@@ -117,7 +117,7 @@ const fr: Dictionary = {
       { name: "Prêt à contractualiser", body: "Contrat-cadre, accord de confidentialité, cession de propriété intellectuelle et clauses RGPD, prêts à signer." },
       { name: "Au fait de l'AI Act", body: "Membres informés des obligations qui s'appliquent à leur périmètre : risques, journalisation, supervision humaine." },
       { name: "International", body: "Europe, Moyen-Orient et Afrique. Contrat local si nécessaire. Une seule facture." },
-      { name: "Règle d'indépendance", body: "56North n'audite jamais un système construit par un membre du réseau intervenu chez le même client au cours des 24 derniers mois. Construire et contrôler restent séparés." },
+      { name: "Neutres vis-à-vis des éditeurs", body: "Nous ne revendons aucune licence et ne dépendons d'aucun éditeur. Ce que livrent nos équipes peut être supervisé dans Cockpit, avec des preuves vérifiables par n'importe quel tiers." },
     ],
   },
   community: {
@@ -152,8 +152,8 @@ const fr: Dictionary = {
         a: "Un intégrateur vend un projet, avec son équipe et sa méthode. La régie fait entrer des experts seniors nommés dans votre équipe : vous gardez la maîtrise des choix et des connaissances.",
       },
       {
-        q: "56North peut-il auditer un système IA construit par un membre du réseau ?",
-        a: "Non. 56North n'audite ni n'évalue jamais un système construit ou maintenu par un membre du réseau intervenu chez le même client au cours des 24 mois précédents. Construire et contrôler restent deux métiers séparés : c'est la condition de l'indépendance de nos avis d'audit.",
+        q: "56North peut-il superviser un système IA réalisé par ses propres équipes ?",
+        a: "Oui. Cockpit le supervise comme n'importe quelle autre IA, avec des preuves scellées, vérifiables par n'importe quel tiers. Une seule réserve : sur un système réalisé par nos équipes, 56North ne délivre pas lui-même d'avis de tiers indépendant. Si vous en avez besoin, un auditeur extérieur peut l'établir à partir des preuves de Cockpit.",
       },
       // TODO: à ajuster en cas de statut de partenaire éditeur
       {
@@ -205,7 +205,7 @@ const fr: Dictionary = {
   about: {
     metaTitle: "À propos de 56North Experts",
     metaDescription:
-      "Qui dirige 56North Experts, comment le réseau repère et admet les spécialistes IA seniors, et la règle d'indépendance qui sépare construction et audit. Fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group.",
+      "Qui dirige 56North Experts, comment le réseau repère et admet les spécialistes IA seniors, et comment le réseau reste neutre vis-à-vis des éditeurs. Fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group.",
     eyebrow: "À propos",
     title: "Des seniors.\nChoisis par leurs pairs.",
     intro:
@@ -222,8 +222,8 @@ const fr: Dictionary = {
         body: "Chaque candidat passe un entretien avec un praticien senior de la même plateforme, sur une grille d'évaluation commune. Nous couvrons aujourd'hui {count} plateformes d'entreprise.",
       },
       {
-        name: "Indépendants par principe",
-        body: "56North n'audite ni n'évalue jamais un système IA construit ou maintenu par un membre du réseau intervenu chez le même client au cours des 24 mois précédents.",
+        name: "Neutres par construction",
+        body: "Aucune licence revendue, aucune dépendance à un éditeur. Chaque IA livrée par nos équipes peut être supervisée avec des preuves vérifiables par n'importe quel tiers.",
       },
     ],
     operator: "56North Experts est exploité par {company} (BRN {brn}), immatriculée à Port-Louis, île Maurice.",
@@ -454,7 +454,7 @@ const fr: Dictionary = {
         { name: "Des missions à votre mesure", body: "Nous ne vous proposons que des missions sur les modules que vous avez livrés. Pas de sollicitations envoyées par mots-clés." },
         { name: "Un jury de pairs", body: "Vous êtes évalué entre praticiens. Une fois membre, vous pouvez rejoindre le jury de votre plateforme : chaque entretien y est rémunéré." },
         { name: "Des conditions transparentes", body: "Taux journalier, durée et contexte client partagés avant toute présentation. Rien n'est envoyé sans votre accord." },
-        { name: "Votre indépendance protégée", body: "56North n'audite jamais un système construit par un expert du réseau chez le même client. Vous n'êtes jamais juge et partie." },
+        { name: "Jamais juge et partie", body: "On ne vous demande jamais de garantir votre propre travail. Tout avis indépendant sur un système que vous avez livré est établi par un auditeur extérieur." },
       ],
     },
     faq: {
@@ -514,7 +514,7 @@ const fr: Dictionary = {
     disclaimer:
       "Microsoft, Salesforce, Agentforce, Google Cloud, SAP, ServiceNow, Workday, Sana et tous les noms et logos de produits associés sont des marques de leurs propriétaires respectifs. Ils sont cités uniquement pour identifier les plateformes sur lesquelles interviennent les membres du réseau. Nous sommes un réseau indépendant, ni affilié à ces sociétés, ni soutenu par elles.",
     independence:
-      "Règle d'indépendance : 56North n'audite ni n'évalue un système IA construit ou maintenu par un membre du réseau intervenu chez le même client au cours des 24 mois précédents.",
+      "Neutralité : 56North ne revend aucune licence et ne dépend d'aucun éditeur d'IA.",
   },
 };
 

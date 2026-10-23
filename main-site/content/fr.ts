@@ -245,7 +245,7 @@ const fr = {
       { name: "Produire le rapport", body: "Le rapport de vol mensuel, préparé par la Factory et publié par un humain." },
     ],
     independence:
-      "Règle d'indépendance : une campagne Human in the Loop ne teste jamais un système que la Factory a construit ou maintient chez le même client. Construire et contrôler restent séparés.",
+      "Neutralité : la Factory fait tourner des systèmes de tous les éditeurs, et tout ce qu'elle maintient est supervisé dans le Cockpit, avec des preuves scellées vérifiables par n'importe quel tiers.",
     cta: "Parler de vos systèmes en place",
   },
   sovereignty: {

@@ -115,7 +115,7 @@ const en = {
       { name: "Contract-ready", body: "Framework agreement, NDA, IP assignment and GDPR terms, ready to sign." },
       { name: "AI Act literate", body: "Members briefed on the obligations that apply to their scope: risk, logging, oversight." },
       { name: "Cross-border", body: "Europe, the Middle East and Africa. Contracted locally where needed. Invoiced once." },
-      { name: "Independence rule", body: "56North never audits a system built by a network member who worked for the same client in the last 24 months. Building and assuring stay separate." },
+      { name: "Vendor-neutral", body: "We resell no licences and depend on no vendor. What our teams deliver can be overseen in Cockpit, with evidence any third party can verify." },
     ],
   },
   community: {
@@ -150,8 +150,8 @@ const en = {
         a: "A systems integrator sells a project with its own team and methodology. Staff augmentation gives you named senior experts inside your team, so you keep ownership of design decisions and knowledge.",
       },
       {
-        q: "Can 56North audit an AI system built by a member of its network?",
-        a: "No. 56North never audits or rates a system built or maintained by a network member who worked for the same client in the previous 24 months. Building and assurance stay separate disciplines: that is what keeps our audit opinions independent.",
+        q: "Can 56North oversee an AI system its own teams delivered?",
+        a: "Yes. Cockpit oversees it like any other AI system, with sealed evidence that any third party can verify. One reserve: on a system our teams delivered, 56North does not issue an independent third-party opinion itself. If you need one, an external auditor can establish it from the Cockpit evidence.",
       },
       // TODO: adjust if you hold vendor partner status (it then becomes a strength to state)
       {
@@ -204,7 +204,7 @@ const en = {
   about: {
     metaTitle: "About 56North Experts",
     metaDescription:
-      "Who runs 56North Experts, how the network identifies and admits senior AI specialists, and the independence rule that separates delivery from AI audit. Founded by Pascal Mennesson, co-founder of Maltem Consulting Group.",
+      "Who runs 56North Experts, how the network identifies and admits senior AI specialists, and how the network stays vendor-neutral. Founded by Pascal Mennesson, co-founder of Maltem Consulting Group.",
     eyebrow: "About",
     title: "Senior people.\nChosen by their peers.",
     intro:
@@ -221,8 +221,8 @@ const en = {
         body: "Every candidate is interviewed by a senior practitioner of the same platform, using a standard scorecard. We cover {count} enterprise platforms today.",
       },
       {
-        name: "Independent by rule",
-        body: "56North never audits or rates an AI system built or maintained by a network member who worked for the same client in the previous 24 months.",
+        name: "Vendor-neutral by design",
+        body: "No licence resold, no vendor dependency. Every AI system our teams deliver can be overseen with evidence any third party can verify.",
       },
     ],
     operator: "56North Experts is operated by {company} (BRN {brn}), registered in Port Louis, Mauritius.",
@@ -456,7 +456,7 @@ const en = {
         { name: "Missions matched to your stack", body: "We only send missions on the modules you have shipped. No keyword-matched spam." },
         { name: "A panel of peers", body: "You are assessed by practitioners. Once a member, you can join your platform's panel: every interview there is paid." },
         { name: "Transparent terms", body: "Day rate, duration and client context shared before your profile is presented. Nothing is sent without your consent." },
-        { name: "Your independence protected", body: "56North never audits a system built by a network expert at the same client. You are never put in a conflict of interest." },
+        { name: "No conflict of interest", body: "You are never asked to vouch for your own work. Any independent opinion on a system you delivered is issued by an external auditor." },
       ],
     },
     faq: {
@@ -516,7 +516,7 @@ const en = {
     disclaimer:
       "Microsoft, Salesforce, Agentforce, Google Cloud, SAP, ServiceNow, Workday, Sana and all related product names and logos are trademarks of their respective owners. They are used here only to identify the platforms members of the network work on. We are an independent network, not affiliated with or endorsed by these companies.",
     independence:
-      "Independence rule: 56North does not audit or rate an AI system built or maintained by a network member who worked for the same client in the previous 24 months.",
+      "Vendor-neutral: 56North resells no licences and depends on no AI vendor.",
   },
 };
 

@@ -237,7 +237,7 @@ const en: MainDictionary = {
       { name: "Produce the report", body: "The monthly flight report, prepared by the Factory and published by a person." },
     ],
     independence:
-      "Independence rule: a Human in the Loop campaign never tests a system the Factory built or maintains for the same client. Building and controlling stay separate.",
+      "Vendor-neutral: the Factory runs systems from every vendor, and everything it maintains is overseen in the Cockpit with sealed evidence any third party can verify.",
     cta: "Discuss your existing systems",
   },
   sovereignty: {
