@@ -53,8 +53,8 @@ function PrivacyEn() {
         },
         {
           form: "Expert application form",
-          data: "Name, email, LinkedIn profile URL, platform, years of experience, modules delivered, certifications, community contributions, day rate expectation, availability, location, language of the form, and any referral you choose to give.",
-          purpose: "Assess your application and match you with missions.",
+          data: "Name, email, LinkedIn profile URL, platform, years of experience, modules delivered, your last missions (client or industry, year, project goal), certifications, community contributions, day rate expectation, availability, location, language of the form, and any referral you choose to give.",
+          purpose: "Assess your application and match you with missions. The missions you list also help us identify organisations running projects on your platform; they are never presented as coming from you.",
           basis: "Your consent, given with the checkbox on the form, and steps taken at your request before a contract.",
         },
       ].map((r) => (
@@ -167,8 +167,8 @@ function PrivacyFr() {
         },
         {
           form: "Formulaire de candidature d'expert",
-          data: "Nom, e-mail, URL du profil LinkedIn, plateforme, années d'expérience, modules livrés, certifications, contributions communautaires, taux journalier souhaité, disponibilité, lieu, langue du formulaire, et toute recommandation que vous choisissez de faire.",
-          purpose: "Évaluer votre candidature et vous proposer des missions.",
+          data: "Nom, e-mail, URL du profil LinkedIn, plateforme, années d'expérience, modules livrés, vos dernières missions (client ou secteur, année, enjeu du projet), certifications, contributions communautaires, taux journalier souhaité, disponibilité, lieu, langue du formulaire, et toute recommandation que vous choisissez de faire.",
+          purpose: "Évaluer votre candidature et vous proposer des missions. Les missions que vous citez nous aident aussi à repérer les organisations qui mènent des projets sur votre plateforme ; elles ne sont jamais présentées comme venant de vous.",
           basis: "Votre consentement, donné par la case à cocher du formulaire, et les mesures précontractuelles prises à votre demande.",
         },
       ].map((r) => (
