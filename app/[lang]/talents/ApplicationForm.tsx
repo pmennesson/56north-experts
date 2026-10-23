@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { Honeypot, inputClass as input } from "@/components/ui/form";
 import { BigField, Choice, StepForm, type Step } from "@/components/StepForm";
 import type { Dictionary, Locale } from "@/lib/i18n";
+import { MISSION_ROWS, MISSION_YEARS } from "@/lib/missions";
 import { submitApplication, type ApplicationState } from "./actions";
 
 type Option = { value: string; label: string };
@@ -59,6 +60,51 @@ export function ApplicationForm({ lang, t, s, success, privacyHref, ecosystems }
       names: ["modules"],
       required: ["modules"],
       content: <textarea id="modules" name="modules" rows={4} className={`${input} h-auto py-3`} />,
+    },
+    {
+      id: "missions",
+      title: t.missions,
+      hint: t.missionsHint,
+      names: MISSION_ROWS.flatMap((n) => [`mission_client_${n}`, `mission_year_${n}`, `mission_topic_${n}`]),
+      optional: true,
+      content: (
+        <div className="grid gap-5 sm:gap-3">
+          <div className="hidden gap-3 text-[15px] font-medium text-fg-muted sm:grid sm:grid-cols-[1fr_7rem_1.3fr]" aria-hidden>
+            <span>{t.missionClient}</span>
+            <span>{t.missionYear}</span>
+            <span>{t.missionTopic}</span>
+          </div>
+          {MISSION_ROWS.map((n) => (
+            <div key={n} className="grid grid-cols-[1fr_7rem] gap-3 sm:grid-cols-[1fr_7rem_1.3fr]">
+              <input
+                id={n === 1 ? "mission_client_1" : undefined}
+                name={`mission_client_${n}`}
+                aria-label={`${t.missionClient} ${n}`}
+                placeholder={n === 1 ? t.missionClientPlaceholder : undefined}
+                autoComplete="off"
+                maxLength={80}
+                className={input}
+              />
+              <select name={`mission_year_${n}`} aria-label={`${t.missionYear} ${n}`} defaultValue="" className={input}>
+                <option value="">—</option>
+                {MISSION_YEARS.map((y) => (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                ))}
+              </select>
+              <input
+                name={`mission_topic_${n}`}
+                aria-label={`${t.missionTopic} ${n}`}
+                placeholder={n === 1 ? t.missionTopicPlaceholder : undefined}
+                autoComplete="off"
+                maxLength={120}
+                className={`${input} col-span-2 sm:col-span-1`}
+              />
+            </div>
+          ))}
+        </div>
+      ),
     },
     {
       id: "certifications",
