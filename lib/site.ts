@@ -21,7 +21,7 @@ export const siteConfig = {
   legalUpdatedIso: "2026-09-30",
   tagline: "An admission-based network of senior AI experts for the enterprise platforms you already run.",
   description:
-    "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. Available through staff augmentation, dedicated teams or fractional architecture across Europe, the Middle East and Africa.",
+    "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. AI only, no classic integration: agile, outcome-driven engagements with a senior expert in your squad, a dedicated AI squad or a fractional AI architect, across Europe, the Middle East and Africa.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://experts.56north.io",
   email: "experts@56north.io",
   /** Founder: shown on /about, linked from the footer, Person JSON-LD. */

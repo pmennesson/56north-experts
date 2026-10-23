@@ -23,7 +23,7 @@ const en = {
     siteTitle: "Senior AI experts for enterprise platforms",
     homeTitle: "56North Experts · Senior AI experts for Microsoft, Salesforce, Google Cloud, SAP & ServiceNow",
     description:
-      "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. Available through staff augmentation, dedicated teams or fractional architecture across Europe, the Middle East and Africa.",
+      "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. AI only, no classic integration: agile, outcome-driven engagements with a senior expert in your squad, a dedicated AI squad or a fractional AI architect, across Europe, the Middle East and Africa.",
     ogTitle: "Senior AI experts. Vetted by peers.",
     ogLocale: "en_US",
   },
@@ -78,16 +78,16 @@ const en = {
     subtitle: "One framework agreement. One invoice a month. Wherever the member is based.",
     items: [
       {
-        name: "Embedded expertise",
+        name: "Senior expert in your squad",
         tag: null,
-        body: "A senior member of the network joins your team and works under your direction, on a daily rate.",
-        points: ["Time & materials", "From 3 months", "Onsite, hybrid or remote"],
+        body: "A senior AI expert joins your product team and drives one AI use case sprint by sprint, from scoping to production.",
+        points: ["Agile sprints", "From 3 months", "Onsite, hybrid or remote"],
       },
       {
-        name: "Dedicated team",
+        name: "Dedicated AI squad",
         tag: null,
-        body: "An architect and two to five engineers from the network, committed to one defined outcome.",
-        points: ["Scoped deliverables", "Team lead included", "Weekly steering"],
+        body: "An architect and two to five engineers from the network, committed to one business outcome and delivering in short iterations.",
+        points: ["Outcome agreed upfront", "Squad lead included", "Demo every sprint"],
       },
       {
         name: "Fractional architect",
@@ -142,12 +142,12 @@ const en = {
     title: "What clients ask before they commit.",
     items: [
       {
-        q: "What is AI staff augmentation?",
-        a: "AI staff augmentation means adding external senior specialists to your internal team for a defined period to deliver AI projects on your existing platforms. The experts work under your direction; the network handles selection, peer assessment, contracts and follow-up.",
+        q: "Is this AI staff augmentation?",
+        a: "Contractually, a senior expert works inside your team for a defined period. In practice, we run it as agile consulting: a clear business objective, short sprints, a demo at every iteration and a monthly review of the value delivered. The network handles selection, peer assessment, contracts and follow-up.",
       },
       {
         q: "How is this different from hiring a systems integrator?",
-        a: "A systems integrator sells a project with its own team and methodology. Staff augmentation gives you named senior experts inside your team, so you keep ownership of design decisions and knowledge.",
+        a: "A systems integrator sells a fixed project with its own team and methodology. We do AI only, never classic integration: named senior experts work inside your team in short iterations, so you keep ownership of design decisions and knowledge.",
       },
       {
         q: "Can 56North oversee an AI system its own teams delivered?",
@@ -176,7 +176,7 @@ const en = {
     ],
     afterTitle: "What changes when a network member joins",
     after: [
-      "A senior {vendor} practitioner from the network in your team, under your lead.",
+      "A senior {vendor} AI expert in your team, driving the use case sprint by sprint.",
       "A first AI use case scoped, built and measured, beyond the slide deck.",
       "Governance your auditors and your security team can read.",
     ],
@@ -189,7 +189,7 @@ const en = {
     requestVendor: "Let's talk about your {vendor} project",
     modulesLink: "Modules covered",
     answerSuffix:
-      "They work as embedded experts, dedicated teams or fractional architects; all come from the {vendor} practitioner communities and were admitted to the network by a senior peer.",
+      "They work as senior experts in your squad, dedicated AI squads or fractional AI architects; all come from the {vendor} practitioner communities and were admitted to the network by a senior peer.",
     modulesEyebrow: "Modules",
     modulesTitle: "What the network's {vendor} experts deliver.",
     rolesTitle: "Roles represented in the network",
@@ -199,7 +199,7 @@ const en = {
     linkLabel: "{vendor} AI experts",
     metaTitle: "Senior {vendor} AI experts, vetted by peers",
     metaDescription:
-      "Senior {modules} experts, through staff augmentation or dedicated teams. Members of an admission-based network, vetted by peers, across Europe, the Middle East and Africa.",
+      "Senior {modules} experts in agile engagements: an expert in your squad or a dedicated AI squad. Members of an admission-based network, vetted by peers, across Europe, the Middle East and Africa.",
   },
   about: {
     metaTitle: "About 56North Experts",
@@ -260,8 +260,8 @@ const en = {
     intro:
       "Practical guides on the AI modules of the platforms you already run: putting them into production, keeping them reliable, and meeting the regulation without slowing down.",
     planned: [
-      { type: "Guide", title: "Staff augmentation vs systems integrator for AI projects" },
-      { type: "Benchmark", title: "Day rates for senior AI experts by platform and country" },
+      { type: "Guide", title: "AI squad or systems integrator: choosing the model for an AI project" },
+      { type: "Guide", title: "What it takes to put an AI agent into production, platform by platform" },
       { type: "White paper", title: "Preparing enterprise AI deployments for the EU AI Act" },
     ],
     soon: "Coming soon",
@@ -310,8 +310,8 @@ const en = {
     rolePlaceholder: "e.g. Agentforce architect with Data 360",
     model: "How would you like to work?",
     models: [
-      { value: "staff-augmentation", label: "One expert in my team", detail: "Embedded expertise, daily rate" },
-      { value: "squad", label: "A dedicated team", detail: "Architect plus engineers, scoped outcome" },
+      { value: "staff-augmentation", label: "A senior expert in my squad", detail: "Agile sprints, from 3 months" },
+      { value: "squad", label: "A dedicated AI squad", detail: "Architect plus engineers, one business outcome" },
       { value: "fractional", label: "A fractional architect", detail: "Two to eight days a month" },
       { value: "unsure", label: "Not sure yet", detail: "We will advise on the call" },
     ],

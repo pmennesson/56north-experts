@@ -26,7 +26,7 @@ const fr: Dictionary = {
     siteTitle: "Experts IA seniors pour les plateformes d'entreprise",
     homeTitle: "56North Experts · Experts IA seniors Microsoft, Salesforce, Google Cloud, SAP et ServiceNow",
     description:
-      "Réseau sur admission d'experts IA seniors Microsoft, Salesforce, Google Cloud, SAP, ServiceNow et Workday, issus des communautés de praticiens et évalués par leurs pairs. Accessible en régie, en équipe dédiée ou en architecture à temps partagé, en Europe, au Moyen-Orient et en Afrique.",
+      "Réseau sur admission d'experts IA seniors Microsoft, Salesforce, Google Cloud, SAP, ServiceNow et Workday, issus des communautés de praticiens et évalués par leurs pairs. IA uniquement, sans intégration classique : des missions agiles, orientées résultat, avec un expert senior dans votre squad, une squad IA dédiée ou un architecte IA à temps partagé, en Europe, au Moyen-Orient et en Afrique.",
     ogTitle: "Experts IA seniors. Évalués par leurs pairs.",
     ogLocale: "fr_FR",
   },
@@ -80,16 +80,16 @@ const fr: Dictionary = {
     subtitle: "Un contrat-cadre. Une facture par mois. Où que soit basé le membre qui intervient.",
     items: [
       {
-        name: "Renfort d'expertise",
+        name: "Un expert senior dans votre squad",
         tag: null,
-        body: "Un membre senior du réseau rejoint votre équipe et travaille sous votre direction, au taux journalier.",
-        points: ["Temps passé", "À partir de 3 mois", "Sur site, hybride ou à distance"],
+        body: "Un expert IA senior rejoint votre équipe produit et fait avancer un cas d'usage IA sprint après sprint, du cadrage à la production.",
+        points: ["Sprints agiles", "À partir de 3 mois", "Sur site, hybride ou à distance"],
       },
       {
-        name: "Équipe dédiée",
+        name: "Une squad IA dédiée",
         tag: null,
-        body: "Un architecte et deux à cinq ingénieurs du réseau, engagés sur un résultat défini.",
-        points: ["Livrables cadrés", "Responsable d'équipe inclus", "Comité de pilotage hebdomadaire"],
+        body: "Un architecte et deux à cinq ingénieurs du réseau, engagés sur un résultat métier et livrant par itérations courtes.",
+        points: ["Résultat convenu au départ", "Responsable de squad inclus", "Démonstration à chaque sprint"],
       },
       {
         name: "Architecte à temps partagé",
@@ -144,12 +144,12 @@ const fr: Dictionary = {
     title: "Ce que l'on nous demande avant de s'engager.",
     items: [
       {
-        q: "Qu'est-ce que la délégation d'experts IA en régie ?",
-        a: "La régie consiste à intégrer à votre équipe, pour une durée définie, des spécialistes seniors externes qui mènent vos projets d'IA sur vos plateformes existantes. Ils travaillent sous votre direction ; le réseau prend en charge la sélection, l'évaluation par les pairs, le contrat et le suivi.",
+        q: "S'agit-il de régie ?",
+        a: "Contractuellement, un expert senior travaille dans votre équipe pour une durée définie. Dans les faits, nous le menons comme du conseil agile : un objectif métier clair, des sprints courts, une démonstration à chaque itération et une revue mensuelle de la valeur produite. Le réseau prend en charge la sélection, l'évaluation par les pairs, le contrat et le suivi.",
       },
       {
         q: "Quelle différence avec un intégrateur ?",
-        a: "Un intégrateur vend un projet, avec son équipe et sa méthode. La régie fait entrer des experts seniors nommés dans votre équipe : vous gardez la maîtrise des choix et des connaissances.",
+        a: "Un intégrateur vend un projet au forfait, avec son équipe et sa méthode. Nous faisons uniquement de l'IA, jamais d'intégration classique : des experts seniors nommés travaillent dans votre équipe par itérations courtes, et vous gardez la maîtrise des choix et des connaissances.",
       },
       {
         q: "56North peut-il superviser un système IA réalisé par ses propres équipes ?",
@@ -177,7 +177,7 @@ const fr: Dictionary = {
     ],
     afterTitle: "Ce qui change quand un membre du réseau intervient",
     after: [
-      "Un praticien {vendor} senior du réseau dans votre équipe, sous votre direction.",
+      "Un expert IA {vendor} senior dans votre équipe, qui fait avancer le cas d'usage sprint après sprint.",
       "Un premier cas d'usage IA cadré, construit et mesuré, au-delà du support de présentation.",
       "Une gouvernance lisible par vos auditeurs et votre équipe sécurité.",
     ],
@@ -190,7 +190,7 @@ const fr: Dictionary = {
     requestVendor: "Parlons de votre projet {vendor}",
     modulesLink: "Modules couverts",
     answerSuffix:
-      "Ils interviennent en renfort d'expertise, en équipe dédiée ou en architecture à temps partagé ; tous sont issus des communautés de praticiens {vendor} et admis dans le réseau par un pair senior.",
+      "Ils interviennent comme expert senior dans votre squad, en squad IA dédiée ou comme architecte IA à temps partagé ; tous sont issus des communautés de praticiens {vendor} et admis dans le réseau par un pair senior.",
     modulesEyebrow: "Modules",
     modulesTitle: "Ce que livrent les experts {vendor} du réseau.",
     rolesTitle: "Les rôles représentés dans le réseau",
@@ -200,7 +200,7 @@ const fr: Dictionary = {
     linkLabel: "Experts IA {vendor}",
     metaTitle: "Experts IA {vendor} seniors, admis par leurs pairs",
     metaDescription:
-      "Experts seniors {modules} en régie ou en équipe dédiée. Membres d'un réseau sur admission, évalués par leurs pairs, en Europe, au Moyen-Orient et en Afrique.",
+      "Experts seniors {modules} en missions agiles : un expert dans votre squad ou une squad IA dédiée. Membres d'un réseau sur admission, évalués par leurs pairs, en Europe, au Moyen-Orient et en Afrique.",
   },
   about: {
     metaTitle: "À propos de 56North Experts",
@@ -260,8 +260,8 @@ const fr: Dictionary = {
     intro:
       "Des guides pratiques sur les modules IA des plateformes que vous utilisez déjà : les mettre en production, les garder fiables, et respecter la réglementation sans ralentir.",
     planned: [
-      { type: "Guide", title: "Régie ou intégrateur pour un projet IA ?" },
-      { type: "Étude", title: "Taux journaliers des experts IA seniors par plateforme et par pays" },
+      { type: "Guide", title: "Squad IA ou intégrateur : quel modèle pour un projet IA ?" },
+      { type: "Guide", title: "Ce qu'il faut pour mettre un agent IA en production, plateforme par plateforme" },
       { type: "Livre blanc", title: "Préparer ses déploiements IA à l'AI Act européen" },
     ],
     soon: "Bientôt disponible",
@@ -310,8 +310,8 @@ const fr: Dictionary = {
     rolePlaceholder: "ex. Architecte Agentforce avec Data 360",
     model: "Comment souhaitez-vous travailler ?",
     models: [
-      { value: "staff-augmentation", label: "Un expert dans mon équipe", detail: "Renfort d'expertise, au taux journalier" },
-      { value: "squad", label: "Une équipe dédiée", detail: "Architecte et ingénieurs, résultat cadré" },
+      { value: "staff-augmentation", label: "Un expert senior dans ma squad", detail: "Sprints agiles, à partir de 3 mois" },
+      { value: "squad", label: "Une squad IA dédiée", detail: "Architecte et ingénieurs, un résultat métier" },
       { value: "fractional", label: "Un architecte à temps partagé", detail: "Deux à huit jours par mois" },
       { value: "unsure", label: "Je ne sais pas encore", detail: "Nous vous conseillerons lors de l'appel" },
     ],

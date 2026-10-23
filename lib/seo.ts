@@ -116,7 +116,8 @@ export const organizationLd = (description: string) => ({
   parentOrganization: { "@type": "Organization", name: siteConfig.parent.name, url: siteConfig.parent.url },
   founder: { "@id": founderId, "@type": "Person", name: siteConfig.founder.name },
   knowsAbout: [
-    "Staff augmentation",
+    "Enterprise AI consulting",
+    "Agile AI delivery",
     "Enterprise AI expert network",
     "Enterprise AI",
     "Microsoft Copilot",
@@ -141,7 +142,7 @@ export const websiteLd = () => ({
 export const serviceCatalogLd = (items: Ecosystem[], locale: Locale = "en") => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "IT staff augmentation",
+  serviceType: "Enterprise AI consulting",
   provider: { "@id": orgId },
   areaServed: siteConfig.areaServed,
   hasOfferCatalog: {
@@ -163,7 +164,7 @@ export const ecosystemServiceLd = (e: Ecosystem, locale: Locale = "en") => ({
   "@context": "https://schema.org",
   "@type": "Service",
   name: `${e.name} AI expert network`,
-  serviceType: "IT staff augmentation",
+  serviceType: "Enterprise AI consulting",
   description: e.summary,
   provider: { "@id": orgId },
   areaServed: siteConfig.areaServed,

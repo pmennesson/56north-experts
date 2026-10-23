@@ -34,7 +34,7 @@ const sharedFaqEn = (e: Base) => [
   },
   {
     q: "What engagement models do you offer?",
-    a: "Three models: embedded expertise, also known as staff augmentation (an expert inside your team, billed on a daily rate), a dedicated team (architect plus engineers delivering an agreed scope), and a fractional AI architect (two to eight days a month for design authority and governance).",
+    a: "Three models, all run as agile, outcome-driven engagements on AI only: a senior expert in your squad (driving one use case sprint by sprint, from three months), a dedicated AI squad (architect plus engineers committed to one business outcome), and a fractional AI architect (two to eight days a month for design authority and governance).",
   },
   e.specificFaq,
 ];
@@ -50,7 +50,7 @@ const sharedFaqFr = (e: Base) => [
   },
   {
     q: "Quels modes d'intervention proposez-vous ?",
-    a: "Trois modes : le renfort d'expertise, ou régie (un expert intégré à votre équipe, au taux journalier), l'équipe dédiée (un architecte et des ingénieurs qui livrent un périmètre convenu) et l'architecte IA à temps partagé (deux à huit jours par mois pour l'architecture et la gouvernance).",
+    a: "Trois modes, tous menés en missions agiles, orientées résultat et dédiées à l'IA : un expert senior dans votre squad (qui fait avancer un cas d'usage sprint après sprint, à partir de trois mois), une squad IA dédiée (un architecte et des ingénieurs engagés sur un résultat métier) et l'architecte IA à temps partagé (deux à huit jours par mois pour l'architecture et la gouvernance).",
   },
   e.specificFaq,
 ];
