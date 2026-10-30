@@ -20,6 +20,7 @@ import {
   Offer,
   OfferDetail,
   Problem,
+  Stakes,
   Sovereignty,
   StickyCta,
 } from "@/components/Home";
@@ -55,6 +56,7 @@ export default async function Home() {
       <Mirror t={t.mirror} />
       <Clock t={t.clock} more={more("compliance", ui.more.clock)} />
       <Problem t={t.problem} />
+      <Stakes t={t.stakes} />
       <Offer t={t.offer} />
       <MidCta label={t.hero.primary} reassurance={t.hero.reassurance} tone="pearl" />
       <Cockpit t={t.cockpit} more={more("cockpit", ui.more.cockpit)} />

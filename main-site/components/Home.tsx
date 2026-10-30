@@ -111,6 +111,27 @@ export function Problem({ t }: { t: T["problem"] }) {
   );
 }
 
+/* ----------------------------------------------------------------- Stakes */
+
+export function Stakes({ t }: { t: T["stakes"] }) {
+  return (
+    <Section tone="pearl" id="enjeux" className="scroll-mt-12">
+      <Container>
+        <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
+          {t.items.map((it) => (
+            <article key={it.name} className="tile-white reveal flex flex-col gap-3 p-8">
+              <h3 className="headline-md">{it.name}</h3>
+              <p className="text-[17px] leading-relaxed text-fg-muted">{it.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="reveal mt-12 text-center text-2xl font-semibold tracking-[-0.02em] text-signal">{t.closing}</p>
+      </Container>
+    </Section>
+  );
+}
+
 /* ------------------------------------------------------------------ Offer */
 
 export function Offer({ t }: { t: T["offer"] }) {

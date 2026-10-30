@@ -136,9 +136,21 @@ const en: MainDictionary = {
       { q: "Who is accountable?", a: "A named person. It is the first thing an inspector asks for, and rarely what they find." },
       { q: "What do they do?", a: "On which cases, how often, for how many people. And who actually uses them." },
       { q: "What risk do they create?", a: "The risk class depends on the use: screening applications and summarising a meeting carry different obligations." },
-      { q: "Do they behave as intended?", a: "Nobody reviews the AI's answers. Drift is found too late." },
+      { q: "Do they follow your rules, and the law?", a: "Two different deviations: the AI that does what you forbade, and the AI that puts you outside the law. Both are often found too late." },
       { q: "Can we prove it?", a: "At an inspection, good intentions are not enough: you need dated evidence, with the name of who produced it." },
     ],
+  },
+  stakes: {
+    eyebrow: "What is at stake",
+    title: "An unproven deviation is a hidden liability.",
+    intro: "This is not only a compliance topic. It is a board topic.",
+    items: [
+      { name: "Fines", body: "Up to 3% of global turnover for deployer obligations (AI Act), 4% (GDPR), 7% for a prohibited practice." },
+      { name: "Refunds and lawsuits", body: "Deloitte refunded part of a report's fee to the Australian government. Air Canada was ordered to compensate a customer misled by its agent." },
+      { name: "Reputation", body: "One public deviation, and your customers and staff start to doubt." },
+      { name: "Valuation", body: "At every fundraise or sale, the buyer discounts what it cannot verify: price cut, liability warranty." },
+    ],
+    closing: "Proving your AI is under control protects the value of the company.",
   },
   offer: {
     eyebrow: "What we do",
@@ -242,14 +254,16 @@ const en: MainDictionary = {
     cta: "Discuss your existing systems",
   },
   sovereignty: {
-    eyebrow: "Sovereignty",
-    title: "Sovereign tooling, not just sovereign hosting.",
-    intro: "Entrusting the oversight of your AI systems to a tool that depends on a foreign giant would make no sense.",
+    eyebrow: "Sovereignty and security",
+    title: "Sovereign and secure, by design.",
+    intro: "Your AI systems produce logs. The Cockpit reads them in your dedicated instance and turns them into sealed evidence. Entrusting this oversight to a tool that depends on a foreign giant would make no sense.",
     items: [
       { name: "Hosting", body: "With Scaleway, a French provider, in its Paris data centre." },
       { name: "Software", body: "Built on auditable open-source components, with no proprietary lock-in." },
       { name: "Evaluation model", body: "Mistral, a European model hosted in the EU." },
       { name: "Data", body: "One instance and one database per client, never shared. User identities pseudonymised on arrival, irreversibly." },
+      { name: "Evidence", body: "Reports and evidence sealed with a fingerprint: any edit shows. Defined retention periods, daily backups." },
+      { name: "Switch", body: "If your calls go through our gateway, its master key stays with you. 56North cannot shut anything down." },
     ],
     modesTitle: "Two deployment modes",
     modes: [

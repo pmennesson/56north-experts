@@ -144,9 +144,21 @@ const fr = {
       { q: "Qui en répond ?", a: "Une personne physique, nommée. C'est la première chose qu'un contrôleur demande, et rarement ce qu'il trouve." },
       { q: "Que font-elles ?", a: "Sur quels dossiers, à quel rythme, pour combien de personnes. Et qui s'en sert réellement." },
       { q: "Quel risque créent-elles ?", a: "La classe de risque dépend de l'usage : trier des candidatures ou résumer une réunion n'engage pas les mêmes obligations." },
-      { q: "Se comportent-elles comme prévu ?", a: "Personne ne relit les réponses de l'IA. Les écarts se découvrent trop tard." },
+      { q: "Respectent-elles vos règles, et la loi ?", a: "Deux écarts différents : l'IA qui fait ce que vous lui interdisez, et celle qui vous met hors la loi. Les deux se découvrent souvent trop tard." },
       { q: "Pouvons-nous le prouver ?", a: "Au contrôle, l'intention ne suffit pas : il faut des preuves datées, avec le nom de leur auteur." },
     ],
+  },
+  stakes: {
+    eyebrow: "Ce qui est en jeu",
+    title: "Un écart non prouvé est un passif caché.",
+    intro: "Ce n'est pas qu'un sujet de conformité. C'est un sujet de conseil d'administration.",
+    items: [
+      { name: "Amendes", body: "Jusqu'à 3 % du chiffre d'affaires mondial pour les obligations du déployeur (AI Act), 4 % (RGPD), 7 % pour une pratique interdite." },
+      { name: "Remboursements et litiges", body: "Deloitte a remboursé à l'État australien une partie du prix d'un rapport. Air Canada a été condamnée à indemniser un client trompé par son agent." },
+      { name: "Réputation", body: "Un écart rendu public, et ce sont vos clients et vos salariés qui doutent." },
+      { name: "Valorisation", body: "À chaque levée ou cession, l'acheteur décote ce qu'il ne peut pas vérifier : prix revu, garantie de passif." },
+    ],
+    closing: "Prouver que vos IA sont sous contrôle, c'est protéger la valeur de l'entreprise.",
   },
   offer: {
     eyebrow: "L'offre",
@@ -250,14 +262,16 @@ const fr = {
     cta: "Parler de vos systèmes en place",
   },
   sovereignty: {
-    eyebrow: "Souveraineté",
-    title: "Un outil souverain, pas seulement un hébergement souverain.",
-    intro: "Confier la surveillance de vos IA à un outil qui dépend d'un géant étranger n'aurait aucun sens.",
+    eyebrow: "Souveraineté et sécurité",
+    title: "Souverain et sûr, par construction.",
+    intro: "Vos IA produisent des journaux. Le Cockpit les lit dans votre instance dédiée et en tire des preuves scellées. Confier cette surveillance à un outil qui dépend d'un géant étranger n'aurait aucun sens.",
     items: [
       { name: "Hébergement", body: "Chez Scaleway, opérateur français, dans son centre de données de Paris." },
       { name: "Logiciel", body: "Bâti sur des briques open source auditables, sans dépendance propriétaire." },
       { name: "Modèle d'évaluation", body: "Mistral, modèle européen hébergé dans l'Union." },
       { name: "Données", body: "Une instance et une base par client, jamais mutualisées. Identités pseudonymisées dès l'arrivée, de façon irréversible." },
+      { name: "Preuves", body: "Rapports et preuves scellés par empreinte : toute retouche se voit. Durées de conservation fixées, sauvegarde quotidienne." },
+      { name: "Interrupteur", body: "Si vos appels passent par notre passerelle, sa clé maîtresse reste chez vous. 56North ne peut rien couper." },
     ],
     modesTitle: "Deux modes de déploiement",
     modes: [
