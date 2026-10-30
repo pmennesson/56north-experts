@@ -162,8 +162,8 @@ const en = {
   },
   founder: {
     eyebrow: "Who is behind it",
-    title: "Founded by an executive who grew a firm to 1,100 consultants.",
-    body: "56North Experts is led by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,100 consultants in 12 countries before its exit. He knows what the right senior expert is worth on an enterprise programme, and what the wrong one costs.",
+    title: "Founded by an executive who grew a firm to more than 1,000 consultants.",
+    body: "56North Experts is led by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit. He knows what the right senior expert is worth on an enterprise programme, and what the wrong one costs.",
     link: "About us",
   },
   /** Practice pages: the reader's situation in their own words, then what changes. */

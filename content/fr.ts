@@ -164,8 +164,8 @@ const fr: Dictionary = {
   },
   founder: {
     eyebrow: "Qui est derrière",
-    title: "Fondé par un dirigeant qui a fait grandir une équipe de 1 100 consultants.",
-    body: "56North Experts est dirigé par Pascal Mennesson, cofondateur de Maltem Consulting Group, qu'il a développé à partir de 2001 jusqu'à plus de 1 100 consultants dans 12 pays avant sa cession. Il sait ce que vaut le bon expert senior sur un programme d'entreprise, et ce que coûte le mauvais.",
+    title: "Fondé par un dirigeant qui a fait grandir une équipe de plus de 1 000 consultants.",
+    body: "56North Experts est dirigé par Pascal Mennesson, cofondateur de Maltem Consulting Group, qu'il a développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession. Il sait ce que vaut le bon expert senior sur un programme d'entreprise, et ce que coûte le mauvais.",
     link: "À propos",
   },
   practice: {

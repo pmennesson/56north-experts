@@ -93,8 +93,8 @@ export const founderLd = (locale: Locale = "en") => ({
   worksFor: { "@id": orgId },
   description:
     locale === "fr"
-      ? "Cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 100 consultants dans 12 pays avant sa cession. Fondateur de 56North."
-      : "Co-founder of Maltem Consulting Group, grown from 2001 to more than 1,100 consultants in 12 countries before its exit. Founder of 56North.",
+      ? "Cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession. Fondateur de 56North."
+      : "Co-founder of Maltem Consulting Group, grown from 2001 to more than 1,000 consultants in 12 countries before its exit. Founder of 56North.",
   knowsAbout: ["Enterprise AI expertise", "Consulting", "Enterprise AI governance"],
   sameAs: [siteConfig.founder.linkedin],
   url: absoluteUrl(localePath(locale, "/about")),
