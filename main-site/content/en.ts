@@ -48,7 +48,7 @@ const en: MainDictionary = {
         { name: "Usage", value: 40 },
         { name: "Reference sources", value: 76 },
       ],
-      caption: "The values of the Cockpit demonstration dataset (fabricated data). The scope always comes with the score.",
+      caption: "Example score. The scope always comes with the score.",
     },
   },
   definition: {
@@ -193,9 +193,9 @@ const en: MainDictionary = {
     intro:
       "Compliance is only one dial out of five. The other four tell you whether your AI works, what it costs, whether it is used and what it relies on. A published method, identical for every client.",
     shot: {
-      src: "/cockpit/pilotage-demo.webp",
-      alt: "The Cockpit steering screen: the airworthiness score out of 100 and the five dials, on the demonstration dataset",
-      caption: "Real Cockpit screen, on its demonstration dataset (fabricated data).",
+      src: "/cockpit/pilotage.webp",
+      alt: "The Cockpit steering screen: the airworthiness score out of 100 and the five dials",
+      caption: "The Cockpit steering screen. Example fleet.",
     },
     riskLabel: "If nobody is watching",
     dials: [

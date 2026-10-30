@@ -56,7 +56,7 @@ const fr = {
         { name: "Utilisation", value: 40 },
         { name: "Référentiels", value: 76 },
       ],
-      caption: "Les valeurs du jeu de démonstration du Cockpit (données fabriquées). Le périmètre accompagne toujours la note.",
+      caption: "Exemple de note. Le périmètre accompagne toujours la note.",
     },
   },
   definition: {
@@ -201,9 +201,9 @@ const fr = {
     intro:
       "La conformité n'est qu'un cadran sur cinq. Les quatre autres disent si vos IA marchent, combien elles coûtent, si elles servent et sur quoi elles reposent. Une méthode publiée, identique pour tous les clients.",
     shot: {
-      src: "/cockpit/pilotage-demo.webp",
-      alt: "L'écran de pilotage du Cockpit : la note de navigabilité sur 100 et les cinq cadrans, sur le jeu de démonstration",
-      caption: "Écran réel du Cockpit, sur son jeu de démonstration (données fabriquées).",
+      src: "/cockpit/pilotage.webp",
+      alt: "L'écran de pilotage du Cockpit : la note de navigabilité sur 100 et les cinq cadrans",
+      caption: "L'écran de pilotage du Cockpit. Exemple de parc.",
     },
     riskLabel: "Si personne ne regarde",
     dials: [

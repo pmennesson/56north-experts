@@ -180,7 +180,7 @@ export function Cockpit({ t, more }: { t: T["cockpit"]; more?: More }) {
         <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
         <figure className="reveal mx-auto mt-16 max-w-[1080px]">
           <div className="overflow-hidden rounded-[18px] border border-fg/10 shadow-[0_30px_80px_rgb(0_0_0/0.12)]">
-            <Image src={t.shot.src} alt={t.shot.alt} width={2560} height={1696} sizes="(min-width: 1120px) 1080px, 100vw" className="h-auto w-full" />
+            <Image src={t.shot.src} alt={t.shot.alt} width={2560} height={1556} sizes="(min-width: 1120px) 1080px, 100vw" className="h-auto w-full" />
           </div>
           <figcaption className="mt-4 text-center text-[13px] text-fg-subtle">{t.shot.caption}</figcaption>
         </figure>
