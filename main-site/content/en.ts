@@ -6,7 +6,7 @@ const en: MainDictionary = {
     title: "56North · Independent AI governance and EU AI Act evidence",
     description:
       "56North is the independent third party that inventories, measures and proves a company's AI systems across every vendor: registry, five-dial score, dated and sealed evidence for the deployer obligations of the EU AI Act. Sovereign tooling, hosted in France.",
-    ogTitle: "Your vendors prove their AI is compliant. Who proves yours is?",
+    ogTitle: "All your AI. One score. Evidence no one can dispute.",
     ogLocale: "en_GB",
   },
   nav: {
@@ -29,9 +29,9 @@ const en: MainDictionary = {
     /** Baseline de marque, retenue le 10/10/2026. */
     baseline: "Your AI, under control.",
     eyebrow: "Your AI, under control.",
-    title: "Your vendors prove their AI is compliant.\nWho proves yours is?",
+    title: "All your AI. One score.\nEvidence no one can dispute.",
     subtitle:
-      "The independent third party that inventories all your AI, measures its reliability, costs and usage, and gathers the dated, sealed EU AI Act evidence a regulator accepts.",
+      "Reliability, costs, usage, compliance: the independent third party that measures all your AI, whatever the vendor, and seals the evidence for your leadership and auditors.",
     primary: "Request an assessment",
     secondary: "Why a third party",
     reassurance: "A free 30-minute first conversation, no commitment.",

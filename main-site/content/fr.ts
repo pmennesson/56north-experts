@@ -13,7 +13,7 @@ const fr = {
     title: "56North · Tiers indépendant de gouvernance IA et preuves AI Act",
     description:
       "56North est le tiers indépendant qui recense, mesure et prouve les IA d'une entreprise, tous éditeurs confondus : registre, note sur cinq cadrans, preuves datées et scellées pour les obligations de déployeur de l'AI Act. Outil souverain, hébergé en France.",
-    ogTitle: "Vos éditeurs prouvent que leur IA est conforme. Qui prouve que la vôtre l'est ?",
+    ogTitle: "Toutes vos IA. Une seule note. Des preuves que personne ne conteste.",
     ogLocale: "fr_FR",
   },
   nav: {
@@ -36,9 +36,9 @@ const fr = {
     /** Baseline de marque, retenue le 10/10/2026. */
     baseline: "Vos IA sous contrôle.",
     eyebrow: "Vos IA sous contrôle.",
-    title: "Vos éditeurs prouvent que leur IA est conforme.\nQui prouve que la vôtre l'est ?",
+    title: "Toutes vos IA. Une seule note.\nDes preuves que personne ne conteste.",
     subtitle:
-      "Le tiers indépendant qui recense toutes vos IA, mesure leur fiabilité, leurs coûts et leur usage, et rassemble les preuves AI Act, datées et scellées, qu'un contrôleur accepte.",
+      "Fiabilité, coûts, usage, conformité : le tiers indépendant qui mesure toutes vos IA, quel que soit leur éditeur, et en scelle les preuves pour votre direction et vos auditeurs.",
     primary: "Demander un diagnostic",
     secondary: "Pourquoi un tiers",
     reassurance: "Premier échange de 30 minutes offert, sans engagement.",
