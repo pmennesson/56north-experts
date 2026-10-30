@@ -120,7 +120,7 @@ Les entreprises qui gagneront ne sont pas celles qui auront le moins de règles.
 
 Alors, à chaque dirigeant qui lit ces lignes, une seule question, celle qu'un acheteur vous posera tôt ou tard : si vous deviez céder votre entreprise demain, pourriez-vous prouver ce que font vos IA ?
 
-*Pascal Mennesson, cofondateur de Maltem Consulting Group, fondateur de 56North. Si vous êtes dirigeant et souhaitez en parler, [demandez un premier échange](/#diagnostic).*
+*Pascal Mennesson, fondateur de Maltem Consulting Group, fondateur de 56North. Si vous êtes dirigeant et souhaitez en parler, [demandez un premier échange](/#diagnostic).*
 `,
       dangers: [
         { danger: "Vos IA ne figurent dans aucun inventaire : elles produisent de la valeur que personne ne peut chiffrer et des risques que personne ne voit.", advice: "Tenez un registre de vos IA comme un registre d'immobilisations, avec un propriétaire nommé par système." },
@@ -229,7 +229,7 @@ The companies that win will not be those with the fewest rules. They will be tho
 
 So, to every executive reading this, one question only, the one a buyer will ask you sooner or later: if you had to sell your company tomorrow, could you prove what your AI does?
 
-*Pascal Mennesson, co-founder of Maltem Consulting Group, founder of 56North. If you are an executive and would like to discuss this, [request a first conversation](/en#diagnostic).*
+*Pascal Mennesson, founder of Maltem Consulting Group, founder of 56North. If you are an executive and would like to discuss this, [request a first conversation](/en#diagnostic).*
 `,
       dangers: [
         { danger: "Your AI systems appear in no inventory: they create value nobody can price and risks nobody can see.", advice: "Keep a register of your AI systems like a fixed-asset register, with a named owner for each system." },

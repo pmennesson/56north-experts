@@ -102,7 +102,7 @@ const en: MainDictionary = {
   founder: {
     eyebrow: "Who is behind it",
     title: "Founded by someone who grew a team of more than 1,000 consultants.",
-    body: "56North was founded by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit. It starts from a simple observation: companies adopt AI faster than they learn to govern it.",
+    body: "56North was founded by Pascal Mennesson, founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit. It starts from a simple observation: companies adopt AI faster than they learn to govern it.",
   },
   guides: {
     title: "Further reading",

@@ -110,7 +110,7 @@ const fr = {
   founder: {
     eyebrow: "Qui est derrière",
     title: "Fondé par un dirigeant qui a fait grandir une équipe de plus de 1\u00a0000 consultants.",
-    body: "56North est fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1\u00a0000 consultants dans 12 pays avant sa cession. Il part d'un constat simple : les entreprises adoptent l'IA plus vite qu'elles ne savent la gouverner.",
+    body: "56North est fondé par Pascal Mennesson, fondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1\u00a0000 consultants dans 12 pays avant sa cession. Il part d'un constat simple : les entreprises adoptent l'IA plus vite qu'elles ne savent la gouverner.",
   },
   guides: {
     title: "Pour aller plus loin",

@@ -501,12 +501,12 @@ Breaches of deployer obligations (Article 26) and transparency obligations (Arti
     about: {
       title: "About 56North and its founder",
       description:
-        "56North was founded by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew to more than 1,000 consultants in 12 countries before its exit.",
+        "56North was founded by Pascal Mennesson, founder of Maltem Consulting Group, which he grew to more than 1,000 consultants in 12 countries before its exit.",
       name: "About",
       eyebrow: "Who is behind it",
       h1: "About 56North: the founder, Pascal Mennesson",
       answer:
-        "56North was founded by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit.",
+        "56North was founded by Pascal Mennesson, founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit.",
       keywords: ["56North", "Pascal Mennesson", "56North founder"],
       related: ["governance", "cockpit"],
       body: `
@@ -521,7 +521,7 @@ It starts from a simple observation: companies adopt AI faster than they learn t
         },
         {
           q: "Who founded 56North?",
-          a: "Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit.",
+          a: "Pascal Mennesson, founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit.",
         },
         {
           q: "Which company publishes 56North?",

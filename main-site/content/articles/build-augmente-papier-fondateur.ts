@@ -62,7 +62,7 @@ const article: Article = {
 
 J'ai passé vingt-cinq ans à vendre du build.
 
-J'ai cofondé et développé un groupe de conseil et de services numériques : plus de 1 000 collaboratrices et collaborateurs, des plateformes livrées sur quatre continents, puis la cession à un groupe confrère. Le modèle qui a porté cette croissance tenait en une équation simple : les entreprises ont besoin de construire plus de logiciel qu'elles ne savent en produire, et cette rareté se facture à la journée.
+J'ai fondé et développé un groupe de conseil et de services numériques : plus de 1 000 collaboratrices et collaborateurs, des plateformes livrées sur quatre continents, puis la cession à un groupe confrère. Le modèle qui a porté cette croissance tenait en une équation simple : les entreprises ont besoin de construire plus de logiciel qu'elles ne savent en produire, et cette rareté se facture à la journée.
 
 Cette équation vient de se briser. Et je préfère l'écrire moi-même plutôt que de faire semblant de ne pas le voir : l'IA va absorber la majorité des capacités de build des entreprises. Pas une part marginale, pas les tâches ingrates : la majorité. Qu'on le veuille ou non.
 
@@ -136,7 +136,7 @@ Le build augmenté n'est pas une menace pour les DSI. C'est leur promotion, à c
 
 J'ai passé vingt-cinq ans à vendre la construction. Je passerai les suivantes à construire le cockpit.
 
-*Pascal Mennesson, cofondateur de Maltem Consulting Group, fondateur de 56North. Vous êtes dirigeant et vous souhaitez en parler : [demandez un premier échange](/#diagnostic).*
+*Pascal Mennesson, fondateur de Maltem Consulting Group, fondateur de 56North. Vous êtes dirigeant et vous souhaitez en parler : [demandez un premier échange](/#diagnostic).*
 `,
       dangers: [
         {
@@ -199,7 +199,7 @@ J'ai passé vingt-cinq ans à vendre la construction. Je passerai les suivantes 
 
 I spent twenty-five years selling build.
 
-I co-founded and grew a digital consulting and services group: more than 1,000 people, platforms delivered on four continents, then a sale to a peer group. The model behind that growth fit in one simple equation: companies need to build more software than they know how to produce, and that scarcity is billed by the day.
+I founded and grew a digital consulting and services group: more than 1,000 people, platforms delivered on four continents, then a sale to a peer group. The model behind that growth fit in one simple equation: companies need to build more software than they know how to produce, and that scarcity is billed by the day.
 
 That equation has just broken. And I would rather write it myself than pretend not to see it: AI is going to absorb most of the build capacity of companies. Not a marginal share, not just the thankless tasks: most of it. Whether we like it or not.
 
@@ -273,7 +273,7 @@ The augmented build is not a threat to CIOs. It is their promotion, provided the
 
 I spent twenty-five years selling construction. I will spend the next ones building the cockpit.
 
-*Pascal Mennesson, co-founder of Maltem Consulting Group, founder of 56North. If you are an executive and would like to discuss this, [request a first conversation](/en#diagnostic).*
+*Pascal Mennesson, founder of Maltem Consulting Group, founder of 56North. If you are an executive and would like to discuss this, [request a first conversation](/en#diagnostic).*
 `,
       dangers: [
         {

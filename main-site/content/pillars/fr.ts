@@ -509,12 +509,12 @@ Les manquements aux obligations des déployeurs (article 26) et aux obligations 
     about: {
       title: "À propos de 56North et de son fondateur",
       description:
-        "56North est fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group, développé jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
+        "56North est fondé par Pascal Mennesson, fondateur de Maltem Consulting Group, développé jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
       name: "À propos",
       eyebrow: "Qui est derrière",
       h1: "À propos de 56North : le fondateur, Pascal Mennesson",
       answer:
-        "56North est fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
+        "56North est fondé par Pascal Mennesson, fondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
       keywords: ["56North", "Pascal Mennesson", "fondateur 56North"],
       related: ["governance", "cockpit"],
       body: `
@@ -529,7 +529,7 @@ Il part d'un constat simple : les entreprises adoptent l'IA plus vite qu'elles n
         },
         {
           q: "Qui a fondé 56North ?",
-          a: "Pascal Mennesson, cofondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
+          a: "Pascal Mennesson, fondateur de Maltem Consulting Group, développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession.",
         },
         {
           q: "Quelle société édite 56North ?",

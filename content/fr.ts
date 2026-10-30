@@ -165,7 +165,7 @@ const fr: Dictionary = {
   founder: {
     eyebrow: "Qui est derrière",
     title: "Fondé par un dirigeant qui a fait grandir une équipe de plus de 1 000 consultants.",
-    body: "56North Experts est dirigé par Pascal Mennesson, cofondateur de Maltem Consulting Group, qu'il a développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession. Il sait ce que vaut le bon expert senior sur un programme d'entreprise, et ce que coûte le mauvais.",
+    body: "56North Experts est dirigé par Pascal Mennesson, fondateur de Maltem Consulting Group, qu'il a développé à partir de 2001 jusqu'à plus de 1 000 consultants dans 12 pays avant sa cession. Il sait ce que vaut le bon expert senior sur un programme d'entreprise, et ce que coûte le mauvais.",
     link: "À propos",
   },
   practice: {
@@ -205,7 +205,7 @@ const fr: Dictionary = {
   about: {
     metaTitle: "À propos de 56North Experts",
     metaDescription:
-      "Qui dirige 56North Experts, comment le réseau repère et admet les spécialistes IA seniors, et comment le réseau reste neutre vis-à-vis des éditeurs. Fondé par Pascal Mennesson, cofondateur de Maltem Consulting Group.",
+      "Qui dirige 56North Experts, comment le réseau repère et admet les spécialistes IA seniors, et comment le réseau reste neutre vis-à-vis des éditeurs. Fondé par Pascal Mennesson, fondateur de Maltem Consulting Group.",
     eyebrow: "À propos",
     title: "Des seniors.\nChoisis par leurs pairs.",
     intro:

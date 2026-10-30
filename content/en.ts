@@ -163,7 +163,7 @@ const en = {
   founder: {
     eyebrow: "Who is behind it",
     title: "Founded by an executive who grew a firm to more than 1,000 consultants.",
-    body: "56North Experts is led by Pascal Mennesson, co-founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit. He knows what the right senior expert is worth on an enterprise programme, and what the wrong one costs.",
+    body: "56North Experts is led by Pascal Mennesson, founder of Maltem Consulting Group, which he grew from 2001 to more than 1,000 consultants in 12 countries before its exit. He knows what the right senior expert is worth on an enterprise programme, and what the wrong one costs.",
     link: "About us",
   },
   /** Practice pages: the reader's situation in their own words, then what changes. */
@@ -204,7 +204,7 @@ const en = {
   about: {
     metaTitle: "About 56North Experts",
     metaDescription:
-      "Who runs 56North Experts, how the network identifies and admits senior AI specialists, and how the network stays vendor-neutral. Founded by Pascal Mennesson, co-founder of Maltem Consulting Group.",
+      "Who runs 56North Experts, how the network identifies and admits senior AI specialists, and how the network stays vendor-neutral. Founded by Pascal Mennesson, founder of Maltem Consulting Group.",
     eyebrow: "About",
     title: "Senior people.\nChosen by their peers.",
     intro:
