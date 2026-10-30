@@ -178,11 +178,19 @@ export function Cockpit({ t, more }: { t: T["cockpit"]; more?: More }) {
     <Section id="cockpit" className="scroll-mt-12">
       <Container>
         <SectionHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.intro} />
+        <figure className="reveal mx-auto mt-16 max-w-[1080px]">
+          <div className="overflow-hidden rounded-[18px] border border-fg/10 shadow-[0_30px_80px_rgb(0_0_0/0.12)]">
+            <Image src={t.shot.src} alt={t.shot.alt} width={2560} height={1696} sizes="(min-width: 1120px) 1080px, 100vw" className="h-auto w-full" />
+          </div>
+          <figcaption className="mt-4 text-center text-[13px] text-fg-subtle">{t.shot.caption}</figcaption>
+        </figure>
         <ul className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {t.dials.map((d) => (
             <li key={d.name} className="tile reveal flex flex-col gap-2 p-6">
               <h3 className="text-xl font-semibold tracking-[-0.015em]">{d.name}</h3>
               <p className="text-[15px] leading-relaxed text-fg-muted">{d.body}</p>
+              <p className="mt-auto border-t border-fg/10 pt-3 text-[13px] font-medium uppercase tracking-wide text-fg-subtle">{t.riskLabel}</p>
+              <p className="text-[15px] leading-relaxed">{d.risk}</p>
             </li>
           ))}
         </ul>
