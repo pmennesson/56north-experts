@@ -50,7 +50,7 @@ export default async function Home() {
           founderLd(t.founder.body, locale),
         ]}
       />
-      <Hero t={t.hero} alert={posts[0] && { title: posts[0].seoTitle, href: articlesPath(locale) }} />
+      <Hero t={t.hero} alert={posts.length > 0 ? { items: posts.slice(0, 6).map((p) => ({ title: p.seoTitle, href: p.path })), href: articlesPath(locale) } : undefined} />
       <Definition t={t.definition} />
       <WhyThirdParty t={t.whyThirdParty} more={more("governance", ui.more.whyThirdParty)} evidenceHref={`${pagePaths.compliance[locale]}#dossier-de-preuves`} />
       <Mirror t={t.mirror} />

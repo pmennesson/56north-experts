@@ -284,3 +284,20 @@
     border-radius: 0 0 16px 16px;
   }
 }
+
+/* News ticker in the home hero: two identical tracks, the strip slides by half its width. */
+@keyframes news-ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.news-ticker-track {
+  animation: news-ticker linear infinite;
+}
+.news-ticker:hover .news-ticker-track,
+.news-ticker:focus-within .news-ticker-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .news-ticker-track { animation: none; }
+  .news-ticker-track > ul[aria-hidden] { display: none; }
+}
