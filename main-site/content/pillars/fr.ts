@@ -533,7 +533,7 @@ Il part d'un constat simple : les entreprises adoptent l'IA plus vite qu'elles n
         },
         {
           q: "Quelle société édite 56North ?",
-          a: "Swell Invest Ltd, société immatriculée en République de Maurice, qui édite aussi 56North Experts, le réseau d'experts IA.",
+          a: "Fifty Six North Ltd, société immatriculée en République de Maurice, qui édite aussi 56North Experts, le réseau d'experts IA.",
         },
       ],
     },

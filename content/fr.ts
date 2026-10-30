@@ -226,7 +226,7 @@ const fr: Dictionary = {
         body: "Aucune licence revendue, aucune dépendance à un éditeur. Chaque IA livrée par nos équipes peut être supervisée avec des preuves vérifiables par n'importe quel tiers.",
       },
     ],
-    operator: "56North Experts est exploité par {company} (BRN {brn}), immatriculée à Port-Louis, île Maurice.",
+    operator: "56North Experts est exploité par {company} (BRN {brn}), immatriculée à Maurice.",
     legalLink: "Mentions légales",
   },
   contactPage: {
@@ -287,11 +287,11 @@ const fr: Dictionary = {
   },
   legal: {
     updatedLabel: "Dernière mise à jour :",
-    updated: "23 octobre 2026",
+    updated: "30 octobre 2026",
     privacyTitle: "Politique de confidentialité",
-    privacyDescription: "Comment Swell Invest Ltd collecte et traite les données personnelles sur 56North Experts.",
+    privacyDescription: "Comment Fifty Six North Ltd collecte et traite les données personnelles sur 56North Experts.",
     noticeTitle: "Mentions légales",
-    noticeDescription: "Informations légales sur 56North Experts, exploité par Swell Invest Ltd.",
+    noticeDescription: "Informations légales sur 56North Experts, exploité par Fifty Six North Ltd.",
   },
   steps: {
     back: "Retour",

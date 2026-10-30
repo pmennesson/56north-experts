@@ -8,17 +8,17 @@ export const siteConfig = {
   name: "56North Experts",
   /** Parent brand: the AI governance platform this network belongs to. */
   parent: { name: "56North", url: "https://56north.io", tagline: "Enterprise AI governance" },
-  legalName: "Swell Invest Ltd",
+  legalName: "Fifty Six North Ltd",
   /** Operating company — shown on /legal and /privacy. */
   company: {
-    name: "Swell Invest Ltd",
+    name: "Fifty Six North Ltd",
     form: "private company limited by shares, incorporated in the Republic of Mauritius",
-    brn: "C22187700",
-    address: ["c/o Legis Corporate Secretarial Services Ltd", "6 Edith Cavell Street", "Port Louis", "Mauritius"],
+    brn: "C26240839",
+    address: ["The Catalyst Building, 4th Floor", "Silicon Avenue, Cybercity", "Ebène", "Mauritius"],
   },
-  legalUpdated: "30 September 2026",
+  legalUpdated: "30 October 2026",
   /** Same date, ISO: lastModified of the legal pages in the sitemap. Keep both in step. */
-  legalUpdatedIso: "2026-09-30",
+  legalUpdatedIso: "2026-10-30",
   tagline: "An admission-based network of senior AI experts for the enterprise platforms you already run.",
   description:
     "An admission-based network of senior Microsoft, Salesforce, Google Cloud, SAP, ServiceNow and Workday AI experts, drawn from practitioner communities and vetted by peers. AI only, no classic integration: agile, outcome-driven engagements with a senior expert in your squad, a dedicated AI squad or a fractional AI architect, across Europe, the Middle East and Africa.",

@@ -525,7 +525,7 @@ It starts from a simple observation: companies adopt AI faster than they learn t
         },
         {
           q: "Which company publishes 56North?",
-          a: "Swell Invest Ltd, a company incorporated in the Republic of Mauritius, which also publishes 56North Experts, the AI expert network.",
+          a: "Fifty Six North Ltd, a company incorporated in the Republic of Mauritius, which also publishes 56North Experts, the AI expert network.",
         },
       ],
     },

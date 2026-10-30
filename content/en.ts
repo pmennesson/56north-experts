@@ -225,7 +225,7 @@ const en = {
         body: "No licence resold, no vendor dependency. Every AI system our teams deliver can be overseen with evidence any third party can verify.",
       },
     ],
-    operator: "56North Experts is operated by {company} (BRN {brn}), registered in Port Louis, Mauritius.",
+    operator: "56North Experts is operated by {company} (BRN {brn}), registered in Mauritius.",
     legalLink: "Legal notice",
   },
   contactPage: {
@@ -287,11 +287,11 @@ const en = {
   },
   legal: {
     updatedLabel: "Last updated:",
-    updated: "23 October 2026",
+    updated: "30 October 2026",
     privacyTitle: "Privacy policy",
-    privacyDescription: "How Swell Invest Ltd collects and processes personal data on 56North Experts.",
+    privacyDescription: "How Fifty Six North Ltd collects and processes personal data on 56North Experts.",
     noticeTitle: "Legal notice",
-    noticeDescription: "Legal information about 56North Experts, operated by Swell Invest Ltd.",
+    noticeDescription: "Legal information about 56North Experts, operated by Fifty Six North Ltd.",
   },
   steps: {
     back: "Back",

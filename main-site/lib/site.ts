@@ -8,14 +8,14 @@ export const site = {
   linkedin: "https://www.linkedin.com/company/56north-io/",
   /** Operating company (same as experts.56north.io). */
   company: {
-    name: "Swell Invest Ltd",
+    name: "Fifty Six North Ltd",
     formFr: "société à responsabilité limitée par actions (private company limited by shares) immatriculée en République de Maurice",
     formEn: "private company limited by shares, incorporated in the Republic of Mauritius",
-    brn: "C22187700",
-    address: "c/o Legis Corporate Secretarial Services Ltd, 6 Edith Cavell Street, Port Louis, Mauritius",
+    brn: "C26240839",
+    address: "The Catalyst Building, 4th Floor, Silicon Avenue, Cybercity, Ebène, Mauritius",
   },
   founder: { name: "Pascal Mennesson", linkedin: "https://www.linkedin.com/in/pascal-mennesson" },
-  legalUpdated: { fr: "1er octobre 2026", en: "1 October 2026" },
+  legalUpdated: { fr: "30 octobre 2026", en: "30 October 2026" },
   /** Same date, ISO: lastModified of the legal pages in the sitemap. Keep both in step. */
-  legalUpdatedIso: "2026-10-01",
+  legalUpdatedIso: "2026-10-30",
 } as const;
