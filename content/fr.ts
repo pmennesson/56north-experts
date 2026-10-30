@@ -34,7 +34,7 @@ const fr: Dictionary = {
     eyebrow: "Réseau d'experts IA seniors · Sur admission",
     title: "Les praticiens de l'IA d'entreprise.\nAdmis par leurs pairs.",
     subtitle:
-      "Microsoft, Salesforce, Google Cloud, SAP, ServiceNow, Workday : le réseau n'admet que des praticiens qui ont mis en production les modules IA de ces plateformes. Vous accédez au réseau pour vos projets, et le membre qui correspond à votre enjeu intervient dans votre équipe.",
+      "Microsoft, Salesforce, Google Cloud, SAP, ServiceNow, Workday : le réseau n'admet que des praticiens qui ont mis en production les modules IA de ces plateformes. Vous décrivez votre projet, nous vous présentons deux ou trois membres évalués par un pair, et celui que vous retenez rejoint votre équipe.",
     primaryCta: "Parlons de votre projet",
     secondaryCta: "Notre démarche",
     reassurance: "Premier échange sans frais. Aucun engagement avant le choix du membre qui interviendra.",
@@ -494,7 +494,7 @@ const fr: Dictionary = {
   cockpit: {
     eyebrow: "La plateforme 56North",
     title: "Mesurez les IA que vous exploitez. Prouvez que vous les contrôlez.",
-    body: "Le Cockpit 56North recense les IA en service dans votre entreprise, les suit sur cinq cadrans (fiabilité, coûts, preuves AI Act, utilisation, référentiels) et rassemble les preuves datées qu'exige la réglementation.",
+    body: "Le Cockpit 56North recense les IA en service dans votre entreprise, les note sur cinq cadrans (fiabilité, coûts, preuves AI Act, utilisation, référentiels), repère quand l'une d'elles change, et rassemble les preuves datées et scellées qu'exige la réglementation.",
     link: "Découvrir le Cockpit 56North",
     href: "https://56north.io",
   },

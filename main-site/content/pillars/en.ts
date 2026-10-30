@@ -79,6 +79,14 @@ An executive committee reads the report in two minutes: the score, its trend, th
 
 A dashboard shows the state of today. Evidence shows what was true on a given date and who established it. In the Cockpit, every piece of evidence carries a recording date and its author, and is attached to the article of the regulation it documents. The [AI Act compliance](/en/ai-act-compliance) page sets out which evidence to build.
 
+## An evidence vault, an audit file ready to go
+
+The documents that prove your compliance go into a vault: every version is dated, checked and kept. An expired document is flagged, and its owner reminded. For each AI system, a sealed audit file can be downloaded at any time.
+
+## When an AI changes, you know
+
+A vendor updates its model, someone edits an agent's instructions: the AI approved in January is not quite the same in June. For AI systems routed through the Cockpit gateway, every model change is spotted, dated and recorded in a sealed log, then the same test questions are replayed to see whether behaviour has drifted. For vendor agents, this tracking will come through their connectors, as they become available.
+
 ## Up and running in three steps
 
 1. **Declare.** A few questions per AI system, and the registry fills itself.
@@ -466,7 +474,7 @@ In the Cockpit, every piece of evidence carries a recording date and its author.
 
 ## What 56North does not do
 
-We do not issue certifications. We prepare an evidence file ready for an inspection, covering the obligations of a company that deploys AI systems, in particular Articles 26 and 50. We never call it a certification.
+We do not issue certifications. We prepare an evidence file ready for an inspection, covering the obligations of a company that deploys AI systems, in particular Articles 4, 26, 27 and 50. We never call it a certification.
 
 ## What missing evidence costs
 
@@ -483,7 +491,7 @@ Breaches of deployer obligations (Article 26) and transparency obligations (Arti
         },
         {
           q: "Is there an AI Act certification for a company that uses AI?",
-          a: "56North does not issue certifications. We prepare an evidence file ready for an inspection, covering the deployer's obligations, in particular Articles 26 and 50.",
+          a: "56North does not issue certifications. We prepare an evidence file ready for an inspection, covering the deployer's obligations, in particular Articles 4, 26, 27 and 50.",
         },
       ],
       sources: sources("en", ["art3", "art4", "art26", "art27", "art50", "art99", "timeline", "omnibus"]),

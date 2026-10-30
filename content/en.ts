@@ -31,7 +31,7 @@ const en = {
     eyebrow: "Senior AI expert network · By admission",
     title: "Enterprise AI practitioners.\nAdmitted by their peers.",
     subtitle:
-      "Microsoft, Salesforce, Google Cloud, SAP, ServiceNow, Workday: the network only admits practitioners who have taken these platforms' AI modules into production. You draw on the network for your programmes, and the member who fits the problem joins your team.",
+      "Microsoft, Salesforce, Google Cloud, SAP, ServiceNow, Workday: the network only admits practitioners who have taken these platforms' AI modules into production. You describe your project, we introduce two or three members assessed by a peer, and the one you choose joins your team.",
     primaryCta: "Let's talk about your project",
     secondaryCta: "Our approach",
     reassurance: "The first conversation is free. No commitment until you choose the member who will join you.",
@@ -496,7 +496,7 @@ const en = {
   cockpit: {
     eyebrow: "The 56North platform",
     title: "Measure the AI you run. Prove you control it.",
-    body: "The 56North Cockpit lists the AI systems in service across your company, tracks them on five dials (reliability, costs, AI Act evidence, usage, reference data) and gathers the dated evidence the regulation requires.",
+    body: "The 56North Cockpit lists the AI systems in service across your company, scores them on five dials (reliability, costs, AI Act evidence, usage, reference data), spots when one of them changes, and gathers the dated, sealed evidence the regulation requires.",
     link: "Discover the 56North Cockpit",
     href: "https://56north.io/en",
   },

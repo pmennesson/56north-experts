@@ -96,6 +96,7 @@ const en: MainDictionary = {
       "A score per system and a company score your executive committee reads in two minutes.",
       "A sealed inspection file, ready the day an auditor asks for it.",
       "The cost of your AI, tracked month after month.",
+      "Every model change spotted, dated and sealed.",
     ],
   },
   founder: {
@@ -150,7 +151,7 @@ const en: MainDictionary = {
         kind: "The software",
         name: "The Cockpit",
         status: "Available",
-        body: "The registry of your AI systems, their risk class over time, the regulatory timeline, the five-dial score and the monthly flight report. One platform, whatever your vendors.",
+        body: "The registry of your AI systems, their risk class over time, the regulatory timeline, the evidence vault, the five-dial score, model change detection and the monthly flight report. One platform, whatever your vendors.",
       },
       {
         n: "02",
@@ -211,7 +212,7 @@ const en: MainDictionary = {
     itemsTitle: "What the offer covers",
     items: [
       { name: "Black-box testing campaigns", body: "Bias, hallucinations, data leaks, procedures not followed: scenarios written for your use cases, run against your AI systems as they actually run." },
-      { name: "Two independent reviewers", body: "Each case is judged by two independent people. When they disagree, a third opinion decides." },
+      { name: "Two independent reviewers, blind", body: "Each case is judged by two independent people, without first seeing the AI's answer. When they disagree, a third opinion decides." },
       { name: "Review of real conversations", body: "Samples reviewed by people residing in the European Union, in teams formed for each client to our requirements, within the scope set in the purchase order." },
       { name: "Test sets for your agents", body: "Building and annotating the scenarios that then serve as your regression tests." },
     ],
@@ -262,9 +263,9 @@ const en: MainDictionary = {
     title: "We hold ourselves to what we measure in your company.",
     intro: "A trusted third party is also judged by how it builds its own tool.",
     figures: [
-      { value: "55,000+", label: "lines of code in service, excluding tests" },
-      { value: "2,500+", label: "automated tests passing on every release" },
-      { value: "240+", label: "dated, reasoned decisions, never erased" },
+      { value: "75,000+", label: "lines of code in service, excluding tests" },
+      { value: "3,500+", label: "automated tests passing on every release" },
+      { value: "420+", label: "dated, reasoned decisions, never erased" },
       { value: "4 Sept 2026", label: "read-only technical audit" },
     ],
     principles: [
@@ -304,11 +305,15 @@ const en: MainDictionary = {
       },
       {
         q: "Is this an AI Act certification?",
-        a: "No. We prepare an evidence file ready for an inspection. The scope covers the obligations of a company that deploys AI systems, in particular articles 26 and 50 of the EU regulation.",
+        a: "No. We prepare an evidence file ready for an inspection. The scope covers the obligations of a company that deploys AI systems, in particular articles 4, 26, 27 and 50 of the EU regulation.",
       },
       {
         q: "Can we buy just one component?",
         a: "Yes: the Cockpit alone, Human in the Loop campaigns alone, or the Factory to run your systems. They work best together, but nothing forces you to take everything.",
+      },
+      {
+        q: "Can the Cockpit shut down our services?",
+        a: "No. If your calls go through our gateway, its master key stays with you: only you hold the switch.",
       },
       {
         q: "Can we install the Cockpit ourselves?",

@@ -104,6 +104,7 @@ const fr = {
       "Une note par système et une note d'entreprise, lisibles en deux minutes par votre comité de direction.",
       "Un dossier de contrôle scellé, prêt le jour où un auditeur le demande.",
       "Le coût de vos IA, suivi mois après mois.",
+      "Chaque changement de modèle repéré, daté et scellé.",
     ],
   },
   founder: {
@@ -158,7 +159,7 @@ const fr = {
         kind: "Le logiciel",
         name: "Le Cockpit",
         status: "Disponible",
-        body: "Le registre de vos IA, leur classe de risque historisée, l'échéancier réglementaire, la note sur cinq cadrans et le rapport de vol mensuel. Une seule plateforme, quels que soient vos éditeurs.",
+        body: "Le registre de vos IA, leur classe de risque historisée, l'échéancier réglementaire, le coffre à preuves, la note sur cinq cadrans, la détection des changements de modèle et le rapport de vol mensuel. Une seule plateforme, quels que soient vos éditeurs.",
       },
       {
         n: "02",
@@ -219,7 +220,7 @@ const fr = {
     itemsTitle: "Ce que l'offre couvre",
     items: [
       { name: "Campagnes de tests en boîte noire", body: "Biais, hallucinations, fuites de données, procédures non respectées : des scénarios écrits pour vos cas d'usage, joués sur vos IA telles qu'elles tournent." },
-      { name: "Double regard", body: "Chaque cas est jugé par deux personnes indépendantes. En cas de désaccord, un troisième avis tranche." },
+      { name: "Double regard, à l'aveugle", body: "Chaque cas est jugé par deux personnes indépendantes, sans voir d'abord la réponse de l'IA. En cas de désaccord, un troisième avis tranche." },
       { name: "Relecture de conversations réelles", body: "Des échantillons relus par des personnes résidant dans l'Union européenne, en équipes constituées pour chaque client selon nos exigences, dans le cadre précisé au bon de commande." },
       { name: "Jeux de tests pour vos agents", body: "Constitution et annotation des scénarios qui serviront ensuite à vos tests de non-régression." },
     ],
@@ -270,9 +271,9 @@ const fr = {
     title: "Nous nous appliquons ce que nous mesurons chez vous.",
     intro: "Un tiers de confiance se juge aussi à la façon dont il construit son propre outil.",
     figures: [
-      { value: "55 000+", label: "lignes de code en service, hors tests" },
-      { value: "2 500+", label: "tests automatisés au vert à chaque livraison" },
-      { value: "240+", label: "décisions datées et motivées, jamais effacées" },
+      { value: "75 000+", label: "lignes de code en service, hors tests" },
+      { value: "3 500+", label: "tests automatisés au vert à chaque livraison" },
+      { value: "420+", label: "décisions datées et motivées, jamais effacées" },
       { value: "4 sept. 2026", label: "audit technique en lecture seule" },
     ],
     principles: [
@@ -312,11 +313,15 @@ const fr = {
       },
       {
         q: "Est-ce une certification AI Act ?",
-        a: "Non. Nous préparons un dossier de preuves prêt pour un contrôle. Le périmètre couvre les obligations de l'entreprise qui déploie des IA, notamment les articles 26 et 50 du règlement européen.",
+        a: "Non. Nous préparons un dossier de preuves prêt pour un contrôle. Le périmètre couvre les obligations de l'entreprise qui déploie des IA, notamment les articles 4, 26, 27 et 50 du règlement européen.",
       },
       {
         q: "Peut-on n'acheter qu'une brique ?",
         a: "Oui : le Cockpit seul, des campagnes Human in the Loop seules, ou la Factory pour faire tourner vos systèmes. L'ensemble fonctionne mieux, mais rien n'oblige à tout prendre.",
+      },
+      {
+        q: "Le Cockpit peut-il couper nos services ?",
+        a: "Non. Si vos appels passent par notre passerelle, sa clé maîtresse reste chez vous : vous seul gardez l'interrupteur.",
       },
       {
         q: "Peut-on installer le Cockpit chez nous ?",

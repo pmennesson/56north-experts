@@ -3,7 +3,8 @@ import { deployerGuide, sources } from "./sources";
 
 /**
  * Pages piliers, version française. Mêmes règles que content/fr.ts (docs/faits-publics.md) :
- * - Cockpit : livré, décrit au présent. Jamais « preuves versionnées » ni « rejouable à une date passée ».
+ * - Cockpit : livré, décrit au présent. Jamais « rejouable à une date passée ». Coffre à preuves versionné
+ *   et contrôle des changements (périmètre passerelle) : autorisés depuis la mise à jour de faits-publics du 30/10.
  * - Human in the Loop, Factory : des OFFRES (« activée sur engagement », « mise en place sur abonnement »),
  *   jamais au présent comme un dispositif qui tourne.
  * - Faits réglementaires : uniquement ceux des sources listées, ouvertes le 12/10/2026.
@@ -85,6 +86,14 @@ Le rapport se lit en deux minutes par un comité de direction : la note, son év
 ## Des preuves datées, avec leur auteur
 
 Un tableau de bord montre l'état d'aujourd'hui. Une preuve montre ce qui était vrai à une date donnée et qui l'a constaté. Dans le Cockpit, chaque preuve porte une date d'enregistrement et son auteur, et se rattache à l'article du règlement qu'elle documente. La page [Conformité AI Act](/conformite-ai-act) détaille quelles preuves constituer.
+
+## Un coffre à preuves, une liasse prête pour l'audit
+
+Les documents qui prouvent votre conformité sont déposés dans un coffre : chaque version est datée, contrôlée et conservée. Une pièce périmée est signalée, et son responsable relancé. Pour chaque IA, une liasse d'audit scellée se télécharge à tout moment.
+
+## Quand une IA change, vous le savez
+
+Un éditeur met à jour son modèle, quelqu'un modifie les instructions d'un agent : l'IA validée en janvier n'est plus tout à fait la même en juin. Pour les IA qui passent par la passerelle du Cockpit, chaque changement de modèle est repéré, daté et consigné dans un journal scellé, puis les mêmes questions de test sont rejouées pour voir si le comportement a dérivé. Pour les agents des éditeurs, ce suivi passera par leurs connecteurs, à mesure qu'ils arrivent.
 
 ## En route en trois temps
 
@@ -473,7 +482,7 @@ Dans le Cockpit, chaque preuve porte une date d'enregistrement et son auteur. Le
 
 ## Ce que 56North ne fait pas
 
-Nous ne délivrons pas de certification. Nous préparons un dossier de preuves prêt pour un contrôle, sur le périmètre des obligations de l'entreprise qui déploie des IA, notamment les articles 26 et 50. Nous ne l'appelons jamais certification.
+Nous ne délivrons pas de certification. Nous préparons un dossier de preuves prêt pour un contrôle, sur le périmètre des obligations de l'entreprise qui déploie des IA, notamment les articles 4, 26, 27 et 50. Nous ne l'appelons jamais certification.
 
 ## Ce que coûte l'absence de preuve
 
@@ -490,7 +499,7 @@ Les manquements aux obligations des déployeurs (article 26) et aux obligations 
         },
         {
           q: "Existe-t-il une certification AI Act pour une entreprise qui utilise l'IA ?",
-          a: "56North ne délivre pas de certification. Nous préparons un dossier de preuves prêt pour un contrôle, sur le périmètre des obligations du déployeur, notamment les articles 26 et 50.",
+          a: "56North ne délivre pas de certification. Nous préparons un dossier de preuves prêt pour un contrôle, sur le périmètre des obligations du déployeur, notamment les articles 4, 26, 27 et 50.",
         },
       ],
       sources: sources("fr", ["art3", "art4", "art26", "art27", "art50", "art99", "timeline", "omnibus"]),
